@@ -23,7 +23,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: \n"
-"POT-Creation-Date: 2020-06-12 09:43:26+\n"
+"POT-Creation-Date: 2020-06-12 13:51:50+\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -68,6 +68,11 @@ msgstr ""
 
 #: org.apache.isis.applib.domain.DomainObjectList#actionOwningType
 msgid "Action Owning Type"
+msgstr ""
+
+
+#: domainapp.modules.simple.dom.impl.Paciente#apellido
+msgid "Apellido"
 msgstr ""
 
 
@@ -141,6 +146,11 @@ msgid "Detail"
 msgstr ""
 
 
+#: domainapp.modules.simple.dom.impl.TipoDocumento#DNI
+msgid "Dni"
+msgstr ""
+
+
 #: org.apache.isis.objectstore.jdo.applib.service.DomainChangeJdoAbstract
 msgid "Domain Change"
 msgstr ""
@@ -194,6 +204,11 @@ msgid "Download Translations"
 msgstr ""
 
 
+#: domainapp.modules.simple.dom.impl.Paciente#edad
+msgid "Edad"
+msgstr ""
+
+
 #: org.apache.isis.applib.domain.DomainObjectList#elementObjectType
 msgid "Element Object Type"
 msgstr ""
@@ -206,6 +221,16 @@ msgstr ""
 
 #: org.apache.isis.applib.services.menu.MenuBarsService$Type#FALLBACK
 msgid "Fallback"
+msgstr ""
+
+
+#: domainapp.modules.simple.dom.impl.Paciente#fechaAlta
+msgid "Fecha Alta"
+msgstr ""
+
+
+#: domainapp.modules.simple.dom.impl.Paciente#fechaNacimiento
+msgid "Fecha Nacimiento"
 msgstr ""
 
 
@@ -254,6 +279,11 @@ msgid "Ignore"
 msgstr ""
 
 
+#: domainapp.modules.simple.dom.impl.Paciente#incapacidad
+msgid "Incapacidad"
+msgstr ""
+
+
 #: org.apache.isis.applib.services.jaxb.JaxbService$IsisSchemas#INCLUDE
 msgid "Include"
 msgstr ""
@@ -266,6 +296,16 @@ msgstr ""
 
 #: org.apache.isis.applib.services.config.ConfigurationProperty#key
 msgid "Key"
+msgstr ""
+
+
+#: domainapp.modules.simple.dom.impl.TipoDocumento#Libreta_civica
+msgid "Libreta Civica"
+msgstr ""
+
+
+#: domainapp.modules.simple.dom.impl.TipoDocumento#Libreta_de_enrolamiento
+msgid "Libreta De Enrolamiento"
 msgstr ""
 
 
@@ -309,6 +349,11 @@ msgid "Notes"
 msgstr ""
 
 
+#: domainapp.modules.simple.dom.impl.Paciente#nroDocumento
+msgid "Nro Documento"
+msgstr ""
+
+
 #: org.apache.isis.objectstore.jdo.applib.service.DomainChangeJdoAbstract#targetStr
 msgid "Object"
 msgstr ""
@@ -316,6 +361,11 @@ msgstr ""
 
 #: org.apache.isis.applib.domain.DomainObjectList#objects
 msgid "Objects"
+msgstr ""
+
+
+#: domainapp.modules.simple.dom.impl.Paciente#observacion
+msgid "Observacion"
 msgstr ""
 
 
@@ -491,6 +541,11 @@ msgstr ""
 
 #: org.apache.isis.objectstore.jdo.applib.service.DomainChangeJdoAbstract#timestamp
 msgid "Timestamp"
+msgstr ""
+
+
+#: domainapp.modules.simple.dom.impl.Paciente#tipoDocumento
+msgid "Tipo Documento"
 msgstr ""
 
 

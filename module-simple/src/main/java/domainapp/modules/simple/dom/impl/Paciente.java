@@ -20,25 +20,22 @@ package domainapp.modules.simple.dom.impl;
 
 import javax.jdo.annotations.IdentityType;
 import javax.jdo.annotations.VersionStrategy;
+import javax.xml.bind.annotation.adapters.XmlJavaTypeAdapter;
 
 import com.google.common.collect.ComparisonChain;
 
-import org.apache.isis.applib.annotation.Action;
-import org.apache.isis.applib.annotation.Auditing;
-import org.apache.isis.applib.annotation.DomainObject;
-import org.apache.isis.applib.annotation.DomainObjectLayout;
-import org.apache.isis.applib.annotation.Editing;
-import org.apache.isis.applib.annotation.Parameter;
-import org.apache.isis.applib.annotation.ParameterLayout;
-import org.apache.isis.applib.annotation.Property;
-import org.apache.isis.applib.annotation.Publishing;
-import org.apache.isis.applib.annotation.Title;
+import org.apache.isis.applib.annotation.*;
 import org.apache.isis.applib.services.i18n.TranslatableString;
 import org.apache.isis.applib.services.message.MessageService;
 import org.apache.isis.applib.services.repository.RepositoryService;
 import org.apache.isis.applib.services.title.TitleService;
 
 import lombok.AccessLevel;
+import org.apache.isis.schema.utils.jaxbadapters.JodaDateTimeStringAdapter;
+import org.joda.time.LocalDate;
+
+import java.util.Calendar;
+
 import static org.apache.isis.applib.annotation.CommandReification.ENABLED;
 import static org.apache.isis.applib.annotation.SemanticsOf.IDEMPOTENT;
 import static org.apache.isis.applib.annotation.SemanticsOf.NON_IDEMPOTENT_ARE_YOU_SURE;
@@ -59,9 +56,42 @@ public class Paciente implements Comparable<Paciente> {
     @Title(prepend = "Paciente: ")
     private String name;
 
-    @javax.jdo.annotations.Column(allowsNull = "true", length = 4000)
+    @javax.jdo.annotations.Column(allowsNull = "true", length = 40)
     @Property(editing = Editing.ENABLED)
     private String notes;
+
+    @javax.jdo.annotations.Column(allowsNull = "true", length = 40)
+    @Property(editing = Editing.ENABLED)
+    private String apellido;
+
+    @javax.jdo.annotations.Column(allowsNull = "true")
+    @Property(editing = Editing.DISABLED) // editing disabled by default, see isis.properties
+    @XmlJavaTypeAdapter(JodaDateTimeStringAdapter.ForJaxb.class)
+    private LocalDate fechaAlta;
+
+    @javax.jdo.annotations.Column(allowsNull = "true", length = 40)
+    @Property(editing = Editing.ENABLED)
+    private String nroDocumento;
+
+    @javax.jdo.annotations.Column(allowsNull = "true", length = 40)
+    @Property(editing = Editing.ENABLED)
+    private TipoDocumento tipoDocumento;
+
+    @javax.jdo.annotations.Column(allowsNull = "true", length = 40)
+    @Property(editing = Editing.ENABLED)
+    private String fechaNacimiento;
+
+    @javax.jdo.annotations.Column(allowsNull = "true", length = 40)
+    @Property(editing = Editing.ENABLED)
+    private String edad;
+
+    @javax.jdo.annotations.Column(allowsNull = "true", length = 40)
+    @Property(editing = Editing.ENABLED)
+    private String incapacidad;
+
+    @javax.jdo.annotations.Column(allowsNull = "true", length = 40)
+    @Property(editing = Editing.ENABLED)
+    private String observacion;
 
 
     @Action(semantics = IDEMPOTENT, command = ENABLED, publishing = Publishing.ENABLED, associateWith = "name")
