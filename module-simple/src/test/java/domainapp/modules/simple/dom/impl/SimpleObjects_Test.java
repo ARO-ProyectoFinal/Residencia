@@ -44,12 +44,12 @@ public class SimpleObjects_Test {
     @Mock
     RepositoryService mockRepositoryService;
 
-    SimpleObjects simpleObjects;
+    Pacientes pacientes;
 
     @Before
     public void setUp() {
-        simpleObjects = new SimpleObjects();
-        simpleObjects.repositoryService = mockRepositoryService;
+        pacientes = new Pacientes();
+        pacientes.repositoryService = mockRepositoryService;
     }
 
     public static class Create extends SimpleObjects_Test {
@@ -69,17 +69,17 @@ public class SimpleObjects_Test {
             });
 
             // when
-            final SimpleObject obj = simpleObjects.create(someName);
+            final Paciente obj = pacientes.create(someName);
 
             // then
             assertThat(obj).isNotNull();
             assertThat(obj.getName()).isEqualTo(someName);
         }
 
-        private static Matcher<SimpleObject> nameOf(final String name) {
-            return new TypeSafeMatcher<SimpleObject>() {
+        private static Matcher<Paciente> nameOf(final String name) {
+            return new TypeSafeMatcher<Paciente>() {
                 @Override
-                protected boolean matchesSafely(final SimpleObject item) {
+                protected boolean matchesSafely(final Paciente item) {
                     return name.equals(item.getName());
                 }
 
@@ -96,17 +96,17 @@ public class SimpleObjects_Test {
         public void happyCase() {
 
             // given
-            final List<SimpleObject> all = Lists.newArrayList();
+            final List<Paciente> all = Lists.newArrayList();
 
             context.checking(new Expectations() {
                 {
-                    oneOf(mockRepositoryService).allInstances(SimpleObject.class);
+                    oneOf(mockRepositoryService).allInstances(Paciente.class);
                     will(returnValue(all));
                 }
             });
 
             // when
-            final List<SimpleObject> list = simpleObjects.listAll();
+            final List<Paciente> list = pacientes.listAll();
 
             // then
             assertThat(list).isEqualTo(all);

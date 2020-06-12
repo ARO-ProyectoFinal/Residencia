@@ -2,12 +2,11 @@ package domainapp.application.services.health;
 
 import javax.inject.Inject;
 
+import domainapp.modules.simple.dom.impl.Pacientes;
 import org.apache.isis.applib.annotation.DomainService;
 import org.apache.isis.applib.annotation.NatureOfService;
 import org.apache.isis.applib.services.health.Health;
 import org.apache.isis.applib.services.health.HealthCheckService;
-
-import domainapp.modules.simple.dom.impl.SimpleObjects;
 
 @DomainService(nature = NatureOfService.DOMAIN)
 public class HealthCheckServiceImpl implements HealthCheckService {
@@ -16,7 +15,7 @@ public class HealthCheckServiceImpl implements HealthCheckService {
     public Health check() {
 
         try {
-            simpleObjects.ping();
+            pacientes.ping();
             return Health.ok();
         } catch (Exception ex) {
             return Health.error(ex.getMessage());
@@ -25,5 +24,5 @@ public class HealthCheckServiceImpl implements HealthCheckService {
     }
 
     @Inject
-    SimpleObjects simpleObjects;
+    Pacientes pacientes;
 }

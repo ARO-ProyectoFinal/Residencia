@@ -22,23 +22,24 @@ import java.util.List;
 
 import javax.inject.Inject;
 
+import domainapp.modules.simple.dom.impl.Pacientes;
+import domainapp.modules.simple.dom.impl.Paciente;
 import org.junit.Test;
 
 import domainapp.application.integtests.DomainAppIntegTestAbstract;
-import domainapp.modules.simple.dom.impl.SimpleObject;
-import domainapp.modules.simple.dom.impl.SimpleObjects;
+
 import static org.assertj.core.api.Assertions.assertThat;
 
 public class Smoke_IntegTest extends DomainAppIntegTestAbstract {
 
     @Inject
-    SimpleObjects menu;
+    Pacientes menu;
 
     @Test
     public void create() {
 
         // when
-        List<SimpleObject> all = wrap(menu).listAll();
+        List<Paciente> all = wrap(menu).listAll();
 
         // then
         assertThat(all).isEmpty();
@@ -46,7 +47,7 @@ public class Smoke_IntegTest extends DomainAppIntegTestAbstract {
 
 
         // when
-        final SimpleObject fred = wrap(menu).create("Fred");
+        final Paciente fred = wrap(menu).create("Fred");
         transactionService.flushTransaction();
 
         // then
@@ -57,7 +58,7 @@ public class Smoke_IntegTest extends DomainAppIntegTestAbstract {
 
 
         // when
-        final SimpleObject bill = wrap(menu).create("Bill");
+        final Paciente bill = wrap(menu).create("Bill");
         transactionService.flushTransaction();
 
         // then

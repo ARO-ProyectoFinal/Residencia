@@ -19,18 +19,18 @@
 
 package domainapp.modules.simple.fixture;
 
+import domainapp.modules.simple.dom.impl.Pacientes;
 import org.apache.isis.applib.fixturescripts.PersonaWithBuilderScript;
 import org.apache.isis.applib.fixturescripts.PersonaWithFinder;
 import org.apache.isis.applib.fixturescripts.setup.PersonaEnumPersistAll;
 import org.apache.isis.applib.services.registry.ServiceRegistry2;
 
-import domainapp.modules.simple.dom.impl.SimpleObject;
-import domainapp.modules.simple.dom.impl.SimpleObjects;
+import domainapp.modules.simple.dom.impl.Paciente;
 import lombok.AllArgsConstructor;
 
 @AllArgsConstructor
-public enum SimpleObject_persona implements PersonaWithBuilderScript<SimpleObject, SimpleObjectBuilder>,
-        PersonaWithFinder<SimpleObject> {
+public enum SimpleObject_persona implements PersonaWithBuilderScript<Paciente, SimpleObjectBuilder>,
+        PersonaWithFinder<Paciente> {
 
     FOO("Foo"),
     BAR("Bar"),
@@ -51,13 +51,13 @@ public enum SimpleObject_persona implements PersonaWithBuilderScript<SimpleObjec
     }
 
     //@Override
-    public SimpleObject findUsing(final ServiceRegistry2 serviceRegistry) {
-        SimpleObjects simpleObjects = serviceRegistry.lookupService(SimpleObjects.class);
-        return simpleObjects.findByNameExact(name);
+    public Paciente findUsing(final ServiceRegistry2 serviceRegistry) {
+        Pacientes pacientes = serviceRegistry.lookupService(Pacientes.class);
+        return pacientes.findByNameExact(name);
     }
 
     public static class PersistAll
-            extends PersonaEnumPersistAll<SimpleObject_persona, SimpleObject, SimpleObjectBuilder> {
+            extends PersonaEnumPersistAll<SimpleObject_persona, Paciente, SimpleObjectBuilder> {
         public PersistAll() {
             super(SimpleObject_persona.class);
         }

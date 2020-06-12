@@ -25,13 +25,13 @@ import javax.inject.Inject;
 
 import com.google.common.base.Throwables;
 
+import domainapp.modules.simple.dom.impl.Pacientes;
 import org.hamcrest.Description;
 import org.hamcrest.Matcher;
 import org.hamcrest.TypeSafeMatcher;
 import org.junit.Test;
 
-import domainapp.modules.simple.dom.impl.SimpleObject;
-import domainapp.modules.simple.dom.impl.SimpleObjects;
+import domainapp.modules.simple.dom.impl.Paciente;
 import domainapp.modules.simple.fixture.SimpleObject_persona;
 import domainapp.modules.simple.integtests.SimpleModuleIntegTestAbstract;
 import static org.assertj.core.api.Assertions.assertThat;
@@ -48,7 +48,7 @@ public class SimpleObjectMenu_IntegTest extends SimpleModuleIntegTestAbstract {
             transactionService.nextTransaction();
 
             // when
-            final List<SimpleObject> all = wrap(menu).listAll();
+            final List<Paciente> all = wrap(menu).listAll();
 
             // then
             assertThat(all).hasSize(SimpleObject_persona.values().length);
@@ -58,7 +58,7 @@ public class SimpleObjectMenu_IntegTest extends SimpleModuleIntegTestAbstract {
         public void whenNone() {
 
             // when
-            final List<SimpleObject> all = wrap(menu).listAll();
+            final List<Paciente> all = wrap(menu).listAll();
 
             // then
             assertThat(all).hasSize(0);
@@ -73,7 +73,7 @@ public class SimpleObjectMenu_IntegTest extends SimpleModuleIntegTestAbstract {
             wrap(menu).create("Faz");
 
             // then
-            final List<SimpleObject> all = wrap(menu).listAll();
+            final List<Paciente> all = wrap(menu).listAll();
             assertThat(all).hasSize(1);
         }
 
@@ -114,6 +114,6 @@ public class SimpleObjectMenu_IntegTest extends SimpleModuleIntegTestAbstract {
     }
 
     @Inject
-    SimpleObjects menu;
+    Pacientes menu;
 
 }

@@ -23,7 +23,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: \n"
-"POT-Creation-Date: 2020-06-11 19:19:44+\n"
+"POT-Creation-Date: 2020-06-11 20:39:49+\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -116,7 +116,7 @@ msgid "Confirm"
 msgstr ""
 
 
-#: domainapp.modules.simple.dom.impl.SimpleObjects#create()
+#: domainapp.modules.simple.dom.impl.Pacientes#create()
 msgid "Create"
 msgstr ""
 
@@ -131,7 +131,7 @@ msgid "Default"
 msgstr ""
 
 
-#: domainapp.modules.simple.dom.impl.SimpleObject#delete()
+#: domainapp.modules.simple.dom.impl.Paciente#delete()
 msgid "Delete"
 msgstr ""
 
@@ -146,12 +146,12 @@ msgid "Domain Change"
 msgstr ""
 
 
-#: domainapp.modules.simple.dom.impl.SimpleObject#downloadJdoMetadata()
+#: domainapp.modules.simple.dom.impl.Paciente#downloadJdoMetadata()
 msgid "Download Jdo Metadata"
 msgstr ""
 
 
-#: domainapp.modules.simple.dom.impl.SimpleObject#downloadLayoutXml()
+#: domainapp.modules.simple.dom.impl.Paciente#downloadLayoutXml()
 #: org.apache.isis.applib.AbstractViewModel#downloadLayoutXml()
 #: org.apache.isis.applib.ViewModel#downloadLayoutXml()
 #: org.apache.isis.applib.domain.DomainObjectList#downloadLayoutXml()
@@ -199,7 +199,7 @@ msgid "Element Object Type"
 msgstr ""
 
 
-#: domainapp.modules.simple.dom.impl.SimpleObject#updateName(java.lang.String)
+#: domainapp.modules.simple.dom.impl.Paciente#updateName(java.lang.String)
 msgid "Exclamation mark is not allowed"
 msgstr ""
 
@@ -223,7 +223,7 @@ msgid "Filename"
 msgstr ""
 
 
-#: domainapp.modules.simple.dom.impl.SimpleObjects#findByName()
+#: domainapp.modules.simple.dom.impl.Pacientes#findByName()
 msgid "Find By Name"
 msgstr ""
 
@@ -238,7 +238,7 @@ msgid "HSQL DB Manager"
 msgstr ""
 
 
-#: domainapp.modules.simple.dom.impl.SimpleObject#datanucleusIdLong()
+#: domainapp.modules.simple.dom.impl.Paciente#datanucleusIdLong()
 #: org.apache.isis.core.metamodel.services.jdosupport.Persistable_datanucleusIdLong#prop()
 msgid "Id"
 msgstr ""
@@ -269,7 +269,7 @@ msgid "Key"
 msgstr ""
 
 
-#: domainapp.modules.simple.dom.impl.SimpleObjects#listAll()
+#: domainapp.modules.simple.dom.impl.Pacientes#listAll()
 msgid "List All"
 msgstr ""
 
@@ -291,10 +291,10 @@ msgid "Minimal"
 msgstr ""
 
 
-#: domainapp.modules.simple.dom.impl.SimpleObject#name
-#: domainapp.modules.simple.dom.impl.SimpleObject#updateName(java.lang.String)
-#: domainapp.modules.simple.dom.impl.SimpleObjects#create(java.lang.String)
-#: domainapp.modules.simple.dom.impl.SimpleObjects#findByName(java.lang.String)
+#: domainapp.modules.simple.dom.impl.Paciente#name
+#: domainapp.modules.simple.dom.impl.Paciente#updateName(java.lang.String)
+#: domainapp.modules.simple.dom.impl.Pacientes#create(java.lang.String)
+#: domainapp.modules.simple.dom.impl.Pacientes#findByName(java.lang.String)
 msgid "Name"
 msgstr ""
 
@@ -304,7 +304,7 @@ msgid "Normalized"
 msgstr ""
 
 
-#: domainapp.modules.simple.dom.impl.SimpleObject#notes
+#: domainapp.modules.simple.dom.impl.Paciente#notes
 msgid "Notes"
 msgstr ""
 
@@ -324,7 +324,7 @@ msgid "Open"
 msgstr ""
 
 
-#: domainapp.modules.simple.dom.impl.SimpleObject#openRestApi()
+#: domainapp.modules.simple.dom.impl.Paciente#openRestApi()
 #: org.apache.isis.applib.AbstractViewModel#openRestApi()
 #: org.apache.isis.applib.ViewModel#openRestApi()
 #: org.apache.isis.applib.domain.DomainObjectList#openRestApi()
@@ -340,6 +340,11 @@ msgstr ""
 
 #: org.apache.isis.applib.services.swagger.SwaggerServiceMenu#openSwaggerUi()
 msgid "Open Swagger Ui"
+msgstr ""
+
+
+#: domainapp.modules.simple.dom.impl.Pacientes
+msgid "Pacientes"
 msgstr ""
 
 
@@ -410,7 +415,7 @@ msgid "Published Interaction"
 msgstr ""
 
 
-#: domainapp.modules.simple.dom.impl.SimpleObject#rebuildMetamodel()
+#: domainapp.modules.simple.dom.impl.Paciente#rebuildMetamodel()
 #: org.apache.isis.applib.AbstractViewModel#rebuildMetamodel()
 #: org.apache.isis.applib.ViewModel#rebuildMetamodel()
 #: org.apache.isis.applib.domain.DomainObjectList#rebuildMetamodel()
@@ -464,11 +469,6 @@ msgid "Script-specific parameters (if any).  The format depends on the script im
 msgstr ""
 
 
-#: domainapp.modules.simple.dom.impl.SimpleObjects
-msgid "Simple Objects"
-msgstr ""
-
-
 #: org.apache.isis.core.runtime.services.i18n.po.TranslationServicePoMenu#switchToReadingTranslations()
 msgid "Switch To Reading Translations"
 msgstr ""
@@ -504,7 +504,7 @@ msgid "Type"
 msgstr ""
 
 
-#: domainapp.modules.simple.dom.impl.SimpleObject#updateName()
+#: domainapp.modules.simple.dom.impl.Paciente#updateName()
 msgid "Update Name"
 msgstr ""
 
@@ -519,8 +519,8 @@ msgid "Value"
 msgstr ""
 
 
-#: domainapp.modules.simple.dom.impl.SimpleObject#datanucleusVersionLong()
-#: domainapp.modules.simple.dom.impl.SimpleObject#datanucleusVersionTimestamp()
+#: domainapp.modules.simple.dom.impl.Paciente#datanucleusVersionLong()
+#: domainapp.modules.simple.dom.impl.Paciente#datanucleusVersionTimestamp()
 #: org.apache.isis.core.metamodel.services.jdosupport.Persistable_datanucleusVersionLong#prop()
 #: org.apache.isis.core.metamodel.services.jdosupport.Persistable_datanucleusVersionTimestamp#prop()
 msgid "Version"

@@ -31,19 +31,19 @@ import org.apache.isis.applib.services.wrapper.InvalidException;
 import org.apache.isis.core.metamodel.services.jdosupport.Persistable_datanucleusIdLong;
 import org.apache.isis.core.metamodel.services.jdosupport.Persistable_datanucleusVersionTimestamp;
 
-import domainapp.modules.simple.dom.impl.SimpleObject;
+import domainapp.modules.simple.dom.impl.Paciente;
 import domainapp.modules.simple.fixture.SimpleObject_persona;
 import domainapp.modules.simple.integtests.SimpleModuleIntegTestAbstract;
 import static org.assertj.core.api.Assertions.assertThat;
 
 public class SimpleObject_IntegTest extends SimpleModuleIntegTestAbstract {
 
-    SimpleObject simpleObject;
+    Paciente paciente;
 
     @Before
     public void setUp() {
         // given
-        simpleObject = fixtureScripts.runBuilderScript(SimpleObject_persona.FOO.builder());
+        paciente = fixtureScripts.runBuilderScript(SimpleObject_persona.FOO.builder());
     }
 
     public static class Name extends SimpleObject_IntegTest {
@@ -51,10 +51,10 @@ public class SimpleObject_IntegTest extends SimpleModuleIntegTestAbstract {
         @Test
         public void accessible() {
             // when
-            final String name = wrap(simpleObject).getName();
+            final String name = wrap(paciente).getName();
 
             // then
-            assertThat(name).isEqualTo(simpleObject.getName());
+            assertThat(name).isEqualTo(paciente.getName());
         }
 
         @Test
@@ -63,7 +63,7 @@ public class SimpleObject_IntegTest extends SimpleModuleIntegTestAbstract {
             expectedExceptions.expect(DisabledException.class);
 
             // when
-            wrap(simpleObject).setName("new name");
+            wrap(paciente).setName("new name");
         }
 
     }
@@ -74,11 +74,11 @@ public class SimpleObject_IntegTest extends SimpleModuleIntegTestAbstract {
         public void can_be_updated_directly() {
 
             // when
-            wrap(simpleObject).updateName("new name");
+            wrap(paciente).updateName("new name");
             transactionService.nextTransaction();
 
             // then
-            assertThat(wrap(simpleObject).getName()).isEqualTo("new name");
+            assertThat(wrap(paciente).getName()).isEqualTo("new name");
         }
 
         @Test
@@ -89,7 +89,7 @@ public class SimpleObject_IntegTest extends SimpleModuleIntegTestAbstract {
             expectedExceptions.expectMessage("Exclamation mark is not allowed");
 
             // when
-            wrap(simpleObject).updateName("new name!");
+            wrap(paciente).updateName("new name!");
         }
     }
 
@@ -103,10 +103,10 @@ public class SimpleObject_IntegTest extends SimpleModuleIntegTestAbstract {
         public void interpolatesName() {
 
             // given
-            final String name = wrap(simpleObject).getName();
+            final String name = wrap(paciente).getName();
 
             // when
-            final String title = titleService.titleOf(simpleObject);
+            final String title = titleService.titleOf(paciente);
 
             // then
             assertThat(title).isEqualTo("Object: " + name);
@@ -118,7 +118,7 @@ public class SimpleObject_IntegTest extends SimpleModuleIntegTestAbstract {
         @Test
         public void should_be_populated() {
             // when
-            final Long id = mixin(Persistable_datanucleusIdLong.class, simpleObject).prop();
+            final Long id = mixin(Persistable_datanucleusIdLong.class, paciente).prop();
 
             // then
             assertThat(id).isGreaterThanOrEqualTo(0);
@@ -130,7 +130,7 @@ public class SimpleObject_IntegTest extends SimpleModuleIntegTestAbstract {
         @Test
         public void should_be_populated() {
             // when
-            final Timestamp timestamp = mixin(Persistable_datanucleusVersionTimestamp.class, simpleObject).prop();
+            final Timestamp timestamp = mixin(Persistable_datanucleusVersionTimestamp.class, paciente).prop();
             // then
             assertThat(timestamp).isNotNull();
         }
