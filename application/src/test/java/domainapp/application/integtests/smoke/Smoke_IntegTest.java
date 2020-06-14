@@ -49,7 +49,7 @@ public class Smoke_IntegTest extends DomainAppIntegTestAbstract {
 
 
         // when
-        final Paciente fred = wrap(menu).create("Fred", "fredisom",22, TipoDocumento.DNI , "3333",LocalDate.parse(""),"ninguna");
+        final Paciente fred = wrap(menu).create("Fred", "fredisom",22, TipoDocumento.DNI , "3333",LocalDate.parse(String.valueOf(12/12/1998)),"ninguna");
         transactionService.flushTransaction();
 
         // then
@@ -60,7 +60,7 @@ public class Smoke_IntegTest extends DomainAppIntegTestAbstract {
 
 
         // when
-        final Paciente bill = wrap(menu).create("Bill","Billson",33,TipoDocumento.DNI,"444444",LocalDate.parse(""),"ninguna");
+        final Paciente bill = wrap(menu).create("Bill","Billson",33,TipoDocumento.DNI,"444444",LocalDate.parse(String.valueOf(12/12/1998)),"ninguna");
         transactionService.flushTransaction();
 
         // then
@@ -71,7 +71,7 @@ public class Smoke_IntegTest extends DomainAppIntegTestAbstract {
 
 
         // when
-        wrap(fred).updateName("Freddy","fredison",44,TipoDocumento.DNI, "555555",LocalDate.parse(""),"ninguna");
+        wrap(fred).updateName("Freddy","fredison",44,TipoDocumento.DNI, "555555",LocalDate.parse(String.valueOf(12/12/1998)),"ninguna");
         transactionService.flushTransaction();
 
         // then
