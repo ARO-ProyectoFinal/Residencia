@@ -24,6 +24,8 @@ import javax.inject.Inject;
 
 import domainapp.modules.simple.dom.impl.Pacientes;
 import domainapp.modules.simple.dom.impl.Paciente;
+import domainapp.modules.simple.dom.impl.TipoDocumento;
+import org.joda.time.LocalDate;
 import org.junit.Test;
 
 import domainapp.application.integtests.DomainAppIntegTestAbstract;
@@ -47,7 +49,7 @@ public class Smoke_IntegTest extends DomainAppIntegTestAbstract {
 
 
         // when
-        final Paciente fred = wrap(menu).create("Fred");
+        final Paciente fred = wrap(menu).create("Fred", "fredisom",22, TipoDocumento.DNI , "3333",LocalDate.parse(""),"ninguna");
         transactionService.flushTransaction();
 
         // then
@@ -58,7 +60,7 @@ public class Smoke_IntegTest extends DomainAppIntegTestAbstract {
 
 
         // when
-        final Paciente bill = wrap(menu).create("Bill");
+        final Paciente bill = wrap(menu).create("Bill","Billson",33,TipoDocumento.DNI,"444444",LocalDate.parse(""),"ninguna");
         transactionService.flushTransaction();
 
         // then
@@ -69,7 +71,7 @@ public class Smoke_IntegTest extends DomainAppIntegTestAbstract {
 
 
         // when
-        wrap(fred).updateName("Freddy");
+        wrap(fred).updateName("Freddy","fredison",44,TipoDocumento.DNI, "555555",LocalDate.parse(""),"ninguna");
         transactionService.flushTransaction();
 
         // then

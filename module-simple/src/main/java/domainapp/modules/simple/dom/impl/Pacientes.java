@@ -35,6 +35,7 @@ import org.apache.isis.applib.annotation.SemanticsOf;
 import org.apache.isis.applib.services.eventbus.ActionDomainEvent;
 import org.apache.isis.applib.services.jdosupport.IsisJdoSupport;
 import org.apache.isis.applib.services.repository.RepositoryService;
+import org.joda.time.LocalDate;
 
 @DomainService(
         nature = NatureOfService.VIEW_MENU_ONLY,
@@ -95,9 +96,19 @@ public class Pacientes {
     @Action(domainEvent = CreateDomainEvent.class)
     @MemberOrder(sequence = "3")
     public Paciente create(
-            @ParameterLayout(named="Name")
-            final String name) {
-        return repositoryService.persist(new Paciente(name));
+            @ParameterLayout(named="Name") final String name,
+            @ParameterLayout(named = "Apellido") final String apellido,
+            @ParameterLayout(named = "Edad") final Integer edad,
+            @ParameterLayout(named = "Tipo de Documento") final TipoDocumento tipoDocumento,
+            @ParameterLayout(named = "Numero de Documento") final String nroDocumento,
+            @ParameterLayout(named = "Fecha de alta") final LocalDate fechaAlta,
+            @ParameterLayout(named = "Incapacidad") final String incapacidad
+
+           // @ParameterLayout(named = "Fecha de Nacimiento") final LocalDate fechaNacimiento
+
+
+    ){
+        return repositoryService.persist(new Paciente(name,apellido,edad,tipoDocumento,nroDocumento,fechaAlta,incapacidad));
     }
 
     @javax.inject.Inject

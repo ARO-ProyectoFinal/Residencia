@@ -20,18 +20,41 @@
 package domainapp.modules.simple.fixture;
 
 import domainapp.modules.simple.dom.impl.Pacientes;
+import domainapp.modules.simple.dom.impl.TipoDocumento;
 import org.apache.isis.applib.fixturescripts.BuilderScriptAbstract;
 
 import domainapp.modules.simple.dom.impl.Paciente;
 import lombok.Getter;
 import lombok.Setter;
 import lombok.experimental.Accessors;
+import org.joda.time.LocalDate;
 
 @Accessors(chain = true)
 public class SimpleObjectBuilder extends BuilderScriptAbstract<Paciente, SimpleObjectBuilder> {
 
     @Getter @Setter
     private String name;
+
+    @Getter @Setter
+    private String apellido;
+
+    @Getter @Setter
+    private Integer edad;
+
+    @Getter @Setter
+    private LocalDate fechaAlta;
+
+    @Getter @Setter
+    private String nroDocumento;
+
+    @Getter @Setter
+    private TipoDocumento tipoDocumento;
+
+    @Getter @Setter
+    private LocalDate fechaNacimiento;
+
+    @Getter @Setter
+    private String incapacidad;
 
     @Getter
     private Paciente object;
@@ -41,7 +64,7 @@ public class SimpleObjectBuilder extends BuilderScriptAbstract<Paciente, SimpleO
 
         checkParam("name", ec, String.class);
 
-        object = wrap(pacientes).create(name);
+        object = wrap(pacientes).create(name,apellido,edad,tipoDocumento,nroDocumento,fechaAlta,incapacidad);
     }
 
     @javax.inject.Inject
