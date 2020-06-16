@@ -52,89 +52,111 @@ public class Paciente implements Comparable<Paciente> {
 
     @javax.jdo.annotations.Column(allowsNull = "false", length = 40)
     @lombok.NonNull
-    @Property() // editing disabled by default, see isis.properties
-    @Title(prepend = "Paciente: ")
+    @Property(editing = Editing.ENABLED) // editing disabled by default, see isis.properties
+    @Title(prepend = "Nombre: ")
     private String name;
 
-    @javax.jdo.annotations.Column(allowsNull = "true", length = 40)
-    @Property(editing = Editing.ENABLED)
-    private String notes;
-
-    @javax.jdo.annotations.Column(allowsNull = "true", length = 40)
+    @javax.jdo.annotations.Column(allowsNull = "false", length = 40)
     @lombok.NonNull
-    @Property()
+    @Property(editing = Editing.ENABLED)
     @Title(prepend = "Apellido: ")
     private String apellido;
 
     @javax.jdo.annotations.Column(allowsNull = "true")
     @lombok.NonNull
-    @Property()
+    @Property(editing = Editing.ENABLED) // editing disabled by default, see isis.properties
+    @XmlJavaTypeAdapter(JodaDateTimeStringAdapter.ForJaxb.class)
+    @Title(prepend = "Fecha de alta")
+    private LocalDate fechaAlta;
+
+    @javax.jdo.annotations.Column(allowsNull = "true")
+    @lombok.NonNull
+    @Property(editing = Editing.ENABLED)
     @Title(prepend = "Edad: ")
     private Integer edad;
 
     @javax.jdo.annotations.Column(allowsNull = "true")
     @lombok.NonNull
-    @Property()
+    @Property(editing = Editing.ENABLED)
     @Title(prepend = "Tipo de Documento")
     private TipoDocumento tipoDocumento;
 
     @javax.jdo.annotations.Column(allowsNull = "true", length = 40)
     @lombok.NonNull
-    @Property()
+    @Property(editing = Editing.ENABLED)
     @Title(prepend = "Numero de Documento")
     private String nroDocumento;
 
     @javax.jdo.annotations.Column(allowsNull = "true")
     @lombok.NonNull
-    @Property() // editing disabled by default, see isis.properties
+    @Property(editing = Editing.ENABLED) // editing disabled by default, see isis.properties
     @XmlJavaTypeAdapter(JodaDateTimeStringAdapter.ForJaxb.class)
-    @Title(prepend = "Fecha de Alta")
-    private LocalDate fechaAlta;
+    @Title(prepend = "Fecha de Nacimiento")
+    private LocalDate fechaNacimiento;
 
+    @javax.jdo.annotations.Column(allowsNull = "true", length = 40)
+    @lombok.NonNull
+    @Property(editing = Editing.ENABLED)
+    @Title(prepend = "Lugar de Nacimiento")
+    private String lugarDeNacimiento;
 
+    @javax.jdo.annotations.Column(allowsNull = "true")
+    @lombok.NonNull
+    @Property(editing = Editing.ENABLED)
+    @Title(prepend = "Telefono: ")
+    private Integer telefono;
 
-     @javax.jdo.annotations.Column(allowsNull = "true", length = 40)
-     @lombok.NonNull
-     @Property()
-     @Title(prepend = "Incapacidad")
-     private String incapacidad;
+    @javax.jdo.annotations.Column(allowsNull = "true", length = 40)
+    @lombok.NonNull
+    @Property(editing = Editing.ENABLED)
+    @Title(prepend = "Numero de Seguro Social")
+    private String nroSeguroSocial;
 
+    @javax.jdo.annotations.Column(allowsNull = "true", length = 40)
+    @lombok.NonNull
+    @Property(editing = Editing.ENABLED)
+    @Title(prepend = "Incapacidad")
+    private String incapacidad;
 
-
-   // @javax.jdo.annotations.Column(allowsNull = "true")
-   // @lombok.NonNull
-   // @Property() // editing disabled by default, see isis.properties
-   // @XmlJavaTypeAdapter(JodaDateTimeStringAdapter.ForJaxb.class)
-   // @Title(prepend = "Fecha de Nacimiento")
-   // private LocalDate fechaNacimiento;
-
-    //@javax.jdo.annotations.Column(allowsNull = "true", length = 40)
-    //@Property(editing = Editing.ENABLED)
-    //private String observacion;
+    @javax.jdo.annotations.Column(allowsNull = "true", length = 40)
+    @Property(editing = Editing.ENABLED)
+    @lombok.NonNull
+    @Title(prepend = "Obaservacion")
+    private String observacion;
 
 
     @Action(semantics = IDEMPOTENT, command = ENABLED, publishing = Publishing.ENABLED, associateWith = "name")
     public Paciente updateName(
             @Parameter(maxLength = 40)
-            @ParameterLayout(named = "Name") final String name,
+            @ParameterLayout(named = "Nombre") final String name,
             @ParameterLayout(named = "Apellido") final  String apellido,
+            @ParameterLayout(named = "Fecha de alta") final LocalDate fechaAlta,
             @ParameterLayout(named = "Edad") final Integer edad,
             @ParameterLayout(named = "Tipo Documento") final TipoDocumento tipoDocumento,
             @ParameterLayout(named = "Numero de documento") final String nroDocumento,
-            @ParameterLayout(named = "Fecha de alta") final LocalDate fechaAlta,
-            @ParameterLayout(named = "Incapacidad") final String incapacidad
+            @ParameterLayout(named = "Fecha de nacimiento ") final  LocalDate fechaNacimiento,
+            @ParameterLayout(named = "Lugar de nacimiento ") final  String lugarDeNacimiento,
+            @ParameterLayout(named = "Telefono ") final Integer telefono,
+            @ParameterLayout(named = "Numero de Seguro Social ") final  String numeroDeSeguroSocial,
+            @ParameterLayout(named = "Incapacidad ") final String incapacidad,
+            @ParameterLayout(named = "Observacion ") final  String observacion
 
-           // @ParameterLayout(named = "Fecha de nacimiento ") final  LocalDate fechaNacimiento
 
     ) {
         setName(name);
         setApellido(apellido);
-        setEdad(edad);
         setFechaAlta(fechaAlta);
-        setNroDocumento(nroDocumento);
-        setIncapacidad(incapacidad);
+        setEdad(edad);
         setTipoDocumento(tipoDocumento);
-        //setFechaNacimiento(fechaNacimiento);
+        setNroDocumento(nroDocumento);
+        setFechaNacimiento(fechaNacimiento);
+        setLugarDeNacimiento(lugarDeNacimiento);
+        setTelefono(telefono);
+        setNroSeguroSocial(numeroDeSeguroSocial);
+        setIncapacidad(incapacidad);
+        setObservacion(observacion);
+
+
 
         return this;
 

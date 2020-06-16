@@ -49,7 +49,7 @@ public class Smoke_IntegTest extends DomainAppIntegTestAbstract {
 
 
         // when
-        final Paciente fred = wrap(menu).create("Fred", "fredisom",22, TipoDocumento.DNI , "3333",LocalDate.parse(String.valueOf(12/12/1998)),"ninguna");
+        final Paciente fred = wrap(menu).create("Maxi", "fredisom",LocalDate.parse(String.valueOf(16/06/2020)), 23, TipoDocumento.DNI, "15589632", LocalDate.parse(String.valueOf(11/11/1998)), "Nequen", 299854565, "321654", "manco", "muy crack" );
         transactionService.flushTransaction();
 
         // then
@@ -60,7 +60,7 @@ public class Smoke_IntegTest extends DomainAppIntegTestAbstract {
 
 
         // when
-        final Paciente bill = wrap(menu).create("Bill","Billson",33,TipoDocumento.DNI,"444444",LocalDate.parse(String.valueOf(12/12/1998)),"ninguna");
+        final Paciente bill = wrap(menu).create("Maxi", "fredisom",LocalDate.parse(String.valueOf(16/06/2020)), 23, TipoDocumento.DNI, "15589632", LocalDate.parse(String.valueOf(11/11/1998)), "Nequen", 299854565, "321654", "manco", "muy crack" );
         transactionService.flushTransaction();
 
         // then
@@ -71,19 +71,11 @@ public class Smoke_IntegTest extends DomainAppIntegTestAbstract {
 
 
         // when
-        wrap(fred).updateName("Freddy","fredison",44,TipoDocumento.DNI, "555555",LocalDate.parse(String.valueOf(12/12/1998)),"ninguna");
+        wrap(fred).updateName("Maxi", "fredisom",LocalDate.parse(String.valueOf(16/06/2020)), 23, TipoDocumento.DNI, "15589632", LocalDate.parse(String.valueOf(11/11/1998)), "Nequen", 299854565, "321654", "manco", "muy crack" );
         transactionService.flushTransaction();
 
         // then
         assertThat(wrap(fred).getName()).isEqualTo("Freddy");
-
-
-        // when
-        wrap(fred).setNotes("These are some notes");
-
-        // then
-        assertThat(wrap(fred).getNotes()).isEqualTo("These are some notes");
-
 
         // when
         wrap(fred).delete();

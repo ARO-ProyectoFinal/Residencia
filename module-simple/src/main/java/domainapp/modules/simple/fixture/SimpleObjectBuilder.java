@@ -33,6 +33,9 @@ import org.joda.time.LocalDate;
 public class SimpleObjectBuilder extends BuilderScriptAbstract<Paciente, SimpleObjectBuilder> {
 
     @Getter @Setter
+    private LocalDate fechaAlta;
+
+    @Getter @Setter
     private String name;
 
     @Getter @Setter
@@ -42,19 +45,28 @@ public class SimpleObjectBuilder extends BuilderScriptAbstract<Paciente, SimpleO
     private Integer edad;
 
     @Getter @Setter
-    private LocalDate fechaAlta;
+    private TipoDocumento tipoDocumento;
 
     @Getter @Setter
     private String nroDocumento;
 
     @Getter @Setter
-    private TipoDocumento tipoDocumento;
-
-    @Getter @Setter
     private LocalDate fechaNacimiento;
 
     @Getter @Setter
+    private String lugarDeNacimiento;
+
+    @Getter @Setter
+    private Integer telefono;
+
+    @Getter @Setter
+    private String numeroDeSeguroSocial;
+
+    @Getter @Setter
     private String incapacidad;
+
+    @Getter @Setter
+    private String observacion;
 
     @Getter
     private Paciente object;
@@ -64,7 +76,7 @@ public class SimpleObjectBuilder extends BuilderScriptAbstract<Paciente, SimpleO
 
         checkParam("name", ec, String.class);
 
-        object = wrap(pacientes).create(name,apellido,edad,tipoDocumento,nroDocumento,fechaAlta,incapacidad);
+        object = wrap(pacientes).create(name,apellido,fechaAlta,edad,tipoDocumento,nroDocumento,fechaNacimiento,lugarDeNacimiento,telefono,numeroDeSeguroSocial,incapacidad,observacion);
     }
 
     @javax.inject.Inject
