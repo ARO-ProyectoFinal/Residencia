@@ -107,11 +107,17 @@ public class Pacientes {
             @ParameterLayout(named = "Telefono ") final Integer telefono,
             @ParameterLayout(named = "Numero de Seguro Social ") final  String numeroDeSeguroSocial,
             @ParameterLayout(named = "Incapacidad ") final String incapacidad,
-            @ParameterLayout(named = "Observacion ") final  String observacion
+            @ParameterLayout(named = "Observacion ") final  String observacion,
+            @ParameterLayout(named = "Nombre familiar ") final  String nombreFamiliar,
+            @ParameterLayout(named = "Apellido Familiar ") final  String apellidoFamiliar,
+            @ParameterLayout(named = "Parentesco ") final  String parentesco,
+            @ParameterLayout(named = "Numero Contacto ") final  String numeroContacto,
+            @ParameterLayout(named = "Mail Contacto ") final  String mailFamiliar,
+            @ParameterLayout(named = "Direccion Contacto ") final  String direccionFamiliar
 
 
     ){
-        return repositoryService.persist(new Paciente(name,apellido,fechaAlta,edad,tipoDocumento,nroDocumento,fechaNacimiento,lugarDeNacimiento,telefono,numeroDeSeguroSocial,incapacidad,observacion));
+        return repositoryService.persist(new Paciente(name, apellido,fechaAlta,edad,tipoDocumento,nroDocumento,fechaNacimiento,lugarDeNacimiento,telefono,numeroDeSeguroSocial,incapacidad,observacion,nombreFamiliar,apellidoFamiliar,parentesco,numeroContacto,mailFamiliar,direccionFamiliar));
     }
 
     @javax.inject.Inject

@@ -121,8 +121,45 @@ public class Paciente implements Comparable<Paciente> {
     @javax.jdo.annotations.Column(allowsNull = "true", length = 40)
     @Property(editing = Editing.ENABLED)
     @lombok.NonNull
-    @Title(prepend = "Obaservacion")
+    @Title(prepend = "Observacion")
     private String observacion;
+
+    //Datos familiares paciente
+    @javax.jdo.annotations.Column(allowsNull = "true", length = 40)
+    @lombok.NonNull
+    @Property(editing = Editing.ENABLED)
+    @Title(prepend = "Nombre Familiar: ")
+    private String nombreFamiliar;
+
+    @javax.jdo.annotations.Column(allowsNull = "true", length = 40)
+    @lombok.NonNull
+    @Property(editing = Editing.ENABLED)
+    @Title(prepend = "Apellido Familiar: ")
+    private String apellidoFamiliar;
+
+    @javax.jdo.annotations.Column(allowsNull = "true", length = 40)
+    @Property(editing = Editing.ENABLED)
+    @lombok.NonNull
+    @Title(prepend = "Parentesco")
+    private String parentesco;
+
+    @javax.jdo.annotations.Column(allowsNull = "true", length = 40)
+    @Property(editing = Editing.ENABLED)
+    @lombok.NonNull
+    @Title(prepend = "Numero Contacto")
+    private String numeroContacto;
+
+    @javax.jdo.annotations.Column(allowsNull = "true", length = 40)
+    @Property(editing = Editing.ENABLED)
+    @lombok.NonNull
+    @Title(prepend = "Mail Contacto")
+    private String mailFamiliar;
+
+    @javax.jdo.annotations.Column(allowsNull = "true", length = 40)
+    @Property(editing = Editing.ENABLED)
+    @lombok.NonNull
+    @Title(prepend = "Direccion Contacto")
+    private String direccionFamiliar;
 
 
     @Action(semantics = IDEMPOTENT, command = ENABLED, publishing = Publishing.ENABLED, associateWith = "name")
@@ -139,7 +176,13 @@ public class Paciente implements Comparable<Paciente> {
             @ParameterLayout(named = "Telefono ") final Integer telefono,
             @ParameterLayout(named = "Numero de Seguro Social ") final  String numeroDeSeguroSocial,
             @ParameterLayout(named = "Incapacidad ") final String incapacidad,
-            @ParameterLayout(named = "Observacion ") final  String observacion
+            @ParameterLayout(named = "Observacion ") final  String observacion,
+            @ParameterLayout(named = "Nombre familiar ") final  String nombreFamiliar,
+            @ParameterLayout(named = "Apellido Familiar ") final  String apellidoFamiliar,
+            @ParameterLayout(named = "Parentesco ") final  String parentesco,
+            @ParameterLayout(named = "Numero Contacto ") final  String numeroContacto,
+            @ParameterLayout(named = "Mail Contacto ") final  String mailFamiliar,
+            @ParameterLayout(named = "Direccion Contacto ") final  String direccionFamiliar
 
 
     ) {
@@ -155,6 +198,12 @@ public class Paciente implements Comparable<Paciente> {
         setNroSeguroSocial(numeroDeSeguroSocial);
         setIncapacidad(incapacidad);
         setObservacion(observacion);
+        setNombreFamiliar(nombreFamiliar);
+        setApellidoFamiliar(apellidoFamiliar);
+        setParentesco(parentesco);
+        setNumeroContacto(numeroContacto);
+        setMailFamiliar(mailFamiliar);
+        setDireccionFamiliar(direccionFamiliar);
 
 
 
