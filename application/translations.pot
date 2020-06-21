@@ -23,7 +23,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: \n"
-"POT-Creation-Date: 2020-06-20 20:01:26+\n"
+"POT-Creation-Date: 2020-06-21 20:39:37+\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -72,7 +72,6 @@ msgstr ""
 
 
 #: domainapp.modules.simple.dom.impl.Paciente#apellido
-#: domainapp.modules.simple.dom.impl.Paciente#updateName(java.lang.String,java.lang.String,org.joda.time.LocalDate,java.lang.Integer,domainapp.modules.simple.dom.impl.TipoDocumento,java.lang.String,org.joda.time.LocalDate,java.lang.String,java.lang.Integer,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String)
 #: domainapp.modules.simple.dom.impl.Pacientes#create(java.lang.String,java.lang.String,org.joda.time.LocalDate,java.lang.Integer,domainapp.modules.simple.dom.impl.TipoDocumento,java.lang.String,org.joda.time.LocalDate,java.lang.String,java.lang.Integer,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String)
 msgid "Apellido"
 msgstr ""
@@ -83,7 +82,6 @@ msgid "Apellido Familiar"
 msgstr ""
 
 
-#: domainapp.modules.simple.dom.impl.Paciente#updateName(java.lang.String,java.lang.String,org.joda.time.LocalDate,java.lang.Integer,domainapp.modules.simple.dom.impl.TipoDocumento,java.lang.String,org.joda.time.LocalDate,java.lang.String,java.lang.Integer,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String)
 #: domainapp.modules.simple.dom.impl.Pacientes#create(java.lang.String,java.lang.String,org.joda.time.LocalDate,java.lang.Integer,domainapp.modules.simple.dom.impl.TipoDocumento,java.lang.String,org.joda.time.LocalDate,java.lang.String,java.lang.Integer,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String)
 msgid "Apellido Familiar "
 msgstr ""
@@ -159,7 +157,6 @@ msgid "Detail"
 msgstr ""
 
 
-#: domainapp.modules.simple.dom.impl.Paciente#updateName(java.lang.String,java.lang.String,org.joda.time.LocalDate,java.lang.Integer,domainapp.modules.simple.dom.impl.TipoDocumento,java.lang.String,org.joda.time.LocalDate,java.lang.String,java.lang.Integer,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String)
 #: domainapp.modules.simple.dom.impl.Pacientes#create(java.lang.String,java.lang.String,org.joda.time.LocalDate,java.lang.Integer,domainapp.modules.simple.dom.impl.TipoDocumento,java.lang.String,org.joda.time.LocalDate,java.lang.String,java.lang.Integer,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String)
 msgid "Direccion Contacto "
 msgstr ""
@@ -231,7 +228,6 @@ msgstr ""
 
 
 #: domainapp.modules.simple.dom.impl.Paciente#edad
-#: domainapp.modules.simple.dom.impl.Paciente#updateName(java.lang.String,java.lang.String,org.joda.time.LocalDate,java.lang.Integer,domainapp.modules.simple.dom.impl.TipoDocumento,java.lang.String,org.joda.time.LocalDate,java.lang.String,java.lang.Integer,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String)
 #: domainapp.modules.simple.dom.impl.Pacientes#create(java.lang.String,java.lang.String,org.joda.time.LocalDate,java.lang.Integer,domainapp.modules.simple.dom.impl.TipoDocumento,java.lang.String,org.joda.time.LocalDate,java.lang.String,java.lang.Integer,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String)
 msgid "Edad"
 msgstr ""
@@ -257,13 +253,11 @@ msgid "Fecha Nacimiento"
 msgstr ""
 
 
-#: domainapp.modules.simple.dom.impl.Paciente#updateName(java.lang.String,java.lang.String,org.joda.time.LocalDate,java.lang.Integer,domainapp.modules.simple.dom.impl.TipoDocumento,java.lang.String,org.joda.time.LocalDate,java.lang.String,java.lang.Integer,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String)
 #: domainapp.modules.simple.dom.impl.Pacientes#create(java.lang.String,java.lang.String,org.joda.time.LocalDate,java.lang.Integer,domainapp.modules.simple.dom.impl.TipoDocumento,java.lang.String,org.joda.time.LocalDate,java.lang.String,java.lang.Integer,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String)
 msgid "Fecha de alta"
 msgstr ""
 
 
-#: domainapp.modules.simple.dom.impl.Paciente#updateName(java.lang.String,java.lang.String,org.joda.time.LocalDate,java.lang.Integer,domainapp.modules.simple.dom.impl.TipoDocumento,java.lang.String,org.joda.time.LocalDate,java.lang.String,java.lang.Integer,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String)
 #: domainapp.modules.simple.dom.impl.Pacientes#create(java.lang.String,java.lang.String,org.joda.time.LocalDate,java.lang.Integer,domainapp.modules.simple.dom.impl.TipoDocumento,java.lang.String,org.joda.time.LocalDate,java.lang.String,java.lang.Integer,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String)
 msgid "Fecha de nacimiento "
 msgstr ""
@@ -324,7 +318,6 @@ msgid "Incapacidad"
 msgstr ""
 
 
-#: domainapp.modules.simple.dom.impl.Paciente#updateName(java.lang.String,java.lang.String,org.joda.time.LocalDate,java.lang.Integer,domainapp.modules.simple.dom.impl.TipoDocumento,java.lang.String,org.joda.time.LocalDate,java.lang.String,java.lang.Integer,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String)
 #: domainapp.modules.simple.dom.impl.Pacientes#create(java.lang.String,java.lang.String,org.joda.time.LocalDate,java.lang.Integer,domainapp.modules.simple.dom.impl.TipoDocumento,java.lang.String,org.joda.time.LocalDate,java.lang.String,java.lang.Integer,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String)
 msgid "Incapacidad "
 msgstr ""
@@ -365,13 +358,11 @@ msgid "Lugar De Nacimiento"
 msgstr ""
 
 
-#: domainapp.modules.simple.dom.impl.Paciente#updateName(java.lang.String,java.lang.String,org.joda.time.LocalDate,java.lang.Integer,domainapp.modules.simple.dom.impl.TipoDocumento,java.lang.String,org.joda.time.LocalDate,java.lang.String,java.lang.Integer,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String)
 #: domainapp.modules.simple.dom.impl.Pacientes#create(java.lang.String,java.lang.String,org.joda.time.LocalDate,java.lang.Integer,domainapp.modules.simple.dom.impl.TipoDocumento,java.lang.String,org.joda.time.LocalDate,java.lang.String,java.lang.Integer,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String)
 msgid "Lugar de nacimiento "
 msgstr ""
 
 
-#: domainapp.modules.simple.dom.impl.Paciente#updateName(java.lang.String,java.lang.String,org.joda.time.LocalDate,java.lang.Integer,domainapp.modules.simple.dom.impl.TipoDocumento,java.lang.String,org.joda.time.LocalDate,java.lang.String,java.lang.Integer,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String)
 #: domainapp.modules.simple.dom.impl.Pacientes#create(java.lang.String,java.lang.String,org.joda.time.LocalDate,java.lang.Integer,domainapp.modules.simple.dom.impl.TipoDocumento,java.lang.String,org.joda.time.LocalDate,java.lang.String,java.lang.Integer,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String)
 msgid "Mail Contacto "
 msgstr ""
@@ -404,7 +395,7 @@ msgid "Name"
 msgstr ""
 
 
-#: domainapp.modules.simple.dom.impl.Paciente#updateName(java.lang.String,java.lang.String,org.joda.time.LocalDate,java.lang.Integer,domainapp.modules.simple.dom.impl.TipoDocumento,java.lang.String,org.joda.time.LocalDate,java.lang.String,java.lang.Integer,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String)
+#: domainapp.modules.simple.dom.impl.Paciente#updateName(java.lang.String)
 #: domainapp.modules.simple.dom.impl.Pacientes#create(java.lang.String,java.lang.String,org.joda.time.LocalDate,java.lang.Integer,domainapp.modules.simple.dom.impl.TipoDocumento,java.lang.String,org.joda.time.LocalDate,java.lang.String,java.lang.Integer,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String)
 #: domainapp.modules.simple.dom.impl.Pacientes#findByName(java.lang.String)
 msgid "Nombre"
@@ -416,7 +407,6 @@ msgid "Nombre Familiar"
 msgstr ""
 
 
-#: domainapp.modules.simple.dom.impl.Paciente#updateName(java.lang.String,java.lang.String,org.joda.time.LocalDate,java.lang.Integer,domainapp.modules.simple.dom.impl.TipoDocumento,java.lang.String,org.joda.time.LocalDate,java.lang.String,java.lang.Integer,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String)
 #: domainapp.modules.simple.dom.impl.Pacientes#create(java.lang.String,java.lang.String,org.joda.time.LocalDate,java.lang.Integer,domainapp.modules.simple.dom.impl.TipoDocumento,java.lang.String,org.joda.time.LocalDate,java.lang.String,java.lang.Integer,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String)
 msgid "Nombre familiar "
 msgstr ""
@@ -442,19 +432,16 @@ msgid "Numero Contacto"
 msgstr ""
 
 
-#: domainapp.modules.simple.dom.impl.Paciente#updateName(java.lang.String,java.lang.String,org.joda.time.LocalDate,java.lang.Integer,domainapp.modules.simple.dom.impl.TipoDocumento,java.lang.String,org.joda.time.LocalDate,java.lang.String,java.lang.Integer,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String)
 #: domainapp.modules.simple.dom.impl.Pacientes#create(java.lang.String,java.lang.String,org.joda.time.LocalDate,java.lang.Integer,domainapp.modules.simple.dom.impl.TipoDocumento,java.lang.String,org.joda.time.LocalDate,java.lang.String,java.lang.Integer,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String)
 msgid "Numero Contacto "
 msgstr ""
 
 
-#: domainapp.modules.simple.dom.impl.Paciente#updateName(java.lang.String,java.lang.String,org.joda.time.LocalDate,java.lang.Integer,domainapp.modules.simple.dom.impl.TipoDocumento,java.lang.String,org.joda.time.LocalDate,java.lang.String,java.lang.Integer,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String)
 #: domainapp.modules.simple.dom.impl.Pacientes#create(java.lang.String,java.lang.String,org.joda.time.LocalDate,java.lang.Integer,domainapp.modules.simple.dom.impl.TipoDocumento,java.lang.String,org.joda.time.LocalDate,java.lang.String,java.lang.Integer,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String)
 msgid "Numero de Seguro Social "
 msgstr ""
 
 
-#: domainapp.modules.simple.dom.impl.Paciente#updateName(java.lang.String,java.lang.String,org.joda.time.LocalDate,java.lang.Integer,domainapp.modules.simple.dom.impl.TipoDocumento,java.lang.String,org.joda.time.LocalDate,java.lang.String,java.lang.Integer,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String)
 #: domainapp.modules.simple.dom.impl.Pacientes#create(java.lang.String,java.lang.String,org.joda.time.LocalDate,java.lang.Integer,domainapp.modules.simple.dom.impl.TipoDocumento,java.lang.String,org.joda.time.LocalDate,java.lang.String,java.lang.Integer,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String)
 msgid "Numero de documento"
 msgstr ""
@@ -476,7 +463,6 @@ msgid "Observacion"
 msgstr ""
 
 
-#: domainapp.modules.simple.dom.impl.Paciente#updateName(java.lang.String,java.lang.String,org.joda.time.LocalDate,java.lang.Integer,domainapp.modules.simple.dom.impl.TipoDocumento,java.lang.String,org.joda.time.LocalDate,java.lang.String,java.lang.Integer,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String)
 #: domainapp.modules.simple.dom.impl.Pacientes#create(java.lang.String,java.lang.String,org.joda.time.LocalDate,java.lang.Integer,domainapp.modules.simple.dom.impl.TipoDocumento,java.lang.String,org.joda.time.LocalDate,java.lang.String,java.lang.Integer,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String)
 msgid "Observacion "
 msgstr ""
@@ -530,7 +516,6 @@ msgid "Parentesco"
 msgstr ""
 
 
-#: domainapp.modules.simple.dom.impl.Paciente#updateName(java.lang.String,java.lang.String,org.joda.time.LocalDate,java.lang.Integer,domainapp.modules.simple.dom.impl.TipoDocumento,java.lang.String,org.joda.time.LocalDate,java.lang.String,java.lang.Integer,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String)
 #: domainapp.modules.simple.dom.impl.Pacientes#create(java.lang.String,java.lang.String,org.joda.time.LocalDate,java.lang.Integer,domainapp.modules.simple.dom.impl.TipoDocumento,java.lang.String,org.joda.time.LocalDate,java.lang.String,java.lang.Integer,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String)
 msgid "Parentesco "
 msgstr ""
@@ -673,7 +658,6 @@ msgid "Telefono"
 msgstr ""
 
 
-#: domainapp.modules.simple.dom.impl.Paciente#updateName(java.lang.String,java.lang.String,org.joda.time.LocalDate,java.lang.Integer,domainapp.modules.simple.dom.impl.TipoDocumento,java.lang.String,org.joda.time.LocalDate,java.lang.String,java.lang.Integer,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String)
 #: domainapp.modules.simple.dom.impl.Pacientes#create(java.lang.String,java.lang.String,org.joda.time.LocalDate,java.lang.Integer,domainapp.modules.simple.dom.impl.TipoDocumento,java.lang.String,org.joda.time.LocalDate,java.lang.String,java.lang.Integer,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String)
 msgid "Telefono "
 msgstr ""
@@ -685,7 +669,6 @@ msgstr ""
 
 
 #: domainapp.modules.simple.dom.impl.Paciente#tipoDocumento
-#: domainapp.modules.simple.dom.impl.Paciente#updateName(java.lang.String,java.lang.String,org.joda.time.LocalDate,java.lang.Integer,domainapp.modules.simple.dom.impl.TipoDocumento,java.lang.String,org.joda.time.LocalDate,java.lang.String,java.lang.Integer,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String)
 #: domainapp.modules.simple.dom.impl.Pacientes#create(java.lang.String,java.lang.String,org.joda.time.LocalDate,java.lang.Integer,domainapp.modules.simple.dom.impl.TipoDocumento,java.lang.String,org.joda.time.LocalDate,java.lang.String,java.lang.Integer,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String)
 msgid "Tipo Documento"
 msgstr ""

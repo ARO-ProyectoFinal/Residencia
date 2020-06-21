@@ -165,47 +165,11 @@ public class Paciente implements Comparable<Paciente> {
     @Action(semantics = IDEMPOTENT, command = ENABLED, publishing = Publishing.ENABLED, associateWith = "name")
     public Paciente updateName(
             @Parameter(maxLength = 40)
-            @ParameterLayout(named = "Nombre") final String name,
-            @ParameterLayout(named = "Apellido") final  String apellido,
-            @ParameterLayout(named = "Fecha de alta") final LocalDate fechaAlta,
-            @ParameterLayout(named = "Edad") final Integer edad,
-            @ParameterLayout(named = "Tipo Documento") final TipoDocumento tipoDocumento,
-            @ParameterLayout(named = "Numero de documento") final String nroDocumento,
-            @ParameterLayout(named = "Fecha de nacimiento ") final  LocalDate fechaNacimiento,
-            @ParameterLayout(named = "Lugar de nacimiento ") final  String lugarDeNacimiento,
-            @ParameterLayout(named = "Telefono ") final Integer telefono,
-            @ParameterLayout(named = "Numero de Seguro Social ") final  String numeroDeSeguroSocial,
-            @ParameterLayout(named = "Incapacidad ") final String incapacidad,
-            @ParameterLayout(named = "Observacion ") final  String observacion,
-            @ParameterLayout(named = "Nombre familiar ") final  String nombreFamiliar,
-            @ParameterLayout(named = "Apellido Familiar ") final  String apellidoFamiliar,
-            @ParameterLayout(named = "Parentesco ") final  String parentesco,
-            @ParameterLayout(named = "Numero Contacto ") final  String numeroContacto,
-            @ParameterLayout(named = "Mail Contacto ") final  String mailFamiliar,
-            @ParameterLayout(named = "Direccion Contacto ") final  String direccionFamiliar
+            @ParameterLayout(named = "Nombre") final String name
 
 
     ) {
         setName(name);
-        setApellido(apellido);
-        setFechaAlta(fechaAlta);
-        setEdad(edad);
-        setTipoDocumento(tipoDocumento);
-        setNroDocumento(nroDocumento);
-        setFechaNacimiento(fechaNacimiento);
-        setLugarDeNacimiento(lugarDeNacimiento);
-        setTelefono(telefono);
-        setNroSeguroSocial(numeroDeSeguroSocial);
-        setIncapacidad(incapacidad);
-        setObservacion(observacion);
-        setNombreFamiliar(nombreFamiliar);
-        setApellidoFamiliar(apellidoFamiliar);
-        setParentesco(parentesco);
-        setNumeroContacto(numeroContacto);
-        setMailFamiliar(mailFamiliar);
-        setDireccionFamiliar(direccionFamiliar);
-
-
 
         return this;
 
