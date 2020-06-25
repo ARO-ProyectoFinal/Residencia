@@ -19,11 +19,11 @@
 
 package domainapp.modules.simple.fixture;
 
-import domainapp.modules.simple.dom.impl.Pacientes;
-import domainapp.modules.simple.dom.impl.TipoDocumento;
+import domainapp.modules.simple.dom.impl.paciente.Pacientes;
+import domainapp.modules.simple.dom.impl.paciente.TipoDocumento;
 import org.apache.isis.applib.fixturescripts.BuilderScriptAbstract;
 
-import domainapp.modules.simple.dom.impl.Paciente;
+import domainapp.modules.simple.dom.impl.paciente.Paciente;
 import lombok.Getter;
 import lombok.Setter;
 import lombok.experimental.Accessors;

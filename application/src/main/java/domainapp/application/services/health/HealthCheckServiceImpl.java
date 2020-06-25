@@ -2,7 +2,7 @@ package domainapp.application.services.health;
 
 import javax.inject.Inject;
 
-import domainapp.modules.simple.dom.impl.Pacientes;
+import domainapp.modules.simple.dom.impl.paciente.Pacientes;
 import org.apache.isis.applib.annotation.DomainService;
 import org.apache.isis.applib.annotation.NatureOfService;
 import org.apache.isis.applib.services.health.Health;
