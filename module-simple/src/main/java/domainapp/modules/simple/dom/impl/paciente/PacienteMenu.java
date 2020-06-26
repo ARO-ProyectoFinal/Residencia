@@ -118,7 +118,9 @@ public class PacienteMenu {
     @ActionLayout(bookmarking = BookmarkPolicy.AS_ROOT)
     @MemberOrder(sequence = "3")
     public List<Paciente> listAll() {
-        return pacienteRepository.Listar();
+        List <Paciente> pacientes =  pacienteRepository.Listar();
+        return pacientes;
+
     }
 
     @javax.inject.Inject
