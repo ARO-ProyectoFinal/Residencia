@@ -19,7 +19,7 @@
 
 package domainapp.modules.simple.fixture;
 
-import domainapp.modules.simple.dom.impl.paciente.Pacientes;
+import domainapp.modules.simple.dom.impl.paciente.PacienteMenu;
 import org.apache.isis.applib.fixturescripts.PersonaWithBuilderScript;
 import org.apache.isis.applib.fixturescripts.PersonaWithFinder;
 import org.apache.isis.applib.fixturescripts.setup.PersonaEnumPersistAll;
@@ -52,8 +52,8 @@ public enum SimpleObject_persona implements PersonaWithBuilderScript<Paciente, S
 
     //@Override
     public Paciente findUsing(final ServiceRegistry2 serviceRegistry) {
-        Pacientes pacientes = serviceRegistry.lookupService(Pacientes.class);
-        return pacientes.findByNameExact(name);
+        PacienteMenu pacienteMenu = serviceRegistry.lookupService(PacienteMenu.class);
+        return pacienteMenu.findByNameExact(name);
     }
 
     public static class PersistAll

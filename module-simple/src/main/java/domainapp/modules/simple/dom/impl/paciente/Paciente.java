@@ -182,12 +182,12 @@ public class Paciente implements Comparable<Paciente> {
     }
 
 
-    @Action(semantics = NON_IDEMPOTENT_ARE_YOU_SURE)
-    public void delete() {
-        final String title = titleService.titleOf(this);
-        messageService.informUser(String.format("'%s' deleted", title));
-        repositoryService.remove(this);
-    }
+   // @Action(semantics = NON_IDEMPOTENT_ARE_YOU_SURE)
+   // public void delete() {
+    //    final String title = titleService.titleOf(this);
+     //   messageService.informUser(String.format("'%s' deleted", title));
+     //   pacienteRepository.remove(this);
+   // }
 
 
     @Override
@@ -205,7 +205,7 @@ public class Paciente implements Comparable<Paciente> {
     @javax.inject.Inject
     @javax.jdo.annotations.NotPersistent
     @lombok.Getter(AccessLevel.NONE) @lombok.Setter(AccessLevel.NONE)
-    RepositoryService repositoryService;
+    PacienteRepository pacienteRepository;
 
     @javax.inject.Inject
     @javax.jdo.annotations.NotPersistent
