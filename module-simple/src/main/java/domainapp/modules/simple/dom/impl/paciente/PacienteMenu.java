@@ -1,7 +1,6 @@
 package domainapp.modules.simple.dom.impl.paciente;
 
 import org.apache.isis.applib.annotation.*;
-import org.apache.isis.applib.services.eventbus.ActionDomainEvent;
 import org.apache.isis.applib.services.jdosupport.IsisJdoSupport;
 import org.datanucleus.query.typesafe.TypesafeQuery;
 import org.joda.time.LocalDate;
@@ -10,12 +9,12 @@ import java.util.List;
 
 @DomainService(
         nature = NatureOfService.VIEW_MENU_ONLY,
-        objectType = "simple.SimpleObjectMenu",
+        objectType = "Paciente",
         repositoryFor = Paciente.class
 )
 @DomainServiceLayout(
-        named = "Paciente",
-        menuOrder = "10"
+        named = "",
+        menuOrder = ""
 )
 
 public class PacienteMenu {
@@ -94,11 +93,15 @@ public class PacienteMenu {
 
             @Parameter(maxLength = 40)
             @ParameterLayout(named = "Direccion Contacto ")
-            final  String direccionFamiliar)
+            final  String direccionFamiliar,
+
+            @Parameter(maxLength = 40)
+            @ParameterLayout(named = "Habitacion Seleccionada")
+            final HabitacionSeleccionada habitacionSeleccionada)
 
 
     {
-        return pacienteRepository.create (name, apellido,fechaAlta,edad,tipoDocumento,nroDocumento,fechaNacimiento,lugarDeNacimiento,telefono,numeroDeSeguroSocial,incapacidad,observacion,nombreFamiliar,apellidoFamiliar,parentesco,numeroContacto,mailFamiliar,direccionFamiliar);
+        return pacienteRepository.create (name, apellido,fechaAlta,edad,tipoDocumento,nroDocumento,fechaNacimiento,lugarDeNacimiento,telefono,numeroDeSeguroSocial,incapacidad,observacion,nombreFamiliar,apellidoFamiliar,parentesco,numeroContacto,mailFamiliar,direccionFamiliar, habitacionSeleccionada);
     }
 
     @Action(semantics = SemanticsOf.SAFE)

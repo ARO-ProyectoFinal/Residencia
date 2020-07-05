@@ -29,7 +29,6 @@ import com.google.common.collect.ComparisonChain;
 import org.apache.isis.applib.annotation.*;
 import org.apache.isis.applib.services.i18n.TranslatableString;
 import org.apache.isis.applib.services.message.MessageService;
-import org.apache.isis.applib.services.repository.RepositoryService;
 import org.apache.isis.applib.services.title.TitleService;
 
 import lombok.AccessLevel;
@@ -38,7 +37,6 @@ import org.joda.time.LocalDate;
 
 import static org.apache.isis.applib.annotation.CommandReification.ENABLED;
 import static org.apache.isis.applib.annotation.SemanticsOf.IDEMPOTENT;
-import static org.apache.isis.applib.annotation.SemanticsOf.NON_IDEMPOTENT_ARE_YOU_SURE;
 
 @Queries({
         @Query(
@@ -166,6 +164,12 @@ public class Paciente implements Comparable<Paciente> {
     @lombok.NonNull
     @Title(prepend = "Direccion Contacto")
     private String direccionFamiliar;
+
+    @javax.jdo.annotations.Column(allowsNull = "true")
+    @lombok.NonNull
+    @Property(editing = Editing.ENABLED)
+    @Title(prepend = "Habitacion Seleccionada")
+    private HabitacionSeleccionada habitacionSeleccionada;
 
 
     @Action(semantics = IDEMPOTENT, command = ENABLED, publishing = Publishing.ENABLED, associateWith = "name")
