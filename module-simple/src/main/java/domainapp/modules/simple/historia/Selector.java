@@ -1,6 +1,6 @@
 package domainapp.modules.simple.historia;
 
-public enum Alergias {
+public enum Selector {
     SI,
     NO
 }

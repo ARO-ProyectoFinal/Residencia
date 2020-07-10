@@ -18,7 +18,7 @@ public class Historia {
     @Column(allowsNull = "false", length = 40)
     @Property()
     @Title()
-    private VacunaRecibida vacunaRecibida;
+    private Selector vacunaRecibida;
 
     @Column(allowsNull = "false", length = 40)
     @Property()
@@ -28,7 +28,7 @@ public class Historia {
     @Column(allowsNull = "false", length = 40)
     @Property()
     @Title()
-    private VacunaFaltante vacunaFaltante;
+    private Selector vacunaFaltante;
 
     @Column(allowsNull = "false", length = 40)
     @Property()
@@ -38,7 +38,7 @@ public class Historia {
     @Column(allowsNull = "false", length = 40)
     @Property()
     @Title()
-    private EnfermedadPadecida enfermedadPadecida;
+    private Selector enfermedadPadecida;
 
     @Column(allowsNull = "false", length = 40)
     @Property()
@@ -48,7 +48,7 @@ public class Historia {
     @Column(allowsNull = "false", length = 40)
     @Property()
     @Title()
-    private Alergias alergias;
+    private Selector alergias;
 
     @Column(allowsNull = "false", length = 40)
     @Property()
