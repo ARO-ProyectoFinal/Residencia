@@ -1,5 +1,6 @@
 package domainapp.modules.simple.cognitiva;
 
+import domainapp.modules.simple.historia.Selector;
 import org.apache.isis.applib.annotation.DomainService;
 import org.apache.isis.applib.annotation.NatureOfService;
 import org.apache.isis.applib.annotation.Programmatic;
@@ -26,11 +27,11 @@ public class CognitivaRepository {
 
     @Programmatic
     public Cognitiva create(
-            final String comerSolo,
-            final String bañoSolo,
-            final String vestirSolo,
-            final String bañarseSolo,
-            final String moverSolo
+            final Selector comerSolo,
+            final Selector bañoSolo,
+            final Selector vestirSolo,
+            final Selector bañarseSolo,
+            final Selector moverSolo
     ) {
 
         final Cognitiva cognitiva = new Cognitiva(comerSolo, bañoSolo, vestirSolo, bañarseSolo, moverSolo);

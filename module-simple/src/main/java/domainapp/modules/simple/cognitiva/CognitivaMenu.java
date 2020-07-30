@@ -2,6 +2,7 @@ package domainapp.modules.simple.cognitiva;
 
 
 import domainapp.modules.simple.historia.HistoriaRepository;
+import domainapp.modules.simple.historia.Selector;
 import org.apache.isis.applib.services.jdosupport.IsisJdoSupport;
 import org.apache.isis.applib.annotation.*;
 import java.util.List;
@@ -14,23 +15,23 @@ public class CognitivaMenu {
     public Cognitiva create(
             @Parameter(maxLength = 40)
             @ParameterLayout(named = "Comer solo")
-            final String comerSolo,
+            final Selector comerSolo,
 
             @Parameter(maxLength = 40)
             @ParameterLayout(named = "Ir al baño solo")
-            final String bañoSolo,
+            final Selector bañoSolo,
 
             @Parameter(maxLength = 40)
             @ParameterLayout(named = "Vestir solo")
-            final String vestirSolo,
+            final Selector vestirSolo,
 
             @Parameter(maxLength = 40)
             @ParameterLayout(named = "Bañarse solo")
-            final String bañarseSolo,
+            final Selector bañarseSolo,
 
             @Parameter(maxLength = 40)
             @ParameterLayout(named = "Moverse solo")
-            final String moverSolo)
+            final Selector moverSolo)
     {
     return cognitivaRepository.create(comerSolo,bañoSolo,vestirSolo,bañarseSolo,moverSolo);
     }

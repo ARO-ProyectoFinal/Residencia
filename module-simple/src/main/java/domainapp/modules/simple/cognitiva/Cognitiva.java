@@ -1,5 +1,6 @@
 package domainapp.modules.simple.cognitiva;
 
+import domainapp.modules.simple.historia.Selector;
 import lombok.Getter;
 import lombok.Setter;
 import org.apache.isis.applib.annotation.Property;
@@ -13,32 +14,32 @@ import javax.jdo.annotations.Column;
 public class Cognitiva {
 
     @lombok.NonNull
-    @Column(allowsNull = "false", length = 40)
+    @Column(allowsNull = "false")
     @Property()
     @Title()
-    private String comerSolo;
+    private Selector comerSolo;
 
     @lombok.NonNull
-    @Column(allowsNull = "false", length = 40)
+    @Column(allowsNull = "false")
     @Property()
     @Title()
-    private String bañoSolo;
+    private Selector bañoSolo;
 
     @lombok.NonNull
-    @Column(allowsNull = "false", length = 40)
+    @Column(allowsNull = "false")
     @Property()
     @Title()
-    private String vestirSolo;
+    private Selector vestirSolo;
 
     @lombok.NonNull
-    @Column(allowsNull = "false", length = 40)
+    @Column(allowsNull = "false")
     @Property()
     @Title()
-    private String bañarseSolo;
+    private Selector bañarseSolo;
 
     @lombok.NonNull
-    @Column(allowsNull = "false", length = 40)
+    @Column(allowsNull = "false")
     @Property()
     @Title()
-    private String moverSolo;
+    private Selector moverSolo;
 }
