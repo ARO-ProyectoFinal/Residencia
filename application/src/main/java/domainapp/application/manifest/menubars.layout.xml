@@ -22,14 +22,14 @@
         <mb3:menu>
             <mb3:named>Paciente</mb3:named>
             <mb3:section>
-                <mb3:serviceAction objectType="simple.SimpleObjectMenu" id="create">
-                    <cpt:named>Crear</cpt:named>
+                <mb3:serviceAction objectType="Paciente" id="create">
+                    <cpt:named>Crear Paciente</cpt:named>
                 </mb3:serviceAction>
-                <mb3:serviceAction objectType="simple.SimpleObjectMenu" id="findByName">
+                <mb3:serviceAction objectType="Paciente" id="findByNameExact">
                     <cpt:named>Buscar por nombre</cpt:named>
                 </mb3:serviceAction>
-                <mb3:serviceAction objectType="simple.SimpleObjectMenu" id="listAll">
-                    <cpt:named>Listar todas</cpt:named>
+                <mb3:serviceAction objectType="Paciente" id="listAll">
+                    <cpt:named>Listar Pacientes</cpt:named>
                 </mb3:serviceAction>
             </mb3:section>
         </mb3:menu>

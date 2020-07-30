@@ -13,7 +13,7 @@ import java.util.List;
         repositoryFor = Paciente.class
 )
 @DomainServiceLayout(
-        named = "",
+        named = "Paciente",
         menuOrder = ""
 )
 
@@ -118,7 +118,7 @@ public class PacienteMenu {
     }
 
     @Action(semantics = SemanticsOf.SAFE)
-    @ActionLayout(bookmarking = BookmarkPolicy.AS_ROOT)
+    @ActionLayout(bookmarking = BookmarkPolicy.AS_ROOT, named = "Listado de Pacientes")
     @MemberOrder(sequence = "3")
     public List<Paciente> listAll() {
         List <Paciente> pacientes =  pacienteRepository.Listar();
