@@ -1,4 +1,4 @@
-package domainapp.modules.simple.dom.impl.paciente;
+package domainapp.modules.simple.paciente;
 
 import org.apache.isis.applib.annotation.*;
 import org.apache.isis.applib.services.jdosupport.IsisJdoSupport;

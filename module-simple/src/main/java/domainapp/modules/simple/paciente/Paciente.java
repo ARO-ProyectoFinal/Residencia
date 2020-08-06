@@ -16,7 +16,7 @@
  *  specific language governing permissions and limitations
  *  under the License.
  */
-package domainapp.modules.simple.dom.impl.paciente;
+package domainapp.modules.simple.paciente;
 
 import javax.jdo.annotations.IdentityType;
 import javax.jdo.annotations.Queries;

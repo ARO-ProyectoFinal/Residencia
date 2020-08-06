@@ -20,7 +20,7 @@ package domainapp.modules.simple;
 
 import javax.xml.bind.annotation.XmlRootElement;
 
-import domainapp.modules.simple.dom.impl.paciente.Paciente;
+import domainapp.modules.simple.paciente.Paciente;
 import org.apache.isis.applib.ModuleAbstract;
 import org.apache.isis.applib.fixturescripts.FixtureScript;
 import org.apache.isis.applib.fixturescripts.teardown.TeardownFixtureAbstract2;

@@ -1,4 +1,4 @@
-package domainapp.modules.simple.dom.impl.paciente;
+package domainapp.modules.simple.paciente;
 
 public enum HabitacionSeleccionada {
     Individual,
