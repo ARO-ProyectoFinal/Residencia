@@ -116,37 +116,6 @@ public class Paciente implements Comparable<Paciente> {
     @lombok.NonNull
     private String observacion;
 
-    //Datos familiares paciente
-    @javax.jdo.annotations.Column(allowsNull = "true", length = 40)
-    @lombok.NonNull
-    @Property(editing = Editing.ENABLED)
-    private String nombreFamiliar;
-
-    @javax.jdo.annotations.Column(allowsNull = "true", length = 40)
-    @lombok.NonNull
-    @Property(editing = Editing.ENABLED)
-    private String apellidoFamiliar;
-
-    @javax.jdo.annotations.Column(allowsNull = "true", length = 40)
-    @Property(editing = Editing.ENABLED)
-    @lombok.NonNull
-    private String parentesco;
-
-    @javax.jdo.annotations.Column(allowsNull = "true", length = 40)
-    @Property(editing = Editing.ENABLED)
-    @lombok.NonNull
-    private String numeroContacto;
-
-    @javax.jdo.annotations.Column(allowsNull = "true", length = 40)
-    @Property(editing = Editing.ENABLED)
-    @lombok.NonNull
-    private String mailFamiliar;
-
-    @javax.jdo.annotations.Column(allowsNull = "true", length = 40)
-    @Property(editing = Editing.ENABLED)
-    @lombok.NonNull
-    private String direccionFamiliar;
-
     @javax.jdo.annotations.Column(allowsNull = "true")
     @lombok.NonNull
     @Property(editing = Editing.ENABLED)

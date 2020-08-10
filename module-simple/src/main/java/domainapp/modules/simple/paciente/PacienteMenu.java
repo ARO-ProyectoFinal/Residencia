@@ -72,36 +72,12 @@ public class PacienteMenu {
             final  String observacion,
 
             @Parameter(maxLength = 40)
-            @ParameterLayout(named = "Nombre familiar ")
-            final String nombreFamiliar,
-
-            @Parameter(maxLength = 40)
-            @ParameterLayout(named = "Apellido Familiar ")
-            final  String apellidoFamiliar,
-
-            @Parameter(maxLength = 40)
-            @ParameterLayout(named = "Parentesco ")
-            final  String parentesco,
-
-            @Parameter(maxLength = 40)
-            @ParameterLayout(named = "Numero Contacto ")
-            final  String numeroContacto,
-
-            @Parameter(maxLength = 40)
-            @ParameterLayout(named = "Mail Contacto ")
-            final  String mailFamiliar,
-
-            @Parameter(maxLength = 40)
-            @ParameterLayout(named = "Direccion Contacto ")
-            final  String direccionFamiliar,
-
-            @Parameter(maxLength = 40)
             @ParameterLayout(named = "Habitacion Seleccionada")
             final HabitacionSeleccionada habitacionSeleccionada)
 
 
     {
-        return pacienteRepository.create (name, apellido,fechaAlta,edad,tipoDocumento,nroDocumento,fechaNacimiento,lugarDeNacimiento,telefono,numeroDeSeguroSocial,incapacidad,observacion,nombreFamiliar,apellidoFamiliar,parentesco,numeroContacto,mailFamiliar,direccionFamiliar, habitacionSeleccionada);
+        return pacienteRepository.create (name, apellido,fechaAlta,edad,tipoDocumento,nroDocumento,fechaNacimiento,lugarDeNacimiento,telefono,numeroDeSeguroSocial,incapacidad,observacion,habitacionSeleccionada);
     }
 
     @Action(semantics = SemanticsOf.SAFE)

@@ -39,16 +39,10 @@ public class PacienteRepository {
             final String numeroDeSeguroSocial,
             final String incapacidad,
             final String observacion,
-            final String nombreFamiliar,
-            final String apellidoFamiliar,
-            final String parentesco,
-            final String numeroContacto,
-            final String mailFamiliar,
-            final String direccionFamiliar,
             final HabitacionSeleccionada habitacionSeleccionada
     ) {
 
-        final Paciente paciente = new Paciente(name, apellido,fechaAlta,edad,tipoDocumento,nroDocumento,fechaNacimiento,lugarDeNacimiento,telefono,numeroDeSeguroSocial,incapacidad,observacion,nombreFamiliar,apellidoFamiliar,parentesco,numeroContacto,mailFamiliar,direccionFamiliar, habitacionSeleccionada);
+        final Paciente paciente = new Paciente(name, apellido,fechaAlta,edad,tipoDocumento,nroDocumento,fechaNacimiento,lugarDeNacimiento,telefono,numeroDeSeguroSocial,incapacidad,observacion, habitacionSeleccionada);
         repositoryService.persist(paciente);
         return paciente;
     }
