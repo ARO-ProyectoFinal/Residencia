@@ -1,5 +1,6 @@
 package domainapp.application.fixture.scenarios;
 
+import domainapp.modules.simple.cognitiva.Cognitiva;
 import domainapp.modules.simple.cognitiva.CognitivaMenu;
 import domainapp.modules.simple.historia.Selector;
 import domainapp.modules.simple.paciente.PacienteMenu;
@@ -25,6 +26,9 @@ public class CognitivaCreate extends FixtureScript {
 
     @Getter @Setter
     private Selector moverSolo;
+
+    @Getter @Setter
+    private Cognitiva cognitivaObject;
 
     @Override
     protected void execute(final ExecutionContext ec) {
