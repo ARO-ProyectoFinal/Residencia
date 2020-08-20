@@ -1,8 +1,6 @@
 package domainapp.modules.simple.cognitiva;
 
 
-import domainapp.modules.simple.historia.HistoriaRepository;
-import domainapp.modules.simple.historia.Selector;
 import org.apache.isis.applib.services.jdosupport.IsisJdoSupport;
 import org.apache.isis.applib.annotation.*;
 import java.util.List;

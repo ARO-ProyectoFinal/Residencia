@@ -1,6 +1,5 @@
 package domainapp.modules.simple.cognitiva;
 
-import domainapp.modules.simple.historia.Selector;
 import org.apache.isis.applib.annotation.DomainService;
 import org.apache.isis.applib.annotation.NatureOfService;
 import org.apache.isis.applib.annotation.Programmatic;

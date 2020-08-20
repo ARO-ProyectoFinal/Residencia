@@ -2,8 +2,6 @@ package domainapp.application.fixture.scenarios;
 
 import domainapp.modules.simple.cognitiva.Cognitiva;
 import domainapp.modules.simple.cognitiva.CognitivaMenu;
-import domainapp.modules.simple.historia.Selector;
-import domainapp.modules.simple.paciente.PacienteMenu;
 import lombok.Getter;
 import lombok.Setter;
 import org.apache.isis.applib.fixturescripts.FixtureScript;

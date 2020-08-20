@@ -27,13 +27,9 @@ public class HistoriaRepository {
 
     @Programmatic
     public Historia create(
-            final Selector vacunaRecibida,
             final String vacuRecibida,
-            final Selector vacunaFaltante,
             final String vacuFaltante,
-            final Selector enfermedadPadecida,
             final String enfePadecida,
-            final Selector alergias,
             final String alerPadecida,
             final LocalDate ultimaVisitaMedica,
             final String tipoMedicacion,
@@ -43,7 +39,7 @@ public class HistoriaRepository {
 
     ) {
 
-        final Historia historia = new Historia(vacunaRecibida,vacuRecibida,vacunaFaltante,vacuFaltante,enfermedadPadecida,enfePadecida,alergias,alerPadecida,ultimaVisitaMedica,tipoMedicacion,lapsoIngesta,stockMedicacion,medicacionAnterior);
+        final Historia historia = new Historia(vacuRecibida,vacuFaltante,enfePadecida,alerPadecida,ultimaVisitaMedica,tipoMedicacion,lapsoIngesta,stockMedicacion,medicacionAnterior);
         repositoryService.persist(historia);
         return historia;
     }

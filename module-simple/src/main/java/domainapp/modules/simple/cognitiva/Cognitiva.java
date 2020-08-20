@@ -1,6 +1,5 @@
 package domainapp.modules.simple.cognitiva;
 
-import domainapp.modules.simple.historia.Selector;
 import lombok.Getter;
 import lombok.Setter;
 import org.apache.isis.applib.annotation.Property;

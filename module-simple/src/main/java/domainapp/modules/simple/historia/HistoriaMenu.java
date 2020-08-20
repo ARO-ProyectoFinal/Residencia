@@ -14,33 +14,18 @@ public class HistoriaMenu {
     @ActionLayout(named = "Crear Historia Clinica")
     @MemberOrder(sequence = "1")
     public Historia create(
-            @Parameter(maxLength = 40)
-            @ParameterLayout(named = "Vacuna Recibida")
-            final Selector vacunaRecibida,
 
             @Parameter(maxLength = 40)
             @ParameterLayout(named = "Cuales?")
             final  String vacuRecibida,
 
             @Parameter(maxLength = 40)
-            @ParameterLayout(named = "Vacuanas Faltantes")
-            final Selector vacunaFaltante,
-
-            @Parameter(maxLength = 40)
             @ParameterLayout(named = "Cuales?")
             final String vacuFaltante,
 
             @Parameter(maxLength = 40)
-            @ParameterLayout(named = "Enfermedades Padecidas")
-            final Selector enfermedadPadecida,
-
-            @Parameter(maxLength = 40)
             @ParameterLayout(named = "Cuales?")
             final String enfePadecida,
-
-            @Parameter(maxLength = 40)
-            @ParameterLayout(named = "Alergias")
-            final  Selector alergias,
 
             @Parameter(maxLength = 40)
             @ParameterLayout(named = "Cuales")
@@ -67,7 +52,7 @@ public class HistoriaMenu {
             final String medicacionAnterior)
 
     {
-        return historiaRepository.create(vacunaRecibida,vacuRecibida,vacunaFaltante,vacuFaltante,enfermedadPadecida,enfePadecida,alergias,alerPadecida,ultimaVisitaMedica,tipoMedicacion,lapsoIngesta,stockMedicacion,medicacionAnterior);
+        return historiaRepository.create(vacuRecibida,vacuFaltante,enfePadecida,alerPadecida,ultimaVisitaMedica,tipoMedicacion,lapsoIngesta,stockMedicacion,medicacionAnterior);
     }
 
     @Action(semantics = SemanticsOf.SAFE)

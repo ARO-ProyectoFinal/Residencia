@@ -23,19 +23,7 @@ public class Historia {
     @Column(allowsNull = "false", length = 40)
     @Property()
     @Title()
-    private Selector vacunaRecibida;
-
-    @lombok.NonNull
-    @Column(allowsNull = "false", length = 40)
-    @Property()
-    @Title()
     private String vacuRecibida;
-
-    @lombok.NonNull
-    @Column(allowsNull = "false", length = 40)
-    @Property()
-    @Title()
-    private Selector vacunaFaltante;
 
     @lombok.NonNull
     @Column(allowsNull = "false", length = 40)
@@ -47,19 +35,7 @@ public class Historia {
     @Column(allowsNull = "false", length = 40)
     @Property()
     @Title()
-    private Selector enfermedadPadecida;
-
-    @lombok.NonNull
-    @Column(allowsNull = "false", length = 40)
-    @Property()
-    @Title()
     private String enfePadecida;
-
-    @lombok.NonNull
-    @Column(allowsNull = "false", length = 40)
-    @Property()
-    @Title()
-    private Selector alergias;
 
     @lombok.NonNull
     @Column(allowsNull = "false", length = 40)
