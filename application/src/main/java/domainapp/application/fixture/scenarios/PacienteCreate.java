@@ -94,7 +94,7 @@ public class PacienteCreate extends FixtureScript {
         String direccionFamiliar = checkParam("direccionFamiliar", ec, String.class);
         HabitacionSeleccionada habitacionSeleccionada = checkParam("habitacionSeleccionada", ec, HabitacionSeleccionada.class);
 
-        this.pacienteObject = wrap(menu).create(name,apellido,fechaAlta,edad,tipoDocumento,nroDocumento,fechaNacimiento,lugarDeNacimiento,telefono,numeroDeSeguroSocial,incapacidad,observacion,nombreFamiliar,apellidoFamiliar,parentesco,numeroContacto,mailFamiliar,direccionFamiliar,habitacionSeleccionada);
+        this.pacienteObject = wrap(menu).create(name,apellido,fechaAlta,edad,tipoDocumento,nroDocumento,fechaNacimiento,lugarDeNacimiento,telefono,numeroDeSeguroSocial,incapacidad,observacion,habitacionSeleccionada);
 
         // also make available to UI
         ec.addResult(this, pacienteObject);
