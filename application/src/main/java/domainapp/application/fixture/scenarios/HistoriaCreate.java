@@ -1,5 +1,6 @@
 package domainapp.application.fixture.scenarios;
 
+import domainapp.modules.simple.historia.Historia;
 import domainapp.modules.simple.historia.HistoriaMenu;
 import domainapp.modules.simple.paciente.HabitacionSeleccionada;
 import domainapp.modules.simple.paciente.PacienteMenu;
@@ -42,6 +43,10 @@ public class HistoriaCreate extends FixtureScript {
     @Getter
     @Setter
     private String medicacionAnterior;
+
+    @Getter
+    @Setter
+    private Historia historiaObject;
 
     @Override
     protected void execute(final ExecutionContext ec) {
