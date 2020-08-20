@@ -2,9 +2,6 @@ package domainapp.application.fixture.scenarios;
 
 import domainapp.modules.simple.historia.Historia;
 import domainapp.modules.simple.historia.HistoriaMenu;
-import domainapp.modules.simple.paciente.HabitacionSeleccionada;
-import domainapp.modules.simple.paciente.PacienteMenu;
-import domainapp.modules.simple.paciente.TipoDocumento;
 import lombok.Getter;
 import lombok.Setter;
 import org.apache.isis.applib.fixturescripts.FixtureScript;
@@ -34,6 +31,10 @@ public class HistoriaCreate extends FixtureScript {
 
     @Getter
     @Setter
+    private String tipoMedicacion;
+
+    @Getter
+    @Setter
     private String lapsoIngesta;
 
     @Getter
@@ -56,12 +57,13 @@ public class HistoriaCreate extends FixtureScript {
         String enfePadecida = checkParam("enfePadecida", ec, String.class);
         String alerPadecida = checkParam("alerPadecida", ec, String.class);
         LocalDate ultimaVisitaMedica = checkParam("ultimaVisitaMedica", ec, LocalDate.class);
+        String tipoMedicacion = checkParam("tipoMedicacion", ec, String.class);
         String lapsoIngesta = checkParam("lapsoIngesta", ec, String.class);
         Integer stockMedicacion = checkParam("stockMedicacion", ec, Integer.class);
         String medicacionAnterior = checkParam("medicacionAnterior", ec, String.class);
 
 
-        this.historiaObject = wrap(menu).create(vacuRecibida,vacuFaltante,enfePadecida,alerPadecida,ultimaVisitaMedica,lapsoIngesta,stockMedicacion,medicacionAnterior);
+        this.historiaObject = wrap(menu).create(vacuRecibida,vacuFaltante,enfePadecida,alerPadecida,ultimaVisitaMedica,tipoMedicacion,lapsoIngesta,stockMedicacion,medicacionAnterior);
 
         // also make available to UI
         ec.addResult(this, historiaObject);
