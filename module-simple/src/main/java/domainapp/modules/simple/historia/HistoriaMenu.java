@@ -16,19 +16,19 @@ public class HistoriaMenu {
     public Historia create(
 
             @Parameter(maxLength = 40)
-            @ParameterLayout(named = "Cuales?")
+            @ParameterLayout(named = "Vacunas Recibidas")
             final  String vacuRecibida,
 
             @Parameter(maxLength = 40)
-            @ParameterLayout(named = "Cuales?")
+            @ParameterLayout(named = "Vacunas Faltantes")
             final String vacuFaltante,
 
             @Parameter(maxLength = 40)
-            @ParameterLayout(named = "Cuales?")
+            @ParameterLayout(named = "Enfermedades Padecidas")
             final String enfePadecida,
 
             @Parameter(maxLength = 40)
-            @ParameterLayout(named = "Cuales")
+            @ParameterLayout(named = "Alergias")
             final  String alerPadecida,
 
             @Parameter(maxLength = 40)

@@ -45,7 +45,7 @@ public class Historia {
 
     @javax.jdo.annotations.Column(allowsNull = "true")
     @lombok.NonNull
-    @Property(editing = Editing.ENABLED)
+    @Property()
     @XmlJavaTypeAdapter(JodaDateTimeStringAdapter.ForJaxb.class)
     @Title()
     private LocalDate ultimaVisitaMedica;
@@ -64,7 +64,7 @@ public class Historia {
 
     @javax.jdo.annotations.Column(allowsNull = "true")
     @lombok.NonNull
-    @Property(editing = Editing.ENABLED)
+    @Property()
     @Title()
     private Integer stockMedicacion;
 
