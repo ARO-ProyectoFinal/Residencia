@@ -82,7 +82,7 @@ public class PacienteCreate extends FixtureScript {
         String nroDocumento = checkParam("nroDocumento", ec, String.class);
         LocalDate fechaNacimiento = checkParam("fechaNacimiento", ec, LocalDate.class);
         String lugarDeNacimiento = checkParam("lugarDeNacimiento", ec, String.class);
-        Integer telefono = checkParam("telefono", ec, Integer.class);
+        String telefono = checkParam("telefono", ec, String.class);
         String numeroDeSeguroSocial = checkParam("numeroDeSeguroSocial", ec, String.class);
         String incapacidad = checkParam("incapacidad", ec, String.class);
         String observacion = checkParam("observacion", ec, String.class);
