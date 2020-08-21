@@ -21,12 +21,6 @@ public class PacienteRecreate extends FixtureScript {
     public final List<String> NumeroDeSeguroSocial = Collections.unmodifiableList(Arrays.asList("Habilitada", "Habilitada", "Habilitada", "Habilitada", "Habilitada", "Habilitada"));
     public final List<String> Incapacidad = Collections.unmodifiableList(Arrays.asList("Habilitada", "Habilitada", "Habilitada", "Habilitada", "Habilitada", "Habilitada"));
     public final List<String> Observacion = Collections.unmodifiableList(Arrays.asList("Habilitada", "Habilitada", "Habilitada", "Habilitada", "Habilitada", "Habilitada"));
-    public final List<String> NombreFamiliar = Collections.unmodifiableList(Arrays.asList("Habilitada", "Habilitada", "Habilitada", "Habilitada", "Habilitada", "Habilitada"));
-    public final List<String> ApellidoFamiliar = Collections.unmodifiableList(Arrays.asList("Habilitada", "Habilitada", "Habilitada", "Habilitada", "Habilitada", "Habilitada"));
-    public final List<String> Parentesco = Collections.unmodifiableList(Arrays.asList("Habilitada", "Habilitada", "Habilitada", "Habilitada", "Habilitada", "Habilitada"));
-    public final List<String> NumeroContacto = Collections.unmodifiableList(Arrays.asList("Habilitada", "Habilitada", "Habilitada", "Habilitada", "Habilitada", "Habilitada"));
-    public final List<String> MailFamiliar = Collections.unmodifiableList(Arrays.asList("Habilitada", "Habilitada", "Habilitada", "Habilitada", "Habilitada", "Habilitada"));
-    public final List<String> DireccionFamiliar = Collections.unmodifiableList(Arrays.asList("Habilitada", "Habilitada", "Habilitada", "Habilitada", "Habilitada", "Habilitada"));
 
 
     public PacienteRecreate() {
@@ -49,12 +43,6 @@ public class PacienteRecreate extends FixtureScript {
             fs.setNumeroDeSeguroSocial(NumeroDeSeguroSocial.get(i));
             fs.setIncapacidad(Incapacidad.get(i));
             fs.setObservacion(Observacion.get(i));
-            fs.setNombreFamiliar(NombreFamiliar.get(i));
-            fs.setApellidoFamiliar(ApellidoFamiliar.get(i));
-            fs.setParentesco(Parentesco.get(i));
-            fs.setNumeroContacto(NumeroContacto.get(i));
-            fs.setMailFamiliar(MailFamiliar.get(i));
-            fs.setDireccionFamiliar(DireccionFamiliar.get(i));
 
             ec.executeChild(this, fs.getName(), fs);
         }
