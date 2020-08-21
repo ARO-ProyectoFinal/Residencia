@@ -56,69 +56,69 @@ public class Paciente implements Comparable<Paciente> {
 
     @javax.jdo.annotations.Column(allowsNull = "false", length = 40)
     @lombok.NonNull
-    @Property(editing = Editing.ENABLED) // editing disabled by default, see isis.properties
+    @Property() // editing disabled by default, see isis.properties
     private String name;
 
     @javax.jdo.annotations.Column(allowsNull = "false", length = 40)
     @lombok.NonNull
-    @Property(editing = Editing.ENABLED)
+    @Property()
     private String apellido;
 
     @javax.jdo.annotations.Column(allowsNull = "true")
     @lombok.NonNull
-    @Property(editing = Editing.ENABLED) // editing disabled by default, see isis.properties
+    @Property() // editing disabled by default, see isis.properties
     @XmlJavaTypeAdapter(JodaDateTimeStringAdapter.ForJaxb.class)
     private LocalDate fechaAlta;
 
     @javax.jdo.annotations.Column(allowsNull = "true")
     @lombok.NonNull
-    @Property(editing = Editing.ENABLED)
+    @Property()
     private Integer edad;
 
     @javax.jdo.annotations.Column(allowsNull = "true")
     @lombok.NonNull
-    @Property(editing = Editing.ENABLED)
+    @Property()
     private TipoDocumento tipoDocumento;
 
     @javax.jdo.annotations.Column(allowsNull = "true", length = 40)
     @lombok.NonNull
-    @Property(editing = Editing.ENABLED)
+    @Property()
     private String nroDocumento;
 
     @javax.jdo.annotations.Column(allowsNull = "true")
     @lombok.NonNull
-    @Property(editing = Editing.ENABLED) // editing disabled by default, see isis.properties
+    @Property() // editing disabled by default, see isis.properties
     @XmlJavaTypeAdapter(JodaDateTimeStringAdapter.ForJaxb.class)
     private LocalDate fechaNacimiento;
 
     @javax.jdo.annotations.Column(allowsNull = "true", length = 40)
     @lombok.NonNull
-    @Property(editing = Editing.ENABLED)
+    @Property()
     private String lugarDeNacimiento;
 
     @javax.jdo.annotations.Column(allowsNull = "true")
     @lombok.NonNull
-    @Property(editing = Editing.ENABLED)
+    @Property()
     private Integer telefono;
 
     @javax.jdo.annotations.Column(allowsNull = "true", length = 40)
     @lombok.NonNull
-    @Property(editing = Editing.ENABLED)
+    @Property()
     private String nroSeguroSocial;
 
     @javax.jdo.annotations.Column(allowsNull = "true", length = 40)
     @lombok.NonNull
-    @Property(editing = Editing.ENABLED)
+    @Property()
     private String incapacidad;
 
     @javax.jdo.annotations.Column(allowsNull = "true", length = 40)
-    @Property(editing = Editing.ENABLED)
+    @Property()
     @lombok.NonNull
     private String observacion;
 
     @javax.jdo.annotations.Column(allowsNull = "true")
     @lombok.NonNull
-    @Property(editing = Editing.ENABLED)
+    @Property()
     private HabitacionSeleccionada habitacionSeleccionada;
 
     public String title(){
