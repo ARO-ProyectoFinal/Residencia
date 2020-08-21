@@ -1,5 +1,6 @@
 package domainapp.modules.simple.paciente;
 
+import domainapp.modules.simple.dom.impl.paciente.QPaciente;
 import org.apache.isis.applib.annotation.*;
 import org.apache.isis.applib.services.jdosupport.IsisJdoSupport;
 import org.datanucleus.query.typesafe.TypesafeQuery;
@@ -57,7 +58,7 @@ public class PacienteMenu {
 
             @Parameter(maxLength = 40)
             @ParameterLayout(named = "Telefono ")
-            final Integer telefono,
+            final String telefono,
 
             @Parameter(maxLength = 40)
             @ParameterLayout(named = "Numero de Seguro Social ")

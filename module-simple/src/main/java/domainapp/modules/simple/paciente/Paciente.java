@@ -96,10 +96,10 @@ public class Paciente implements Comparable<Paciente> {
     @Property()
     private String lugarDeNacimiento;
 
-    @javax.jdo.annotations.Column(allowsNull = "true")
+    @javax.jdo.annotations.Column(allowsNull = "true", length = 40)
     @lombok.NonNull
     @Property()
-    private Integer telefono;
+    private String telefono;
 
     @javax.jdo.annotations.Column(allowsNull = "true", length = 40)
     @lombok.NonNull

@@ -35,7 +35,7 @@ public class PacienteRepository {
             final String nroDocumento,
             final LocalDate fechaNacimiento,
             final String lugarDeNacimiento,
-            final Integer telefono,
+            final String telefono,
             final String numeroDeSeguroSocial,
             final String incapacidad,
             final String observacion,

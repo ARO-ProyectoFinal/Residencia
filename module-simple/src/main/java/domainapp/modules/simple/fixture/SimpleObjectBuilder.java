@@ -58,7 +58,7 @@ public class SimpleObjectBuilder extends BuilderScriptAbstract<Paciente, SimpleO
     private String lugarDeNacimiento;
 
     @Getter @Setter
-    private Integer telefono;
+    private String telefono;
 
     @Getter @Setter
     private String numeroDeSeguroSocial;
@@ -98,7 +98,7 @@ public class SimpleObjectBuilder extends BuilderScriptAbstract<Paciente, SimpleO
 
         checkParam("name", ec, String.class);
 
-        object = wrap(pacienteMenu).create(name,apellido,fechaAlta,edad,tipoDocumento,nroDocumento,fechaNacimiento,lugarDeNacimiento,telefono,numeroDeSeguroSocial,incapacidad,observacion,nombreFamiliar,apellidoFamiliar,parentesco,numeroContacto,mailFamiliar,direccionFamiliar,habitacionSeleccionada);
+        object = wrap(pacienteMenu).create(name,apellido,fechaAlta,edad,tipoDocumento,nroDocumento,fechaNacimiento,lugarDeNacimiento,telefono,numeroDeSeguroSocial,incapacidad,observacion,habitacionSeleccionada);
     }
 
     @javax.inject.Inject
