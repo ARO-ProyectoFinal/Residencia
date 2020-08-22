@@ -1,6 +1,6 @@
 package domainapp.modules.simple.paciente;
 
-import domainapp.modules.simple.dom.impl.paciente.QPaciente;
+import domainapp.modules.simple.paciente.QPaciente;
 import org.apache.isis.applib.annotation.*;
 import org.apache.isis.applib.services.jdosupport.IsisJdoSupport;
 import org.datanucleus.query.typesafe.TypesafeQuery;

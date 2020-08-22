@@ -12,14 +12,55 @@ import org.apache.isis.applib.services.title.TitleService;
 import lombok.AccessLevel;
 
 
+import javax.jdo.annotations.*;
+
 import static org.apache.isis.applib.annotation.CommandReification.ENABLED;
 import static org.apache.isis.applib.annotation.SemanticsOf.IDEMPOTENT;
 
 @lombok.Getter @lombok.Setter
 @lombok.RequiredArgsConstructor
 
+@PersistenceCapable(
+        identityType = IdentityType.DATASTORE,
+        schema = "simple",
+        table = "DatosFamiliar"
+)
+@DatastoreIdentity(
+        strategy = IdGeneratorStrategy.IDENTITY,
+        column = "id")
+@Version(
+        strategy = VersionStrategy.VERSION_NUMBER,
+        column = "version")
+@Queries({
+        @Query(
+                name = "find", language = "JDOQL",
+                value = "SELECT "),
+       /* @Query(
+                name = "buscaFamiliar", language = "JDOQL",
+                value = "SELECT"
+                        +"FROM domainapp.modules.simple.datosFamiliares.DatosFamiliares"
+                        +"WHERE nombreCompletoFamiliar == nombreCompletoFamiliar"),
 
-public class DatosFamiliares {
+
+
+        */
+
+})
+
+
+
+
+
+@Unique(name = "DatosFamiliares_nombreCompletoFamiliar_UNQ", members = { "nombreCompletoFamiliar" })
+@DomainObject(
+        editing = Editing.DISABLED
+)
+@DomainObjectLayout(
+        bookmarking = BookmarkPolicy.AS_ROOT
+)
+
+
+public class DatosFamiliares implements Comparable<DatosFamiliares>{
 
 
         //Datos familiares paciente
