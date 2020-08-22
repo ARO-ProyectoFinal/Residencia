@@ -39,7 +39,7 @@ public class PacienteRecreate extends FixtureScript {
             fs.setNroDocumento(NroDocumento.get(i));
             fs.setFechaNacimiento(FechaNacimiento.get(i));
             fs.setLugarDeNacimiento(LugarDeNacimiento.get(i));
-            fs.setTelefono(Telefono.get(i));
+           // fs.setTelefono(Telefono.get(i));
             fs.setNumeroDeSeguroSocial(NumeroDeSeguroSocial.get(i));
             fs.setIncapacidad(Incapacidad.get(i));
             fs.setObservacion(Observacion.get(i));

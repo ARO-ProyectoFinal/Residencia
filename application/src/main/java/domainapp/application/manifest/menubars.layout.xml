@@ -33,6 +33,22 @@
                 </mb3:serviceAction>
             </mb3:section>
         </mb3:menu>
+
+        <mb3:menu>
+            <mb3:named>Datos Familiares</mb3:named>
+            <mb3:section>
+                <mb3:serviceAction objectType="DatosFamiliares" id="create">
+                    <cpt:named>Cargar datos familiares</cpt:named>
+                </mb3:serviceAction>
+                <mb3:serviceAction objectType="DatosFamiliares" id="findByFamiliar">
+                    <cpt:named>Buscar por nombre completo</cpt:named>
+                </mb3:serviceAction>
+                <mb3:serviceAction objectType="DatosFamiliares" id="listAll">
+                    <cpt:named>Listar Familiares</cpt:named>
+                </mb3:serviceAction>
+            </mb3:section>
+        </mb3:menu>
+
         <mb3:menu unreferencedActions="true">
             <mb3:named>Other</mb3:named>
         </mb3:menu>
