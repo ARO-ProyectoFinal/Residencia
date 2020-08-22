@@ -27,6 +27,16 @@ public class DatosFamiliaresRepository {
                         DatosFamiliares.class,
                         "find"));
     }
+    @Programmatic
+    public  DatosFamiliares buscaFamiliar(final String nombreCompletoFamiliar){
+
+        return repositoryService.uniqueMatch(
+                new QueryDefault<>(
+                        DatosFamiliares.class,
+                        "buscaFamiliar",
+                        "nombreCompletoFamiliar", nombreCompletoFamiliar));
+    }
+
 
     @Programmatic
     public DatosFamiliares create(
