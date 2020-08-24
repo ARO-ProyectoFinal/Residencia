@@ -1,0 +1,233 @@
+@startuml
+
+title __MYAPP-MODULE-SIMPLE's Class Diagram__\n
+
+  namespace domainapp.modules.simple {
+    class domainapp.modules.simple.SimpleModule {
+    }
+  }
+  
+
+  namespace domainapp.modules.simple {
+    class domainapp.modules.simple.SimpleModuleManifest {
+    }
+  }
+  
+
+  namespace domainapp.modules.simple {
+    namespace cognitiva {
+      class domainapp.modules.simple.cognitiva.Cognitiva {
+      }
+    }
+  }
+  
+
+  namespace domainapp.modules.simple {
+    namespace cognitiva {
+      class domainapp.modules.simple.cognitiva.CognitivaMenu {
+      }
+    }
+  }
+  
+
+  namespace domainapp.modules.simple {
+    namespace cognitiva {
+      class domainapp.modules.simple.cognitiva.CognitivaRepository {
+      }
+    }
+  }
+  
+
+  namespace domainapp.modules.simple {
+    namespace datosFamiliares {
+      class domainapp.modules.simple.datosFamiliares.DatosFamiliares {
+      }
+    }
+  }
+  
+
+  namespace domainapp.modules.simple {
+    namespace datosFamiliares {
+      class domainapp.modules.simple.datosFamiliares.DatosFamiliaresMenu {
+      }
+    }
+  }
+  
+
+  namespace domainapp.modules.simple {
+    namespace datosFamiliares {
+      class domainapp.modules.simple.datosFamiliares.DatosFamiliaresRepository {
+      }
+    }
+  }
+  
+
+  namespace domainapp.modules.simple {
+    namespace enfermero {
+      class domainapp.modules.simple.enfermero.Enfermero {
+      }
+    }
+  }
+  
+
+  namespace domainapp.modules.simple {
+    namespace enfermero {
+      class domainapp.modules.simple.enfermero.EnfermeroMenu {
+      }
+    }
+  }
+  
+
+  namespace domainapp.modules.simple {
+    namespace enfermero {
+      class domainapp.modules.simple.enfermero.EnfermeroRepository {
+      }
+    }
+  }
+  
+
+  namespace domainapp.modules.simple {
+    namespace fixture {
+      class domainapp.modules.simple.fixture.SimpleObjectBuilder {
+      }
+    }
+  }
+  
+
+  namespace domainapp.modules.simple {
+    namespace fixture {
+      enum SimpleObject_persona {
+      }
+    }
+  }
+  
+
+  namespace domainapp.modules.simple {
+    namespace historia {
+      class domainapp.modules.simple.historia.Historia {
+      }
+    }
+  }
+  
+
+  namespace domainapp.modules.simple {
+    namespace historia {
+      class domainapp.modules.simple.historia.HistoriaMenu {
+      }
+    }
+  }
+  
+
+  namespace domainapp.modules.simple {
+    namespace historia {
+      class domainapp.modules.simple.historia.HistoriaRepository {
+      }
+    }
+  }
+  
+
+  namespace domainapp.modules.simple {
+    namespace paciente {
+      enum HabitacionSeleccionada {
+      }
+    }
+  }
+  
+
+  namespace domainapp.modules.simple {
+    namespace paciente {
+      class domainapp.modules.simple.paciente.Paciente {
+      }
+    }
+  }
+  
+
+  namespace domainapp.modules.simple {
+    namespace paciente {
+      class domainapp.modules.simple.paciente.PacienteMenu {
+      }
+    }
+  }
+  
+
+  namespace domainapp.modules.simple {
+    namespace paciente {
+      class domainapp.modules.simple.paciente.PacienteRepository {
+      }
+    }
+  }
+  
+
+  namespace domainapp.modules.simple {
+    namespace paciente {
+      class domainapp.modules.simple.paciente.QPaciente {
+      }
+    }
+  }
+  
+
+  namespace domainapp.modules.simple {
+    namespace paciente {
+      enum TipoDocumento {
+      }
+    }
+  }
+  
+
+  namespace domainapp.modules.simple {
+    namespace visita {
+      class domainapp.modules.simple.visita.Visita {
+      }
+    }
+  }
+  
+
+  namespace domainapp.modules.simple {
+    namespace visita {
+      class domainapp.modules.simple.visita.VisitaMenu {
+      }
+    }
+  }
+  
+
+  namespace domainapp.modules.simple {
+    namespace visita {
+      class domainapp.modules.simple.visita.VisitaRepository {
+      }
+    }
+  }
+  
+
+  domainapp.modules.simple.SimpleModule -up-|> org.apache.isis.applib.ModuleAbstract
+  domainapp.modules.simple.SimpleModuleManifest -up-|> org.apache.isis.applib.AppManifestAbstract2
+  domainapp.modules.simple.cognitiva.CognitivaMenu o-- domainapp.modules.simple.cognitiva.CognitivaRepository : cognitivaRepository
+  domainapp.modules.simple.datosFamiliares.DatosFamiliares o-- domainapp.modules.simple.datosFamiliares.DatosFamiliaresRepository : datosfamiliaresrepository
+  domainapp.modules.simple.datosFamiliares.DatosFamiliaresMenu o-- domainapp.modules.simple.datosFamiliares.DatosFamiliaresRepository : datosfamiliaresrepository
+  domainapp.modules.simple.fixture.SimpleObjectBuilder -up-|> org.apache.isis.applib.fixturescripts.BuilderScriptAbstract
+  domainapp.modules.simple.fixture.SimpleObjectBuilder o-- domainapp.modules.simple.paciente.PacienteMenu : pacienteMenu
+  domainapp.modules.simple.fixture.SimpleObjectBuilder o-- domainapp.modules.simple.paciente.HabitacionSeleccionada : habitacionSeleccionada
+  domainapp.modules.simple.fixture.SimpleObjectBuilder o-- domainapp.modules.simple.paciente.Paciente : object
+  domainapp.modules.simple.fixture.SimpleObjectBuilder o-- domainapp.modules.simple.paciente.TipoDocumento : tipoDocumento
+  domainapp.modules.simple.fixture.SimpleObject_persona .up.|> org.apache.isis.applib.fixturescripts.PersonaWithBuilderScript
+  domainapp.modules.simple.fixture.SimpleObject_persona .up.|> org.apache.isis.applib.fixturescripts.PersonaWithFinder
+  domainapp.modules.simple.historia.Historia o-- domainapp.modules.simple.historia.HistoriaRepository : historiaRepository
+  domainapp.modules.simple.historia.HistoriaMenu o-- domainapp.modules.simple.historia.HistoriaRepository : historiaRepository
+  domainapp.modules.simple.paciente.Paciente .up.|> java.lang.Comparable
+  domainapp.modules.simple.paciente.Paciente o-- domainapp.modules.simple.paciente.PacienteRepository : pacienteRepository
+  domainapp.modules.simple.paciente.Paciente o-- domainapp.modules.simple.paciente.HabitacionSeleccionada : habitacionSeleccionada
+  domainapp.modules.simple.paciente.Paciente o-- domainapp.modules.simple.paciente.TipoDocumento : tipoDocumento
+  domainapp.modules.simple.paciente.PacienteMenu o-- domainapp.modules.simple.paciente.PacienteRepository : pacienteRepository
+  domainapp.modules.simple.paciente.QPaciente .up.|> org.datanucleus.query.typesafe.PersistableExpression
+  domainapp.modules.simple.paciente.QPaciente -up-|> org.datanucleus.api.jdo.query.PersistableExpressionImpl
+  domainapp.modules.simple.visita.Visita o-- domainapp.modules.simple.visita.VisitaRepository : visitaRepository
+  domainapp.modules.simple.visita.VisitaMenu o-- domainapp.modules.simple.visita.VisitaRepository : visitaRepository
+
+
+right footer
+
+
+PlantUML diagram generated by SketchIt! (https://bitbucket.org/pmesmeur/sketch.it)
+For more information about this tool, please contact philippe.mesmeur@gmail.com
+endfooter
+
+@enduml

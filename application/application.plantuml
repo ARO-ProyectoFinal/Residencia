@@ -1,0 +1,192 @@
+@startuml
+
+title __MYAPP-APPLICATION's Class Diagram__\n
+
+  namespace domainapp.application {
+    class domainapp.application.DomainAppApplicationModule {
+    }
+  }
+  
+
+  namespace domainapp.application {
+    namespace fixture {
+      class domainapp.application.fixture.DomainAppFixtureScriptsSpecificationProvider {
+      }
+    }
+  }
+  
+
+  namespace domainapp.application {
+    namespace fixture {
+      namespace scenarios {
+        class domainapp.application.fixture.scenarios.CognitivaCreate {
+        }
+      }
+    }
+  }
+  
+
+  namespace domainapp.application {
+    namespace fixture {
+      namespace scenarios {
+        class domainapp.application.fixture.scenarios.CognitivaRecreate {
+        }
+      }
+    }
+  }
+  
+
+  namespace domainapp.application {
+    namespace fixture {
+      namespace scenarios {
+        class domainapp.application.fixture.scenarios.DomainAppDemo {
+        }
+      }
+    }
+  }
+  
+
+  namespace domainapp.application {
+    namespace fixture {
+      namespace scenarios {
+        class domainapp.application.fixture.scenarios.HistoriaCreate {
+        }
+      }
+    }
+  }
+  
+
+  namespace domainapp.application {
+    namespace fixture {
+      namespace scenarios {
+        class domainapp.application.fixture.scenarios.HistoriaRecreate {
+        }
+      }
+    }
+  }
+  
+
+  namespace domainapp.application {
+    namespace fixture {
+      namespace scenarios {
+        class domainapp.application.fixture.scenarios.PacienteCreate {
+        }
+      }
+    }
+  }
+  
+
+  namespace domainapp.application {
+    namespace fixture {
+      namespace scenarios {
+        class domainapp.application.fixture.scenarios.PacienteRecreate {
+        }
+      }
+    }
+  }
+  
+
+  namespace domainapp.application {
+    namespace fixture {
+      namespace scenarios {
+        class domainapp.application.fixture.scenarios.VisitaCreate {
+        }
+      }
+    }
+  }
+  
+
+  namespace domainapp.application {
+    namespace fixture {
+      namespace scenarios {
+        class domainapp.application.fixture.scenarios.VisitaRecreate {
+        }
+      }
+    }
+  }
+  
+
+  namespace domainapp.application {
+    namespace manifest {
+      class domainapp.application.manifest.DomainAppAppManifest {
+      }
+    }
+  }
+  
+
+  namespace domainapp.application {
+    namespace manifest {
+      class domainapp.application.manifest.DomainAppAppManifestBypassSecurity {
+      }
+    }
+  }
+  
+
+  namespace domainapp.application {
+    namespace manifest {
+      class domainapp.application.manifest.DomainAppAppManifestWithFixtures {
+      }
+    }
+  }
+  
+
+  namespace domainapp.application {
+    namespace manifest {
+      class domainapp.application.manifest.DomainAppAppManifestWithFixturesBypassSecurity {
+      }
+    }
+  }
+  
+
+  namespace domainapp.application {
+    namespace services.homepage {
+      class domainapp.application.services.homepage.HomePageService {
+      }
+    }
+  }
+  
+
+  namespace domainapp.application {
+    namespace services.homepage {
+      class domainapp.application.services.homepage.HomePageViewModel {
+      }
+    }
+  }
+  
+
+  domainapp.application.DomainAppApplicationModule -up-|> org.apache.isis.applib.ModuleAbstract
+  domainapp.application.fixture.DomainAppFixtureScriptsSpecificationProvider .up.|> org.apache.isis.applib.services.fixturespec.FixtureScriptsSpecificationProvider
+  domainapp.application.fixture.scenarios.CognitivaCreate -up-|> org.apache.isis.applib.fixturescripts.FixtureScript
+  domainapp.application.fixture.scenarios.CognitivaCreate o-- domainapp.modules.simple.cognitiva.CognitivaMenu : menu
+  domainapp.application.fixture.scenarios.CognitivaCreate o-- domainapp.modules.simple.cognitiva.Cognitiva : cognitivaObject
+  domainapp.application.fixture.scenarios.CognitivaRecreate -up-|> org.apache.isis.applib.fixturescripts.FixtureScript
+  domainapp.application.fixture.scenarios.DomainAppDemo -up-|> org.apache.isis.applib.fixturescripts.FixtureScript
+  domainapp.application.fixture.scenarios.HistoriaCreate -up-|> org.apache.isis.applib.fixturescripts.FixtureScript
+  domainapp.application.fixture.scenarios.HistoriaCreate o-- domainapp.modules.simple.historia.HistoriaMenu : menu
+  domainapp.application.fixture.scenarios.HistoriaCreate o-- domainapp.modules.simple.historia.Historia : historiaObject
+  domainapp.application.fixture.scenarios.HistoriaRecreate -up-|> org.apache.isis.applib.fixturescripts.FixtureScript
+  domainapp.application.fixture.scenarios.PacienteCreate -up-|> org.apache.isis.applib.fixturescripts.FixtureScript
+  domainapp.application.fixture.scenarios.PacienteCreate o-- domainapp.modules.simple.paciente.PacienteMenu : menu
+  domainapp.application.fixture.scenarios.PacienteCreate o-- domainapp.modules.simple.paciente.HabitacionSeleccionada : habitacionSeleccionada
+  domainapp.application.fixture.scenarios.PacienteCreate o-- domainapp.modules.simple.paciente.Paciente : pacienteObject
+  domainapp.application.fixture.scenarios.PacienteCreate o-- domainapp.modules.simple.paciente.TipoDocumento : tipoDocumento
+  domainapp.application.fixture.scenarios.PacienteRecreate -up-|> org.apache.isis.applib.fixturescripts.FixtureScript
+  domainapp.application.fixture.scenarios.VisitaCreate -up-|> org.apache.isis.applib.fixturescripts.FixtureScript
+  domainapp.application.fixture.scenarios.VisitaCreate o-- domainapp.modules.simple.visita.VisitaMenu : menu
+  domainapp.application.fixture.scenarios.VisitaCreate o-- domainapp.modules.simple.visita.Visita : visitaObject
+  domainapp.application.fixture.scenarios.VisitaRecreate -up-|> org.apache.isis.applib.fixturescripts.FixtureScript
+  domainapp.application.manifest.DomainAppAppManifest -up-|> org.apache.isis.applib.AppManifestAbstract2
+  domainapp.application.manifest.DomainAppAppManifestBypassSecurity -up-|> domainapp.application.manifest.DomainAppAppManifest
+  domainapp.application.manifest.DomainAppAppManifestWithFixtures -up-|> domainapp.application.manifest.DomainAppAppManifest
+  domainapp.application.manifest.DomainAppAppManifestWithFixturesBypassSecurity -up-|> domainapp.application.manifest.DomainAppAppManifestWithFixtures
+  domainapp.application.services.homepage.HomePageViewModel o-- domainapp.modules.simple.paciente.PacienteRepository : pacienteRepository
+
+
+right footer
+
+
+PlantUML diagram generated by SketchIt! (https://bitbucket.org/pmesmeur/sketch.it)
+For more information about this tool, please contact philippe.mesmeur@gmail.com
+endfooter
+
+@enduml
