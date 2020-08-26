@@ -49,6 +49,21 @@
             </mb3:section>
         </mb3:menu>
 
+        <mb3:menu>
+            <mb3:named>Datos Enfermero</mb3:named>
+            <mb3:section>
+                <mb3:serviceAction objectType="DatosEnfermero" id="create">
+                    <cpt:named>Cargar datos Enfermero</cpt:named>
+                </mb3:serviceAction>
+                <mb3:serviceAction objectType="DatosEnfermero" id="findByEnfermero">
+                    <cpt:named>Buscar por nombre completo</cpt:named>
+                </mb3:serviceAction>
+                <mb3:serviceAction objectType="DatosEnfermero" id="listAll">
+                    <cpt:named>Listar Enfermero</cpt:named>
+                </mb3:serviceAction>
+            </mb3:section>
+        </mb3:menu>
+
         <mb3:menu unreferencedActions="true">
             <mb3:named>Other</mb3:named>
         </mb3:menu>

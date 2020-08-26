@@ -13,58 +13,58 @@ import java.util.List;
 
 @DomainService(
         nature = NatureOfService.VIEW_MENU_ONLY,
-        objectType = "Enfermero",
+        objectType = "DatosEnfermero",
         repositoryFor = Enfermero.class
 )
 @DomainServiceLayout(
-        named = "Enfermero",
+        named = "DatosEnfermero",
         menuOrder = ""
 )
 public class EnfermeroMenu {
 
     @Action()
-    @ActionLayout(named = "Enfermero")
+    @ActionLayout(named = "Crear Enfermero")
     @MemberOrder(sequence = "1")
     public Enfermero create(
 
             @Parameter(maxLength = 40)
-            @ParameterLayout(named = "Nombre Enfermero ")
+            @ParameterLayout(named = "Nombre Enfermero")
             final String nombre,
 
             @Parameter(maxLength = 40)
-            @ParameterLayout(named = "Nombre Enfermero ")
+            @ParameterLayout(named = "Apellido Enfermero")
             final String apellido,
 
             @Parameter(maxLength = 40)
-            @ParameterLayout(named = "Nombre Enfermero ")
+            @ParameterLayout(named = "Fecha Alta")
             final LocalDate fechaAlta,
 
             @Parameter(maxLength = 40)
-            @ParameterLayout(named = "Nombre Enfermero ")
+            @ParameterLayout(named = "Tipo de Documento")
             final TipoDocumento tipoDocumento,
 
             @Parameter(maxLength = 40)
-            @ParameterLayout(named = "Nombre Enfermero ")
+            @ParameterLayout(named = "Numero de Documento")
             final String nroDocumento,
 
             @Parameter(maxLength = 40)
-            @ParameterLayout(named = "Nombre Enfermero ")
+            @ParameterLayout(named = "Fecha de Nacimiento")
             final LocalDate fechaNacimiento,
 
             @Parameter(maxLength = 40)
-            @ParameterLayout(named = "Nombre Enfermero ")
+            @ParameterLayout(named = "Lugar de Nacimiento")
             final String lugarNacimiento,
 
             @Parameter(maxLength = 40)
-            @ParameterLayout(named = "Nombre Enfermero ")
+            @ParameterLayout(named = "Telefono")
             final String telefono,
 
             @Parameter(maxLength = 40)
-            @ParameterLayout(named = "Nombre Enfermero ")
+            @ParameterLayout(named = "Edad")
             final String edad,
 
             @Parameter(maxLength = 40)
-            @ParameterLayout(named = "Nombre Enfermero ")
+            @ParameterLayout(named = "Numero de Matricula")
             final String nroMatricula)
 
     {
