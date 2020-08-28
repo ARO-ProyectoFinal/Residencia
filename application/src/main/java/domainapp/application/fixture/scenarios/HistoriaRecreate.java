@@ -9,14 +9,14 @@ import java.util.List;
 
 public class HistoriaRecreate extends FixtureScript {
 
-    public final List<String> VacuRecibida = Collections.unmodifiableList(Arrays.asList("Habilitada", "Habilitada", "Habilitada", "Habilitada", "Habilitada", "Habilitada"));
-    public final List<String> VacuFaltante = Collections.unmodifiableList(Arrays.asList("Habilitada", "Habilitada", "Habilitada", "Habilitada", "Habilitada", "Habilitada"));
-    public final List<String> EnfePadecida = Collections.unmodifiableList(Arrays.asList("Habilitada", "Habilitada", "Habilitada", "Habilitada", "Habilitada", "Habilitada"));
-    public final List<String> AlerPadecida = Collections.unmodifiableList(Arrays.asList("Habilitada", "Habilitada", "Habilitada", "Habilitada", "Habilitada", "Habilitada"));
-    public final List<LocalDate> UltimaVisitaMedica = Collections.unmodifiableList(Arrays.asList(LocalDate.parse("12/12/2020"),LocalDate.parse("12/12/2015"),LocalDate.parse("12/12/2016"),LocalDate.parse("12/12/2017"),LocalDate.parse("12/12/2018"),LocalDate.parse("12/12/2019")));
-    public final List<String> LapsoIngesta = Collections.unmodifiableList(Arrays.asList("Habilitada", "Habilitada", "Habilitada", "Habilitada", "Habilitada", "Habilitada"));
-    public final List<Integer> StockMedicacion = Collections.unmodifiableList(Arrays.asList(22,33,44,55,66,77));
-    public final List<String> MedicacionAnterior = Collections.unmodifiableList(Arrays.asList("Habilitada", "Habilitada", "Habilitada", "Habilitada", "Habilitada", "Habilitada"));
+    public final List<String> VacuRecibida = Collections.unmodifiableList(Arrays.asList("Libreta Completo", "Faltantes", "Libreta Completo", "Libreta Completo", "Faltantes", "Libreta Completo"));
+    public final List<String> VacuFaltante = Collections.unmodifiableList(Arrays.asList("Ninguna", "Tdap", "Ninguna", "Ninguna", "Hep B", "Ninguna"));
+    public final List<String> EnfePadecida = Collections.unmodifiableList(Arrays.asList("Ninguna", "Ninguna", "Ninguna", "Ninguna", "Ninguna", "Ninguna"));
+    public final List<String> AlerPadecida = Collections.unmodifiableList(Arrays.asList("Ninguna", "Ninguna", "Ninguna", "Ninguna", "Ninguna", "Ninguna"));
+    public final List<LocalDate> UltimaVisitaMedica = Collections.unmodifiableList(Arrays.asList(LocalDate.parse("05/08/2020"),LocalDate.parse("05/08/2020"),LocalDate.parse("05/08/2020"),LocalDate.parse("05/08/2020"),LocalDate.parse("05/08/2020"),LocalDate.parse("05/08/2020")));
+    public final List<String> LapsoIngesta = Collections.unmodifiableList(Arrays.asList("Diario", "Cada dos dias", "Diario", "Diario", "Cada dos dias", "Diario"));
+    public final List<Integer> StockMedicacion = Collections.unmodifiableList(Arrays.asList(20,21,20,15,13,12));
+    public final List<String> MedicacionAnterior = Collections.unmodifiableList(Arrays.asList("Hidroxicloroquina", "Hidroxicloroquina", "Paracetamol", "Hidroxicloroquina", "Diclofenac", "Omeprazol"));
 
     public HistoriaRecreate() {
         withDiscoverability(Discoverability.DISCOVERABLE);
