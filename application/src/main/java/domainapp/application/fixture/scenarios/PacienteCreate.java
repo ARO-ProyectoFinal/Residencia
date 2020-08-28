@@ -36,7 +36,7 @@ public class PacienteCreate extends FixtureScript {
     private String lugarDeNacimiento;
 
     @Getter @Setter
-    private Integer telefono;
+    private String telefono;
 
     @Getter @Setter
     private String numeroDeSeguroSocial;
