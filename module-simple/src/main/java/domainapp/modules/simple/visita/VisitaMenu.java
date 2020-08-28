@@ -2,14 +2,25 @@ package domainapp.modules.simple.visita;
 
 
 
+import domainapp.modules.simple.enfermero.Enfermero;
 import org.apache.isis.applib.annotation.*;
 
 import java.util.List;
 
+@DomainService(
+        nature = NatureOfService.VIEW_MENU_ONLY,
+        objectType = "DatosVisitaMedica",
+        repositoryFor = Visita.class
+)
+@DomainServiceLayout(
+        named = "DatosVisitaMedica",
+        menuOrder = ""
+)
+
 public class VisitaMenu {
 
     @Action()
-    @ActionLayout(named = "Crear Visita medica")
+    @ActionLayout(named = "Crear Visita Medica")
     @MemberOrder(sequence = "1")
     public Visita create(
             @Parameter(maxLength = 40)
@@ -29,19 +40,19 @@ public class VisitaMenu {
             final Integer presionArterial,
 
             @Parameter(maxLength = 40)
-            @ParameterLayout(named = "Frecuencia Cardiaac")
+            @ParameterLayout(named = "Frecuencia Cardiaca")
             final Integer frecuenciaCardiaca,
 
             @Parameter(maxLength = 40)
-            @ParameterLayout(named = "Cuales?")
+            @ParameterLayout(named = "Frecuencia Respiratoria")
             final Integer frecuenciaRespiratoria,
 
             @Parameter(maxLength = 40)
-            @ParameterLayout(named = "Cuales?")
+            @ParameterLayout(named = "Estudios Laboratorio")
             final String estudiosLaboratorio,
 
             @Parameter(maxLength = 40)
-            @ParameterLayout(named = "Cuales?")
+            @ParameterLayout(named = "Observacion")
             final String observacion)
     {
         return visitaRepository.create(altura, peso, temperatura, presionArterial, frecuenciaCardiaca, frecuenciaRespiratoria, estudiosLaboratorio, observacion);
