@@ -1,12 +1,19 @@
 package domainapp.modules.simple.historia;
 
-import domainapp.modules.simple.paciente.*;
 import org.apache.isis.applib.annotation.*;
 import org.apache.isis.applib.services.jdosupport.IsisJdoSupport;
-import org.datanucleus.query.typesafe.TypesafeQuery;
 import org.joda.time.LocalDate;
 
 import java.util.List;
+@DomainService(
+        nature = NatureOfService.VIEW_MENU_ONLY,
+        objectType = "HistoriaClinica",
+        repositoryFor = Historia.class
+)
+@DomainServiceLayout(
+        named = "HistoriaClinica",
+        menuOrder = ""
+)
 
 public class HistoriaMenu {
 

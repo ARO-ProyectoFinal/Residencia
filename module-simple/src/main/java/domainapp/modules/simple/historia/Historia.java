@@ -3,20 +3,41 @@ package domainapp.modules.simple.historia;
 import lombok.AccessLevel;
 import lombok.Getter;
 import lombok.Setter;
-import org.apache.isis.applib.annotation.Editing;
-import org.apache.isis.applib.annotation.Property;
-import org.apache.isis.applib.annotation.Title;
+import org.apache.isis.applib.annotation.*;
 import org.apache.isis.applib.services.message.MessageService;
 import org.apache.isis.applib.services.title.TitleService;
 import org.apache.isis.schema.utils.jaxbadapters.JodaDateTimeStringAdapter;
 import org.joda.time.LocalDate;
 
-import javax.jdo.annotations.Column;
+import javax.jdo.annotations.*;
 import javax.xml.bind.annotation.adapters.XmlJavaTypeAdapter;
 
 @Getter
 @Setter
 @lombok.RequiredArgsConstructor
+
+@PersistenceCapable(
+        identityType = IdentityType.DATASTORE,
+        schema = "simple",
+        table = "HistoriaClinica"
+)
+@DatastoreIdentity(
+        strategy = IdGeneratorStrategy.IDENTITY,
+        column = "id")
+@Version(
+        strategy = VersionStrategy.VERSION_NUMBER,
+        column = "version")
+@Unique(name = "HistoriaClinica_nombre_UNQ", members = { "nombre" })
+@DomainObject(
+        editing = Editing.DISABLED
+)
+@DomainObjectLayout(
+        bookmarking = BookmarkPolicy.AS_ROOT
+)
+
+
+
+
 public class Historia {
 
     @lombok.NonNull
