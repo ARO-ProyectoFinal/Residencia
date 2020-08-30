@@ -27,7 +27,7 @@ import javax.xml.bind.annotation.adapters.XmlJavaTypeAdapter;
 @Version(
         strategy = VersionStrategy.VERSION_NUMBER,
         column = "version")
-@Unique(name = "HistoriaClinica_nombre_UNQ", members = { "nombre" })
+@Unique(name = "HistoriaClinica_vacuRecibida_UNQ", members = { "vacuRecibida" })
 @DomainObject(
         editing = Editing.DISABLED
 )

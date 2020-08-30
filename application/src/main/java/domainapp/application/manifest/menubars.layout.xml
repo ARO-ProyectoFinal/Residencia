@@ -79,6 +79,20 @@
             </mb3:section>
         </mb3:menu>
 
+        <mb3:menu>
+            <mb3:named>Historia Clinica</mb3:named>
+            <mb3:section>
+                <mb3:serviceAction objectType="HistoriaClinica" id="create">
+                    <cpt:named>Cargar Historia Clínica</cpt:named>
+                </mb3:serviceAction>
+
+
+                <mb3:serviceAction objectType="HistoriaClinica" id="listAll">
+                    <cpt:named>Lista de Historias Clinicas</cpt:named>
+                </mb3:serviceAction>
+            </mb3:section>
+        </mb3:menu>
+
         <mb3:menu unreferencedActions="true">
             <mb3:named>Other</mb3:named>
         </mb3:menu>
