@@ -19,7 +19,6 @@
 
 package domainapp.modules.simple.fixture;
 
-import domainapp.modules.simple.paciente.HabitacionSeleccionada;
 import domainapp.modules.simple.paciente.PacienteMenu;
 import domainapp.modules.simple.paciente.TipoDocumento;
 import org.apache.isis.applib.fixturescripts.BuilderScriptAbstract;
@@ -87,9 +86,6 @@ public class SimpleObjectBuilder extends BuilderScriptAbstract<Paciente, SimpleO
     @Getter @Setter
     private String direccionFamiliar;
 
-    @Getter @Setter
-    private HabitacionSeleccionada habitacionSeleccionada;
-
     @Getter
     private Paciente object;
 
@@ -98,7 +94,7 @@ public class SimpleObjectBuilder extends BuilderScriptAbstract<Paciente, SimpleO
 
         checkParam("name", ec, String.class);
 
-        object = wrap(pacienteMenu).create(name,apellido,fechaAlta,edad,tipoDocumento,nroDocumento,fechaNacimiento,lugarDeNacimiento,telefono,numeroDeSeguroSocial,incapacidad,observacion,habitacionSeleccionada);
+        object = wrap(pacienteMenu).create(name,apellido,fechaAlta,edad,tipoDocumento,nroDocumento,fechaNacimiento,lugarDeNacimiento,telefono,numeroDeSeguroSocial,incapacidad,observacion);
     }
 
     @javax.inject.Inject

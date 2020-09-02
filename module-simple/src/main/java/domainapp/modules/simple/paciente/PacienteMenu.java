@@ -1,6 +1,5 @@
 package domainapp.modules.simple.paciente;
 
-import domainapp.modules.simple.paciente.QPaciente;
 import org.apache.isis.applib.annotation.*;
 import org.apache.isis.applib.services.jdosupport.IsisJdoSupport;
 import org.datanucleus.query.typesafe.TypesafeQuery;
@@ -70,15 +69,11 @@ public class PacienteMenu {
 
             @Parameter(maxLength = 40)
             @ParameterLayout(named = "Observacion ")
-            final  String observacion,
-
-            @Parameter(maxLength = 40)
-            @ParameterLayout(named = "Habitacion Seleccionada")
-            final HabitacionSeleccionada habitacionSeleccionada)
+            final  String observacion)
 
 
     {
-        return pacienteRepository.create (name, apellido,fechaAlta,edad,tipoDocumento,nroDocumento,fechaNacimiento,lugarDeNacimiento,telefono,numeroDeSeguroSocial,incapacidad,observacion,habitacionSeleccionada);
+        return pacienteRepository.create (name, apellido,fechaAlta,edad,tipoDocumento,nroDocumento,fechaNacimiento,lugarDeNacimiento,telefono,numeroDeSeguroSocial,incapacidad,observacion);
     }
 
     @Action(semantics = SemanticsOf.SAFE)

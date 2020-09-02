@@ -2,8 +2,6 @@ package domainapp.application.fixture.scenarios;
 
 import domainapp.modules.simple.enfermero.Enfermero;
 import domainapp.modules.simple.enfermero.EnfermeroMenu;
-import domainapp.modules.simple.paciente.HabitacionSeleccionada;
-import domainapp.modules.simple.paciente.PacienteMenu;
 import domainapp.modules.simple.paciente.TipoDocumento;
 import lombok.Getter;
 import lombok.Setter;

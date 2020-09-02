@@ -1,6 +1,5 @@
 package domainapp.application.fixture.scenarios;
 
-import domainapp.modules.simple.paciente.HabitacionSeleccionada;
 import domainapp.modules.simple.paciente.Paciente;
 import domainapp.modules.simple.paciente.PacienteMenu;
 import domainapp.modules.simple.paciente.TipoDocumento;

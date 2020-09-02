@@ -116,11 +116,6 @@ public class Paciente implements Comparable<Paciente> {
     @lombok.NonNull
     private String observacion;
 
-    @javax.jdo.annotations.Column(allowsNull = "true")
-    @lombok.NonNull
-    @Property()
-    private HabitacionSeleccionada habitacionSeleccionada;
-
     public String title(){
         return getApellido()+" " + getName();
     }
