@@ -65,9 +65,6 @@ public class PacienteCreate extends FixtureScript {
     private String direccionFamiliar;
 
     @Getter @Setter
-    private HabitacionSeleccionada habitacionSeleccionada;
-
-    @Getter @Setter
     private Paciente pacienteObject;
 
     @Override
@@ -85,9 +82,8 @@ public class PacienteCreate extends FixtureScript {
         String numeroDeSeguroSocial = checkParam("numeroDeSeguroSocial", ec, String.class);
         String incapacidad = checkParam("incapacidad", ec, String.class);
         String observacion = checkParam("observacion", ec, String.class);
-        HabitacionSeleccionada habitacionSeleccionada = checkParam("habitacionSeleccionada", ec, HabitacionSeleccionada.class);
 
-        this.pacienteObject = wrap(menu).create(name,apellido,fechaAlta,edad,tipoDocumento,nroDocumento,fechaNacimiento,lugarDeNacimiento,telefono,numeroDeSeguroSocial,incapacidad,observacion,habitacionSeleccionada);
+        this.pacienteObject = wrap(menu).create(name,apellido,fechaAlta,edad,tipoDocumento,nroDocumento,fechaNacimiento,lugarDeNacimiento,telefono,numeroDeSeguroSocial,incapacidad,observacion);
 
         // also make available to UI
         ec.addResult(this, pacienteObject);
