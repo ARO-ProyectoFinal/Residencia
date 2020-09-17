@@ -4,15 +4,20 @@ package domainapp.modules.simple.datosFamiliares;
 import com.google.common.collect.ComparisonChain;
 
 
+import domainapp.modules.simple.paciente.Paciente;
 import org.apache.isis.applib.annotation.*;
 import org.apache.isis.applib.services.i18n.TranslatableString;
 import org.apache.isis.applib.services.message.MessageService;
+import org.apache.isis.applib.services.repository.RepositoryService;
 import org.apache.isis.applib.services.title.TitleService;
 
 import lombok.AccessLevel;
 
 
 import javax.jdo.annotations.*;
+
+import java.util.SortedSet;
+import java.util.TreeSet;
 
 import static org.apache.isis.applib.annotation.CommandReification.ENABLED;
 import static org.apache.isis.applib.annotation.SemanticsOf.IDEMPOTENT;
@@ -62,9 +67,23 @@ import static org.apache.isis.applib.annotation.SemanticsOf.IDEMPOTENT;
 
 public class DatosFamiliares implements Comparable<DatosFamiliares>{
 
+        public DatosFamiliares(final String nombreCompletoFamiliar, String parentesco) {
+                this.nombreCompletoFamiliar = nombreCompletoFamiliar;
+                this.parentesco = parentesco;
+        }
+
+
+        public Paciente newPaciente(final String name, final String apellido) {
+                return repositoryService.persist(new Paciente(this, name, apellido));
+        }
+
+        @Persistent(mappedBy = "datosFamiliares", dependentElement = "true")
+        @Collection()
+        private SortedSet<Paciente> pacientes = new TreeSet<Paciente>();
+
 
         //Datos familiares paciente
-        @javax.jdo.annotations.Column(allowsNull = "true", length = 40)
+        @javax.jdo.annotations.Column(allowsNull = "false", length = 40)
         @lombok.NonNull
         @Property(editing = Editing.ENABLED)
         private String nombreCompletoFamiliar;
@@ -84,8 +103,6 @@ public class DatosFamiliares implements Comparable<DatosFamiliares>{
         @Property(editing = Editing.ENABLED)
         @lombok.NonNull
         private String mailFamiliar;
-
-
 
 
         public String title(){
@@ -134,6 +151,10 @@ public class DatosFamiliares implements Comparable<DatosFamiliares>{
                     .result();
         }
 
+        @javax.jdo.annotations.NotPersistent
+        @javax.inject.Inject
+        @lombok.Getter(AccessLevel.NONE) @lombok.Setter(AccessLevel.NONE)
+        RepositoryService repositoryService;
 
         @javax.inject.Inject
         @javax.jdo.annotations.NotPersistent

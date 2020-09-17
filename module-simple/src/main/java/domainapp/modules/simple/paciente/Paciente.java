@@ -26,6 +26,7 @@ import javax.xml.bind.annotation.adapters.XmlJavaTypeAdapter;
 
 import com.google.common.collect.ComparisonChain;
 
+import domainapp.modules.simple.datosFamiliares.DatosFamiliares;
 import org.apache.isis.applib.annotation.*;
 import org.apache.isis.applib.services.i18n.TranslatableString;
 import org.apache.isis.applib.services.message.MessageService;
@@ -53,6 +54,16 @@ import static org.apache.isis.applib.annotation.SemanticsOf.IDEMPOTENT;
 @lombok.Getter @lombok.Setter
 @lombok.RequiredArgsConstructor
 public class Paciente implements Comparable<Paciente> {
+
+    public Paciente(final DatosFamiliares datosFamiliares, final String name, final String apellido) {
+        this.datosFamiliares = datosFamiliares;
+        this.name = name;
+        this.apellido = apellido;
+    }
+
+    @javax.jdo.annotations.Column(allowsNull = "false", name = "datosFamiliaresId")
+    @Property(editing = Editing.DISABLED)
+    private DatosFamiliares datosFamiliares;
 
     @javax.jdo.annotations.Column(allowsNull = "false", length = 40)
     @lombok.NonNull
