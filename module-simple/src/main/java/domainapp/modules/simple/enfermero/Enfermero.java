@@ -1,6 +1,7 @@
 package domainapp.modules.simple.enfermero;
 
 
+import domainapp.modules.simple.paciente.Paciente;
 import domainapp.modules.simple.paciente.TipoDocumento;
 import lombok.AccessLevel;
 import lombok.Getter;
@@ -8,16 +9,34 @@ import lombok.Setter;
 import org.apache.isis.applib.annotation.*;
 
 import org.apache.isis.applib.services.message.MessageService;
+import org.apache.isis.applib.services.repository.RepositoryService;
 import org.apache.isis.applib.services.title.TitleService;
 import org.apache.isis.schema.utils.jaxbadapters.JodaDateTimeStringAdapter;
 import org.joda.time.LocalDate;
 
+import javax.jdo.annotations.Persistent;
 import javax.xml.bind.annotation.adapters.XmlJavaTypeAdapter;
+import java.util.SortedSet;
+import java.util.TreeSet;
 
 @Getter
 @Setter
 @lombok.RequiredArgsConstructor
 public class Enfermero  {
+
+    public Enfermero(final String nombre, final String apellido){
+        this.nombre = nombre;
+        this.apellido = apellido;
+    }
+
+    public Paciente newPaciente(final String name, final String apellido) {
+        return repositoryService.persist(new Paciente(this,name,apellido));
+    }
+
+    @Persistent(mappedBy = "enfermero", dependentElement = "true")
+    @Collection()
+    private SortedSet<Paciente> pacientes = new TreeSet<Paciente>();
+
 
     @javax.jdo.annotations.Column(allowsNull = "false", length = 40)
     @lombok.NonNull
@@ -72,6 +91,10 @@ public class Enfermero  {
     private String nroMatricula;
 
 
+    @javax.jdo.annotations.NotPersistent
+    @javax.inject.Inject
+    @lombok.Getter(AccessLevel.NONE) @lombok.Setter(AccessLevel.NONE)
+    RepositoryService repositoryService;
 
     @javax.inject.Inject
     @javax.jdo.annotations.NotPersistent

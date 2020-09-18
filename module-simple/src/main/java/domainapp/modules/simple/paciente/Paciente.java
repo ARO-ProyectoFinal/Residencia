@@ -27,6 +27,7 @@ import javax.xml.bind.annotation.adapters.XmlJavaTypeAdapter;
 import com.google.common.collect.ComparisonChain;
 
 import domainapp.modules.simple.datosFamiliares.DatosFamiliares;
+import domainapp.modules.simple.enfermero.Enfermero;
 import org.apache.isis.applib.annotation.*;
 import org.apache.isis.applib.services.i18n.TranslatableString;
 import org.apache.isis.applib.services.message.MessageService;
@@ -61,9 +62,15 @@ public class Paciente implements Comparable<Paciente> {
         this.apellido = apellido;
     }
 
+
+
     @javax.jdo.annotations.Column(allowsNull = "false", name = "datosFamiliaresId")
     @Property(editing = Editing.DISABLED)
     private DatosFamiliares datosFamiliares;
+
+    @javax.jdo.annotations.Column(allowsNull = "false", name = "datosFamiliaresId")
+    @Property(editing = Editing.DISABLED)
+    private Enfermero enfermero;
 
     @javax.jdo.annotations.Column(allowsNull = "false", length = 40)
     @lombok.NonNull
@@ -126,6 +133,9 @@ public class Paciente implements Comparable<Paciente> {
     @Property()
     @lombok.NonNull
     private String observacion;
+
+    public Paciente(Enfermero enfermero, String name, String apellido) {
+    }
 
     public String title(){
         return getApellido()+" " + getName();
