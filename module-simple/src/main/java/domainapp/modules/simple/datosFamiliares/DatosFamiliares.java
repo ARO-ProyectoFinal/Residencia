@@ -16,6 +16,7 @@ import lombok.AccessLevel;
 
 import javax.jdo.annotations.*;
 
+import java.util.List;
 import java.util.SortedSet;
 import java.util.TreeSet;
 
@@ -78,8 +79,9 @@ public class DatosFamiliares implements Comparable<DatosFamiliares>{
         }
 
         @Persistent(mappedBy = "datosFamiliares", dependentElement = "true")
-        @Collection()
-        private SortedSet<Paciente> pacientes = new TreeSet<Paciente>();
+        @Column(allowsNull = "true")
+        @Property()
+        private List<Paciente> pacientes;
 
 
         //Datos familiares paciente

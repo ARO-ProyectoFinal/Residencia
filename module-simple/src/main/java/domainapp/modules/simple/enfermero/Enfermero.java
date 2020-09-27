@@ -14,8 +14,10 @@ import org.apache.isis.applib.services.title.TitleService;
 import org.apache.isis.schema.utils.jaxbadapters.JodaDateTimeStringAdapter;
 import org.joda.time.LocalDate;
 
+import javax.jdo.annotations.Column;
 import javax.jdo.annotations.Persistent;
 import javax.xml.bind.annotation.adapters.XmlJavaTypeAdapter;
+import java.util.List;
 import java.util.SortedSet;
 import java.util.TreeSet;
 
@@ -34,8 +36,9 @@ public class Enfermero  {
     }
 
     @Persistent(mappedBy = "enfermero", dependentElement = "true")
-    @Collection()
-    private SortedSet<Paciente> pacientes = new TreeSet<Paciente>();
+    @Column(allowsNull = "true")
+    @Property()
+    private List<Paciente> pacientes;
 
 
     @javax.jdo.annotations.Column(allowsNull = "false", length = 40)
