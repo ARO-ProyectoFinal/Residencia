@@ -1,5 +1,6 @@
 package domainapp.modules.simple.historia;
 
+import domainapp.modules.simple.paciente.Paciente;
 import lombok.AccessLevel;
 import lombok.Getter;
 import lombok.Setter;
@@ -39,6 +40,10 @@ import javax.xml.bind.annotation.adapters.XmlJavaTypeAdapter;
 
 
 public class Historia {
+
+    @Persistent(mappedBy = "historia",defaultFetchGroup = "true")
+    @Column(allowsNull = "false", length = 40)
+    private Paciente paciente;
 
     @lombok.NonNull
     @Column(allowsNull = "false", length = 40)
@@ -95,6 +100,9 @@ public class Historia {
     @Title()
     private String medicacionAnterior;
 
+    public Paciente getPaciente() {
+        return paciente;
+    }
 
     @javax.inject.Inject
     @javax.jdo.annotations.NotPersistent
