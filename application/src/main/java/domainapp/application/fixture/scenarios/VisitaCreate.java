@@ -15,19 +15,19 @@ public class VisitaCreate extends FixtureScript {
     private String altura;
 
     @Getter @Setter
-    private Integer peso;
+    private String peso;
 
     @Getter @Setter
-    private Integer temperatura;
+    private String temperatura;
 
     @Getter @Setter
-    private Integer presionArterial;
+    private String presionArterial;
 
     @Getter @Setter
-    private Integer frecuenciaCardiaca;
+    private String frecuenciaCardiaca;
 
     @Getter @Setter
-    private Integer frecuenciaRespiratoria;
+    private String frecuenciaRespiratoria;
 
     @Getter @Setter
     private String estudiosLaboratorio;
@@ -43,11 +43,11 @@ public class VisitaCreate extends FixtureScript {
 
 
         String altura = checkParam("altura", ec, String.class);
-        Integer peso = checkParam("peso", ec, Integer.class);
-        Integer temperatura = checkParam("temperatura", ec, Integer.class);
-        Integer presionArterial = checkParam("presionArterial", ec, Integer.class);
-        Integer frecuenciaCardiaca = checkParam("frecuenciaCardiaca", ec, Integer.class);
-        Integer frecuenciaRespiratoria = checkParam("frecuenciaRespiratoria", ec, Integer.class);
+        String peso = checkParam("peso", ec, String.class);
+        String temperatura = checkParam("temperatura", ec, String.class);
+        String presionArterial = checkParam("presionArterial", ec, String.class);
+        String frecuenciaCardiaca = checkParam("frecuenciaCardiaca", ec, String.class);
+        String frecuenciaRespiratoria = checkParam("frecuenciaRespiratoria", ec, String.class);
         String estudiosLaboratorio = checkParam("estudiosLaboratorio", ec, String.class);
         String observacion = checkParam("observacion", ec, String.class);
 

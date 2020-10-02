@@ -14,16 +14,35 @@ import org.apache.isis.applib.services.title.TitleService;
 import org.apache.isis.schema.utils.jaxbadapters.JodaDateTimeStringAdapter;
 import org.joda.time.LocalDate;
 
-import javax.jdo.annotations.Column;
-import javax.jdo.annotations.Persistent;
+import javax.jdo.annotations.*;
 import javax.xml.bind.annotation.adapters.XmlJavaTypeAdapter;
 import java.util.List;
-import java.util.SortedSet;
-import java.util.TreeSet;
+
 
 @Getter
 @Setter
 @lombok.RequiredArgsConstructor
+
+@PersistenceCapable(
+        identityType = IdentityType.DATASTORE,
+        schema = "simple",
+        table = "DatosEnfermero"
+)
+@DatastoreIdentity(
+        strategy = IdGeneratorStrategy.IDENTITY,
+        column = "id")
+@Version(
+        strategy = VersionStrategy.VERSION_NUMBER,
+        column = "version")
+@Unique(name = "DatosEnfermero_nombre_UNQ", members = { "nombre" })
+@DomainObject(
+        editing = Editing.DISABLED
+)
+@DomainObjectLayout(
+        bookmarking = BookmarkPolicy.AS_ROOT
+)
+
+
 public class Enfermero  {
 
     public Enfermero(final String nombre, final String apellido){

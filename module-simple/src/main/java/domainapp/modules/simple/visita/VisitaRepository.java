@@ -27,11 +27,11 @@ public class VisitaRepository {
     @Programmatic
     public Visita create(
             final String altura,
-            final Integer peso,
-            final Integer temperatura,
-            final Integer presionArterial,
-            final Integer frecuenciaCardiaca,
-            final Integer frecunciaRespiratoria,
+            final String peso,
+            final String temperatura,
+            final String presionArterial,
+            final String frecuenciaCardiaca,
+            final String frecunciaRespiratoria,
             final String estudiosLaboratorio,
             final String observacion
 
