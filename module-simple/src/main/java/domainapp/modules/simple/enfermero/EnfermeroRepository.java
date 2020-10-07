@@ -1,5 +1,6 @@
 package domainapp.modules.simple.enfermero;
 
+import domainapp.modules.simple.datosFamiliares.DatosFamiliares;
 import domainapp.modules.simple.paciente.TipoDocumento;
 import org.apache.isis.applib.annotation.DomainService;
 import org.apache.isis.applib.annotation.NatureOfService;
@@ -22,6 +23,16 @@ public class EnfermeroRepository {
                 new QueryDefault<>(
                         Enfermero.class,
                         "find"));
+    }
+
+    @Programmatic
+    public Enfermero buscarEnfermero(final String nombre){
+
+        return repositoryService.uniqueMatch(
+                new QueryDefault<>(
+                        Enfermero.class,
+                        "buscarEnfermero",
+                        "nombre", nombre));
     }
 
 

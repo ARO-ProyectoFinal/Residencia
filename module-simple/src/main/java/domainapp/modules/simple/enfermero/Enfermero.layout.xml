@@ -20,16 +20,16 @@
                         <bs3:col span="12">
                             <cpt:fieldSet name="Datos Enfermero">
 
-                                <cpt:property id="Nombre Enfermero"/>
-                                <cpt:property id="Apellido Enfermero"/>
-                                <cpt:property id="Fecha Alta"/>
-                                <cpt:property id="Tipo de Documento"/>
-                                <cpt:property id="Numero de Documento"/>
-                                <cpt:property id="Fecha de Nacimiento"/>
-                                <cpt:property id="Lugar de Nacimiento"/>
-                                <cpt:property id="Telefono"/>
-                                <cpt:property id="Edad"/>
-                                <cpt:property id="Numero de Matricula"/>
+                                <cpt:property id="nombre"/>
+                                <cpt:property id="apellido"/>
+                                <cpt:property id="fechaAlta"/>
+                                <cpt:property id="tipoDocumento"/>
+                                <cpt:property id="nroDocumento"/>
+                                <cpt:property id="fechaNacimiento"/>
+                                <cpt:property id="lugarNacimiento"/>
+                                <cpt:property id="telefono"/>
+                                <cpt:property id="edad"/>
+                                <cpt:property id="nroMatricula"/>
                             </cpt:fieldSet>
                         </bs3:col>
                     </bs3:row>

@@ -1,6 +1,8 @@
 package domainapp.modules.simple.enfermero;
 
 
+import com.google.common.collect.ComparisonChain;
+import domainapp.modules.simple.datosFamiliares.DatosFamiliares;
 import domainapp.modules.simple.paciente.Paciente;
 import domainapp.modules.simple.paciente.TipoDocumento;
 import lombok.AccessLevel;
@@ -8,6 +10,7 @@ import lombok.Getter;
 import lombok.Setter;
 import org.apache.isis.applib.annotation.*;
 
+import org.apache.isis.applib.services.i18n.TranslatableString;
 import org.apache.isis.applib.services.message.MessageService;
 import org.apache.isis.applib.services.repository.RepositoryService;
 import org.apache.isis.applib.services.title.TitleService;
@@ -18,11 +21,19 @@ import javax.jdo.annotations.*;
 import javax.xml.bind.annotation.adapters.XmlJavaTypeAdapter;
 import java.util.List;
 
+import static org.apache.isis.applib.annotation.CommandReification.ENABLED;
+import static org.apache.isis.applib.annotation.SemanticsOf.IDEMPOTENT;
+
 
 @Getter
 @Setter
 @lombok.RequiredArgsConstructor
 
+@Queries({
+        @Query(
+                name = "find", language = "JDOQL",
+                value = "SELECT "),
+})
 @PersistenceCapable(
         identityType = IdentityType.DATASTORE,
         schema = "simple",
@@ -111,6 +122,49 @@ public class Enfermero  {
     @lombok.NonNull
     @Property()
     private String nroMatricula;
+
+    public String title(){
+        return getNombre();
+    }
+
+    @Action(semantics = IDEMPOTENT, command = ENABLED, publishing = Publishing.ENABLED, associateWith = "nombre")
+    public Enfermero updateName(
+            @Parameter(maxLength = 40)
+            @ParameterLayout(named = "Nombre") final String nombre
+
+
+    ) {
+        setNombre(nombre);
+
+        return this;
+
+    }
+
+    public String default0UpdateName() {
+        return getNombre();
+    }
+
+    public TranslatableString validate0UpdateName(final String nombre) {
+        return nombre != null && nombre.contains("!") ? TranslatableString.tr("Exclamation mark is not allowed") : null;
+    }
+
+    // @Action(semantics = NON_IDEMPOTENT_ARE_YOU_SURE)
+    // public void delete() {
+    //    final String title = titleService.titleOf(this);
+    //   messageService.informUser(String.format("'%s' deleted", title));
+    //   enfermeroRepository.remove(this);
+    // }
+
+    @Override
+    public String toString() {
+        return getNombre();
+    }
+
+    public int compareTo(final Enfermero other) {
+        return ComparisonChain.start()
+                .compare(this.getNombre(), other.getNombre())
+                .result();
+    }
 
 
     @javax.jdo.annotations.NotPersistent

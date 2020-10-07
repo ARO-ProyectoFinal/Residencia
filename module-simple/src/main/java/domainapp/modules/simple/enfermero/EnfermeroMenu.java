@@ -1,6 +1,8 @@
 package domainapp.modules.simple.enfermero;
 
 
+import domainapp.modules.simple.datosFamiliares.DatosFamiliares;
+import domainapp.modules.simple.datosFamiliares.QDatosFamiliares;
 import domainapp.modules.simple.paciente.TipoDocumento;
 import org.apache.isis.applib.annotation.*;
 import org.apache.isis.applib.query.QueryDefault;
@@ -8,6 +10,7 @@ import org.apache.isis.applib.services.jdosupport.IsisJdoSupport;
 
 
 import org.apache.isis.applib.services.repository.RepositoryService;
+import org.datanucleus.query.typesafe.TypesafeQuery;
 import org.joda.time.LocalDate;
 import java.util.List;
 
@@ -71,6 +74,21 @@ public class EnfermeroMenu {
         return enfermeroRepository.create(nombre,apellido,fechaAlta,tipoDocumento,nroDocumento,fechaNacimiento,lugarNacimiento,edad,telefono,nroMatricula);
     }
 
+    @Action(semantics = SemanticsOf.SAFE)
+    @ActionLayout(bookmarking = BookmarkPolicy.AS_ROOT, named = "Buscar Enfermero")
+    @MemberOrder(sequence = "2")
+    public Enfermero findByEnfermero(
+            @Parameter(optionality = Optionality.MANDATORY)
+            @ParameterLayout(named = "Por nombre: ")
+            final String nombre) {
+        TypesafeQuery<Enfermero> q = isisJdoSupport.newTypesafeQuery(Enfermero.class);
+        final QEnfermero cand = QEnfermero.candidate();
+        q = q.filter(
+                cand.nombre.eq(q.stringParameter("nombre"))
+        );
+        return q.setParameter("nombre", nombre)
+                .executeUnique();
+    }
 
     @Action(semantics = SemanticsOf.SAFE)
     @ActionLayout(bookmarking = BookmarkPolicy.AS_ROOT, named = "Listado de Enfermero")

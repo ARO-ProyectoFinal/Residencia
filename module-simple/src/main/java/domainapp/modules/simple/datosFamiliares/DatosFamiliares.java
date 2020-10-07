@@ -138,7 +138,7 @@ public class DatosFamiliares implements Comparable<DatosFamiliares>{
         // public void delete() {
         //    final String title = titleService.titleOf(this);
         //   messageService.informUser(String.format("'%s' deleted", title));
-        //   pacienteRepository.remove(this);
+        //   datosFamiliaresRepository.remove(this);
         // }
 
 
