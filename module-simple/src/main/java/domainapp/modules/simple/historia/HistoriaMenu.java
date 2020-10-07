@@ -1,7 +1,10 @@
 package domainapp.modules.simple.historia;
 
+import domainapp.modules.simple.datosFamiliares.DatosFamiliares;
+import domainapp.modules.simple.datosFamiliares.QDatosFamiliares;
 import org.apache.isis.applib.annotation.*;
 import org.apache.isis.applib.services.jdosupport.IsisJdoSupport;
+import org.datanucleus.query.typesafe.TypesafeQuery;
 import org.joda.time.LocalDate;
 
 import java.util.List;
@@ -60,6 +63,22 @@ public class HistoriaMenu {
 
     {
         return historiaRepository.create(vacuRecibida,vacuFaltante,enfePadecida,alerPadecida,ultimaVisitaMedica,tipoMedicacion,lapsoIngesta,stockMedicacion,medicacionAnterior);
+    }
+
+    @Action(semantics = SemanticsOf.SAFE)
+    @ActionLayout(bookmarking = BookmarkPolicy.AS_ROOT, named = "Buscar Historia Clinica")
+    @MemberOrder(sequence = "2")
+    public Historia findByHistoria(
+            @Parameter(optionality = Optionality.MANDATORY)
+            @ParameterLayout(named = "Por vacuna recibida: ")
+            final String vacuRecibida) {
+        TypesafeQuery<Historia> q = isisJdoSupport.newTypesafeQuery(Historia.class);
+        final QHistoria cand = QHistoria.candidate();
+        q = q.filter(
+                cand.vacuRecibida.eq(q.stringParameter("vacuRecibida"))
+        );
+        return q.setParameter("vacuRecibida", vacuRecibida)
+                .executeUnique();
     }
 
     @Action(semantics = SemanticsOf.SAFE)

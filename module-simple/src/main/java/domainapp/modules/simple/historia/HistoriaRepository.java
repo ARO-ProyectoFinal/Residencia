@@ -1,6 +1,7 @@
 package domainapp.modules.simple.historia;
 
 
+import domainapp.modules.simple.datosFamiliares.DatosFamiliares;
 import org.apache.isis.applib.annotation.DomainService;
 import org.apache.isis.applib.annotation.NatureOfService;
 import org.apache.isis.applib.annotation.Programmatic;
@@ -23,6 +24,16 @@ public class HistoriaRepository {
                 new QueryDefault<>(
                         Historia.class,
                         "find"));
+    }
+
+    @Programmatic
+    public Historia buscarHistoria(final String vacuRecibida){
+
+        return repositoryService.uniqueMatch(
+                new QueryDefault<>(
+                        Historia.class,
+                        "buscarHistoria",
+                        "vacuRecibida", vacuRecibida));
     }
 
     @Programmatic

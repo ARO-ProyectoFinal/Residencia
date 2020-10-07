@@ -1,10 +1,13 @@
 package domainapp.modules.simple.historia;
 
+import com.google.common.collect.ComparisonChain;
+import domainapp.modules.simple.datosFamiliares.DatosFamiliares;
 import domainapp.modules.simple.paciente.Paciente;
 import lombok.AccessLevel;
 import lombok.Getter;
 import lombok.Setter;
 import org.apache.isis.applib.annotation.*;
+import org.apache.isis.applib.services.i18n.TranslatableString;
 import org.apache.isis.applib.services.message.MessageService;
 import org.apache.isis.applib.services.title.TitleService;
 import org.apache.isis.schema.utils.jaxbadapters.JodaDateTimeStringAdapter;
@@ -13,10 +16,18 @@ import org.joda.time.LocalDate;
 import javax.jdo.annotations.*;
 import javax.xml.bind.annotation.adapters.XmlJavaTypeAdapter;
 
+import static org.apache.isis.applib.annotation.CommandReification.ENABLED;
+import static org.apache.isis.applib.annotation.SemanticsOf.IDEMPOTENT;
+
 @Getter
 @Setter
 @lombok.RequiredArgsConstructor
 
+@Queries({
+        @Query(
+                name = "find", language = "JDOQL",
+                value = "SELECT "),
+})
 @PersistenceCapable(
         identityType = IdentityType.DATASTORE,
         schema = "simple",
@@ -100,6 +111,52 @@ public class Historia {
     /*public Paciente getPaciente() {
         return paciente;
     }*/
+
+    public String title(){
+        return getVacuRecibida();
+    }
+
+
+    @Action(semantics = IDEMPOTENT, command = ENABLED, publishing = Publishing.ENABLED, associateWith = "vacuRecibida")
+    public Historia updateName(
+            @Parameter(maxLength = 40)
+            @ParameterLayout(named = "Vacuna Recibida") final String vacuRecibida
+
+
+    ) {
+        setVacuRecibida(vacuRecibida);
+
+        return this;
+
+    }
+
+    public String default0UpdateName() {
+        return getVacuRecibida();
+    }
+
+    public TranslatableString validate0UpdateName(final String vacuRecibida) {
+        return vacuRecibida != null && vacuRecibida.contains("!") ? TranslatableString.tr("Exclamation mark is not allowed") : null;
+    }
+
+
+    // @Action(semantics = NON_IDEMPOTENT_ARE_YOU_SURE)
+    // public void delete() {
+    //    final String title = titleService.titleOf(this);
+    //   messageService.informUser(String.format("'%s' deleted", title));
+    //   historiaRepository.remove(this);
+    // }
+
+
+    @Override
+    public String toString() {
+        return getVacuRecibida();
+    }
+
+    public int compareTo(final Historia other) {
+        return ComparisonChain.start()
+                .compare(this.getVacuRecibida(), other.getVacuRecibida())
+                .result();
+    }
 
     @javax.inject.Inject
     @javax.jdo.annotations.NotPersistent

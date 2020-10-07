@@ -85,8 +85,9 @@
                 <mb3:serviceAction objectType="HistoriaClinica" id="create">
                     <cpt:named>Cargar Historia Clínica</cpt:named>
                 </mb3:serviceAction>
-
-
+                <mb3:serviceAction objectType="HistoriaClinica" id="findByHistoria">
+                    <cpt:named>Buscar por Vacuna Recibida</cpt:named>
+                </mb3:serviceAction>
                 <mb3:serviceAction objectType="HistoriaClinica" id="listAll">
                     <cpt:named>Lista de Historias Clinicas</cpt:named>
                 </mb3:serviceAction>
