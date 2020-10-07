@@ -48,7 +48,10 @@ public class DatosFamiliaresMenu {
     @Action(semantics = SemanticsOf.SAFE)
     @ActionLayout(bookmarking = BookmarkPolicy.AS_ROOT, named = "Buscar familiar")
     @MemberOrder(sequence = "2")
-    public DatosFamiliares findByFamiliar(final String nombreCompletoFamiliar) {
+    public DatosFamiliares findByFamiliar(
+            @Parameter(optionality = Optionality.MANDATORY)
+            @ParameterLayout(named = "Por nombre completo: ")
+            final String nombreCompletoFamiliar) {
         TypesafeQuery<DatosFamiliares> q = isisJdoSupport.newTypesafeQuery(DatosFamiliares.class);
         final QDatosFamiliares cand = QDatosFamiliares.candidate();
         q = q.filter(

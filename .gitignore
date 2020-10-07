@@ -21,6 +21,7 @@ neo4j_DB/
 datanucleus.log
 isis.log
 hs_err_pid*.log
+flattened-pom.xml
 
 # Package Files #
 *.jar
