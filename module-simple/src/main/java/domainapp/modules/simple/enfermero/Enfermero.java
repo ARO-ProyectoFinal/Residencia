@@ -45,7 +45,7 @@ import java.util.List;
 
 public class Enfermero  {
 
-    public Enfermero(final String nombre, final String apellido){
+    /*public Enfermero(final String nombre, final String apellido){
         this.nombre = nombre;
         this.apellido = apellido;
     }
@@ -57,7 +57,7 @@ public class Enfermero  {
     @Persistent(mappedBy = "enfermero", dependentElement = "true")
     @Column(allowsNull = "true")
     @Property()
-    private List<Paciente> pacientes;
+    private List<Paciente> pacientes;*/
 
 
     @javax.jdo.annotations.Column(allowsNull = "false", length = 40)

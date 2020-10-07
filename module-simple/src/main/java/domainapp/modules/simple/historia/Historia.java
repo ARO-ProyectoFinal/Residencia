@@ -36,14 +36,11 @@ import javax.xml.bind.annotation.adapters.XmlJavaTypeAdapter;
         bookmarking = BookmarkPolicy.AS_ROOT
 )
 
-
-
-
 public class Historia {
 
-    @Persistent(mappedBy = "historia",defaultFetchGroup = "true")
+    /*@Persistent(mappedBy = "historia",defaultFetchGroup = "true")
     @Column(allowsNull = "false", length = 40)
-    private Paciente paciente;
+    private Paciente paciente;*/
 
     @lombok.NonNull
     @Column(allowsNull = "false", length = 40)
@@ -100,9 +97,9 @@ public class Historia {
     @Title()
     private String medicacionAnterior;
 
-    public Paciente getPaciente() {
+    /*public Paciente getPaciente() {
         return paciente;
-    }
+    }*/
 
     @javax.inject.Inject
     @javax.jdo.annotations.NotPersistent

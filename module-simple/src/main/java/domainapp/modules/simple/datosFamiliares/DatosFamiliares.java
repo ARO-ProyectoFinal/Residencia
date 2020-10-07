@@ -68,7 +68,7 @@ import static org.apache.isis.applib.annotation.SemanticsOf.IDEMPOTENT;
 
 public class DatosFamiliares implements Comparable<DatosFamiliares>{
 
-        public DatosFamiliares(final String nombreCompletoFamiliar, String parentesco) {
+        /*public DatosFamiliares(final String nombreCompletoFamiliar, String parentesco) {
                 this.nombreCompletoFamiliar = nombreCompletoFamiliar;
                 this.parentesco = parentesco;
         }
@@ -81,7 +81,7 @@ public class DatosFamiliares implements Comparable<DatosFamiliares>{
         @Persistent(mappedBy = "datosFamiliares", dependentElement = "true")
         @Column(allowsNull = "true")
         @Property()
-        private List<Paciente> pacientes;
+        private List<Paciente> pacientes;*/
 
 
         //Datos familiares paciente

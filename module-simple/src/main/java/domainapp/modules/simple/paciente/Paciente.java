@@ -58,13 +58,11 @@ import static org.apache.isis.applib.annotation.SemanticsOf.IDEMPOTENT;
 @lombok.RequiredArgsConstructor
 public class Paciente implements Comparable<Paciente> {
 
-    public Paciente(final DatosFamiliares datosFamiliares, final String name, final String apellido) {
+    /*public Paciente(final DatosFamiliares datosFamiliares, final String name, final String apellido) {
         this.datosFamiliares = datosFamiliares;
         this.name = name;
         this.apellido = apellido;
     }
-
-
 
     @javax.jdo.annotations.Column(allowsNull = "false", name = "datosFamiliaresId")
     @Property(editing = Editing.DISABLED)
@@ -80,7 +78,7 @@ public class Paciente implements Comparable<Paciente> {
 
     @javax.jdo.annotations.Column(allowsNull = "false", name = "visitaId")
     @Property(editing = Editing.DISABLED)
-    private Visita visita;
+    private Visita visita;*/
 
     @javax.jdo.annotations.Column(allowsNull = "false", length = 40)
     @lombok.NonNull
@@ -151,11 +149,11 @@ public class Paciente implements Comparable<Paciente> {
         return getApellido()+" " + getName();
     }
 
-    public Historia getHistoria() {
+    /*public Historia getHistoria() {
         return historia;
     }
 
-    public Visita getVisita() {return  visita; }
+    public Visita getVisita() {return  visita; }*/
 
 
     @Action(semantics = IDEMPOTENT, command = ENABLED, publishing = Publishing.ENABLED, associateWith = "name")

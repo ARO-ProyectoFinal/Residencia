@@ -40,9 +40,9 @@ import javax.jdo.annotations.*;
 
 public class Visita {
 
-    @Persistent(mappedBy = "visita",defaultFetchGroup = "true")
+    /*@Persistent(mappedBy = "visita",defaultFetchGroup = "true")
     @Column(allowsNull = "false", length = 40)
-    private Paciente paciente;
+    private Paciente paciente;*/
 
     @javax.jdo.annotations.Column(allowsNull = "false", length = 40)
     @lombok.NonNull
@@ -84,13 +84,13 @@ public class Visita {
     @Property()
     private String observacion;
 
-    public Paciente getPaciente() {
+    /*public Paciente getPaciente() {
         return paciente;
     }
 
     public void setPaciente(Paciente paciente) {
         this.paciente = paciente;
-    }
+    }*/
 
     @javax.inject.Inject
     @javax.jdo.annotations.NotPersistent
