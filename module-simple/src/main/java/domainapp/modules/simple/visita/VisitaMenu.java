@@ -2,9 +2,12 @@ package domainapp.modules.simple.visita;
 
 
 
+import domainapp.modules.simple.datosFamiliares.DatosFamiliares;
+import domainapp.modules.simple.datosFamiliares.QDatosFamiliares;
 import domainapp.modules.simple.enfermero.Enfermero;
 import org.apache.isis.applib.annotation.*;
 import org.apache.isis.applib.services.jdosupport.IsisJdoSupport;
+import org.datanucleus.query.typesafe.TypesafeQuery;
 
 import java.util.List;
 
@@ -57,6 +60,22 @@ public class VisitaMenu {
             final String observacion)
     {
         return visitaRepository.create(altura, peso, temperatura, presionArterial, frecuenciaCardiaca, frecuenciaRespiratoria, estudiosLaboratorio, observacion);
+    }
+
+    @Action(semantics = SemanticsOf.SAFE)
+    @ActionLayout(bookmarking = BookmarkPolicy.AS_ROOT, named = "Buscar Visita")
+    @MemberOrder(sequence = "2")
+    public Visita findByVisita(
+            @Parameter(optionality = Optionality.MANDATORY)
+            @ParameterLayout(named = "Por altura: ")
+            final String altura) {
+        TypesafeQuery<Visita> q = isisJdoSupport.newTypesafeQuery(Visita.class);
+        final QVisita cand = QVisita.candidate();
+        q = q.filter(
+                cand.altura.eq(q.stringParameter("altura"))
+        );
+        return q.setParameter("altura", altura)
+                .executeUnique();
     }
 
     @Action(semantics = SemanticsOf.SAFE)

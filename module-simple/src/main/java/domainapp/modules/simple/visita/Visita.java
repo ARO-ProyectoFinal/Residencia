@@ -1,11 +1,14 @@
 package domainapp.modules.simple.visita;
 
 
+import com.google.common.collect.ComparisonChain;
+import domainapp.modules.simple.datosFamiliares.DatosFamiliares;
 import domainapp.modules.simple.paciente.Paciente;
 import lombok.AccessLevel;
 import lombok.Getter;
 import lombok.Setter;
 import org.apache.isis.applib.annotation.*;
+import org.apache.isis.applib.services.i18n.TranslatableString;
 import org.apache.isis.applib.services.message.MessageService;
 import org.apache.isis.applib.services.repository.RepositoryService;
 import org.apache.isis.applib.services.title.TitleService;
@@ -13,11 +16,19 @@ import org.apache.isis.applib.services.title.TitleService;
 
 import javax.jdo.annotations.*;
 
+import static org.apache.isis.applib.annotation.CommandReification.ENABLED;
+import static org.apache.isis.applib.annotation.SemanticsOf.IDEMPOTENT;
+
 
 @Getter
 @Setter
 @lombok.RequiredArgsConstructor
 
+@Queries({
+        @Query(
+                name = "find", language = "JDOQL",
+                value = "SELECT "),
+})
 @PersistenceCapable(
         identityType = IdentityType.DATASTORE,
         schema = "simple",
@@ -91,6 +102,52 @@ public class Visita {
     public void setPaciente(Paciente paciente) {
         this.paciente = paciente;
     }*/
+
+    public String title(){
+        return getAltura();
+    }
+
+
+    @Action(semantics = IDEMPOTENT, command = ENABLED, publishing = Publishing.ENABLED, associateWith = "altura")
+    public Visita updateName(
+            @Parameter(maxLength = 40)
+            @ParameterLayout(named = "altura") final String altura
+
+
+    ) {
+        setAltura(altura);
+
+        return this;
+
+    }
+
+    public String default0UpdateName() {
+        return getAltura();
+    }
+
+    public TranslatableString validate0UpdateName(final String altura) {
+        return altura != null && altura.contains("!") ? TranslatableString.tr("Exclamation mark is not allowed") : null;
+    }
+
+
+    // @Action(semantics = NON_IDEMPOTENT_ARE_YOU_SURE)
+    // public void delete() {
+    //    final String title = titleService.titleOf(this);
+    //   messageService.informUser(String.format("'%s' deleted", title));
+    //   visitaRepository.remove(this);
+    // }
+
+
+    @Override
+    public String toString() {
+        return getAltura();
+    }
+
+    public int compareTo(final Visita other) {
+        return ComparisonChain.start()
+                .compare(this.getAltura(), other.getAltura())
+                .result();
+    }
 
     @javax.inject.Inject
     @javax.jdo.annotations.NotPersistent

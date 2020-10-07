@@ -1,5 +1,6 @@
 package domainapp.modules.simple.visita;
 
+import domainapp.modules.simple.datosFamiliares.DatosFamiliares;
 import org.apache.isis.applib.annotation.DomainService;
 import org.apache.isis.applib.annotation.NatureOfService;
 import org.apache.isis.applib.annotation.Programmatic;
@@ -22,6 +23,16 @@ public class VisitaRepository {
                 new QueryDefault<>(
                         Visita.class,
                         "find"));
+    }
+
+    @Programmatic
+    public Visita buscarVisita(final String altura){
+
+        return repositoryService.uniqueMatch(
+                new QueryDefault<>(
+                        Visita.class,
+                        "buscarVisita",
+                        "altura", altura));
     }
 
     @Programmatic

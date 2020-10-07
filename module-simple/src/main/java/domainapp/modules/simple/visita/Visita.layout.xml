@@ -20,14 +20,14 @@
                         <bs3:col span="12">
                             <cpt:fieldSet name="Datos Visita Medica">
 
-                                <cpt:property id="Altura"/>
-                                <cpt:property id="Peso"/>
-                                <cpt:property id="Temperatura"/>
-                                <cpt:property id="Presion Arterial"/>
-                                <cpt:property id="Frecuencia Cardiaca"/>
-                                <cpt:property id="Frecuencia Respiratoria"/>
-                                <cpt:property id="Estudios Laboratorio"/>
-                                <cpt:property id="Observacion"/>
+                                <cpt:property id="altura"/>
+                                <cpt:property id="peso"/>
+                                <cpt:property id="temperatura"/>
+                                <cpt:property id="presionArterial"/>
+                                <cpt:property id="frecuenciaCardiaca"/>
+                                <cpt:property id="frecuenciaRespiratoria"/>
+                                <cpt:property id="estudiosLaboratorio"/>
+                                <cpt:property id="observacion"/>
                             </cpt:fieldSet>
                         </bs3:col>
                     </bs3:row>
