@@ -79,7 +79,10 @@ public class PacienteMenu {
     @Action(semantics = SemanticsOf.SAFE)
     @ActionLayout(bookmarking = BookmarkPolicy.AS_ROOT, named = "Buscar Paciente")
     @MemberOrder(sequence = "2")
-    public Paciente findByNameExact(final String name) {
+    public Paciente findByNameExact(
+            @Parameter(optionality = Optionality.MANDATORY)
+            @ParameterLayout(named = "Por nombre: ")
+            final String name) {
         TypesafeQuery<Paciente> q = isisJdoSupport.newTypesafeQuery(Paciente.class);
         final QPaciente cand = QPaciente.candidate();
         q = q.filter(
