@@ -27,6 +27,7 @@ import javax.xml.bind.annotation.adapters.XmlJavaTypeAdapter;
 import com.google.common.collect.ComparisonChain;
 
 import domainapp.modules.simple.datosFamiliares.DatosFamiliares;
+import domainapp.modules.simple.datosFamiliares.DatosFamiliaresRepository;
 import domainapp.modules.simple.enfermero.Enfermero;
 import domainapp.modules.simple.historia.Historia;
 import domainapp.modules.simple.visita.Visita;
@@ -38,6 +39,8 @@ import org.apache.isis.applib.services.title.TitleService;
 import lombok.AccessLevel;
 import org.apache.isis.schema.utils.jaxbadapters.JodaDateTimeStringAdapter;
 import org.joda.time.LocalDate;
+
+import java.util.List;
 
 import static org.apache.isis.applib.annotation.CommandReification.ENABLED;
 import static org.apache.isis.applib.annotation.SemanticsOf.IDEMPOTENT;
@@ -62,13 +65,15 @@ public class Paciente implements Comparable<Paciente> {
         this.datosFamiliares = datosFamiliares;
         this.name = name;
         this.apellido = apellido;
-    }
+    }*/
 
-    @javax.jdo.annotations.Column(allowsNull = "false", name = "datosFamiliaresId")
-    @Property(editing = Editing.DISABLED)
-    private DatosFamiliares datosFamiliares;
+    @javax.jdo.annotations.Column(allowsNull = "true", name = "sol_datos_famId")
+    @Property()
+    @PropertyLayout(named = "Familiar")
+    private DatosFamiliares solicitanteDatosFamiliares;
 
-    @javax.jdo.annotations.Column(allowsNull = "false", name = "enfermeroId")
+
+    /*@javax.jdo.annotations.Column(allowsNull = "false", name = "enfermeroId")
     @Property(editing = Editing.DISABLED)
     private Enfermero enfermero;
 
@@ -197,6 +202,25 @@ public class Paciente implements Comparable<Paciente> {
                 .result();
     }
 
+    @Action()
+    @ActionLayout(named = "Asignar Familiar")
+    public Paciente AgregarDatosFamiliar(
+            @Parameter(optionality = Optionality.MANDATORY)
+            @ParameterLayout(named = "Familiar")
+            final DatosFamiliares datosFamiliares) {
+
+        this.solicitanteDatosFamiliares = datosFamiliares;
+        return this;
+    }
+
+    public List<DatosFamiliares> choices0AgregarDatosFamiliar() {
+        return datosFamiliaresRepository.Listar();
+    }
+
+    @javax.inject.Inject
+    @javax.jdo.annotations.NotPersistent
+    @lombok.Getter(AccessLevel.NONE) @lombok.Setter(AccessLevel.NONE)
+    DatosFamiliaresRepository datosFamiliaresRepository;
 
     @javax.inject.Inject
     @javax.jdo.annotations.NotPersistent
