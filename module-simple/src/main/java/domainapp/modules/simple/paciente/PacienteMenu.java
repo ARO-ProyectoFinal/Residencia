@@ -61,7 +61,7 @@ public class PacienteMenu {
 
             @Parameter(maxLength = 40)
             @ParameterLayout(named = "Numero de Seguro Social ")
-            final  String numeroDeSeguroSocial,
+            final  String nroSeguroSocial,
 
             @Parameter(maxLength = 40)
             @ParameterLayout(named = "Incapacidad ")
@@ -73,7 +73,7 @@ public class PacienteMenu {
 
 
     {
-        return pacienteRepository.create (name, apellido,fechaAlta,edad,tipoDocumento,nroDocumento,fechaNacimiento,lugarDeNacimiento,telefono,numeroDeSeguroSocial,incapacidad,observacion);
+        return pacienteRepository.create (name, apellido,fechaAlta,edad,tipoDocumento,nroDocumento,fechaNacimiento,lugarDeNacimiento,telefono,nroSeguroSocial,incapacidad,observacion);
     }
 
     @Action(semantics = SemanticsOf.SAFE)

@@ -30,7 +30,19 @@
         <bs3:col span="12">
             <bs3:row>
                 <bs3:col span="12">
-                    <cpt:fieldSet name="Detalles de Autorizacion">
+                    <cpt:fieldSet name="Paciente">
+                        <cpt:property id="name"/>
+                        <cpt:property id="apellido"/>
+                        <cpt:property id="fechaAlta"/>
+                        <cpt:property id="edad"/>
+                        <cpt:property id="tipoDocumento"/>
+                        <cpt:property id="nroDocumento"/>
+                        <cpt:property id="fechaNacimiento"/>
+                        <cpt:property id="lugarDeNacimiento"/>
+                        <cpt:property id="telefono"/>
+                        <cpt:property id="nroSeguroSocial"/>
+                        <cpt:property id="incapacidad"/>
+                        <cpt:property id="observacion"/>
                     </cpt:fieldSet>
                 </bs3:col>
             </bs3:row>

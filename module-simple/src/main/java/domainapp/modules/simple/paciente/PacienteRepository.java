@@ -36,12 +36,12 @@ public class PacienteRepository {
             final LocalDate fechaNacimiento,
             final String lugarDeNacimiento,
             final String telefono,
-            final String numeroDeSeguroSocial,
+            final String nroSeguroSocial,
             final String incapacidad,
             final String observacion
     ) {
 
-        final Paciente paciente = new Paciente(name, apellido,fechaAlta,edad,tipoDocumento,nroDocumento,fechaNacimiento,lugarDeNacimiento,telefono,numeroDeSeguroSocial,incapacidad,observacion);
+        final Paciente paciente = new Paciente(name, apellido,fechaAlta,edad,tipoDocumento,nroDocumento,fechaNacimiento,lugarDeNacimiento,telefono,nroSeguroSocial,incapacidad,observacion);
         repositoryService.persist(paciente);
         return paciente;
     }
