@@ -20,13 +20,13 @@
 <mb3:menuBars xsi:schemaLocation="http://isis.apache.org/applib/layout/menubars/bootstrap3 http://isis.apache.org/applib/layout/menubars/bootstrap3/menubars.xsd http://isis.apache.org/applib/layout/component http://isis.apache.org/applib/layout/component/component.xsd http://isis.apache.org/applib/layout/links http://isis.apache.org/applib/layout/links/links.xsd" xmlns:cpt="http://isis.apache.org/applib/layout/component" xmlns:lnk="http://isis.apache.org/applib/layout/links" xmlns:mb3="http://isis.apache.org/applib/layout/menubars/bootstrap3" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
     <mb3:primary>
         <mb3:menu>
-            <mb3:named>Paciente</mb3:named>
+            <mb3:named>Pacientes</mb3:named>
             <mb3:section>
                 <mb3:serviceAction objectType="Paciente" id="create">
                     <cpt:named>Crear Paciente</cpt:named>
                 </mb3:serviceAction>
                 <mb3:serviceAction objectType="Paciente" id="findByNameExact">
-                    <cpt:named>Buscar por nombre</cpt:named>
+                    <cpt:named>Buscar por Nombre Paciente</cpt:named>
                 </mb3:serviceAction>
                 <mb3:serviceAction objectType="Paciente" id="listAll">
                     <cpt:named>Listar Pacientes</cpt:named>
@@ -35,13 +35,13 @@
         </mb3:menu>
 
         <mb3:menu>
-            <mb3:named>Datos Familiares</mb3:named>
+            <mb3:named>Familiares</mb3:named>
             <mb3:section>
                 <mb3:serviceAction objectType="DatosFamiliares" id="create">
-                    <cpt:named>Cargar datos familiares</cpt:named>
+                    <cpt:named>Cargar Datos Familiares</cpt:named>
                 </mb3:serviceAction>
                 <mb3:serviceAction objectType="DatosFamiliares" id="findByFamiliar">
-                    <cpt:named>Buscar por nombre completo</cpt:named>
+                    <cpt:named>Buscar por Nombre Completo Familiar</cpt:named>
                 </mb3:serviceAction>
                 <mb3:serviceAction objectType="DatosFamiliares" id="listAll">
                     <cpt:named>Listar Familiares</cpt:named>
@@ -50,28 +50,28 @@
         </mb3:menu>
 
         <mb3:menu>
-            <mb3:named>Datos Enfermero</mb3:named>
+            <mb3:named>Enfermeros</mb3:named>
             <mb3:section>
                 <mb3:serviceAction objectType="DatosEnfermero" id="create">
-                    <cpt:named>Cargar datos Enfermero</cpt:named>
+                    <cpt:named>Cargar Datos Enfermeros</cpt:named>
                 </mb3:serviceAction>
                 <mb3:serviceAction objectType="DatosEnfermero" id="findByEnfermero">
-                    <cpt:named>Buscar por nombre completo</cpt:named>
+                    <cpt:named>Buscar por Nombre Enfermero</cpt:named>
                 </mb3:serviceAction>
                 <mb3:serviceAction objectType="DatosEnfermero" id="listAll">
-                    <cpt:named>Listar Enfermero</cpt:named>
+                    <cpt:named>Listar Enfermeros</cpt:named>
                 </mb3:serviceAction>
             </mb3:section>
         </mb3:menu>
 
         <mb3:menu>
-            <mb3:named>Datos Visita Medica</mb3:named>
+            <mb3:named>Visitas Medicas</mb3:named>
             <mb3:section>
                 <mb3:serviceAction objectType="DatosVisitaMedica" id="create">
-                    <cpt:named>Cargar datos Visita Medica</cpt:named>
+                    <cpt:named>Cargar Datos Visita Medica</cpt:named>
                 </mb3:serviceAction>
                 <mb3:serviceAction objectType="DatosVisitaMedica" id="findByVisita">
-                    <cpt:named>Buscar por nombre completo</cpt:named>
+                    <cpt:named>Buscar Altura</cpt:named>
                 </mb3:serviceAction>
                 <mb3:serviceAction objectType="DatosVisitaMedica" id="listAll">
                     <cpt:named>Listar Visitas Medicas</cpt:named>
@@ -80,7 +80,7 @@
         </mb3:menu>
 
         <mb3:menu>
-            <mb3:named>Historia Clinica</mb3:named>
+            <mb3:named>Historias Clinicas</mb3:named>
             <mb3:section>
                 <mb3:serviceAction objectType="HistoriaClinica" id="create">
                     <cpt:named>Cargar Historia Clínica</cpt:named>
@@ -89,7 +89,7 @@
                     <cpt:named>Buscar por Vacuna Recibida</cpt:named>
                 </mb3:serviceAction>
                 <mb3:serviceAction objectType="HistoriaClinica" id="listAll">
-                    <cpt:named>Lista de Historias Clinicas</cpt:named>
+                    <cpt:named>Listar Historias Clinicas</cpt:named>
                 </mb3:serviceAction>
             </mb3:section>
         </mb3:menu>

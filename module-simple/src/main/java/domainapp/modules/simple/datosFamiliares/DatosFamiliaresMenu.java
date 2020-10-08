@@ -60,17 +60,6 @@ public class DatosFamiliaresMenu {
         return q.setParameter("nombreCompletoFamiliar", nombreCompletoFamiliar)
                 .executeUnique();
     }
-    @Action(semantics = SemanticsOf.SAFE)
-    @ActionLayout(bookmarking = BookmarkPolicy.AS_ROOT, named = "Buscar Familiar")
-    @MemberOrder(sequence = "2")
-    public DatosFamiliares buscaFamiliar(
-            @Parameter(optionality = Optionality.MANDATORY)
-            @ParameterLayout(named = "Por Nombre Completo: ")
-            final DatosFamiliares datosFamiliares){
-        return datosFamiliares;
-    }
-
-
 
 
     @Action(semantics = SemanticsOf.SAFE)
