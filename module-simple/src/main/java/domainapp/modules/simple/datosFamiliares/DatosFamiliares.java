@@ -112,26 +112,53 @@ public class DatosFamiliares implements Comparable<DatosFamiliares>{
         }
 
 
-        @Action(semantics = IDEMPOTENT, command = ENABLED, publishing = Publishing.ENABLED, associateWith = "nombreCompletoFamiliar")
-        public DatosFamiliares updateName(
+        @Action()
+        @ActionLayout(named = "Editar")
+        public DatosFamiliares updateFamiliar(
                 @Parameter(maxLength = 40)
-                @ParameterLayout(named = "Nombre") final String nombreCompletoFamiliar
+                @ParameterLayout(named = "Nombre")
+                final String nombreCompletoFamiliar,
 
+                @Parameter(maxLength = 40)
+                @ParameterLayout(named = "Parentesco")
+                final String parentesco,
 
-        ) {
-            setNombreCompletoFamiliar(nombreCompletoFamiliar);
+                @Parameter(maxLength = 40)
+                @ParameterLayout(named = "Numero de Contacto")
+                final String numeroContacto,
+
+                @Parameter(maxLength = 40)
+                @ParameterLayout(named = "Mail Familiar")
+                final String mailFamiliar){
+
+                this.nombreCompletoFamiliar = nombreCompletoFamiliar;
+                this.parentesco = parentesco;
+                this.numeroContacto = numeroContacto;
+                this.mailFamiliar = mailFamiliar;
 
             return this;
 
         }
 
-        public String default0UpdateName() {
+        public String default0UpdateFamiliar() {
             return getNombreCompletoFamiliar();
         }
 
-        public TranslatableString validate0UpdateName(final String name) {
-            return name != null && name.contains("!") ? TranslatableString.tr("Exclamation mark is not allowed") : null;
+        public String default1UpdateFamiliar() {
+                return getParentesco();
         }
+
+        public String default2UpdateFamiliar() {
+                return getNumeroContacto();
+        }
+
+        public String default3UpdateFamiliar() {
+                return getMailFamiliar();
+        }
+
+        /*public TranslatableString validate0UpdateName(final String name) {
+            return name != null && name.contains("!") ? TranslatableString.tr("Exclamation mark is not allowed") : null;
+        }*/
 
 
         // @Action(semantics = NON_IDEMPOTENT_ARE_YOU_SURE)

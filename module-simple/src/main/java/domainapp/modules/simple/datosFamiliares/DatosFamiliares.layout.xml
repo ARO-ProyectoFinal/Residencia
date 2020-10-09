@@ -24,6 +24,7 @@
                                 <cpt:property id="parentesco"/>
                                 <cpt:property id="numeroContacto"/>
                                 <cpt:property id="mailFamiliar"/>
+                                <cpt:action id="updateFamiliar"/>
                             </cpt:fieldSet>
                         </bs3:col>
                     </bs3:row>
