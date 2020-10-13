@@ -31,6 +31,7 @@ import domainapp.modules.simple.datosFamiliares.DatosFamiliaresRepository;
 import domainapp.modules.simple.enfermero.Enfermero;
 import domainapp.modules.simple.enfermero.EnfermeroRepository;
 import domainapp.modules.simple.historia.Historia;
+import domainapp.modules.simple.historia.HistoriaRepository;
 import domainapp.modules.simple.visita.Visita;
 import org.apache.isis.applib.annotation.*;
 import org.apache.isis.applib.services.i18n.TranslatableString;
@@ -79,11 +80,12 @@ public class Paciente implements Comparable<Paciente> {
     @PropertyLayout(named = "Enfermero")
     private Enfermero asignarEnfermero;
 
-    /*@javax.jdo.annotations.Column(allowsNull = "false", name = "historiaId")
-    @Property(editing = Editing.DISABLED)
-    private Historia historia;
+    @javax.jdo.annotations.Column(allowsNull = "true", name = "agr_histo_Id")
+    @Property()
+    @PropertyLayout(named = "Historia")
+    private Historia agregarHistoria;
 
-    @javax.jdo.annotations.Column(allowsNull = "false", name = "visitaId")
+    /*@javax.jdo.annotations.Column(allowsNull = "false", name = "visitaId")
     @Property(editing = Editing.DISABLED)
     private Visita visita;*/
 
@@ -163,11 +165,8 @@ public class Paciente implements Comparable<Paciente> {
             @ParameterLayout(named = "Nombre") final String name
 
 
-    ) {
-        setName(name);
-
+    ) {setName(name);
         return this;
-
     }
 
     public String default0UpdateName() {
@@ -226,6 +225,19 @@ public class Paciente implements Comparable<Paciente> {
 
     public List<Enfermero> choices0AgregarEnfermero() { return enfermeroRepository.Listar(); }
 
+    @Action()
+    @ActionLayout(named = "Agregar Historia Clinica")
+    public Paciente AgregarHistoria(
+            @Parameter(optionality = Optionality.MANDATORY)
+            @ParameterLayout(named = "Historia")
+            final Historia historia) {
+
+        this.agregarHistoria = historia;
+        return this;
+    }
+
+    public List<Historia> choices0AgregarHistoria() { return historiaRepository.Listar(); }
+
     @javax.inject.Inject
     @javax.jdo.annotations.NotPersistent
     @lombok.Getter(AccessLevel.NONE) @lombok.Setter(AccessLevel.NONE)
@@ -235,6 +247,11 @@ public class Paciente implements Comparable<Paciente> {
     @javax.jdo.annotations.NotPersistent
     @lombok.Getter(AccessLevel.NONE) @lombok.Setter(AccessLevel.NONE)
     EnfermeroRepository enfermeroRepository;
+
+    @javax.inject.Inject
+    @javax.jdo.annotations.NotPersistent
+    @lombok.Getter(AccessLevel.NONE) @lombok.Setter(AccessLevel.NONE)
+    HistoriaRepository historiaRepository;
 
     @javax.inject.Inject
     @javax.jdo.annotations.NotPersistent

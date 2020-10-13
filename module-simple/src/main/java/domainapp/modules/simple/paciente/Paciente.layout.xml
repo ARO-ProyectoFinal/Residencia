@@ -67,6 +67,13 @@
                         </cpt:property>
                     </cpt:fieldSet>
                 </bs3:col>
+                <bs3:col span="4">
+                    <cpt:fieldSet name="Agregar Historia Clinica">
+                        <cpt:property id="agregarHistoria" hidden="ALL_TABLES">
+                            <cpt:action id="AgregarHistoria" promptStyle="INLINE"/>
+                        </cpt:property>
+                    </cpt:fieldSet>
+                </bs3:col>
             </bs3:row>
         </bs3:col>
     </bs3:row>
