@@ -159,23 +159,112 @@ public class Paciente implements Comparable<Paciente> {
     }
 
 
-    @Action(semantics = IDEMPOTENT, command = ENABLED, publishing = Publishing.ENABLED, associateWith = "name")
-    public Paciente updateName(
+    @Action()
+    @ActionLayout(named = "Editar")
+    public Paciente updatePaciente(
             @Parameter(maxLength = 40)
-            @ParameterLayout(named = "Nombre") final String name
+            @ParameterLayout(named = "Nombre") final String name,
 
+            @Parameter(maxLength = 40)
+            @ParameterLayout(named = "Apellido") final String apellido,
 
-    ) {setName(name);
+            @Parameter(maxLength = 40)
+            @ParameterLayout(named = "Fecha de Alta") final LocalDate fechaAlta ,
+
+            @Parameter(maxLength = 40)
+            @ParameterLayout(named = "Edad") final Integer edad,
+
+            @Parameter(maxLength = 40)
+            @ParameterLayout(named = "Tipo de Documento") final TipoDocumento tipoDocumento ,
+
+            @Parameter(maxLength = 40)
+            @ParameterLayout(named = "Nro de Documento") final String nroDocumento,
+
+            @Parameter(maxLength = 40)
+            @ParameterLayout(named = "Fecha de Nacimiento") final LocalDate fechaNacimiento,
+
+            @Parameter(maxLength = 40)
+            @ParameterLayout(named = "Lugar de Nacimiento") final String lugarDeNacimiento,
+
+            @Parameter(maxLength = 40)
+            @ParameterLayout(named = "Telefono") final String telefono,
+
+            @Parameter(maxLength = 40)
+            @ParameterLayout(named = "Nro de Seguro Social") final String nroSeguroSocial,
+
+            @Parameter(maxLength = 40)
+            @ParameterLayout(named = "Incapacidad") final String incapacidad,
+
+            @Parameter(maxLength = 40)
+            @ParameterLayout(named = "Observacion") final String observacion) {
+
+        this.name = name;
+        this.apellido = apellido;
+        this.fechaAlta = fechaAlta;
+        this.edad = edad;
+        this.tipoDocumento = tipoDocumento;
+        this.nroDocumento = nroDocumento;
+        this.fechaNacimiento = fechaNacimiento;
+        this.lugarDeNacimiento = lugarDeNacimiento;
+        this.telefono = telefono;
+        this.nroSeguroSocial = nroSeguroSocial;
+        this.incapacidad = incapacidad;
+        this.observacion = observacion;
+
         return this;
     }
 
-    public String default0UpdateName() {
+    public String default0UpdatePaciente() {
         return getName();
     }
 
-    public TranslatableString validate0UpdateName(final String name) {
-        return name != null && name.contains("!") ? TranslatableString.tr("Exclamation mark is not allowed") : null;
+    public String default1UpdatePaciente() {
+        return getApellido();
     }
+
+    public LocalDate default2UpdatePaciente() {
+        return getFechaAlta();
+    }
+
+    public Integer default3UpdatePaciente() {
+        return getEdad();
+    }
+
+    public TipoDocumento default4UpdatePaciente() {
+        return getTipoDocumento();
+    }
+
+    public String default5UpdatePaciente() {
+        return getNroDocumento();
+    }
+
+    public LocalDate default6UpdatePaciente() {
+        return getFechaNacimiento();
+    }
+
+    public String default7UpdatePaciente() {
+        return getLugarDeNacimiento();
+    }
+
+    public String default8UpdatePaciente() {
+        return getTelefono();
+    }
+
+    public String default9UpdatePaciente() {
+        return getNroSeguroSocial();
+    }
+
+    public String default10UpdatePaciente() {
+        return getIncapacidad();
+    }
+
+    public String default11UpdatePaciente() {
+        return getObservacion();
+    }
+
+    /*public TranslatableString validate0UpdateName(final String name) {
+        return name != null && name.contains("!") ? TranslatableString.tr("Exclamation mark is not allowed") : null;
+    }*/
 
 
    // @Action(semantics = NON_IDEMPOTENT_ARE_YOU_SURE)

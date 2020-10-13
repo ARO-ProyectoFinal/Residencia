@@ -43,6 +43,7 @@
                         <cpt:property id="nroSeguroSocial"/>
                         <cpt:property id="incapacidad"/>
                         <cpt:property id="observacion"/>
+                        <cpt:action id="updatePaciente"/>
                     </cpt:fieldSet>
                 </bs3:col>
             </bs3:row>
@@ -54,7 +55,7 @@
         <bs3:col span="12">
             <bs3:row>
                 <bs3:col span="4">
-                    <cpt:fieldSet name="Solicitante">
+                    <cpt:fieldSet name="Asignacion Familiar">
                         <cpt:property id="solicitanteDatosFamiliares" hidden="ALL_TABLES">
                             <cpt:action id="AgregarDatosFamiliar" promptStyle="INLINE"/>
                         </cpt:property>
