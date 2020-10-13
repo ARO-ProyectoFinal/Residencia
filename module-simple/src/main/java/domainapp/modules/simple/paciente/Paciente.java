@@ -29,6 +29,7 @@ import com.google.common.collect.ComparisonChain;
 import domainapp.modules.simple.datosFamiliares.DatosFamiliares;
 import domainapp.modules.simple.datosFamiliares.DatosFamiliaresRepository;
 import domainapp.modules.simple.enfermero.Enfermero;
+import domainapp.modules.simple.enfermero.EnfermeroRepository;
 import domainapp.modules.simple.historia.Historia;
 import domainapp.modules.simple.visita.Visita;
 import org.apache.isis.applib.annotation.*;
@@ -73,11 +74,12 @@ public class Paciente implements Comparable<Paciente> {
     private DatosFamiliares solicitanteDatosFamiliares;
 
 
-    /*@javax.jdo.annotations.Column(allowsNull = "false", name = "enfermeroId")
-    @Property(editing = Editing.DISABLED)
-    private Enfermero enfermero;
+    @javax.jdo.annotations.Column(allowsNull = "true", name = "asi_enfer_Id")
+    @Property()
+    @PropertyLayout(named = "Enfermero")
+    private Enfermero asignarEnfermero;
 
-    @javax.jdo.annotations.Column(allowsNull = "false", name = "historiaId")
+    /*@javax.jdo.annotations.Column(allowsNull = "false", name = "historiaId")
     @Property(editing = Editing.DISABLED)
     private Historia historia;
 
@@ -154,12 +156,6 @@ public class Paciente implements Comparable<Paciente> {
         return getApellido()+" " + getName();
     }
 
-    /*public Historia getHistoria() {
-        return historia;
-    }
-
-    public Visita getVisita() {return  visita; }*/
-
 
     @Action(semantics = IDEMPOTENT, command = ENABLED, publishing = Publishing.ENABLED, associateWith = "name")
     public Paciente updateName(
@@ -217,10 +213,28 @@ public class Paciente implements Comparable<Paciente> {
         return datosFamiliaresRepository.Listar();
     }
 
+    @Action()
+    @ActionLayout(named = "Asignar Enfermero")
+    public Paciente AgregarEnfermero(
+            @Parameter(optionality = Optionality.MANDATORY)
+            @ParameterLayout(named = "Enfermero")
+            final Enfermero enfermero) {
+
+        this.asignarEnfermero = enfermero;
+        return this;
+    }
+
+    public List<Enfermero> choices0AgregarEnfermero() { return enfermeroRepository.Listar(); }
+
     @javax.inject.Inject
     @javax.jdo.annotations.NotPersistent
     @lombok.Getter(AccessLevel.NONE) @lombok.Setter(AccessLevel.NONE)
     DatosFamiliaresRepository datosFamiliaresRepository;
+
+    @javax.inject.Inject
+    @javax.jdo.annotations.NotPersistent
+    @lombok.Getter(AccessLevel.NONE) @lombok.Setter(AccessLevel.NONE)
+    EnfermeroRepository enfermeroRepository;
 
     @javax.inject.Inject
     @javax.jdo.annotations.NotPersistent

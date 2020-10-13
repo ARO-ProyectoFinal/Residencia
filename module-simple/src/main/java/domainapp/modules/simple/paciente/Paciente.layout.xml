@@ -60,6 +60,13 @@
                         </cpt:property>
                     </cpt:fieldSet>
                 </bs3:col>
+                <bs3:col span="4">
+                    <cpt:fieldSet name="Asignacion Enfermero">
+                        <cpt:property id="asignarEnfermero" hidden="ALL_TABLES">
+                            <cpt:action id="AgregarEnfermero" promptStyle="INLINE"/>
+                        </cpt:property>
+                    </cpt:fieldSet>
+                </bs3:col>
             </bs3:row>
         </bs3:col>
     </bs3:row>
