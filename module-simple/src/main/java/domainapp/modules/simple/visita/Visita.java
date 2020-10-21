@@ -2,15 +2,14 @@ package domainapp.modules.simple.visita;
 
 
 import com.google.common.collect.ComparisonChain;
-import domainapp.modules.simple.datosFamiliares.DatosFamiliares;
 import domainapp.modules.simple.paciente.Paciente;
+import domainapp.modules.simple.paciente.PacienteRepository;
 import lombok.AccessLevel;
 import lombok.Getter;
 import lombok.Setter;
 import org.apache.isis.applib.annotation.*;
 import org.apache.isis.applib.services.i18n.TranslatableString;
 import org.apache.isis.applib.services.message.MessageService;
-import org.apache.isis.applib.services.repository.RepositoryService;
 import org.apache.isis.applib.services.title.TitleService;
 
 
@@ -51,9 +50,10 @@ import static org.apache.isis.applib.annotation.SemanticsOf.IDEMPOTENT;
 
 public class Visita {
 
-    /*@Persistent(mappedBy = "visita",defaultFetchGroup = "true")
-    @Column(allowsNull = "false", length = 40)
-    private Paciente paciente;*/
+    @lombok.NonNull
+    @Property()
+    @Column(allowsNull = "false")
+    private Paciente paciente;
 
     @javax.jdo.annotations.Column(allowsNull = "false", length = 40)
     @lombok.NonNull
@@ -95,17 +95,10 @@ public class Visita {
     @Property()
     private String observacion;
 
-    /*public Paciente getPaciente() {
-        return paciente;
-    }
-
-    public void setPaciente(Paciente paciente) {
-        this.paciente = paciente;
-    }*/
-
     public String title(){
-        return getAltura();
+        return paciente.getName();
     }
+
 
 
     @Action(semantics = IDEMPOTENT, command = ENABLED, publishing = Publishing.ENABLED, associateWith = "altura")
@@ -154,10 +147,10 @@ public class Visita {
     @lombok.Getter(AccessLevel.NONE) @lombok.Setter(AccessLevel.NONE)
     VisitaRepository visitaRepository;
 
-    @javax.jdo.annotations.NotPersistent
     @javax.inject.Inject
+    @javax.jdo.annotations.NotPersistent
     @lombok.Getter(AccessLevel.NONE) @lombok.Setter(AccessLevel.NONE)
-    RepositoryService repositoryService;
+    PacienteRepository pacienteRepository;
 
     @javax.inject.Inject
     @javax.jdo.annotations.NotPersistent

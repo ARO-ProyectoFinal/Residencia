@@ -10,8 +10,10 @@ import org.apache.isis.applib.fixturescripts.FixtureScript;
 
 public class VisitaCreate extends FixtureScript {
 
-    @Getter
-    @Setter
+    @Getter @Setter
+    private Paciente paciente;
+
+    @Getter @Setter
     private String altura;
 
     @Getter @Setter
@@ -41,7 +43,7 @@ public class VisitaCreate extends FixtureScript {
     @Override
     protected void execute(final ExecutionContext ec) {
 
-
+        Paciente paciente = checkParam("paciente", ec, Paciente.class);
         String altura = checkParam("altura", ec, String.class);
         String peso = checkParam("peso", ec, String.class);
         String temperatura = checkParam("temperatura", ec, String.class);
@@ -51,7 +53,7 @@ public class VisitaCreate extends FixtureScript {
         String estudiosLaboratorio = checkParam("estudiosLaboratorio", ec, String.class);
         String observacion = checkParam("observacion", ec, String.class);
 
-        this.visitaObject = wrap(menu).create(altura,peso,temperatura,presionArterial,frecuenciaCardiaca,frecuenciaRespiratoria,estudiosLaboratorio,observacion);
+        this.visitaObject = wrap(menu).create(paciente, altura,peso,temperatura,presionArterial,frecuenciaCardiaca,frecuenciaRespiratoria,estudiosLaboratorio,observacion);
 
         // also make available to UI
         ec.addResult(this, visitaObject);

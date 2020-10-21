@@ -115,7 +115,7 @@ public class Historia {
     }*/
 
     public String title(){
-        return getVacuRecibida();
+        return paciente.getName();
     }
 
 

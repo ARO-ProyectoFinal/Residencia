@@ -1,10 +1,7 @@
 package domainapp.modules.simple.visita;
 
-
-
-import domainapp.modules.simple.datosFamiliares.DatosFamiliares;
-import domainapp.modules.simple.datosFamiliares.QDatosFamiliares;
-import domainapp.modules.simple.enfermero.Enfermero;
+import domainapp.modules.simple.paciente.Paciente;
+import domainapp.modules.simple.paciente.PacienteRepository;
 import org.apache.isis.applib.annotation.*;
 import org.apache.isis.applib.services.jdosupport.IsisJdoSupport;
 import org.datanucleus.query.typesafe.TypesafeQuery;
@@ -27,6 +24,11 @@ public class VisitaMenu {
     @ActionLayout(named = "Crear Visita Medica")
     @MemberOrder(sequence = "1")
     public Visita create(
+
+            @Parameter(optionality = Optionality.MANDATORY)
+            @ParameterLayout(named = "Paciente: ")
+            final Paciente paciente,
+
             @Parameter(maxLength = 40)
             @ParameterLayout(named = "Altura")
             final String altura,
@@ -59,8 +61,10 @@ public class VisitaMenu {
             @ParameterLayout(named = "Observacion")
             final String observacion)
     {
-        return visitaRepository.create(altura, peso, temperatura, presionArterial, frecuenciaCardiaca, frecuenciaRespiratoria, estudiosLaboratorio, observacion);
+        return visitaRepository.create(paciente, altura, peso, temperatura, presionArterial, frecuenciaCardiaca, frecuenciaRespiratoria, estudiosLaboratorio, observacion);
     }
+
+    public List<Paciente> choices0Create() {return pacienteRepository.Listar();}
 
     @Action(semantics = SemanticsOf.SAFE)
     @ActionLayout(bookmarking = BookmarkPolicy.AS_ROOT, named = "Buscar Visita")
@@ -92,4 +96,7 @@ public class VisitaMenu {
 
     @javax.inject.Inject
     VisitaRepository visitaRepository;
+
+    @javax.inject.Inject
+    PacienteRepository pacienteRepository;
 }

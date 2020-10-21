@@ -1,6 +1,6 @@
 package domainapp.modules.simple.visita;
 
-import domainapp.modules.simple.datosFamiliares.DatosFamiliares;
+import domainapp.modules.simple.paciente.Paciente;
 import org.apache.isis.applib.annotation.DomainService;
 import org.apache.isis.applib.annotation.NatureOfService;
 import org.apache.isis.applib.annotation.Programmatic;
@@ -37,6 +37,8 @@ public class VisitaRepository {
 
     @Programmatic
     public Visita create(
+
+            final Paciente paciente,
             final String altura,
             final String peso,
             final String temperatura,
@@ -47,7 +49,7 @@ public class VisitaRepository {
             final String observacion
 
     ) {
-        final Visita visita = new Visita(altura,peso,temperatura,presionArterial,frecuenciaCardiaca,frecunciaRespiratoria,estudiosLaboratorio,observacion);
+        final Visita visita = new Visita(paciente,altura,peso,temperatura,presionArterial,frecuenciaCardiaca,frecunciaRespiratoria,estudiosLaboratorio,observacion);
         repositoryService.persist(visita);
         return visita;
     }
