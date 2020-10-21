@@ -3,6 +3,7 @@ package domainapp.modules.simple.historia;
 import com.google.common.collect.ComparisonChain;
 import domainapp.modules.simple.datosFamiliares.DatosFamiliares;
 import domainapp.modules.simple.paciente.Paciente;
+import domainapp.modules.simple.paciente.PacienteRepository;
 import lombok.AccessLevel;
 import lombok.Getter;
 import lombok.Setter;
@@ -49,9 +50,10 @@ import static org.apache.isis.applib.annotation.SemanticsOf.IDEMPOTENT;
 
 public class Historia {
 
-    /*@Persistent(mappedBy = "historia",defaultFetchGroup = "true")
-    @Column(allowsNull = "false", length = 40)
-    private Paciente paciente;*/
+    @lombok.NonNull
+    @Property()
+    @Column(allowsNull = "false")
+    private Paciente paciente;
 
     @lombok.NonNull
     @Column(allowsNull = "false", length = 40)
@@ -162,6 +164,11 @@ public class Historia {
     @javax.jdo.annotations.NotPersistent
     @lombok.Getter(AccessLevel.NONE) @lombok.Setter(AccessLevel.NONE)
     HistoriaRepository historiaRepository;
+
+    @javax.inject.Inject
+    @javax.jdo.annotations.NotPersistent
+    @lombok.Getter(AccessLevel.NONE) @lombok.Setter(AccessLevel.NONE)
+    PacienteRepository pacienteRepository;
 
     @javax.inject.Inject
     @javax.jdo.annotations.NotPersistent

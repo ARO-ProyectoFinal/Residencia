@@ -2,6 +2,8 @@ package domainapp.modules.simple.historia;
 
 import domainapp.modules.simple.datosFamiliares.DatosFamiliares;
 import domainapp.modules.simple.datosFamiliares.QDatosFamiliares;
+import domainapp.modules.simple.paciente.Paciente;
+import domainapp.modules.simple.paciente.PacienteRepository;
 import org.apache.isis.applib.annotation.*;
 import org.apache.isis.applib.services.jdosupport.IsisJdoSupport;
 import org.datanucleus.query.typesafe.TypesafeQuery;
@@ -24,6 +26,10 @@ public class HistoriaMenu {
     @ActionLayout(named = "Crear Historia Clinica")
     @MemberOrder(sequence = "1")
     public Historia create(
+
+            @Parameter(optionality = Optionality.MANDATORY)
+            @ParameterLayout(named = "Paciente: ")
+            final Paciente paciente,
 
             @Parameter(maxLength = 40)
             @ParameterLayout(named = "Vacunas Recibidas")
@@ -62,8 +68,10 @@ public class HistoriaMenu {
             final String medicacionAnterior)
 
     {
-        return historiaRepository.create(vacuRecibida,vacuFaltante,enfePadecida,alerPadecida,ultimaVisitaMedica,tipoMedicacion,lapsoIngesta,stockMedicacion,medicacionAnterior);
+        return historiaRepository.create(paciente, vacuRecibida,vacuFaltante,enfePadecida,alerPadecida,ultimaVisitaMedica,tipoMedicacion,lapsoIngesta,stockMedicacion,medicacionAnterior);
     }
+
+    public List<Paciente> choices0Create() {return pacienteRepository.Listar();}
 
     @Action(semantics = SemanticsOf.SAFE)
     @ActionLayout(bookmarking = BookmarkPolicy.AS_ROOT, named = "Buscar Historia Clinica")
@@ -95,4 +103,7 @@ public class HistoriaMenu {
 
     @javax.inject.Inject
     HistoriaRepository historiaRepository;
+
+    @javax.inject.Inject
+    PacienteRepository pacienteRepository;
 }

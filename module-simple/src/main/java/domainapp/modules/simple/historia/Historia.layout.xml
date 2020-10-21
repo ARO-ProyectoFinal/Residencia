@@ -20,6 +20,7 @@
                         <bs3:col span="12">
                             <cpt:fieldSet name="Historia Clínica">
 
+                                <cpt:property id="paciente"/>
                                 <cpt:property id="vacuRecibida"/>
                                 <cpt:property id="vacuFaltante"/>
                                 <cpt:property id="enfePadecida"/>

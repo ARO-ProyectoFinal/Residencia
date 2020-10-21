@@ -2,6 +2,7 @@ package domainapp.modules.simple.historia;
 
 
 import domainapp.modules.simple.datosFamiliares.DatosFamiliares;
+import domainapp.modules.simple.paciente.Paciente;
 import org.apache.isis.applib.annotation.DomainService;
 import org.apache.isis.applib.annotation.NatureOfService;
 import org.apache.isis.applib.annotation.Programmatic;
@@ -38,6 +39,8 @@ public class HistoriaRepository {
 
     @Programmatic
     public Historia create(
+
+            final Paciente paciente,
             final String vacuRecibida,
             final String vacuFaltante,
             final String enfePadecida,
@@ -50,7 +53,7 @@ public class HistoriaRepository {
 
     ) {
 
-        final Historia historia = new Historia(vacuRecibida,vacuFaltante,enfePadecida,alerPadecida,ultimaVisitaMedica,tipoMedicacion,lapsoIngesta,stockMedicacion,medicacionAnterior);
+        final Historia historia = new Historia(paciente, vacuRecibida,vacuFaltante,enfePadecida,alerPadecida,ultimaVisitaMedica,tipoMedicacion,lapsoIngesta,stockMedicacion,medicacionAnterior);
         repositoryService.persist(historia);
         return historia;
     }
