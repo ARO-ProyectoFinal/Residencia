@@ -95,9 +95,7 @@ public class Visita {
     @Property()
     private String observacion;
 
-    public String title(){
-        return paciente.getName();
-    }
+    public String title(){ return paciente.getName() + " " + paciente.getApellido(); }
 
 
 

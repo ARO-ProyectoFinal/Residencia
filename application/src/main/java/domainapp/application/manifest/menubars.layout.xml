@@ -68,10 +68,10 @@
             <mb3:named>Visitas Medicas</mb3:named>
             <mb3:section>
                 <mb3:serviceAction objectType="DatosVisitaMedica" id="create">
-                    <cpt:named>Cargar Datos Visita Medica</cpt:named>
+                    <cpt:named>Crear Visita Medica</cpt:named>
                 </mb3:serviceAction>
-                <mb3:serviceAction objectType="DatosVisitaMedica" id="findByVisita">
-                    <cpt:named>Buscar Altura</cpt:named>
+                <mb3:serviceAction objectType="DatosVisitaMedica" id="findByPaciente">
+                    <cpt:named>Buscar por Nombre de Paciente</cpt:named>
                 </mb3:serviceAction>
                 <mb3:serviceAction objectType="DatosVisitaMedica" id="listAll">
                     <cpt:named>Listar Visitas Medicas</cpt:named>

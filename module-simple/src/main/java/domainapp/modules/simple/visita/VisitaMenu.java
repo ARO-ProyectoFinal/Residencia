@@ -69,18 +69,20 @@ public class VisitaMenu {
     @Action(semantics = SemanticsOf.SAFE)
     @ActionLayout(bookmarking = BookmarkPolicy.AS_ROOT, named = "Buscar Visita")
     @MemberOrder(sequence = "2")
-    public Visita findByVisita(
+    public Visita findByPaciente(
             @Parameter(optionality = Optionality.MANDATORY)
-            @ParameterLayout(named = "Por altura: ")
-            final String altura) {
+            @ParameterLayout(named = "Por Paciente: ")
+            final Paciente paciente) {
         TypesafeQuery<Visita> q = isisJdoSupport.newTypesafeQuery(Visita.class);
         final QVisita cand = QVisita.candidate();
         q = q.filter(
-                cand.altura.eq(q.stringParameter("altura"))
+                cand.paciente.eq(q.stringParameter("paciente"))
         );
-        return q.setParameter("altura", altura)
+        return q.setParameter("paciente", paciente)
                 .executeUnique();
     }
+
+    public List<Paciente> choices0FindByPaciente() {return pacienteRepository.Listar();}
 
     @Action(semantics = SemanticsOf.SAFE)
     @ActionLayout(bookmarking = BookmarkPolicy.AS_ROOT)
