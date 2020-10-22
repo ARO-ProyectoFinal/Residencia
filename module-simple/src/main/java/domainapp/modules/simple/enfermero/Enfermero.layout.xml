@@ -30,6 +30,7 @@
                                 <cpt:property id="telefono"/>
                                 <cpt:property id="edad"/>
                                 <cpt:property id="nroMatricula"/>
+                                <cpt:action id="updateEnfermero"/>
                             </cpt:fieldSet>
                         </bs3:col>
                     </bs3:row>

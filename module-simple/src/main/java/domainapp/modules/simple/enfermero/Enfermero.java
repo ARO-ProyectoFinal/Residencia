@@ -8,6 +8,7 @@ import domainapp.modules.simple.paciente.TipoDocumento;
 import lombok.AccessLevel;
 import lombok.Getter;
 import lombok.Setter;
+import net.sf.cglib.core.Local;
 import org.apache.isis.applib.annotation.*;
 
 import org.apache.isis.applib.services.i18n.TranslatableString;
@@ -123,30 +124,80 @@ public class Enfermero  {
     @Property()
     private String nroMatricula;
 
-    public String title(){
-        return getNombre();
-    }
+    public String title(){ return getNombre() + " " + getApellido(); }
 
-    @Action(semantics = IDEMPOTENT, command = ENABLED, publishing = Publishing.ENABLED, associateWith = "nombre")
-    public Enfermero updateName(
+    @Action()
+    @ActionLayout(named = "Editar")
+    public Enfermero updateEnfermero(
             @Parameter(maxLength = 40)
-            @ParameterLayout(named = "Nombre") final String nombre
+            @ParameterLayout(named = "Nombre")
+            final String nombre,
 
+            @Parameter(maxLength = 40)
+            @ParameterLayout(named = "Apellido")
+            final String apellido,
 
-    ) {
-        setNombre(nombre);
+            @Parameter(maxLength = 40)
+            @ParameterLayout(named = "Fecha de Alta")
+            final LocalDate fechaAlta,
+
+            @Parameter(maxLength = 40)
+            @ParameterLayout(named = "Tipo de Documento")
+            final TipoDocumento tipoDocumento,
+
+            @Parameter(maxLength = 40)
+            @ParameterLayout(named = "Numero de Documento")
+            final String nroDocumento,
+
+            @Parameter(maxLength = 40)
+            @ParameterLayout(named = "Fecha de Nacimiento")
+            final LocalDate fechaNacimiento,
+
+            @Parameter(maxLength = 40)
+            @ParameterLayout(named = "Lugar de Nacimiento")
+            final String lugarNacimiento,
+
+            @Parameter(maxLength = 40)
+            @ParameterLayout(named = "Telefono")
+            final String telefono,
+
+            @Parameter(maxLength = 40)
+            @ParameterLayout(named = "Edad")
+            final String edad,
+
+            @Parameter(maxLength = 40)
+            @ParameterLayout(named = "Numero de Matricola")
+            final String nroMatricula){
+
+        this.nombre = nombre;
+        this.apellido = apellido;
+        this.fechaAlta = fechaAlta;
+        this.tipoDocumento = tipoDocumento;
+        this.nroDocumento = nroDocumento;
+        this.fechaNacimiento = fechaNacimiento;
+        this.lugarNacimiento = lugarNacimiento;
+        this.telefono = telefono;
+        this.edad = edad;
+        this.nroMatricula = nroMatricula;
 
         return this;
 
     }
 
-    public String default0UpdateName() {
-        return getNombre();
-    }
+    public String default0UpdateEnfermero() { return getNombre(); }
+    public String default1UpdateEnfermero() { return getApellido(); }
+    public LocalDate default2UpdateEnfermero() { return getFechaAlta(); }
+    public TipoDocumento default3UpdateEnfermero() { return getTipoDocumento(); }
+    public String default4UpdateEnfermero() { return getNroDocumento(); }
+    public LocalDate default5UpdateEnfermero() { return getFechaNacimiento(); }
+    public String default6UpdateEnfermero() { return getLugarNacimiento(); }
+    public String default7UpdateEnfermero() { return getTelefono(); }
+    public String default8UpdateEnfermero() { return getEdad(); }
+    public String default9UpdateEnfermero() { return getNroMatricula(); }
 
-    public TranslatableString validate0UpdateName(final String nombre) {
+    /*public TranslatableString validate0UpdateName(final String nombre) {
         return nombre != null && nombre.contains("!") ? TranslatableString.tr("Exclamation mark is not allowed") : null;
-    }
+    }*/
 
     // @Action(semantics = NON_IDEMPOTENT_ARE_YOU_SURE)
     // public void delete() {
