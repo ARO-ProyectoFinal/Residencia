@@ -76,18 +76,20 @@ public class HistoriaMenu {
     @Action(semantics = SemanticsOf.SAFE)
     @ActionLayout(bookmarking = BookmarkPolicy.AS_ROOT, named = "Buscar Historia Clinica")
     @MemberOrder(sequence = "2")
-    public Historia findByHistoria(
+    public Historia findByPaciente(
             @Parameter(optionality = Optionality.MANDATORY)
-            @ParameterLayout(named = "Por vacuna recibida: ")
-            final String vacuRecibida) {
+            @ParameterLayout(named = "Por Paciente: ")
+            final Paciente paciente) {
         TypesafeQuery<Historia> q = isisJdoSupport.newTypesafeQuery(Historia.class);
         final QHistoria cand = QHistoria.candidate();
         q = q.filter(
-                cand.vacuRecibida.eq(q.stringParameter("vacuRecibida"))
+                cand.paciente.eq(q.stringParameter("paciente"))
         );
-        return q.setParameter("vacuRecibida", vacuRecibida)
+        return q.setParameter("paciente", paciente)
                 .executeUnique();
     }
+
+    public List<Paciente> choices0FindByPaciente() {return pacienteRepository.Listar();}
 
     @Action(semantics = SemanticsOf.SAFE)
     @ActionLayout(bookmarking = BookmarkPolicy.AS_ROOT)

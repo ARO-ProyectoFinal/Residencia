@@ -115,7 +115,7 @@ public class Historia {
     }*/
 
     public String title(){
-        return paciente.getName();
+        return paciente.getName() + " " + paciente.getApellido();
     }
 
 

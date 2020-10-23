@@ -83,10 +83,10 @@
             <mb3:named>Historias Clinicas</mb3:named>
             <mb3:section>
                 <mb3:serviceAction objectType="HistoriaClinica" id="create">
-                    <cpt:named>Cargar Historia Clínica</cpt:named>
+                    <cpt:named>Crear Historia Clínica</cpt:named>
                 </mb3:serviceAction>
-                <mb3:serviceAction objectType="HistoriaClinica" id="findByHistoria">
-                    <cpt:named>Buscar por Vacuna Recibida</cpt:named>
+                <mb3:serviceAction objectType="HistoriaClinica" id="findByPaciente">
+                    <cpt:named>Buscar por Nombre de Paciente</cpt:named>
                 </mb3:serviceAction>
                 <mb3:serviceAction objectType="HistoriaClinica" id="listAll">
                     <cpt:named>Listar Historias Clinicas</cpt:named>
