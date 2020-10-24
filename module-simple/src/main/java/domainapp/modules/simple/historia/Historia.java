@@ -110,49 +110,78 @@ public class Historia {
     @Title()
     private String medicacionAnterior;
 
-    /*public Paciente getPaciente() {
-        return paciente;
-    }*/
 
     public String title(){
         return paciente.getName() + " " + paciente.getApellido();
     }
 
 
-    @Action(semantics = IDEMPOTENT, command = ENABLED, publishing = Publishing.ENABLED, associateWith = "vacuRecibida")
-    public Historia updateName(
+    @Action()
+    @ActionLayout(named = "Editar")
+    public Historia updateHistoria(
             @Parameter(maxLength = 40)
-            @ParameterLayout(named = "Vacuna Recibida") final String vacuRecibida
+            @ParameterLayout(named = "Vacuna Recibida")
+            final String vacuRecibida,
 
+            @Parameter(maxLength = 40)
+            @ParameterLayout(named = "Vacuna Faltante")
+            final String vacuFaltante,
 
-    ) {
-        setVacuRecibida(vacuRecibida);
+            @Parameter(maxLength = 40)
+            @ParameterLayout(named = "Enfermedad Padecida")
+            final String enfePadecida,
 
-        return this;
+            @Parameter(maxLength = 40)
+            @ParameterLayout(named = "Alegia Padecida")
+            final String alerPadecida,
+
+            @Parameter(maxLength = 40)
+            @ParameterLayout(named = "Ultima Visita Medica")
+            final LocalDate ultimaVisitaMedica,
+
+            @Parameter(maxLength = 40)
+            @ParameterLayout(named = "Tipo de Medicacion")
+            final String tipoMedicacion,
+
+            @Parameter(maxLength = 40)
+            @ParameterLayout(named = "Lapso Ingesta")
+            final String lapsoIngesta,
+
+            @Parameter(maxLength = 40)
+            @ParameterLayout(named = "Stock Medicacion")
+            final Integer stockMedicacion,
+
+            @Parameter(maxLength = 40)
+            @ParameterLayout(named = "Medicacion Anterior")
+            final String medicacionAnterior){
+
+          this.vacuRecibida = vacuRecibida;
+          this.vacuFaltante = vacuFaltante;
+          this.enfePadecida = enfePadecida;
+          this.alerPadecida = alerPadecida;
+          this.ultimaVisitaMedica = ultimaVisitaMedica;
+          this.tipoMedicacion = tipoMedicacion;
+          this.lapsoIngesta = lapsoIngesta;
+          this.stockMedicacion = stockMedicacion;
+          this.medicacionAnterior = medicacionAnterior;
+
+          return this;
 
     }
 
-    public String default0UpdateName() {
-        return getVacuRecibida();
-    }
-
-    public TranslatableString validate0UpdateName(final String vacuRecibida) {
-        return vacuRecibida != null && vacuRecibida.contains("!") ? TranslatableString.tr("Exclamation mark is not allowed") : null;
-    }
-
-
-    // @Action(semantics = NON_IDEMPOTENT_ARE_YOU_SURE)
-    // public void delete() {
-    //    final String title = titleService.titleOf(this);
-    //   messageService.informUser(String.format("'%s' deleted", title));
-    //   historiaRepository.remove(this);
-    // }
+    public String default0UpdateHistoria() { return getVacuRecibida(); }
+    public String default1UpdateHistoria() { return getVacuFaltante(); }
+    public String default2UpdateHistoria() { return getEnfePadecida(); }
+    public String default3UpdateHistoria() { return getAlerPadecida(); }
+    public LocalDate default4UpdateHistoria() { return getUltimaVisitaMedica(); }
+    public String default5UpdateHistoria() { return getTipoMedicacion(); }
+    public String default6UpdateHistoria() { return getLapsoIngesta(); }
+    public Integer default7UpdateHistoria() { return getStockMedicacion(); }
+    public String default8UpdateHistoria() { return getMedicacionAnterior(); }
 
 
     @Override
-    public String toString() {
-        return getVacuRecibida();
-    }
+    public String toString() {  return getVacuRecibida(); }
 
     public int compareTo(final Historia other) {
         return ComparisonChain.start()

@@ -57,21 +57,6 @@ import static org.apache.isis.applib.annotation.SemanticsOf.IDEMPOTENT;
 
 public class Enfermero  {
 
-    /*public Enfermero(final String nombre, final String apellido){
-        this.nombre = nombre;
-        this.apellido = apellido;
-    }
-
-    public Paciente newPaciente(final String name, final String apellido) {
-        return repositoryService.persist(new Paciente(this,name,apellido));
-    }
-
-    @Persistent(mappedBy = "enfermero", dependentElement = "true")
-    @Column(allowsNull = "true")
-    @Property()
-    private List<Paciente> pacientes;*/
-
-
     @javax.jdo.annotations.Column(allowsNull = "false", length = 40)
     @lombok.NonNull
     @Property()
@@ -195,16 +180,6 @@ public class Enfermero  {
     public String default8UpdateEnfermero() { return getEdad(); }
     public String default9UpdateEnfermero() { return getNroMatricula(); }
 
-    /*public TranslatableString validate0UpdateName(final String nombre) {
-        return nombre != null && nombre.contains("!") ? TranslatableString.tr("Exclamation mark is not allowed") : null;
-    }*/
-
-    // @Action(semantics = NON_IDEMPOTENT_ARE_YOU_SURE)
-    // public void delete() {
-    //    final String title = titleService.titleOf(this);
-    //   messageService.informUser(String.format("'%s' deleted", title));
-    //   enfermeroRepository.remove(this);
-    // }
 
     @Override
     public String toString() {
