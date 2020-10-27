@@ -28,6 +28,7 @@
                                 <cpt:property id="frecuenciaRespiratoria"/>
                                 <cpt:property id="estudiosLaboratorio"/>
                                 <cpt:property id="observacion"/>
+                                <cpt:action id="updateVisita"/>
                             </cpt:fieldSet>
                         </bs3:col>
                     </bs3:row>

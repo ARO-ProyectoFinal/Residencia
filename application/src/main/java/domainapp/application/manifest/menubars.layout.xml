@@ -38,7 +38,7 @@
             <mb3:named>Familiares</mb3:named>
             <mb3:section>
                 <mb3:serviceAction objectType="DatosFamiliares" id="create">
-                    <cpt:named>Cargar Datos Familiares</cpt:named>
+                    <cpt:named>Crear Datos Familiares</cpt:named>
                 </mb3:serviceAction>
                 <mb3:serviceAction objectType="DatosFamiliares" id="findByFamiliar">
                     <cpt:named>Buscar por Nombre Completo Familiar</cpt:named>
@@ -53,7 +53,7 @@
             <mb3:named>Enfermeros</mb3:named>
             <mb3:section>
                 <mb3:serviceAction objectType="DatosEnfermero" id="create">
-                    <cpt:named>Cargar Datos Enfermeros</cpt:named>
+                    <cpt:named>Crear Datos Enfermeros</cpt:named>
                 </mb3:serviceAction>
                 <mb3:serviceAction objectType="DatosEnfermero" id="findByEnfermero">
                     <cpt:named>Buscar por Nombre Enfermero</cpt:named>
