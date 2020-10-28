@@ -63,12 +63,6 @@ import static org.apache.isis.applib.annotation.SemanticsOf.IDEMPOTENT;
 @lombok.RequiredArgsConstructor
 public class Paciente implements Comparable<Paciente> {
 
-    /*public Paciente(final DatosFamiliares datosFamiliares, final String name, final String apellido) {
-        this.datosFamiliares = datosFamiliares;
-        this.name = name;
-        this.apellido = apellido;
-    }*/
-
     @javax.jdo.annotations.Column(allowsNull = "true", name = "sol_datos_famId")
     @Property()
     @PropertyLayout(named = "Familiar")
@@ -80,17 +74,9 @@ public class Paciente implements Comparable<Paciente> {
     @PropertyLayout(named = "Enfermero")
     private Enfermero asignarEnfermero;
 
-    @javax.jdo.annotations.Column(allowsNull = "true", name = "agr_histo_Id")
-    @Property()
-    @PropertyLayout(named = "Historia")
-    private Historia agregarHistoria;
-
-    /*@javax.jdo.annotations.Column(allowsNull = "false", name = "visitaId")
-    @Property(editing = Editing.DISABLED)
-    private Visita visita;*/
-
     @javax.jdo.annotations.Column(allowsNull = "false", length = 40)
     @lombok.NonNull
+    @PropertyLayout(named = "Nombre")
     @Property() // editing disabled by default, see isis.properties
     private String name;
 
@@ -262,10 +248,6 @@ public class Paciente implements Comparable<Paciente> {
         return getObservacion();
     }
 
-    /*public TranslatableString validate0UpdateName(final String name) {
-        return name != null && name.contains("!") ? TranslatableString.tr("Exclamation mark is not allowed") : null;
-    }*/
-
 
    // @Action(semantics = NON_IDEMPOTENT_ARE_YOU_SURE)
    // public void delete() {
@@ -314,19 +296,6 @@ public class Paciente implements Comparable<Paciente> {
 
     public List<Enfermero> choices0AgregarEnfermero() { return enfermeroRepository.Listar(); }
 
-    @Action()
-    @ActionLayout(named = "Agregar Historia Clinica")
-    public Paciente AgregarHistoria(
-            @Parameter(optionality = Optionality.MANDATORY)
-            @ParameterLayout(named = "Historia")
-            final Historia historia) {
-
-        this.agregarHistoria = historia;
-        return this;
-    }
-
-    public List<Historia> choices0AgregarHistoria() { return historiaRepository.Listar(); }
-
     @javax.inject.Inject
     @javax.jdo.annotations.NotPersistent
     @lombok.Getter(AccessLevel.NONE) @lombok.Setter(AccessLevel.NONE)
@@ -336,11 +305,6 @@ public class Paciente implements Comparable<Paciente> {
     @javax.jdo.annotations.NotPersistent
     @lombok.Getter(AccessLevel.NONE) @lombok.Setter(AccessLevel.NONE)
     EnfermeroRepository enfermeroRepository;
-
-    @javax.inject.Inject
-    @javax.jdo.annotations.NotPersistent
-    @lombok.Getter(AccessLevel.NONE) @lombok.Setter(AccessLevel.NONE)
-    HistoriaRepository historiaRepository;
 
     @javax.inject.Inject
     @javax.jdo.annotations.NotPersistent

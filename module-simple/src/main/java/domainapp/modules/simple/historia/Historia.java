@@ -59,24 +59,28 @@ public class Historia {
     @Column(allowsNull = "false", length = 40)
     @Property()
     @Title()
+    @PropertyLayout(named = "Vacuna Recibida")
     private String vacuRecibida;
 
     @lombok.NonNull
     @Column(allowsNull = "false", length = 40)
     @Property()
     @Title()
+    @PropertyLayout(named = "Vacuna Faltante")
     private String vacuFaltante;
 
     @lombok.NonNull
     @Column(allowsNull = "false", length = 40)
     @Property()
     @Title()
+    @PropertyLayout(named = "Enfermedad Padecidas")
     private String enfePadecida;
 
     @lombok.NonNull
     @Column(allowsNull = "false", length = 40)
     @Property()
     @Title()
+    @PropertyLayout(named = "Alergias Padecidas")
     private String alerPadecida;
 
     @javax.jdo.annotations.Column(allowsNull = "true")

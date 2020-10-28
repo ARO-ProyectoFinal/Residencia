@@ -29,7 +29,7 @@
     <bs3:row>
         <bs3:col span="12">
             <bs3:row>
-                <bs3:col span="12">
+                <bs3:col span="8">
                     <cpt:fieldSet name="Paciente">
                         <cpt:property id="name"/>
                         <cpt:property id="apellido"/>
@@ -46,14 +46,6 @@
                         <cpt:action id="updatePaciente"/>
                     </cpt:fieldSet>
                 </bs3:col>
-            </bs3:row>
-        </bs3:col>
-    </bs3:row>
-
-
-    <bs3:row>
-        <bs3:col span="12">
-            <bs3:row>
                 <bs3:col span="4">
                     <cpt:fieldSet name="Asignacion Familiar">
                         <cpt:property id="solicitanteDatosFamiliares" hidden="ALL_TABLES">

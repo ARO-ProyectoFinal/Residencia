@@ -30,7 +30,7 @@
                                 <cpt:property id="lapsoIngesta"/>
                                 <cpt:property id="stockMedicacion"/>
                                 <cpt:property id="medicacionAnterior"/>
-
+                                <cpt:action id="updateHistoria"/>
 
                             </cpt:fieldSet>
                         </bs3:col>
