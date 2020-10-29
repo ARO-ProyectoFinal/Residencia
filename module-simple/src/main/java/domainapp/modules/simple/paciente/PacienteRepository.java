@@ -26,6 +26,16 @@ public class PacienteRepository {
     }
 
     @Programmatic
+    public List<Paciente> Listar(final EstadoPaciente estado) {
+
+        return repositoryService.allMatches(
+                new QueryDefault<>(
+                        Paciente.class,
+                        "findByEstado",
+                        "estado", estado));
+    }
+
+    @Programmatic
     public Paciente create(
             final String name,
             final String apellido,

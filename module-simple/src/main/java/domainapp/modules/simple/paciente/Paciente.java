@@ -74,6 +74,10 @@ public class Paciente implements Comparable<Paciente> {
     @PropertyLayout(named = "Enfermero")
     private Enfermero asignarEnfermero;
 
+    @javax.jdo.annotations.Column(allowsNull = "true", name = "estado")
+    @Property()
+    private EstadoPaciente estado;
+
     @javax.jdo.annotations.Column(allowsNull = "false", length = 40)
     @lombok.NonNull
     @PropertyLayout(named = "Nombre")
@@ -248,14 +252,22 @@ public class Paciente implements Comparable<Paciente> {
         return getObservacion();
     }
 
+    @Programmatic
+    public void CambiarEstado(EstadoPaciente estado){
+        this.estado = estado;
+    }
 
-   // @Action(semantics = NON_IDEMPOTENT_ARE_YOU_SURE)
-   // public void delete() {
-    //    final String title = titleService.titleOf(this);
-     //   messageService.informUser(String.format("'%s' deleted", title));
-     //   pacienteRepository.remove(this);
-   // }
+    @Action()
+    public Paciente Activo(){
+        CambiarEstado(EstadoPaciente.Activo);
+        return this;
+    }
 
+    @Action(semantics = SemanticsOf.IDEMPOTENT_ARE_YOU_SURE)
+    public Paciente Baja(){
+        CambiarEstado(EstadoPaciente.Baja);
+        return this;
+    }
 
     @Override
     public String toString() {
