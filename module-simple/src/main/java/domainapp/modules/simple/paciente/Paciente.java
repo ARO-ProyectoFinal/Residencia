@@ -141,8 +141,14 @@ public class Paciente implements Comparable<Paciente> {
     @lombok.NonNull
     private String observacion;
 
-    public Paciente(Enfermero enfermero, String name, String apellido) {
-    }
+
+    public String RepoName() { return this.name; }
+    public String RepoApellido() { return this.apellido; }
+    public LocalDate RepoFechaAlta() { return this.fechaAlta; }
+    public int RepoEdad() { return this.edad; }
+    public String RepoIncapacidad() { return this.incapacidad; }
+    public String RepoObservacion() { return this.observacion; }
+
 
     public String title(){
         return getApellido()+" " + getName();

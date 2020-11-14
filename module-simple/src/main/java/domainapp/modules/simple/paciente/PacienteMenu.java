@@ -1,9 +1,15 @@
 package domainapp.modules.simple.paciente;
+import domainapp.modules.simple.reportes.EjecutarReportes;
 
+import java.io.IOException;
+import net.sf.jasperreports.engine.JRException;
 import org.apache.isis.applib.annotation.*;
 import org.apache.isis.applib.services.jdosupport.IsisJdoSupport;
+import org.apache.isis.applib.value.Blob;
 import org.datanucleus.query.typesafe.TypesafeQuery;
 import org.joda.time.LocalDate;
+
+
 
 import java.util.List;
 
@@ -99,6 +105,13 @@ public class PacienteMenu {
         List <Paciente> pacientes =  pacienteRepository.Listar();
         return pacientes;
 
+    }
+
+    @Action()
+    @ActionLayout(named = "Listado Exportado")
+    public Blob ExportarListado() throws JRException, IOException {
+        EjecutarReportes ejecutarReportes = new EjecutarReportes();
+        return ejecutarReportes.ListadoPacientePDF(pacienteRepository.Listar());
     }
 
     @javax.inject.Inject

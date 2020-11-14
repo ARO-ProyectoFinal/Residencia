@@ -31,6 +31,9 @@
                 <mb3:serviceAction objectType="Paciente" id="listAll">
                     <cpt:named>Listar Pacientes</cpt:named>
                 </mb3:serviceAction>
+                <mb3:serviceAction objectType="Paciente" id="ExportarListado">
+                    <cpt:named>Exportar Listado a PDF</cpt:named>
+                </mb3:serviceAction>
             </mb3:section>
         </mb3:menu>
 
