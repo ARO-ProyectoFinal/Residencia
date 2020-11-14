@@ -1,5 +1,6 @@
 package domainapp.modules.simple.reportes;
 
+import domainapp.modules.simple.datosFamiliares.DatosFamiliares;
 import domainapp.modules.simple.paciente.Paciente;
 import net.sf.jasperreports.engine.JRException;
 import net.sf.jasperreports.engine.JRExporterParameter;
@@ -34,6 +35,20 @@ public class EjecutarReportes {
 
         JRBeanCollectionDataSource ds = new JRBeanCollectionDataSource(repoPacientes);
         return GenerarArchivoPDF("ListadoPacienteDesing.jrxml", "Listado de Paciente.pdf", ds);
+    }
+
+    public Blob ListadoFamiliarPDF(List<DatosFamiliares> datosFamiliares) throws JRException, IOException {
+
+        List<RepoDatosFamiliares> repoDatosFamiliares1 = new ArrayList<>();
+        repoDatosFamiliares1.add(new RepoDatosFamiliares());
+
+        for (DatosFamiliares datosFamiliar : datosFamiliares) {
+            RepoDatosFamiliares repoDatosFamiliares = new RepoDatosFamiliares(datosFamiliar.RepoNombreCompletoFamiliar(), datosFamiliar.RepoParentesco(), datosFamiliar.RepoNumeroContacto(), datosFamiliar.RepoMailFamiliar());
+            repoDatosFamiliares1.add(repoDatosFamiliares);
+        }
+
+        JRBeanCollectionDataSource ds = new JRBeanCollectionDataSource(repoDatosFamiliares1);
+        return GenerarArchivoPDF("ListadoFamiliarDesing.jrxml", "Listado de Familiar.pdf", ds);
     }
 
     private Blob GenerarArchivoPDF(String archivoDesing, String nombreSalida, JRBeanCollectionDataSource ds) throws JRException, IOException{

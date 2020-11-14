@@ -49,6 +49,9 @@
                 <mb3:serviceAction objectType="DatosFamiliares" id="listAll">
                     <cpt:named>Listar Familiares</cpt:named>
                 </mb3:serviceAction>
+                <mb3:serviceAction objectType="DatosFamiliares" id="ExportarListado">
+                    <cpt:named>Exportar Listado a PDF</cpt:named>
+                </mb3:serviceAction>
             </mb3:section>
         </mb3:menu>
 

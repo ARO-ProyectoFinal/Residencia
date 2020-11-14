@@ -68,22 +68,6 @@ import static org.apache.isis.applib.annotation.SemanticsOf.IDEMPOTENT;
 
 public class DatosFamiliares implements Comparable<DatosFamiliares>{
 
-        /*public DatosFamiliares(final String nombreCompletoFamiliar, String parentesco) {
-                this.nombreCompletoFamiliar = nombreCompletoFamiliar;
-                this.parentesco = parentesco;
-        }
-
-
-        public Paciente newPaciente(final String name, final String apellido) {
-                return repositoryService.persist(new Paciente(this, name, apellido));
-        }
-
-        @Persistent(mappedBy = "datosFamiliares", dependentElement = "true")
-        @Column(allowsNull = "true")
-        @Property()
-        private List<Paciente> pacientes;*/
-
-
         //Datos familiares paciente
         @javax.jdo.annotations.Column(allowsNull = "false", length = 40)
         @lombok.NonNull
@@ -110,6 +94,11 @@ public class DatosFamiliares implements Comparable<DatosFamiliares>{
         public String title(){
             return getNombreCompletoFamiliar();
         }
+
+        public String RepoNombreCompletoFamiliar() { return this.nombreCompletoFamiliar; }
+        public String RepoParentesco() { return this.parentesco; }
+        public String RepoNumeroContacto() { return this.numeroContacto; }
+        public String RepoMailFamiliar() { return this.mailFamiliar; }
 
 
         @Action()
@@ -156,19 +145,6 @@ public class DatosFamiliares implements Comparable<DatosFamiliares>{
                 return getMailFamiliar();
         }
 
-        /*public TranslatableString validate0UpdateName(final String name) {
-            return name != null && name.contains("!") ? TranslatableString.tr("Exclamation mark is not allowed") : null;
-        }*/
-
-
-        // @Action(semantics = NON_IDEMPOTENT_ARE_YOU_SURE)
-        // public void delete() {
-        //    final String title = titleService.titleOf(this);
-        //   messageService.informUser(String.format("'%s' deleted", title));
-        //   datosFamiliaresRepository.remove(this);
-        // }
-
-
         @Override
         public String toString() {
             return getNombreCompletoFamiliar();
@@ -199,6 +175,5 @@ public class DatosFamiliares implements Comparable<DatosFamiliares>{
         @javax.jdo.annotations.NotPersistent
         @lombok.Getter(AccessLevel.NONE) @lombok.Setter(AccessLevel.NONE)
         MessageService messageService;
-
 
 }

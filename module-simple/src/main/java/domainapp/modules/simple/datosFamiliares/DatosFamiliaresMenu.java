@@ -1,9 +1,13 @@
 package domainapp.modules.simple.datosFamiliares;
 
+import domainapp.modules.simple.reportes.EjecutarReportes;
+import net.sf.jasperreports.engine.JRException;
 import org.apache.isis.applib.annotation.*;
 import org.apache.isis.applib.services.jdosupport.IsisJdoSupport;
+import org.apache.isis.applib.value.Blob;
 import org.datanucleus.query.typesafe.TypesafeQuery;
 
+import java.io.IOException;
 import java.util.List;
 
 @DomainService(
@@ -69,6 +73,13 @@ public class DatosFamiliaresMenu {
         List <DatosFamiliares> datosFamiliares =  datosfamiliaresrepository.Listar();
         return datosFamiliares;
 
+    }
+
+    @Action()
+    @ActionLayout(named = "Listado Exportado")
+    public Blob ExportarListado() throws JRException, IOException {
+        EjecutarReportes ejecutarReportes = new EjecutarReportes();
+        return ejecutarReportes.ListadoFamiliarPDF(datosfamiliaresrepository.Listar());
     }
 
     @javax.inject.Inject
