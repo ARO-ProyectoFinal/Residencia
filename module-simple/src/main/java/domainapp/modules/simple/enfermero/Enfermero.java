@@ -111,6 +111,12 @@ public class Enfermero  {
 
     public String title(){ return getNombre() + " " + getApellido(); }
 
+    public String RepoNombre() { return this.nombre; }
+    public String RepoApellido() { return this.apellido; }
+    public String RepoEdad() { return this.edad; }
+    public String RepoTelefono() { return this.telefono; }
+    public String RepoNroMatricula() { return this.nroMatricula; }
+
     @Action()
     @ActionLayout(named = "Editar")
     public Enfermero updateEnfermero(

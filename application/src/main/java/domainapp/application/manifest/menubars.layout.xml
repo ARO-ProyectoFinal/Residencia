@@ -67,6 +67,9 @@
                 <mb3:serviceAction objectType="DatosEnfermero" id="listAll">
                     <cpt:named>Listar Enfermeros</cpt:named>
                 </mb3:serviceAction>
+                <mb3:serviceAction objectType="DatosEnfermero" id="ExportarListado">
+                    <cpt:named>Exportar Listado a PDF</cpt:named>
+                </mb3:serviceAction>
             </mb3:section>
         </mb3:menu>
 
