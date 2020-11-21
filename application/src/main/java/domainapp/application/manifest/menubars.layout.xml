@@ -71,6 +71,17 @@
                     <cpt:named>Exportar Listado a PDF</cpt:named>
                 </mb3:serviceAction>
             </mb3:section>
+            <mb3:section>
+                <mb3:serviceAction objectType="PlanillaEnfermero" id="create">
+                    <cpt:named>Crear Planilla del Dia</cpt:named>
+                </mb3:serviceAction>
+                <mb3:serviceAction objectType="PlanillaEnfermero" id="findByPaciente">
+                    <cpt:named>Buscar Planilla de Paciente</cpt:named>
+                </mb3:serviceAction>
+                <mb3:serviceAction objectType="PlanillaEnfermero" id="listAll">
+                    <cpt:named>Listar Planillas</cpt:named>
+                </mb3:serviceAction>
+            </mb3:section>
         </mb3:menu>
 
         <mb3:menu>
