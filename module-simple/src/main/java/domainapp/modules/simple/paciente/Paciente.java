@@ -154,6 +154,14 @@ public class Paciente implements Comparable<Paciente> {
         return getApellido()+" " + getName();
     }
 
+    public String iconName(){
+        if (this.estado == EstadoPaciente.Activo){
+            return "Activo";
+        }else{
+            return "Baja";
+        }
+    }
+
 
     @Action()
     @ActionLayout(named = "Editar")
