@@ -12,9 +12,12 @@ import org.apache.isis.applib.annotation.*;
 import org.apache.isis.applib.services.i18n.TranslatableString;
 import org.apache.isis.applib.services.message.MessageService;
 import org.apache.isis.applib.services.title.TitleService;
+import org.apache.isis.schema.utils.jaxbadapters.JodaDateTimeStringAdapter;
+import org.joda.time.LocalDate;
 
 
 import javax.jdo.annotations.*;
+import javax.xml.bind.annotation.adapters.XmlJavaTypeAdapter;
 
 import static org.apache.isis.applib.annotation.CommandReification.ENABLED;
 import static org.apache.isis.applib.annotation.SemanticsOf.IDEMPOTENT;
@@ -56,6 +59,12 @@ public class Visita {
     @Column(allowsNull = "false")
     private Paciente paciente;
 
+    @javax.jdo.annotations.Column(allowsNull = "true")
+    @lombok.NonNull
+    @Property() // editing disabled by default, see isis.properties
+    @XmlJavaTypeAdapter(JodaDateTimeStringAdapter.ForJaxb.class)
+    private LocalDate fechaUltimaVisita;
+
     @javax.jdo.annotations.Column(allowsNull = "false", length = 40)
     @lombok.NonNull
     @Property()
@@ -84,16 +93,6 @@ public class Visita {
     @javax.jdo.annotations.Column(allowsNull = "false", length = 40)
     @lombok.NonNull
     @Property()
-    private String frecuenciaRespiratoria;
-
-    @javax.jdo.annotations.Column(allowsNull = "false", length = 40)
-    @lombok.NonNull
-    @Property()
-    private String estudiosLaboratorio;
-
-    @javax.jdo.annotations.Column(allowsNull = "false", length = 40)
-    @lombok.NonNull
-    @Property()
     private String observacion;
 
     public String title(){ return paciente.getName() + " " + paciente.getApellido(); }
@@ -103,6 +102,10 @@ public class Visita {
     @Action()
     @ActionLayout(named = "Editar")
     public Visita updateVisita(
+            @Parameter(maxLength = 40)
+            @ParameterLayout(named = "Fecha Ultima Visita")
+            final LocalDate fechaUltimaVisita,
+
             @Parameter(maxLength = 40)
             @ParameterLayout(named = "Altura")
             final String altura,
@@ -124,24 +127,15 @@ public class Visita {
             final String frecuenciaCardiaca,
 
             @Parameter(maxLength = 40)
-            @ParameterLayout(named = "Frecuencia Respiratoria")
-            final String frecuenciaRespiratoria,
-
-            @Parameter(maxLength = 40)
-            @ParameterLayout(named = "Estudios Laboratorio")
-            final String estudiosLaboratorio,
-
-            @Parameter(maxLength = 40)
             @ParameterLayout(named = "Observacion")
             final String observacion){
 
+            this.fechaUltimaVisita = fechaUltimaVisita;
             this.altura = altura;
             this.peso = peso;
             this.temperatura = temperatura;
             this.presionArterial = presionArterial;
             this.frecuenciaCardiaca = frecuenciaCardiaca;
-            this.frecuenciaRespiratoria = frecuenciaRespiratoria;
-            this.estudiosLaboratorio = estudiosLaboratorio;
             this.observacion = observacion;
 
 
@@ -149,28 +143,25 @@ public class Visita {
 
     }
 
-    public String default0UpdateVisita() {
-        return getAltura();
+    public LocalDate default0UpdateVisita() {
+        return getFechaUltimaVisita();
     }
     public String default1UpdateVisita() {
-        return getPeso();
+        return getAltura();
     }
     public String default2UpdateVisita() {
-        return getTemperatura();
+        return getPeso();
     }
     public String default3UpdateVisita() {
-        return getPresionArterial();
+        return getTemperatura();
     }
     public String default4UpdateVisita() {
-        return getFrecuenciaCardiaca();
+        return getPresionArterial();
     }
     public String default5UpdateVisita() {
-        return getFrecuenciaRespiratoria();
+        return getFrecuenciaCardiaca();
     }
     public String default6UpdateVisita() {
-        return getEstudiosLaboratorio();
-    }
-    public String default7UpdateVisita() {
         return getObservacion();
     }
 

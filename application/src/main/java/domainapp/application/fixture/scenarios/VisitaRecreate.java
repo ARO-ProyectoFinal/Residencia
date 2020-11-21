@@ -32,8 +32,6 @@ public class VisitaRecreate extends FixtureScript {
             fs.setTemperatura(Temperatura.get(i));
             fs.setPresionArterial(PresionArterial.get(i));
             fs.setFrecuenciaCardiaca(FrecuenciaCardiaca.get(i));
-            fs.setFrecuenciaRespiratoria(FrecuenciaRespiratoria.get(i));
-            fs.setEstudiosLaboratorio(EstudiosLaboratorio.get(i));
             fs.setObservacion(Observacion.get(i));
 
             ec.executeChild(this, fs.getAltura(), fs);

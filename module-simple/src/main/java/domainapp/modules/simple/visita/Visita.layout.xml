@@ -20,6 +20,7 @@
                         <bs3:col span="12">
                             <cpt:fieldSet name="Ultima Visita Medica">
                                 <cpt:property id="paciente"/>
+                                <cpt:property id="fechaUltimaVisita"/>
                                 <cpt:property id="altura"/>
                                 <cpt:property id="peso"/>
                                 <cpt:property id="temperatura"/>

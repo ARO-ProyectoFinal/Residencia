@@ -5,6 +5,7 @@ import domainapp.modules.simple.paciente.PacienteRepository;
 import org.apache.isis.applib.annotation.*;
 import org.apache.isis.applib.services.jdosupport.IsisJdoSupport;
 import org.datanucleus.query.typesafe.TypesafeQuery;
+import org.joda.time.LocalDate;
 
 import java.util.List;
 
@@ -30,6 +31,10 @@ public class VisitaMenu {
             final Paciente paciente,
 
             @Parameter(maxLength = 40)
+            @ParameterLayout(named = "Fecha Ultima Visita")
+            final LocalDate fechaUltimaVisita,
+
+            @Parameter(maxLength = 40)
             @ParameterLayout(named = "Altura")
             final String altura,
 
@@ -50,18 +55,10 @@ public class VisitaMenu {
             final String frecuenciaCardiaca,
 
             @Parameter(maxLength = 40)
-            @ParameterLayout(named = "Frecuencia Respiratoria")
-            final String frecuenciaRespiratoria,
-
-            @Parameter(maxLength = 40)
-            @ParameterLayout(named = "Estudios Laboratorio")
-            final String estudiosLaboratorio,
-
-            @Parameter(maxLength = 40)
             @ParameterLayout(named = "Observacion")
             final String observacion)
     {
-        return visitaRepository.create(paciente, altura, peso, temperatura, presionArterial, frecuenciaCardiaca, frecuenciaRespiratoria, estudiosLaboratorio, observacion);
+        return visitaRepository.create(paciente, fechaUltimaVisita, altura, peso, temperatura, presionArterial, frecuenciaCardiaca, observacion);
     }
 
     public List<Paciente> choices0Create() {return pacienteRepository.Listar();}

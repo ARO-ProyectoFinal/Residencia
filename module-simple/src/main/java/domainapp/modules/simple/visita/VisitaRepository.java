@@ -6,6 +6,7 @@ import org.apache.isis.applib.annotation.NatureOfService;
 import org.apache.isis.applib.annotation.Programmatic;
 import org.apache.isis.applib.query.QueryDefault;
 import org.apache.isis.applib.services.repository.RepositoryService;
+import org.joda.time.LocalDate;
 
 
 import java.util.List;
@@ -39,17 +40,16 @@ public class VisitaRepository {
     public Visita create(
 
             final Paciente paciente,
+            final LocalDate fechaUltimaVisita,
             final String altura,
             final String peso,
             final String temperatura,
             final String presionArterial,
             final String frecuenciaCardiaca,
-            final String frecunciaRespiratoria,
-            final String estudiosLaboratorio,
             final String observacion
 
     ) {
-        final Visita visita = new Visita(paciente,altura,peso,temperatura,presionArterial,frecuenciaCardiaca,frecunciaRespiratoria,estudiosLaboratorio,observacion);
+        final Visita visita = new Visita(paciente,fechaUltimaVisita,altura,peso,temperatura,presionArterial,frecuenciaCardiaca,observacion);
         repositoryService.persist(visita);
         return visita;
     }
