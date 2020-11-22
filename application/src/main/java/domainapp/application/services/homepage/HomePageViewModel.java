@@ -20,8 +20,10 @@ package domainapp.application.services.homepage;
 
 import java.util.List;
 
+import domainapp.modules.simple.paciente.EstadoPaciente;
 import domainapp.modules.simple.paciente.Paciente;
 import domainapp.modules.simple.paciente.PacienteRepository;
+import org.apache.isis.applib.annotation.CollectionLayout;
 import org.apache.isis.applib.annotation.DomainObject;
 import org.apache.isis.applib.annotation.Nature;
 import org.apache.isis.applib.services.i18n.TranslatableString;
@@ -33,11 +35,14 @@ import org.apache.isis.applib.services.i18n.TranslatableString;
 public class HomePageViewModel {
 
     public TranslatableString title() {
-        return TranslatableString.tr("{num} objects", "num", getObjects().size());
+        return TranslatableString.tr("Listado de Pacientes (Activo/Baja)");
     }
 
-    public List<Paciente> getObjects() {
-        return pacienteRepository.Listar();
+    @CollectionLayout(named = "Listado de Paciente (Activos/Baja)")
+    public List<Paciente> getPacientes() {
+        List<Paciente> pacientes = pacienteRepository.Listar(EstadoPaciente.Activo);
+        pacientes.addAll(pacienteRepository.Listar(EstadoPaciente.Baja));
+        return pacientes;
     }
 
     @javax.inject.Inject

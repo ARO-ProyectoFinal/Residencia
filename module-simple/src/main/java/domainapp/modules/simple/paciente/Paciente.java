@@ -50,7 +50,14 @@ import static org.apache.isis.applib.annotation.SemanticsOf.IDEMPOTENT;
 @Queries({
         @Query(
                 name = "find", language = "JDOQL",
-                value = "SELECT ")})
+                value = "SELECT "),
+        @Query(
+                name = "findByEstado", language = "JDOQL",
+                value = "SELECT "
+                        + "FROM domainapp.modules.simple.paciente.Paciente "
+                        + "WHERE estado == :estado "
+                        + "ORDER BY name ASC")
+})
 
 
 @javax.jdo.annotations.PersistenceCapable(identityType=IdentityType.DATASTORE, schema = "simple")
