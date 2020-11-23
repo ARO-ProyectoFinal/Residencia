@@ -17,3 +17,197 @@
  *  under the License.
  */
 
+
+/* etiqueta para reemplazar la de boostrap y ubicar mejor el logo del navbar */
+.navbar-brand{
+ padding: 5px 5px;
+}
+
+/* etiquetas para ocultar el titulo de la pagina principal HOME */
+.entityPage.isis-domainapp-application-services-homepage-HomePageViewModel h4.iconAndTitle{
+display:none;
+}
+
+/* etiquetas para reemplazar el color del header de los contenedores de informacion */
+.panel-default > .panel-heading {
+    color: #000000;
+    background-color: #79c0e2;
+    border-color: #ecf0f1;
+    font-weight: bold;
+}
+
+/*etiqueta para cambiar el color de la primer fila de titulos de una tabla */
+.headers {
+    background-color: #e4e4e4;
+    color: #000;
+}
+
+/*etiqueta para cambiar de color de letra a la primer fila de titulos de una tabla */
+table.table tr.headers th a {
+    color: #000000;
+}
+
+/*etiqueta para agregar color black al sidebar para cuando pide alguna accion*/
+ #sidebar-wrapper {
+     background-color: white;
+     width: 45%;
+}
+
+/*etiqueta para que el checkbox disabled sea mas gris y se vea desabilitado */
+.cbx-disabled {
+    background: #ecf0f1;
+    border: 2px solid #dce4ec;
+    color: #8e8e8e;
+}
+
+/*etiqueta para mejorar el borde de las pestañas a un gris oscuro igual que el borde inferior */
+.nav-tabs>li.active>a, .nav-tabs>li.active>a:hover, .nav-tabs>li.active>a:focus {
+    color: #2c3e50;
+    background-color: #ffffff;
+    border: 1px solid #dddddd;
+    border-bottom-color: transparent;
+    cursor: default;
+    font-weight: 700;
+}
+
+/*etiqueta para dar un borde mas oscuro a los containers de informacion*/
+.panel-default {
+    border-color: #d6d6d6;
+}
+
+/*etiqueta para establecer fondo blanco en los containers de informacion*/
+.tab-content {
+    background-color: white;
+}
+
+.form-control[readonly],
+.form-control[readonly]:focus,
+input:read-only {
+    background-color: #f5f5f5;
+    cursor: default;
+    border-width: 0px;
+}
+
+/*baja el padding top del contenedor */
+#page-content-wrapper{
+padding: 0px 50px 0px 50px;
+
+}
+
+/*baja el padding al contenedor */
+.entityHeaderPanel{
+padding-top: 10px
+}
+
+
+/*############## ESTILO DE BOTONES ##############*/
+.btn-default,
+.btn-primary {
+    color: #fff;
+    background-color: #007bff;
+    border-color: #007bff;
+}
+.btn-default:hover,
+.btn-primary:hover {
+    background-color: #3d95f3;
+    border: 2px solid #4ea3ff;
+}
+.btn-default:focus,
+.btn-primary:focus {
+    background-color: #3d95f3;
+    border: 2px solid #4ea3ff;
+}
+
+/*el boton que esta deshabilitado lo pone completamente gris*/
+.btn[disabled]{
+    background-color: #95a5a6;
+    border-color: #95a5a6;
+}
+
+/*Hace que los textos dentro los input de Detalles-Autorizacion no se muestren como hipervinculos y tenga el cursor tipo Texto*/
+a.scalarValueInlinePromptLink,
+a.scalarValueInlinePromptLink:hover,
+a.form-control.scalarValueInlinePromptLink:hover,
+a.form-control.scalarValueInlinePromptLink:hover {
+    color: black;
+    text-decoration: none;
+    cursor:text;
+}
+
+.containerConBorde {
+  border: 1px solid #d4d4d4;
+  padding-top: 20px;
+}
+.containerSinBordePadding{
+    padding-top: 20px;
+}
+
+
+/*Estilos para mejorar las TABS*/
+.nav-tabs>li>a {
+    color: #2c3e50;
+    border: 1px solid #dddddd;
+    border-bottom-color: transparent;
+    background-color: #d1f1ff;
+}
+
+.nav-tabs>li>a:hover {
+    border: 1px solid #dddddd;
+    border-bottom-color: transparent;
+    background-color: #99dfff;
+}
+
+
+a{
+    text-decoration: none;
+    color:black;
+}
+a:hover{
+    text-decoration: underline;
+    color:black;
+}
+
+table a:not(.btn), .table a:not(.btn) {
+    text-decoration: none;
+}
+
+
+/*Esto oculta el boton MostrarTabla */
+/*div.linksSelectorPanel > div.btn-group.viewLinks {
+display:none;
+}*/
+
+/*Aplica estilo al boton Mostrar Todos que aparece cuando hay varias paginas */
+.navigatorLabel .btn-link {
+    /*border: 1px solid black;*/
+    color: black;
+    background-color: #47a2ce;
+}
+
+.navigatorLabel .btn-link:hover {
+    /*border: 1px solid black;*/
+    color: white;
+    background-color: #79c0e2;
+}
+
+
+/*Estilo para paginador */
+.pagination>.disabled>span, .pagination>.disabled>span:hover, .pagination>.disabled>span:focus, .pagination>.disabled>a, .pagination>.disabled>a:hover, .pagination>.disabled>a:focus{
+background-color: #a9a9a9;
+text-decoration: none;
+}
+.pagination>.active>a, .pagination>.active>span, .pagination>.active>a:hover, .pagination>.active>span:hover, .pagination>.active>a:focus, .pagination>.active>span:focus{
+background-color: #0080bd;
+text-decoration: none;
+}
+
+.pagination>li>a{
+background-color: #47a2ce;
+text-decoration: none;
+}
+
+.pagination>li>a:hover{
+background-color: #79c0e2;
+text-decoration: none;
+}
+
