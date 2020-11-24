@@ -67,18 +67,18 @@ import static org.apache.isis.applib.annotation.SemanticsOf.IDEMPOTENT;
 )
 
 
-public class DatosFamiliares implements Comparable<DatosFamiliares>{
+public class DatosFamiliares{
 
         //Datos familiares paciente
-        @javax.jdo.annotations.Column(allowsNull = "false", length = 40)
-        @lombok.NonNull
-        @Property()
-        private String nombreCompletoFamiliar;
-
         @lombok.NonNull
         @Property()
         @Column(allowsNull = "false")
         private Paciente paciente;
+
+        @javax.jdo.annotations.Column(allowsNull = "false", length = 40)
+        @lombok.NonNull
+        @Property()
+        private String nombreCompletoFamiliar;
 
         @javax.jdo.annotations.Column(allowsNull = "true", length = 40)
         @Property()

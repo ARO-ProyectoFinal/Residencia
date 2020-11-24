@@ -41,15 +41,14 @@ public class DatosFamiliaresRepository {
 
     @Programmatic
     public DatosFamiliares create(
-
-            final String nombreCompletoFamiliar,
             final Paciente paciente,
+            final String nombreCompletoFamiliar,
             final String parentesco,
             final String numeroContacto,
             final String mailFamiliar
     ) {
 
-        final DatosFamiliares datosFamiliares = new DatosFamiliares(nombreCompletoFamiliar,paciente,parentesco,numeroContacto,mailFamiliar);
+        final DatosFamiliares datosFamiliares = new DatosFamiliares(paciente,nombreCompletoFamiliar,parentesco,numeroContacto,mailFamiliar);
         repositoryService.persist(datosFamiliares);
         return datosFamiliares;
     }

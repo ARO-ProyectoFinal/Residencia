@@ -29,15 +29,13 @@ public class DatosFamiliaresMenu {
     @ActionLayout(named = "Datos Familiares")
     @MemberOrder(sequence = "1")
     public DatosFamiliares create(
-
+            @Parameter(optionality = Optionality.MANDATORY)
+            @ParameterLayout(named = "Paciente: ")
+            final Paciente paciente,
 
             @Parameter(maxLength = 40)
             @ParameterLayout(named = "Nombre Completo del familiar ")
             final String nombreCompletoFamiliar,
-
-            @Parameter(optionality = Optionality.MANDATORY)
-            @ParameterLayout(named = "Paciente: ")
-            final Paciente paciente,
 
             @Parameter(maxLength = 40)
             @ParameterLayout(named = "Parentesco ")
@@ -52,7 +50,7 @@ public class DatosFamiliaresMenu {
             final  String mailFamiliar)
 
     {
-        return datosfamiliaresrepository.create (nombreCompletoFamiliar, paciente, parentesco,numeroContacto,mailFamiliar);
+        return datosfamiliaresrepository.create (paciente,nombreCompletoFamiliar, parentesco,numeroContacto,mailFamiliar);
     }
 
     public List<Paciente> choices0Create() {return pacienteRepository.Listar();}

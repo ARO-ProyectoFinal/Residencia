@@ -30,13 +30,14 @@ public class DatosFamiliaresCreate extends FixtureScript {
     @Override
     protected void execute(final ExecutionContext ec) {
 
+        Paciente paciente = checkParam("paciente", ec, Paciente.class);
         String nombreCompletoFamiliar = checkParam("nombreCompletoFamiliar", ec, String.class);
         String parentesco = checkParam("parentesco", ec, String.class);
         String numeroContacto = checkParam("numeroContacto", ec, String.class);
         String mailFamiliar = checkParam("mailFamiliar", ec, String.class);
 
 
-        this.datosFamiliaresObject = wrap(menu).create(nombreCompletoFamiliar,paciente,parentesco,numeroContacto,mailFamiliar);
+        this.datosFamiliaresObject = wrap(menu).create(paciente,nombreCompletoFamiliar,parentesco,numeroContacto,mailFamiliar);
 
         // also make available to UI
         ec.addResult(this, datosFamiliaresObject);

@@ -19,8 +19,8 @@
                     <bs3:row>
                         <bs3:col span="12">
                             <cpt:fieldSet name="Datos Familiar">
-                                <cpt:property id="nombreCompletoFamiliar"/>
                                 <cpt:property id="paciente"/>
+                                <cpt:property id="nombreCompletoFamiliar"/>
                                 <cpt:property id="parentesco"/>
                                 <cpt:property id="numeroContacto"/>
                                 <cpt:property id="mailFamiliar"/>
