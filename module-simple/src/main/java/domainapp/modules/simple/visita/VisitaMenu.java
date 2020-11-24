@@ -83,7 +83,7 @@ public class VisitaMenu {
 
     @Action(semantics = SemanticsOf.SAFE)
     @ActionLayout(bookmarking = BookmarkPolicy.AS_ROOT)
-    @MemberOrder(sequence = "4")
+    @MemberOrder(sequence = "3")
     public List<Visita> listAll() {
         List <Visita> visitas =  visitaRepository.Listar();
         return visitas;

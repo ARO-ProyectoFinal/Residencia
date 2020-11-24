@@ -26,8 +26,6 @@
                                 <cpt:property id="temperatura"/>
                                 <cpt:property id="presionArterial"/>
                                 <cpt:property id="frecuenciaCardiaca"/>
-                                <cpt:property id="frecuenciaRespiratoria"/>
-                                <cpt:property id="estudiosLaboratorio"/>
                                 <cpt:property id="observacion"/>
                                 <cpt:action id="updateVisita"/>
                             </cpt:fieldSet>

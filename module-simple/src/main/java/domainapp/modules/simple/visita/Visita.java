@@ -165,18 +165,6 @@ public class Visita {
         return getObservacion();
     }
 
-    /*public TranslatableString validate0UpdateName(final String altura) {
-        return altura != null && altura.contains("!") ? TranslatableString.tr("Exclamation mark is not allowed") : null;
-    }*/
-
-
-    // @Action(semantics = NON_IDEMPOTENT_ARE_YOU_SURE)
-    // public void delete() {
-    //    final String title = titleService.titleOf(this);
-    //   messageService.informUser(String.format("'%s' deleted", title));
-    //   visitaRepository.remove(this);
-    // }
-
 
     @Override
     public String toString() {

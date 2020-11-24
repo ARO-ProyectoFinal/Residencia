@@ -71,22 +71,21 @@ public class DatosFamiliares implements Comparable<DatosFamiliares>{
         //Datos familiares paciente
         @javax.jdo.annotations.Column(allowsNull = "false", length = 40)
         @lombok.NonNull
-        @Property(editing = Editing.ENABLED)
+        @Property()
         private String nombreCompletoFamiliar;
 
-
         @javax.jdo.annotations.Column(allowsNull = "true", length = 40)
-        @Property(editing = Editing.ENABLED)
+        @Property()
         @lombok.NonNull
         private String parentesco;
 
         @javax.jdo.annotations.Column(allowsNull = "true", length = 40)
-        @Property(editing = Editing.ENABLED)
+        @Property()
         @lombok.NonNull
         private String numeroContacto;
 
         @javax.jdo.annotations.Column(allowsNull = "true", length = 40)
-        @Property(editing = Editing.ENABLED)
+        @Property()
         @lombok.NonNull
         private String mailFamiliar;
 

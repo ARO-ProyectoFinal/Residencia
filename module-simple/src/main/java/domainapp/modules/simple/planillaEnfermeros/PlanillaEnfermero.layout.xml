@@ -30,7 +30,7 @@
                                 <cpt:property id="ropa"/>
                                 <cpt:property id="limpieza"/>
                                 <cpt:property id="observacion"/>
-                                <cpt:action id="updateFamiliar"/>
+                                <cpt:action id="updatePlanillaEnfermeros"/>
                             </cpt:fieldSet>
                         </bs3:col>
                     </bs3:row>
