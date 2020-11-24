@@ -82,8 +82,8 @@ public class VisitaMenu {
     public List<Paciente> choices0FindByPaciente() {return pacienteRepository.Listar();}
 
     @Action(semantics = SemanticsOf.SAFE)
-    @ActionLayout(bookmarking = BookmarkPolicy.AS_ROOT)
-    @MemberOrder(sequence = "3")
+    @ActionLayout(bookmarking = BookmarkPolicy.AS_ROOT, named = "Listado de Visita Medica")
+    @MemberOrder(sequence = "4")
     public List<Visita> listAll() {
         List <Visita> visitas =  visitaRepository.Listar();
         return visitas;

@@ -100,7 +100,7 @@ public class PlanillaEnfermeroMenu {
     public List<Paciente> choices0FindByPaciente() {return pacienteRepository.Listar();}
 
     @Action(semantics = SemanticsOf.SAFE)
-    @ActionLayout(bookmarking = BookmarkPolicy.AS_ROOT)
+    @ActionLayout(bookmarking = BookmarkPolicy.AS_ROOT, named = "Planillas de Enfermeros")
     @MemberOrder(sequence = "4")
     public List<PlanillaEnfermero> listAll() {
         List <PlanillaEnfermero> planillaEnfermeros =  planillaEnfermeroRepository.Listar();

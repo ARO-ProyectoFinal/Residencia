@@ -92,7 +92,7 @@ public class HistoriaMenu {
     public List<Paciente> choices0FindByPaciente() {return pacienteRepository.Listar();}
 
     @Action(semantics = SemanticsOf.SAFE)
-    @ActionLayout(bookmarking = BookmarkPolicy.AS_ROOT)
+    @ActionLayout(bookmarking = BookmarkPolicy.AS_ROOT, named = "Listado de Historias Clinicas")
     @MemberOrder(sequence = "3")
     public List<Historia> listAll() {
         List <Historia> historias =  historiaRepository.Listar();
