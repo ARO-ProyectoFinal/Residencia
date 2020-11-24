@@ -2,6 +2,7 @@ package domainapp.application.fixture.scenarios;
 
 import domainapp.modules.simple.datosFamiliares.DatosFamiliares;
 import domainapp.modules.simple.datosFamiliares.DatosFamiliaresMenu;
+import domainapp.modules.simple.paciente.Paciente;
 import lombok.Getter;
 import lombok.Setter;
 import org.apache.isis.applib.fixturescripts.FixtureScript;
@@ -10,6 +11,9 @@ public class DatosFamiliaresCreate extends FixtureScript {
 
     @Getter @Setter
     private String nombreCompletoFamiliar;
+
+    @Getter @Setter
+    private Paciente paciente;
 
     @Getter @Setter
     private String parentesco;
@@ -32,7 +36,7 @@ public class DatosFamiliaresCreate extends FixtureScript {
         String mailFamiliar = checkParam("mailFamiliar", ec, String.class);
 
 
-        this.datosFamiliaresObject = wrap(menu).create(nombreCompletoFamiliar,parentesco,numeroContacto,mailFamiliar);
+        this.datosFamiliaresObject = wrap(menu).create(nombreCompletoFamiliar,paciente,parentesco,numeroContacto,mailFamiliar);
 
         // also make available to UI
         ec.addResult(this, datosFamiliaresObject);

@@ -5,6 +5,7 @@ import com.google.common.collect.ComparisonChain;
 
 
 import domainapp.modules.simple.paciente.Paciente;
+import domainapp.modules.simple.paciente.PacienteRepository;
 import org.apache.isis.applib.annotation.*;
 import org.apache.isis.applib.services.i18n.TranslatableString;
 import org.apache.isis.applib.services.message.MessageService;
@@ -73,6 +74,11 @@ public class DatosFamiliares implements Comparable<DatosFamiliares>{
         @lombok.NonNull
         @Property()
         private String nombreCompletoFamiliar;
+
+        @lombok.NonNull
+        @Property()
+        @Column(allowsNull = "false")
+        private Paciente paciente;
 
         @javax.jdo.annotations.Column(allowsNull = "true", length = 40)
         @Property()
@@ -164,6 +170,11 @@ public class DatosFamiliares implements Comparable<DatosFamiliares>{
         @javax.jdo.annotations.NotPersistent
         @lombok.Getter(AccessLevel.NONE) @lombok.Setter(AccessLevel.NONE)
         DatosFamiliaresRepository datosfamiliaresrepository;
+
+        @javax.inject.Inject
+        @javax.jdo.annotations.NotPersistent
+        @lombok.Getter(AccessLevel.NONE) @lombok.Setter(AccessLevel.NONE)
+        PacienteRepository pacienteRepository;
 
         @javax.inject.Inject
         @javax.jdo.annotations.NotPersistent

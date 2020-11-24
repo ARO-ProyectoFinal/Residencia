@@ -1,5 +1,7 @@
 package domainapp.modules.simple.datosFamiliares;
 
+import domainapp.modules.simple.paciente.Paciente;
+import domainapp.modules.simple.paciente.PacienteRepository;
 import domainapp.modules.simple.reportes.EjecutarReportes;
 import net.sf.jasperreports.engine.JRException;
 import org.apache.isis.applib.annotation.*;
@@ -33,6 +35,10 @@ public class DatosFamiliaresMenu {
             @ParameterLayout(named = "Nombre Completo del familiar ")
             final String nombreCompletoFamiliar,
 
+            @Parameter(optionality = Optionality.MANDATORY)
+            @ParameterLayout(named = "Paciente: ")
+            final Paciente paciente,
+
             @Parameter(maxLength = 40)
             @ParameterLayout(named = "Parentesco ")
             final  String parentesco,
@@ -46,8 +52,10 @@ public class DatosFamiliaresMenu {
             final  String mailFamiliar)
 
     {
-        return datosfamiliaresrepository.create (nombreCompletoFamiliar, parentesco,numeroContacto,mailFamiliar);
+        return datosfamiliaresrepository.create (nombreCompletoFamiliar, paciente, parentesco,numeroContacto,mailFamiliar);
     }
+
+    public List<Paciente> choices0Create() {return pacienteRepository.Listar();}
 
     @Action(semantics = SemanticsOf.SAFE)
     @ActionLayout(bookmarking = BookmarkPolicy.AS_ROOT, named = "Buscar familiar")
@@ -87,6 +95,9 @@ public class DatosFamiliaresMenu {
 
     @javax.inject.Inject
     DatosFamiliaresRepository datosfamiliaresrepository;
+
+    @javax.inject.Inject
+    PacienteRepository pacienteRepository;
 }
 
 
