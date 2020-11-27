@@ -4,6 +4,7 @@ import com.google.common.collect.ComparisonChain;
 import domainapp.modules.simple.datosFamiliares.DatosFamiliares;
 import domainapp.modules.simple.paciente.Paciente;
 import domainapp.modules.simple.paciente.PacienteRepository;
+import domainapp.modules.simple.planillaEnfermeros.Estado;
 import lombok.AccessLevel;
 import lombok.Getter;
 import lombok.Setter;
@@ -40,7 +41,7 @@ import static org.apache.isis.applib.annotation.SemanticsOf.IDEMPOTENT;
 @Version(
         strategy = VersionStrategy.VERSION_NUMBER,
         column = "version")
-@Unique(name = "HistoriaClinica_vacuRecibida_UNQ", members = { "vacuRecibida" })
+@Unique(name = "HistoriaClinica_hipertensionArterial_UNQ", members = { "hipertensionArterial" })
 @DomainObject(
         editing = Editing.DISABLED
 )
@@ -52,67 +53,74 @@ public class Historia {
 
     @lombok.NonNull
     @Property()
-    @Column(allowsNull = "false")
+    @Column()
     private Paciente paciente;
 
     @lombok.NonNull
-    @Column(allowsNull = "false", length = 40)
+    @Column(length = 40)
     @Property()
-    @Title()
-    @PropertyLayout(named = "Vacuna Recibida")
-    private String vacuRecibida;
+    private Estado hipertensionArterial;
 
-    @lombok.NonNull
-    @Column(allowsNull = "false", length = 40)
+    @javax.jdo.annotations.Column(length = 40)
     @Property()
-    @Title()
-    @PropertyLayout(named = "Vacuna Faltante")
-    private String vacuFaltante;
+    @lombok.NonNull
+    private Estado diabetes;
 
-    @lombok.NonNull
-    @Column(allowsNull = "false", length = 40)
+    @javax.jdo.annotations.Column(length = 40)
     @Property()
-    @Title()
-    @PropertyLayout(named = "Enfermedad Padecidas")
-    private String enfePadecida;
+    @lombok.NonNull
+    private Estado enfCardiovascular;
 
-    @lombok.NonNull
-    @Column(allowsNull = "false", length = 40)
+    @javax.jdo.annotations.Column(length = 40)
     @Property()
-    @Title()
-    @PropertyLayout(named = "Alergias Padecidas")
-    private String alerPadecida;
+    @lombok.NonNull
+    private Estado marcapasos;
 
-    @javax.jdo.annotations.Column(allowsNull = "true")
-    @lombok.NonNull
+    @javax.jdo.annotations.Column(length = 40)
     @Property()
-    @XmlJavaTypeAdapter(JodaDateTimeStringAdapter.ForJaxb.class)
-    @Title()
-    private LocalDate ultimaVisitaMedica;
+    @lombok.NonNull
+    private Estado discopatias;
 
-    @lombok.NonNull
-    @Column(allowsNull = "false", length = 40)
+    @javax.jdo.annotations.Column(length = 40)
     @Property()
-    @Title()
-    private String tipoMedicacion;
+    @lombok.NonNull
+    private Estado perdidaDeConocimiento;
 
-    @lombok.NonNull
-    @Column(allowsNull = "false", length = 40)
+    @javax.jdo.annotations.Column(length = 40)
     @Property()
-    @Title()
-    private String lapsoIngesta;
+    @lombok.NonNull
+    private Estado artritis;
 
-    @javax.jdo.annotations.Column(allowsNull = "true")
-    @lombok.NonNull
+    @javax.jdo.annotations.Column(length = 40)
     @Property()
-    @Title()
-    private Integer stockMedicacion;
+    @lombok.NonNull
+    private Estado artrosis;
 
-    @lombok.NonNull
-    @Column(allowsNull = "false", length = 40)
+    @javax.jdo.annotations.Column(length = 40)
     @Property()
-    @Title()
-    private String medicacionAnterior;
+    @lombok.NonNull
+    private Estado lumbago;
+
+    @javax.jdo.annotations.Column(length = 40)
+    @Property()
+    @lombok.NonNull
+    private Estado neurosis;
+
+    @javax.jdo.annotations.Column(length = 40)
+    @Property()
+    @lombok.NonNull
+    private Estado traumatismos;
+
+    @javax.jdo.annotations.Column(length = 40)
+    @Property()
+    @lombok.NonNull
+    private Estado problemasOtologicos;
+
+    @javax.jdo.annotations.Column(length = 40)
+    @Property()
+    @lombok.NonNull
+    private String comentarios;
+
 
 
     public String title(){
@@ -124,74 +132,91 @@ public class Historia {
     @ActionLayout(named = "Editar")
     public Historia updateHistoria(
             @Parameter(maxLength = 40)
-            @ParameterLayout(named = "Vacuna Recibida")
-            final String vacuRecibida,
+            @ParameterLayout(named = "Hipertension Arterial")
+            final Estado hipertensionArterial,
 
             @Parameter(maxLength = 40)
-            @ParameterLayout(named = "Vacuna Faltante")
-            final String vacuFaltante,
+            @ParameterLayout(named = "Diabetes")
+            final Estado diabetes,
 
             @Parameter(maxLength = 40)
-            @ParameterLayout(named = "Enfermedad Padecida")
-            final String enfePadecida,
+            @ParameterLayout(named = "Enfermedad Cardiovascular")
+            final Estado enfCardiovascular,
 
             @Parameter(maxLength = 40)
-            @ParameterLayout(named = "Alegia Padecida")
-            final String alerPadecida,
+            @ParameterLayout(named = "Usa Marcapasos")
+            final Estado marcapasos,
 
             @Parameter(maxLength = 40)
-            @ParameterLayout(named = "Ultima Visita Medica")
-            final LocalDate ultimaVisitaMedica,
+            @ParameterLayout(named = "Discopatias")
+            final Estado discopatias,
 
             @Parameter(maxLength = 40)
-            @ParameterLayout(named = "Tipo de Medicacion")
-            final String tipoMedicacion,
+            @ParameterLayout(named = "Perdida del Conocimiento")
+            final Estado perdidaDeConocimiento,
 
             @Parameter(maxLength = 40)
-            @ParameterLayout(named = "Lapso Ingesta")
-            final String lapsoIngesta,
+            @ParameterLayout(named = "Artritis")
+            final Estado artritis,
 
             @Parameter(maxLength = 40)
-            @ParameterLayout(named = "Stock Medicacion")
-            final Integer stockMedicacion,
+            @ParameterLayout(named = "Artrosis")
+            final Estado artrosis,
 
             @Parameter(maxLength = 40)
-            @ParameterLayout(named = "Medicacion Anterior")
-            final String medicacionAnterior){
+            @ParameterLayout(named = "Lumbago")
+            final Estado lumbago,
 
-          this.vacuRecibida = vacuRecibida;
-          this.vacuFaltante = vacuFaltante;
-          this.enfePadecida = enfePadecida;
-          this.alerPadecida = alerPadecida;
-          this.ultimaVisitaMedica = ultimaVisitaMedica;
-          this.tipoMedicacion = tipoMedicacion;
-          this.lapsoIngesta = lapsoIngesta;
-          this.stockMedicacion = stockMedicacion;
-          this.medicacionAnterior = medicacionAnterior;
+            @Parameter(maxLength = 40)
+            @ParameterLayout(named = "Neurosis")
+            final Estado neurosis,
+
+            @Parameter(maxLength = 40)
+            @ParameterLayout(named = "Traumatismos")
+            final Estado traumatismos,
+
+            @Parameter(maxLength = 40)
+            @ParameterLayout(named = "Problemas Otologicos")
+            final Estado problemasOtologicos,
+
+            @Parameter(maxLength = 200)
+            @ParameterLayout(named = "Comentarios")
+            final String comentarios){
+
+          this.hipertensionArterial = hipertensionArterial;
+          this.diabetes = diabetes;
+          this.enfCardiovascular = enfCardiovascular;
+          this.marcapasos = marcapasos;
+          this.discopatias = discopatias;
+          this.perdidaDeConocimiento = perdidaDeConocimiento;
+          this.artritis = artritis;
+          this.artrosis = artrosis;
+          this.lumbago = lumbago;
+          this.neurosis = neurosis;
+          this.traumatismos = traumatismos;
+          this.problemasOtologicos = problemasOtologicos;
+          this.comentarios = comentarios;
+
 
           return this;
 
     }
 
-    public String default0UpdateHistoria() { return getVacuRecibida(); }
-    public String default1UpdateHistoria() { return getVacuFaltante(); }
-    public String default2UpdateHistoria() { return getEnfePadecida(); }
-    public String default3UpdateHistoria() { return getAlerPadecida(); }
-    public LocalDate default4UpdateHistoria() { return getUltimaVisitaMedica(); }
-    public String default5UpdateHistoria() { return getTipoMedicacion(); }
-    public String default6UpdateHistoria() { return getLapsoIngesta(); }
-    public Integer default7UpdateHistoria() { return getStockMedicacion(); }
-    public String default8UpdateHistoria() { return getMedicacionAnterior(); }
+    public Estado default0UpdateHistoria() { return getHipertensionArterial(); }
+    public Estado default1UpdateHistoria() { return getDiabetes(); }
+    public Estado default2UpdateHistoria() { return getEnfCardiovascular(); }
+    public Estado default3UpdateHistoria() { return getMarcapasos(); }
+    public Estado default4UpdateHistoria() { return getDiscopatias(); }
+    public Estado default5UpdateHistoria() { return getPerdidaDeConocimiento(); }
+    public Estado default6UpdateHistoria() { return getArtritis(); }
+    public Estado default7UpdateHistoria() { return getArtrosis(); }
+    public Estado default8UpdateHistoria() { return getLumbago(); }
+    public Estado default9UpdateHistoria() { return getNeurosis(); }
+    public Estado default10UpdateHistoria() { return getTraumatismos(); }
+    public Estado default11UpdateHistoria() { return getProblemasOtologicos(); }
+    public String default12UpdateHistoria() { return getComentarios(); }
 
 
-    @Override
-    public String toString() {  return getVacuRecibida(); }
-
-    public int compareTo(final Historia other) {
-        return ComparisonChain.start()
-                .compare(this.getVacuRecibida(), other.getVacuRecibida())
-                .result();
-    }
 
     @javax.inject.Inject
     @javax.jdo.annotations.NotPersistent

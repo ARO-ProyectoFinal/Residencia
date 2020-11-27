@@ -4,6 +4,7 @@ import domainapp.modules.simple.datosFamiliares.DatosFamiliares;
 import domainapp.modules.simple.datosFamiliares.QDatosFamiliares;
 import domainapp.modules.simple.paciente.Paciente;
 import domainapp.modules.simple.paciente.PacienteRepository;
+import domainapp.modules.simple.planillaEnfermeros.Estado;
 import org.apache.isis.applib.annotation.*;
 import org.apache.isis.applib.services.jdosupport.IsisJdoSupport;
 import org.datanucleus.query.typesafe.TypesafeQuery;
@@ -32,43 +33,58 @@ public class HistoriaMenu {
             final Paciente paciente,
 
             @Parameter(maxLength = 40)
-            @ParameterLayout(named = "Vacunas Recibidas")
-            final  String vacuRecibida,
+            @ParameterLayout(named = "Hipertension Arterial")
+            final Estado hipertensionArterial,
 
             @Parameter(maxLength = 40)
-            @ParameterLayout(named = "Vacunas Faltantes")
-            final String vacuFaltante,
+            @ParameterLayout(named = "Diabetes")
+            final Estado diabetes,
 
             @Parameter(maxLength = 40)
-            @ParameterLayout(named = "Enfermedades Padecidas")
-            final String enfePadecida,
+            @ParameterLayout(named = "Enfermedad Cardiovascular")
+            final Estado enfCardiovascular,
 
             @Parameter(maxLength = 40)
-            @ParameterLayout(named = "Alergias")
-            final  String alerPadecida,
+            @ParameterLayout(named = "Usa Marcapasos")
+            final Estado marcapasos,
 
             @Parameter(maxLength = 40)
-            @ParameterLayout(named = "Ultima Visita Medica")
-            final LocalDate ultimaVisitaMedica,
+            @ParameterLayout(named = "Discopatias")
+            final Estado discopatias,
 
             @Parameter(maxLength = 40)
-            @ParameterLayout(named = "Tipo de Medicacion")
-            final  String tipoMedicacion,
+            @ParameterLayout(named = "Perdida del Conocimiento")
+            final Estado perdidaDeConocimiento,
 
             @Parameter(maxLength = 40)
-            @ParameterLayout(named = "Lapso de Ingesta")
-            final String lapsoIngesta,
+            @ParameterLayout(named = "Artritis")
+            final Estado artritis,
 
             @Parameter(maxLength = 40)
-            @ParameterLayout(named = "Stock Medicacion")
-            final  Integer stockMedicacion,
+            @ParameterLayout(named = "Artrosis")
+            final Estado artrosis,
 
             @Parameter(maxLength = 40)
-            @ParameterLayout(named = "Medicacion Anterior")
-            final String medicacionAnterior)
+            @ParameterLayout(named = "Lumbago")
+            final Estado lumbago,
 
+            @Parameter(maxLength = 40)
+            @ParameterLayout(named = "Neurosis")
+            final Estado neurosis,
+
+            @Parameter(maxLength = 40)
+            @ParameterLayout(named = "Traumatismos")
+            final Estado traumatismos,
+
+            @Parameter(maxLength = 40)
+            @ParameterLayout(named = "Problemas Otologicos")
+            final Estado problemasOtologicos,
+
+            @Parameter(maxLength = 200)
+            @ParameterLayout(named = "Comentarios")
+            final String comentarios)
     {
-        return historiaRepository.create(paciente, vacuRecibida,vacuFaltante,enfePadecida,alerPadecida,ultimaVisitaMedica,tipoMedicacion,lapsoIngesta,stockMedicacion,medicacionAnterior);
+        return historiaRepository.create(paciente, hipertensionArterial,diabetes,enfCardiovascular,marcapasos,discopatias,perdidaDeConocimiento,artritis,artrosis,lumbago,neurosis,traumatismos,problemasOtologicos,comentarios);
     }
 
     public List<Paciente> choices0Create() {return pacienteRepository.Listar();}

@@ -3,9 +3,8 @@ package domainapp.modules.simple.historia;
 
 import domainapp.modules.simple.datosFamiliares.DatosFamiliares;
 import domainapp.modules.simple.paciente.Paciente;
-import org.apache.isis.applib.annotation.DomainService;
-import org.apache.isis.applib.annotation.NatureOfService;
-import org.apache.isis.applib.annotation.Programmatic;
+import domainapp.modules.simple.planillaEnfermeros.Estado;
+import org.apache.isis.applib.annotation.*;
 import org.apache.isis.applib.query.QueryDefault;
 import org.apache.isis.applib.services.repository.RepositoryService;
 import org.joda.time.LocalDate;
@@ -41,19 +40,23 @@ public class HistoriaRepository {
     public Historia create(
 
             final Paciente paciente,
-            final String vacuRecibida,
-            final String vacuFaltante,
-            final String enfePadecida,
-            final String alerPadecida,
-            final LocalDate ultimaVisitaMedica,
-            final String tipoMedicacion,
-            final String lapsoIngesta,
-            final Integer stockMedicacion,
-            final String medicacionAnterior
+            final Estado hipertensionArterial,
+            final Estado diabetes,
+            final Estado enfCardiovascular,
+            final Estado marcapasos,
+            final Estado discopatias,
+            final Estado perdidaDeConocimiento,
+            final Estado artritis,
+            final Estado artrosis,
+            final Estado lumbago,
+            final Estado neurosis,
+            final Estado traumatismos,
+            final Estado problemasOtologicos,
+            final String comentarios
 
     ) {
 
-        final Historia historia = new Historia(paciente, vacuRecibida,vacuFaltante,enfePadecida,alerPadecida,ultimaVisitaMedica,tipoMedicacion,lapsoIngesta,stockMedicacion,medicacionAnterior);
+        final Historia historia = new Historia(paciente, hipertensionArterial,diabetes,enfCardiovascular,marcapasos,discopatias,perdidaDeConocimiento,artritis,artrosis,lumbago,neurosis,traumatismos,problemasOtologicos,comentarios);
         repositoryService.persist(historia);
         return historia;
     }

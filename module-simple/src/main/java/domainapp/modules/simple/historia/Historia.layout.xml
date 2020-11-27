@@ -19,19 +19,21 @@
                     <bs3:row>
                         <bs3:col span="12">
                             <cpt:fieldSet name="Historia Clinica">
-
                                 <cpt:property id="paciente"/>
-                                <cpt:property id="vacuRecibida"/>
-                                <cpt:property id="vacuFaltante"/>
-                                <cpt:property id="enfePadecida"/>
-                                <cpt:property id="alerPadecida"/>
-                                <cpt:property id="ultimaVisitaMedica"/>
-                                <cpt:property id="tipoMedicacion"/>
-                                <cpt:property id="lapsoIngesta"/>
-                                <cpt:property id="stockMedicacion"/>
-                                <cpt:property id="medicacionAnterior"/>
+                                <cpt:property id="hipertensionArterial"/>
+                                <cpt:property id="diabetes"/>
+                                <cpt:property id="enfCardiovascular"/>
+                                <cpt:property id="marcapasos"/>
+                                <cpt:property id="discopatias"/>
+                                <cpt:property id="perdidaDeConocimiento"/>
+                                <cpt:property id="artritis"/>
+                                <cpt:property id="artrosis"/>
+                                <cpt:property id="lumbago"/>
+                                <cpt:property id="neurosis"/>
+                                <cpt:property id="traumatismos"/>
+                                <cpt:property id="problemasOtologicos"/>
+                                <cpt:property id="comentarios"/>
                                 <cpt:action id="updateHistoria"/>
-
                             </cpt:fieldSet>
                         </bs3:col>
                     </bs3:row>
