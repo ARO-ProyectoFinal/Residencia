@@ -44,7 +44,7 @@ public class EjecutarReportes {
         repoDatosFamiliares1.add(new RepoDatosFamiliares());
 
         for (DatosFamiliares datosFamiliar : datosFamiliares) {
-            RepoDatosFamiliares repoDatosFamiliares = new RepoDatosFamiliares(datosFamiliar.RepoNombreCompletoFamiliar(), datosFamiliar.RepoParentesco(), datosFamiliar.RepoNumeroContacto(), datosFamiliar.RepoMailFamiliar());
+            RepoDatosFamiliares repoDatosFamiliares = new RepoDatosFamiliares(datosFamiliar.RepoPaciente(), datosFamiliar.RepoNombreCompletoFamiliar(), datosFamiliar.RepoParentesco(), datosFamiliar.RepoNumeroContacto(), datosFamiliar.RepoMailFamiliar());
             repoDatosFamiliares1.add(repoDatosFamiliares);
         }
 

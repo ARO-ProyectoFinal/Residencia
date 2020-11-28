@@ -16,6 +16,7 @@ import lombok.AccessLevel;
 
 
 import javax.jdo.annotations.*;
+import javax.swing.plaf.PanelUI;
 
 import java.util.List;
 import java.util.SortedSet;
@@ -100,6 +101,7 @@ public class DatosFamiliares{
             return getNombreCompletoFamiliar();
         }
 
+        public String RepoPaciente() { return String.valueOf(this.paciente); }
         public String RepoNombreCompletoFamiliar() { return this.nombreCompletoFamiliar; }
         public String RepoParentesco() { return this.parentesco; }
         public String RepoNumeroContacto() { return this.numeroContacto; }
