@@ -7,7 +7,6 @@ import domainapp.modules.simple.paciente.PacienteRepository;
 
 
 import domainapp.modules.simple.reportes.EjecutarReportes;
-import domainapp.modules.simple.visita.VisitaRepository;
 import net.sf.jasperreports.engine.JRException;
 import org.apache.isis.applib.annotation.*;
 import org.apache.isis.applib.services.jdosupport.IsisJdoSupport;

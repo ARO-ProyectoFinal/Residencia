@@ -7,23 +7,13 @@ import com.google.common.collect.ComparisonChain;
 import domainapp.modules.simple.paciente.Paciente;
 import domainapp.modules.simple.paciente.PacienteRepository;
 import org.apache.isis.applib.annotation.*;
-import org.apache.isis.applib.services.i18n.TranslatableString;
 import org.apache.isis.applib.services.message.MessageService;
 import org.apache.isis.applib.services.repository.RepositoryService;
 import org.apache.isis.applib.services.title.TitleService;
 
 import lombok.AccessLevel;
-
-
 import javax.jdo.annotations.*;
-import javax.swing.plaf.PanelUI;
 
-import java.util.List;
-import java.util.SortedSet;
-import java.util.TreeSet;
-
-import static org.apache.isis.applib.annotation.CommandReification.ENABLED;
-import static org.apache.isis.applib.annotation.SemanticsOf.IDEMPOTENT;
 
 @lombok.Getter @lombok.Setter
 @lombok.RequiredArgsConstructor
@@ -43,20 +33,7 @@ import static org.apache.isis.applib.annotation.SemanticsOf.IDEMPOTENT;
         @Query(
                 name = "find", language = "JDOQL",
                 value = "SELECT "),
-       /* @Query(
-                name = "buscaFamiliar", language = "JDOQL",
-                value = "SELECT"
-                        +"FROM domainapp.modules.simple.datosFamiliares.DatosFamiliares"
-                        +"WHERE nombreCompletoFamiliar == nombreCompletoFamiliar"),
-
-
-
-        */
-
 })
-
-
-
 
 
 @Unique(name = "DatosFamiliares_nombreCompletoFamiliar_UNQ", members = { "nombreCompletoFamiliar" })

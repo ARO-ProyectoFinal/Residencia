@@ -1,17 +1,11 @@
 package domainapp.modules.simple.enfermero;
 
 
-import domainapp.modules.simple.datosFamiliares.DatosFamiliares;
-import domainapp.modules.simple.datosFamiliares.QDatosFamiliares;
 import domainapp.modules.simple.paciente.TipoDocumento;
 import domainapp.modules.simple.reportes.EjecutarReportes;
 import net.sf.jasperreports.engine.JRException;
 import org.apache.isis.applib.annotation.*;
-import org.apache.isis.applib.query.QueryDefault;
 import org.apache.isis.applib.services.jdosupport.IsisJdoSupport;
-
-
-import org.apache.isis.applib.services.repository.RepositoryService;
 import org.apache.isis.applib.value.Blob;
 import org.datanucleus.query.typesafe.TypesafeQuery;
 import org.joda.time.LocalDate;

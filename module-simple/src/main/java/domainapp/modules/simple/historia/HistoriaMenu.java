@@ -1,14 +1,13 @@
 package domainapp.modules.simple.historia;
 
-import domainapp.modules.simple.datosFamiliares.DatosFamiliares;
-import domainapp.modules.simple.datosFamiliares.QDatosFamiliares;
+
 import domainapp.modules.simple.paciente.Paciente;
 import domainapp.modules.simple.paciente.PacienteRepository;
 import domainapp.modules.simple.planillaEnfermeros.Estado;
 import org.apache.isis.applib.annotation.*;
 import org.apache.isis.applib.services.jdosupport.IsisJdoSupport;
 import org.datanucleus.query.typesafe.TypesafeQuery;
-import org.joda.time.LocalDate;
+
 
 import java.util.List;
 @DomainService(

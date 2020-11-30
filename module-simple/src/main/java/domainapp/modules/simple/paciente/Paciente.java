@@ -23,29 +23,19 @@ import javax.jdo.annotations.Queries;
 import javax.jdo.annotations.Query;
 import javax.jdo.annotations.VersionStrategy;
 import javax.xml.bind.annotation.adapters.XmlJavaTypeAdapter;
-
 import com.google.common.collect.ComparisonChain;
-
 import domainapp.modules.simple.datosFamiliares.DatosFamiliares;
 import domainapp.modules.simple.datosFamiliares.DatosFamiliaresRepository;
 import domainapp.modules.simple.enfermero.Enfermero;
 import domainapp.modules.simple.enfermero.EnfermeroRepository;
-import domainapp.modules.simple.historia.Historia;
-import domainapp.modules.simple.historia.HistoriaRepository;
-import domainapp.modules.simple.visita.Visita;
 import org.apache.isis.applib.annotation.*;
-import org.apache.isis.applib.services.i18n.TranslatableString;
 import org.apache.isis.applib.services.message.MessageService;
 import org.apache.isis.applib.services.title.TitleService;
-
 import lombok.AccessLevel;
 import org.apache.isis.schema.utils.jaxbadapters.JodaDateTimeStringAdapter;
 import org.joda.time.LocalDate;
-
 import java.util.List;
 
-import static org.apache.isis.applib.annotation.CommandReification.ENABLED;
-import static org.apache.isis.applib.annotation.SemanticsOf.IDEMPOTENT;
 
 @Queries({
         @Query(

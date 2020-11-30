@@ -2,16 +2,11 @@ package domainapp.modules.simple.enfermero;
 
 
 import com.google.common.collect.ComparisonChain;
-import domainapp.modules.simple.datosFamiliares.DatosFamiliares;
-import domainapp.modules.simple.paciente.Paciente;
 import domainapp.modules.simple.paciente.TipoDocumento;
 import lombok.AccessLevel;
 import lombok.Getter;
 import lombok.Setter;
-import net.sf.cglib.core.Local;
 import org.apache.isis.applib.annotation.*;
-
-import org.apache.isis.applib.services.i18n.TranslatableString;
 import org.apache.isis.applib.services.message.MessageService;
 import org.apache.isis.applib.services.repository.RepositoryService;
 import org.apache.isis.applib.services.title.TitleService;
@@ -20,10 +15,6 @@ import org.joda.time.LocalDate;
 
 import javax.jdo.annotations.*;
 import javax.xml.bind.annotation.adapters.XmlJavaTypeAdapter;
-import java.util.List;
-
-import static org.apache.isis.applib.annotation.CommandReification.ENABLED;
-import static org.apache.isis.applib.annotation.SemanticsOf.IDEMPOTENT;
 
 
 @Getter

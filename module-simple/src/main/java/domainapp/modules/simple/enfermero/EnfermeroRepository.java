@@ -1,6 +1,6 @@
 package domainapp.modules.simple.enfermero;
 
-import domainapp.modules.simple.datosFamiliares.DatosFamiliares;
+
 import domainapp.modules.simple.paciente.TipoDocumento;
 import org.apache.isis.applib.annotation.DomainService;
 import org.apache.isis.applib.annotation.NatureOfService;

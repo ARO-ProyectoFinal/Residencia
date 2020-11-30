@@ -5,8 +5,6 @@ import domainapp.modules.simple.enfermero.Enfermero;
 import domainapp.modules.simple.enfermero.EnfermeroRepository;
 import domainapp.modules.simple.paciente.Paciente;
 import domainapp.modules.simple.paciente.PacienteRepository;
-import domainapp.modules.simple.visita.Visita;
-import domainapp.modules.simple.visita.VisitaRepository;
 import lombok.AccessLevel;
 import lombok.Getter;
 import lombok.Setter;
@@ -217,24 +215,6 @@ public class PlanillaEnfermero {
     public String default10UpdatePlanillaEnfermeros() {
         return getObservacion();
     }
-
-    /*public TranslatableString validate0UpdateName(final String altura) {
-        return altura != null && altura.contains("!") ? TranslatableString.tr("Exclamation mark is not allowed") : null;
-    }*/
-
-
-    // @Action(semantics = NON_IDEMPOTENT_ARE_YOU_SURE)
-    // public void delete() {
-    //    final String title = titleService.titleOf(this);
-    //   messageService.informUser(String.format("'%s' deleted", title));
-    //   visitaRepository.remove(this);
-    // }
-
-
-    /*@Override
-    public Paciente toString() {
-        return getPaciente();
-    }*/
 
     public int compareTo(final PlanillaEnfermero other) {
         return ComparisonChain.start()
