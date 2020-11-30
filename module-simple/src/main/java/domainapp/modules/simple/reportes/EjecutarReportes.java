@@ -3,6 +3,7 @@ package domainapp.modules.simple.reportes;
 import domainapp.modules.simple.datosFamiliares.DatosFamiliares;
 import domainapp.modules.simple.enfermero.Enfermero;
 import domainapp.modules.simple.paciente.Paciente;
+import domainapp.modules.simple.planillaEnfermeros.PlanillaEnfermero;
 import net.sf.jasperreports.engine.JRException;
 import net.sf.jasperreports.engine.JRExporterParameter;
 import net.sf.jasperreports.engine.JasperCompileManager;
@@ -65,6 +66,21 @@ public class EjecutarReportes {
         JRBeanCollectionDataSource ds = new JRBeanCollectionDataSource(repoEnfermeros);
         return GenerarArchivoPDF("ListadoEnfermeroDesing.jrxml", "Listado de Enfermero.pdf", ds);
     }
+
+    public Blob ListadoPlanillaEnfermeroPDF(List<PlanillaEnfermero> planillaEnfermeros) throws JRException, IOException {
+
+        List<RepoPlanillaEnfermero> repoPlanillaEnfermeros = new ArrayList<>();
+        repoPlanillaEnfermeros.add(new RepoPlanillaEnfermero());
+
+        for (PlanillaEnfermero planillaEnfermero : planillaEnfermeros) {
+            RepoPlanillaEnfermero repoPlanillaEnfermero = new RepoPlanillaEnfermero(planillaEnfermero.RepoPaciente(), planillaEnfermero.RepoEnfermero(), planillaEnfermero.RepoFechaPlanilla().toString("dd-MM-yyyy"), planillaEnfermero.RepoTurnos(), planillaEnfermero.RepoMedicacion(), planillaEnfermero.RepoCuraciones(), planillaEnfermero.RepoActividadFisica(), planillaEnfermero.RepoComidas(), planillaEnfermero.RepoRopa(), planillaEnfermero.RepoLimpieza(), planillaEnfermero.RepoObservacion());
+            repoPlanillaEnfermeros.add(repoPlanillaEnfermero);
+        }
+
+        JRBeanCollectionDataSource ds = new JRBeanCollectionDataSource(repoPlanillaEnfermeros);
+        return GenerarArchivoPDF("ListadoPlanillaEnfermeroDesing.jrxml", "Listado de Planilla Enfermero.pdf", ds);
+    }
+
 
     private Blob GenerarArchivoPDF(String archivoDesing, String nombreSalida, JRBeanCollectionDataSource ds) throws JRException, IOException{
 

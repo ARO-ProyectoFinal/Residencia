@@ -6,12 +6,16 @@ import domainapp.modules.simple.paciente.Paciente;
 import domainapp.modules.simple.paciente.PacienteRepository;
 
 
+import domainapp.modules.simple.reportes.EjecutarReportes;
 import domainapp.modules.simple.visita.VisitaRepository;
+import net.sf.jasperreports.engine.JRException;
 import org.apache.isis.applib.annotation.*;
 import org.apache.isis.applib.services.jdosupport.IsisJdoSupport;
+import org.apache.isis.applib.value.Blob;
 import org.datanucleus.query.typesafe.TypesafeQuery;
 import org.joda.time.LocalDate;
 
+import java.io.IOException;
 import java.util.List;
 
 @DomainService(
@@ -106,6 +110,13 @@ public class PlanillaEnfermeroMenu {
         List <PlanillaEnfermero> planillaEnfermeros =  planillaEnfermeroRepository.Listar();
         return planillaEnfermeros;
 
+    }
+
+    @Action()
+    @ActionLayout(named = "Listado Exportado")
+    public Blob ExportarListado() throws JRException, IOException {
+        EjecutarReportes ejecutarReportes = new EjecutarReportes();
+        return ejecutarReportes.ListadoPlanillaEnfermeroPDF(planillaEnfermeroRepository.Listar());
     }
 
     @javax.inject.Inject

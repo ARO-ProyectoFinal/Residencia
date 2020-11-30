@@ -107,6 +107,17 @@ public class PlanillaEnfermero {
 
     public String title(){ return paciente.getName() + " " + paciente.getApellido(); }
 
+    public String RepoPaciente() { return String.valueOf(this.paciente); }
+    public String RepoEnfermero() { return String.valueOf(this.enfermero); }
+    public LocalDate RepoFechaPlanilla() { return this.fechaPlanilla; }
+    public String RepoTurnos() { return this.turno.toString(); }
+    public String RepoMedicacion() { return this.medicacion.toString(); }
+    public String RepoCuraciones() { return this.curaciones.toString(); }
+    public String RepoActividadFisica() { return this.actividadFisica.toString(); }
+    public String RepoComidas() { return this.comidas.toString(); }
+    public String RepoRopa() { return this.ropa.toString(); }
+    public String RepoLimpieza() { return this.limpieza.toString(); }
+    public String RepoObservacion() { return this.observacion; }
 
 
     @Action()
