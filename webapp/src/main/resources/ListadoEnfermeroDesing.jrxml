@@ -55,8 +55,11 @@
 	<title>
 		<band height="50" splitType="Stretch">
 			<property name="com.jaspersoft.studio.unit.height" value="px"/>
+			<rectangle>
+				<reportElement positionType="Float" x="0" y="0" width="555" height="50" backcolor="#B5DBFF" uuid="ce00cbb5-1fef-437d-90e2-6870731954bf"/>
+			</rectangle>
 			<staticText>
-				<reportElement x="0" y="0" width="555" height="40" uuid="70cbfd21-c3a2-49eb-bed3-f3fe6db7ecd0">
+				<reportElement x="0" y="0" width="506" height="30" forecolor="#000000" backcolor="#000000" uuid="08605e08-bf92-4147-a721-790c9db697c1">
 					<property name="com.jaspersoft.studio.unit.x" value="px"/>
 					<property name="com.jaspersoft.studio.unit.y" value="px"/>
 					<property name="com.jaspersoft.studio.unit.width" value="px"/>
@@ -66,17 +69,44 @@
 					<bottomPen lineWidth="1.25"/>
 				</box>
 				<textElement textAlignment="Center" verticalAlignment="Middle">
-					<font size="25"/>
+					<font size="19"/>
 				</textElement>
 				<text><![CDATA[Listado de Enfermeros]]></text>
 			</staticText>
+			<image>
+				<reportElement positionType="Float" x="505" y="0" width="50" height="50" forecolor="#000000" backcolor="#000000" uuid="7efbf254-2147-4f86-ab53-c4c3bab0337b"/>
+				<imageExpression><![CDATA["unnamed.jpg"]]></imageExpression>
+			</image>
+			<staticText>
+				<reportElement x="355" y="30" width="74" height="20" uuid="acf12d15-8a5f-447c-8f85-43a64fee36d8"/>
+				<textElement>
+					<font isItalic="true"/>
+				</textElement>
+				<text><![CDATA[Fecha reporte:]]></text>
+			</staticText>
+			<textField pattern="MMMMM dd, yyyy">
+				<reportElement x="429" y="30" width="76" height="20" uuid="25991407-a394-4b5d-9c6e-e672d923c66c"/>
+				<textFieldExpression><![CDATA[new java.util.Date()]]></textFieldExpression>
+			</textField>
+			<line>
+				<reportElement x="505" y="0" width="1" height="50" uuid="2736a3bb-046d-4d51-aab0-49e9a719b617"/>
+			</line>
+			<line>
+				<reportElement x="506" y="0" width="49" height="1" uuid="b14aee4f-bcac-4b2d-926a-4cf32749aaec"/>
+			</line>
+			<line>
+				<reportElement x="555" y="0" width="1" height="50" uuid="e601cb5b-3b7d-4168-b125-aebea904c86d"/>
+			</line>
+			<line>
+				<reportElement x="505" y="49" width="51" height="1" uuid="7078426b-a47b-4bff-afd3-98ea1271b3fc"/>
+			</line>
 		</band>
 	</title>
 	<detail>
 		<band height="60" splitType="Stretch">
 			<property name="com.jaspersoft.studio.unit.height" value="px"/>
 			<componentElement>
-				<reportElement x="0" y="0" width="555" height="50" uuid="2874ff22-c284-4b07-a753-c293ff75fc17">
+				<reportElement x="0" y="5" width="555" height="50" uuid="2874ff22-c284-4b07-a753-c293ff75fc17">
 					<property name="com.jaspersoft.studio.layout" value="com.jaspersoft.studio.editor.layout.VerticalRowLayout"/>
 					<property name="com.jaspersoft.studio.table.style.table_header" value="Table_TH"/>
 					<property name="com.jaspersoft.studio.table.style.column_header" value="Table_CH"/>
@@ -104,7 +134,7 @@
 						</jr:columnHeader>
 						<jr:detailCell style="Table_TD" height="30">
 							<textField>
-								<reportElement x="0" y="0" width="70" height="30" uuid="0188c561-8952-47fe-abb5-cca97ce73136">
+								<reportElement style="Table_TH" x="0" y="0" width="70" height="30" uuid="0188c561-8952-47fe-abb5-cca97ce73136">
 									<property name="com.jaspersoft.studio.unit.leftIndent" value="px"/>
 								</reportElement>
 								<textElement verticalAlignment="Middle">
@@ -132,7 +162,7 @@
 						</jr:columnHeader>
 						<jr:detailCell style="Table_TD" height="30">
 							<textField>
-								<reportElement x="0" y="0" width="110" height="30" uuid="107962fd-1eb8-4523-818e-c1bc423a44e9">
+								<reportElement style="Table_TH" x="0" y="0" width="110" height="30" uuid="107962fd-1eb8-4523-818e-c1bc423a44e9">
 									<property name="com.jaspersoft.studio.unit.leftIndent" value="px"/>
 									<property name="com.jaspersoft.studio.unit.width" value="pixel"/>
 								</reportElement>
@@ -162,7 +192,7 @@
 						</jr:columnHeader>
 						<jr:detailCell style="Table_TD" height="30">
 							<textField>
-								<reportElement x="0" y="0" width="112" height="30" uuid="c0591d0f-f25a-44ed-8504-6b19d047a6dd">
+								<reportElement style="Table_TH" x="0" y="0" width="112" height="30" uuid="c0591d0f-f25a-44ed-8504-6b19d047a6dd">
 									<property name="com.jaspersoft.studio.unit.leftIndent" value="px"/>
 								</reportElement>
 								<textElement verticalAlignment="Middle">
@@ -190,7 +220,7 @@
 						</jr:columnHeader>
 						<jr:detailCell style="Table_TD" height="30">
 							<textField>
-								<reportElement x="0" y="0" width="96" height="30" uuid="cfa79c05-338b-4d46-83fe-07a44e227c90">
+								<reportElement style="Table_TH" x="0" y="0" width="96" height="30" uuid="cfa79c05-338b-4d46-83fe-07a44e227c90">
 									<property name="com.jaspersoft.studio.unit.leftIndent" value="px"/>
 								</reportElement>
 								<textElement verticalAlignment="Middle">
@@ -219,7 +249,7 @@
 						</jr:columnHeader>
 						<jr:detailCell style="Table_TD" height="30">
 							<textField>
-								<reportElement x="0" y="0" width="167" height="30" uuid="220f1c40-98b6-4836-b416-c63af5be0371">
+								<reportElement style="Table_TH" x="0" y="0" width="167" height="30" uuid="220f1c40-98b6-4836-b416-c63af5be0371">
 									<property name="com.jaspersoft.studio.unit.leftIndent" value="px"/>
 								</reportElement>
 								<textElement verticalAlignment="Middle">
@@ -265,6 +295,11 @@
 					<property name="com.jaspersoft.studio.unit.height" value="px"/>
 				</reportElement>
 			</line>
+			<staticText>
+				<reportElement x="220" y="10" width="130" height="20" uuid="6832d88a-807d-420b-9b8b-16cbbe2993cc"/>
+				<textElement textAlignment="Center"/>
+				<text><![CDATA[Residencia ARO]]></text>
+			</staticText>
 		</band>
 	</pageFooter>
 </jasperReport>
