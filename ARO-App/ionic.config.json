@@ -1,0 +1,7 @@
+{
+  "name": "ARO-App",
+  "integrations": {
+    "capacitor": {}
+  },
+  "type": "angular"
+}
