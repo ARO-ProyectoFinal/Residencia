@@ -6,22 +6,5 @@ import { Component } from '@angular/core';
   styleUrls: ['home.page.scss'],
 })
 export class HomePage {
-  slideOpt = {
-    initialSlide: 0,
-    slidesPerView: 1,
-    centeredSlides: true,
-    speed: 400,
-  };
-
-  slides = [
-    {
-      imageSrc: 'assets/img/logo.png',
-      imageAlt: 'ARO Logo',
-      title: 'ARO',
-      subTitle: 'RESIDENCIA',
-      description: 'Sistema de gestion para mejorar tu trabajo del dia a dia',
-      icon: 'play',
-    },
-  ];
   constructor() {}
 }
