@@ -1,12 +1,12 @@
 <ion-content [fullscreen]="true" class="ion-padding">
   <ion-slides pager="true" [options]="slideOpt">
-    <ion-slide>
+    <ion-slide *ngFor="let slide of slides">
       <ion-icon name="close"></ion-icon>
       <img src="assets/img/logo.png" alt="ARO Logo" />
-      <h1>ARO</h1>
-      <h2>RESIDENCIA</h2>
-      <p>Sistema de gestion para mejorar tu trabajo del dia a dia</p>
-      <ion-icon name="play"></ion-icon>
+      <h1>{{slide.title}}</h1>
+      <h2>{{slide.subTitle}}</h2>
+      <p>{{slide.description}}</p>
+      <ion-icon name="{{slide.icon}}"></ion-icon>
     </ion-slide>
   </ion-slides>
 </ion-content>

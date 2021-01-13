@@ -12,5 +12,16 @@ export class HomePage {
     centeredSlides: true,
     speed: 400,
   };
+
+  slides = [
+    {
+      imageSrc: 'assets/img/logo.png',
+      imageAlt: 'ARO Logo',
+      title: 'ARO',
+      subTitle: 'RESIDENCIA',
+      description: 'Sistema de gestion para mejorar tu trabajo del dia a dia',
+      icon: 'play',
+    },
+  ];
   constructor() {}
 }
