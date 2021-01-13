@@ -1,0 +1,11 @@
+<ion-content>
+  <figure class="ion-text-center ion-padding">
+    <img src="assets/img/logo.png" alt="ARO logo" />
+  </figure>
+  <form [formGroup]="loginForm" (ngSubmit)="loginUser(loginForm.value)">
+    <ion-item>
+      <ion-label>Email</ion-label>
+      <ion-input formControlName="email"></ion-input>
+    </ion-item>
+  </form>
+</ion-content>
