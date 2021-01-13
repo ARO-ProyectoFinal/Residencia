@@ -1,6 +1,7 @@
 package domainapp.modules.simple.datosFamiliares;
 
 import domainapp.modules.simple.paciente.Paciente;
+import domainapp.modules.simple.paciente.TipoDocumento;
 import org.apache.isis.applib.annotation.DomainService;
 import org.apache.isis.applib.annotation.NatureOfService;
 import org.apache.isis.applib.annotation.Programmatic;
@@ -43,12 +44,14 @@ public class DatosFamiliaresRepository {
     public DatosFamiliares create(
             final Paciente paciente,
             final String nombreCompletoFamiliar,
+            final TipoDocumento tipoDocumento,
+            final String nroDocumento,
             final String parentesco,
             final String numeroContacto,
             final String mailFamiliar
     ) {
 
-        final DatosFamiliares datosFamiliares = new DatosFamiliares(paciente,nombreCompletoFamiliar,parentesco,numeroContacto,mailFamiliar);
+        final DatosFamiliares datosFamiliares = new DatosFamiliares(paciente,nombreCompletoFamiliar,tipoDocumento,nroDocumento,parentesco,numeroContacto,mailFamiliar);
         repositoryService.persist(datosFamiliares);
         return datosFamiliares;
     }

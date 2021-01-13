@@ -21,6 +21,8 @@
                             <cpt:fieldSet name="Datos Familiar">
                                 <cpt:property id="paciente"/>
                                 <cpt:property id="nombreCompletoFamiliar"/>
+                                <cpt:property id="tipoDocumento"/>
+                                <cpt:property id="nroDocumento"/>
                                 <cpt:property id="parentesco"/>
                                 <cpt:property id="numeroContacto"/>
                                 <cpt:property id="mailFamiliar"/>

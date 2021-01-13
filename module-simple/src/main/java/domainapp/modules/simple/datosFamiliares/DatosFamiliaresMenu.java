@@ -2,6 +2,7 @@ package domainapp.modules.simple.datosFamiliares;
 
 import domainapp.modules.simple.paciente.Paciente;
 import domainapp.modules.simple.paciente.PacienteRepository;
+import domainapp.modules.simple.paciente.TipoDocumento;
 import domainapp.modules.simple.reportes.EjecutarReportes;
 import net.sf.jasperreports.engine.JRException;
 import org.apache.isis.applib.annotation.*;
@@ -38,6 +39,14 @@ public class DatosFamiliaresMenu {
             final String nombreCompletoFamiliar,
 
             @Parameter(maxLength = 40)
+            @ParameterLayout(named = "Tipo Documento")
+            final TipoDocumento tipoDocumento,
+
+            @Parameter(maxLength = 40)
+            @ParameterLayout(named = "Numero de documento")
+            final String nroDocumento,
+
+            @Parameter(maxLength = 40)
             @ParameterLayout(named = "Parentesco ")
             final  String parentesco,
 
@@ -50,7 +59,7 @@ public class DatosFamiliaresMenu {
             final  String mailFamiliar)
 
     {
-        return datosfamiliaresrepository.create (paciente,nombreCompletoFamiliar, parentesco,numeroContacto,mailFamiliar);
+        return datosfamiliaresrepository.create (paciente,nombreCompletoFamiliar,tipoDocumento,nroDocumento, parentesco,numeroContacto,mailFamiliar);
     }
 
     public List<Paciente> choices0Create() {return pacienteRepository.Listar();}

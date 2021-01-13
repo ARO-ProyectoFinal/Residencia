@@ -6,6 +6,7 @@ import com.google.common.collect.ComparisonChain;
 
 import domainapp.modules.simple.paciente.Paciente;
 import domainapp.modules.simple.paciente.PacienteRepository;
+import domainapp.modules.simple.paciente.TipoDocumento;
 import org.apache.isis.applib.annotation.*;
 import org.apache.isis.applib.services.message.MessageService;
 import org.apache.isis.applib.services.repository.RepositoryService;
@@ -36,7 +37,7 @@ import javax.jdo.annotations.*;
 })
 
 
-@Unique(name = "DatosFamiliares_nombreCompletoFamiliar_UNQ", members = { "nombreCompletoFamiliar" })
+@Unique(name = "DatosFamiliares_nroDocumento_UNQ", members = { "nroDocumento" })
 @DomainObject(
         editing = Editing.DISABLED
 )
@@ -57,6 +58,16 @@ public class DatosFamiliares{
         @lombok.NonNull
         @Property()
         private String nombreCompletoFamiliar;
+
+        @javax.jdo.annotations.Column(allowsNull = "true")
+        @lombok.NonNull
+        @Property()
+        private TipoDocumento tipoDocumento;
+
+        @javax.jdo.annotations.Column(allowsNull = "true", length = 40)
+        @lombok.NonNull
+        @Property()
+        private String nroDocumento;
 
         @javax.jdo.annotations.Column(allowsNull = "true", length = 40)
         @Property()
@@ -93,6 +104,14 @@ public class DatosFamiliares{
                 final String nombreCompletoFamiliar,
 
                 @Parameter(maxLength = 40)
+                @ParameterLayout(named = "Tipo de Documento")
+                final TipoDocumento tipoDocumento ,
+
+                @Parameter(maxLength = 40)
+                @ParameterLayout(named = "Nro de Documento")
+                final String nroDocumento,
+
+                @Parameter(maxLength = 40)
                 @ParameterLayout(named = "Parentesco")
                 final String parentesco,
 
@@ -105,6 +124,8 @@ public class DatosFamiliares{
                 final String mailFamiliar){
 
                 this.nombreCompletoFamiliar = nombreCompletoFamiliar;
+                this.tipoDocumento = tipoDocumento;
+                this.nroDocumento = nroDocumento;
                 this.parentesco = parentesco;
                 this.numeroContacto = numeroContacto;
                 this.mailFamiliar = mailFamiliar;
@@ -117,15 +138,23 @@ public class DatosFamiliares{
             return getNombreCompletoFamiliar();
         }
 
-        public String default1UpdateFamiliar() {
-                return getParentesco();
+        public TipoDocumento default1UpdateFamiliar() {
+                return getTipoDocumento();
         }
 
         public String default2UpdateFamiliar() {
-                return getNumeroContacto();
+                return getNroDocumento();
         }
 
         public String default3UpdateFamiliar() {
+                return getParentesco();
+        }
+
+        public String default4UpdateFamiliar() {
+                return getNumeroContacto();
+        }
+
+        public String default5UpdateFamiliar() {
                 return getMailFamiliar();
         }
 
