@@ -1,20 +1,12 @@
-<ion-header [translucent]="true">
-  <ion-toolbar>
-    <ion-title>
-      Blank
-    </ion-title>
-  </ion-toolbar>
-</ion-header>
-
-<ion-content [fullscreen]="true">
-  <ion-header collapse="condense">
-    <ion-toolbar>
-      <ion-title size="large">Blank</ion-title>
-    </ion-toolbar>
-  </ion-header>
-
-  <div id="container">
-    <strong>Ready to create an app?</strong>
-    <p>Start with Ionic <a target="_blank" rel="noopener noreferrer" href="https://ionicframework.com/docs/components">UI Components</a></p>
-  </div>
+<ion-content [fullscreen]="true" class="ion-padding">
+  <ion-slides pager="true" [options]="slideOpt">
+    <ion-slide>
+      <ion-icon name="close"></ion-icon>
+      <img src="assets/img/logo.png" alt="ARO Logo" />
+      <h1>ARO</h1>
+      <h2>RESIDENCIA</h2>
+      <p>Sistema de gestion para mejorar tu trabajo del dia a dia</p>
+      <ion-icon name="play"></ion-icon>
+    </ion-slide>
+  </ion-slides>
 </ion-content>
