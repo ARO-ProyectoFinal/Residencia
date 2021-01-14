@@ -25,7 +25,7 @@
                 <mb3:serviceAction objectType="Paciente" id="create">
                     <cpt:named>Crear Paciente</cpt:named>
                 </mb3:serviceAction>
-                <mb3:serviceAction objectType="Paciente" id="findByNameExact">
+                <mb3:serviceAction objectType="Paciente" id="findByPaciente">
                     <cpt:named>Buscar por Nombre Paciente</cpt:named>
                 </mb3:serviceAction>
                 <mb3:serviceAction objectType="Paciente" id="listAll">

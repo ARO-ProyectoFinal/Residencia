@@ -15,7 +15,7 @@
  *  KIND, either express or implied.  See the License for the
  *  specific language governing permissions and limitations
  *  under the License.
- */
+
 
 package domainapp.modules.simple.fixture;
 
@@ -54,6 +54,7 @@ public enum SimpleObject_persona implements PersonaWithBuilderScript<Paciente, S
     public Paciente findUsing(final ServiceRegistry2 serviceRegistry) {
         PacienteMenu pacienteMenu = serviceRegistry.lookupService(PacienteMenu.class);
         return pacienteMenu.findByNameExact(name);
+
     }
 
     public static class PersistAll
@@ -63,3 +64,4 @@ public enum SimpleObject_persona implements PersonaWithBuilderScript<Paciente, S
         }
     }
 }
+*/

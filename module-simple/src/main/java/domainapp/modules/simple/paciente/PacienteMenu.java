@@ -82,21 +82,21 @@ public class PacienteMenu {
         return pacienteRepository.create (name, apellido,fechaAlta,edad,tipoDocumento,nroDocumento,fechaNacimiento,lugarDeNacimiento,telefono,nroSeguroSocial,incapacidad,observacion);
     }
 
+
     @Action(semantics = SemanticsOf.SAFE)
     @ActionLayout(bookmarking = BookmarkPolicy.AS_ROOT, named = "Buscar Paciente")
     @MemberOrder(sequence = "2")
-    public Paciente findByNameExact(
+    public Paciente findByPaciente(
             @Parameter(optionality = Optionality.MANDATORY)
             @ParameterLayout(named = "Por nombre: ")
-            final String name) {
-        TypesafeQuery<Paciente> q = isisJdoSupport.newTypesafeQuery(Paciente.class);
-        final QPaciente cand = QPaciente.candidate();
-        q = q.filter(
-                cand.name.eq(q.stringParameter("name"))
-        );
-        return q.setParameter("name", name)
-                .executeUnique();
+            final Paciente paciente) {
+
+        return paciente;
     }
+
+    public List<Paciente> choices0FindByPaciente() {return pacienteRepository.Listar();}
+
+
 
     @Action(semantics = SemanticsOf.SAFE)
     @ActionLayout(bookmarking = BookmarkPolicy.AS_ROOT, named = "Listado de Pacientes")

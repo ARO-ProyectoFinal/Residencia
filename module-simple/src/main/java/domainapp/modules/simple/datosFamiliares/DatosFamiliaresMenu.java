@@ -64,21 +64,19 @@ public class DatosFamiliaresMenu {
 
     public List<Paciente> choices0Create() {return pacienteRepository.Listar();}
 
+
     @Action(semantics = SemanticsOf.SAFE)
-    @ActionLayout(bookmarking = BookmarkPolicy.AS_ROOT, named = "Buscar familiar")
+    @ActionLayout(bookmarking = BookmarkPolicy.AS_ROOT, named = "Buscar Familiar")
     @MemberOrder(sequence = "2")
     public DatosFamiliares findByFamiliar(
             @Parameter(optionality = Optionality.MANDATORY)
-            @ParameterLayout(named = "Por nombre completo: ")
-            final String nombreCompletoFamiliar) {
-        TypesafeQuery<DatosFamiliares> q = isisJdoSupport.newTypesafeQuery(DatosFamiliares.class);
-        final QDatosFamiliares cand = QDatosFamiliares.candidate();
-        q = q.filter(
-                cand.nombreCompletoFamiliar.eq(q.stringParameter("nombreCompletoFamiliar"))
-        );
-        return q.setParameter("nombreCompletoFamiliar", nombreCompletoFamiliar)
-                .executeUnique();
+            @ParameterLayout(named = "Por nombre: ")
+            final DatosFamiliares familiar) {
+
+        return familiar;
     }
+
+    public List<DatosFamiliares> choices0FindByFamiliar() {return datosfamiliaresrepository.Listar();}
 
 
     @Action(semantics = SemanticsOf.SAFE)

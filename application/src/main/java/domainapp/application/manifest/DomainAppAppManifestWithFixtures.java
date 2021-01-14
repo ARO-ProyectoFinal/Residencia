@@ -22,7 +22,7 @@ import java.util.List;
 
 import org.apache.isis.applib.fixturescripts.FixtureScript;
 
-import domainapp.modules.simple.fixture.SimpleObject_persona;
+//import domainapp.modules.simple.fixture.SimpleObject_persona;
 
 /**
  * Run the app but setting up any fixtures.
@@ -31,7 +31,7 @@ public class DomainAppAppManifestWithFixtures extends DomainAppAppManifest {
 
     @Override
     protected void overrideFixtures(final List<Class<? extends FixtureScript>> fixtureScripts) {
-        fixtureScripts.add(SimpleObject_persona.PersistAll.class);
+        /*fixtureScripts.add(SimpleObject_persona.PersistAll.class);*/
     }
 
 }

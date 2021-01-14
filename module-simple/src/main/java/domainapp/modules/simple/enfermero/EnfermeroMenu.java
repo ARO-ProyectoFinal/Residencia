@@ -79,15 +79,12 @@ public class EnfermeroMenu {
     public Enfermero findByEnfermero(
             @Parameter(optionality = Optionality.MANDATORY)
             @ParameterLayout(named = "Por nombre: ")
-            final String nombre) {
-        TypesafeQuery<Enfermero> q = isisJdoSupport.newTypesafeQuery(Enfermero.class);
-        final QEnfermero cand = QEnfermero.candidate();
-        q = q.filter(
-                cand.nombre.eq(q.stringParameter("nombre"))
-        );
-        return q.setParameter("nombre", nombre)
-                .executeUnique();
+            final Enfermero enfermero) {
+
+        return enfermero;
     }
+
+    public List<Enfermero> choices0FindByEnfermero() {return enfermeroRepository.Listar();}
 
     @Action(semantics = SemanticsOf.SAFE)
     @ActionLayout(bookmarking = BookmarkPolicy.AS_ROOT, named = "Listado de Enfermero")
