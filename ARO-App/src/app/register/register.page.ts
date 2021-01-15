@@ -10,13 +10,21 @@ import { AuthenticateService } from '../services/authenticate.service';
 import { Storage } from '@ionic/storage';
 
 @Component({
-  selector: 'app-login',
-  templateUrl: './login.page.html',
-  styleUrls: ['./login.page.scss'],
+  selector: 'app-register',
+  templateUrl: './register.page.html',
+  styleUrls: ['./register.page.scss'],
 })
-export class LoginPage implements OnInit {
-  loginForm: FormGroup;
+export class RegisterPage implements OnInit {
+  registerForm: FormGroup;
   validation_messages = {
+    nombre: [
+      { type: 'required', message: 'El nombre es requerido' },
+      { type: 'minlength', message: 'Minimo 3 caracteres para el nombre' },
+    ],
+    apellido: [
+      { type: 'required', message: 'El apellido es requerido' },
+      { type: 'minlength', message: 'Minimo 3 caracteres para el apellido' },
+    ],
     email: [
       { type: 'required', message: 'El email es requerido' },
       { type: 'pattern', message: 'Este no es un email válido' },
@@ -34,7 +42,15 @@ export class LoginPage implements OnInit {
     private navCtrl: NavController,
     private storage: Storage
   ) {
-    this.loginForm = this.formBuilder.group({
+    this.registerForm = this.formBuilder.group({
+      nombre: new FormControl(
+        '',
+        Validators.compose([Validators.required, Validators.minLength(3)])
+      ),
+      apellido: new FormControl(
+        '',
+        Validators.compose([Validators.required, Validators.minLength(3)])
+      ),
       email: new FormControl(
         '',
         Validators.compose([
@@ -49,22 +65,15 @@ export class LoginPage implements OnInit {
     });
   }
 
+  register(userData) {
+    this.authService.registerUser(userData).then(() => {
+      this.navCtrl.navigateBack('/login');
+    });
+  }
+
+  goToLogin() {
+    this.navCtrl.navigateBack('/login');
+  }
+
   ngOnInit() {}
-
-  loginUser(credentials) {
-    this.authService
-      .loginUser(credentials)
-      .then((res) => {
-        this.errorMessage = '';
-        this.storage.set('isUserLoggedIn', true);
-        this.navCtrl.navigateForward('/home');
-      })
-      .catch((err) => {
-        this.errorMessage = err;
-      });
-  }
-
-  goToRegister() {
-    this.navCtrl.navigateForward('/register');
-  }
 }
