@@ -12,6 +12,7 @@ import org.datanucleus.query.typesafe.TypesafeQuery;
 
 import java.io.IOException;
 import java.util.List;
+import java.util.regex.Pattern;
 
 @DomainService(
         nature = NatureOfService.VIEW_MENU_ONLY,
@@ -54,7 +55,10 @@ public class DatosFamiliaresMenu {
             @ParameterLayout(named = "Numero Contacto ")
             final  String numeroContacto,
 
-            @Parameter(maxLength = 40)
+            @Parameter(maxLength = 40,
+                    regexPattern = "(\\w+\\.)*\\w+@(\\w+\\.)+[A-Za-z]+",
+                    regexPatternFlags= Pattern.CASE_INSENSITIVE,
+                    regexPatternReplacement = "Debe ser un email valido (contiene un '@' simbolo)")
             @ParameterLayout(named = "Mail Contacto ")
             final  String mailFamiliar)
 

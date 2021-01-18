@@ -14,6 +14,7 @@ import org.apache.isis.applib.services.title.TitleService;
 
 import lombok.AccessLevel;
 import javax.jdo.annotations.*;
+import java.util.regex.Pattern;
 
 
 @lombok.Getter @lombok.Setter
@@ -80,7 +81,11 @@ public class DatosFamiliares{
         private String numeroContacto;
 
         @javax.jdo.annotations.Column(allowsNull = "true", length = 40)
-        @Property()
+        @Property(editing = Editing.ENABLED,
+                regexPattern = "(\\w+\\.)*\\w+@(\\w+\\.)+[A-Za-z]+",
+                regexPatternFlags= Pattern.CASE_INSENSITIVE,
+                regexPatternReplacement = "Mail incorrecto, debe ser un email valido (contiene un '@' simbolo)"
+        )
         @lombok.NonNull
         private String mailFamiliar;
 
