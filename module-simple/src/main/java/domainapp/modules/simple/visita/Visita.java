@@ -22,11 +22,7 @@ import javax.xml.bind.annotation.adapters.XmlJavaTypeAdapter;
 @Setter
 @lombok.RequiredArgsConstructor
 
-@Queries({
-        @Query(
-                name = "find", language = "JDOQL",
-                value = "SELECT "),
-})
+
 @PersistenceCapable(
         identityType = IdentityType.DATASTORE,
         schema = "simple",
@@ -38,7 +34,21 @@ import javax.xml.bind.annotation.adapters.XmlJavaTypeAdapter;
 @Version(
         strategy = VersionStrategy.VERSION_NUMBER,
         column = "version")
-@Unique(name = "DatosVisitaMedica_altura_UNQ", members = { "altura" })
+@Queries({
+        @Query(
+                name = "find", language = "JDOQL",
+                value = "SELECT "
+                        + "FROM domainapp.modules.simple.visita.Visita "
+                        + "ORDER BY idVisita ASC"),
+
+        @Query(
+                name = "findByPaciente", language = "JDOQL",
+                value = "SELECT "
+                        + "FROM domainapp.modules.simple.visita.Visita "
+                        + "WHERE paciente == :paciente "
+                        + "ORDER BY idVisita ASC")
+})
+@Unique(name = "DatosVisitaMedica_idVisita_UNQ", members = { "idVisita" })
 @DomainObject(
         editing = Editing.DISABLED
 )
@@ -47,7 +57,12 @@ import javax.xml.bind.annotation.adapters.XmlJavaTypeAdapter;
 )
 
 
-public class Visita {
+public class Visita implements Comparable <Visita>{
+
+    @Persistent(valueStrategy = IdGeneratorStrategy.INCREMENT)
+    @lombok.NonNull
+    @Property(hidden = Where.EVERYWHERE)
+    private int idVisita;
 
     @lombok.NonNull
     @Property()
@@ -90,7 +105,8 @@ public class Visita {
     @Property()
     private String observacion;
 
-    public String title(){ return paciente.getName() + " " + paciente.getApellido(); }
+    public String title(){
+        return getIdVisita() == 0 ?"Paciente " : "Paciente " + paciente.getName() + " " + paciente.getApellido(); }
 
 
 
@@ -162,15 +178,15 @@ public class Visita {
 
 
     @Override
-    public String toString() {
-        return getAltura();
+    public int compareTo(final Visita other) {
+        return org.apache.isis.applib.util.ObjectContracts.compare(this, other, "idVisita");
     }
 
-    public int compareTo(final Visita other) {
-        return ComparisonChain.start()
-                .compare(this.getAltura(), other.getAltura())
-                .result();
+    @Override
+    public String toString() {
+        return org.apache.isis.applib.util.ObjectContracts.toString(this, "idVisita");
     }
+
 
     @javax.inject.Inject
     @javax.jdo.annotations.NotPersistent

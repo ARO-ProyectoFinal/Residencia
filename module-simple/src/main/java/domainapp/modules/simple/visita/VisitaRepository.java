@@ -39,6 +39,7 @@ public class VisitaRepository {
     @Programmatic
     public Visita create(
 
+            final int idVisita,
             final Paciente paciente,
             final LocalDate fechaUltimaVisita,
             final String altura,
@@ -49,7 +50,7 @@ public class VisitaRepository {
             final String observacion
 
     ) {
-        final Visita visita = new Visita(paciente,fechaUltimaVisita,altura,peso,temperatura,presionArterial,frecuenciaCardiaca,observacion);
+        final Visita visita = new Visita(idVisita,paciente,fechaUltimaVisita,altura,peso,temperatura,presionArterial,frecuenciaCardiaca,observacion);
         repositoryService.persist(visita);
         return visita;
     }

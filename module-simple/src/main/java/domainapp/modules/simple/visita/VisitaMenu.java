@@ -58,7 +58,8 @@ public class VisitaMenu {
             @ParameterLayout(named = "Observacion")
             final String observacion)
     {
-        return visitaRepository.create(paciente, fechaUltimaVisita, altura, peso, temperatura, presionArterial, frecuenciaCardiaca, observacion);
+        int idVisita = 0;
+        return visitaRepository.create(idVisita, paciente, fechaUltimaVisita, altura, peso, temperatura, presionArterial, frecuenciaCardiaca, observacion);
     }
 
     public List<Paciente> choices0Create() {return pacienteRepository.Listar();}
