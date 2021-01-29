@@ -25,6 +25,13 @@ import javax.xml.bind.annotation.adapters.XmlJavaTypeAdapter;
         @Query(
                 name = "find", language = "JDOQL",
                 value = "SELECT "),
+        @Query(
+                name = "findByEstado", language = "JDOQL",
+                value = "SELECT "
+                        + "FROM domainapp.modules.simple.enfermero.Enfermero "
+                        + "WHERE estado == :estado "
+                        + "ORDER BY name ASC")
+
 })
 @PersistenceCapable(
         identityType = IdentityType.DATASTORE,
@@ -99,6 +106,10 @@ public class Enfermero  {
     @lombok.NonNull
     @Property()
     private String nroMatricula;
+
+    @javax.jdo.annotations.Column(allowsNull = "true", name = "estado")
+    @Property()
+    private EstadoEnfermero estado;
 
     public String title(){ return getNombre() + " " + getApellido(); }
 
@@ -187,6 +198,21 @@ public class Enfermero  {
         return ComparisonChain.start()
                 .compare(this.getNombre(), other.getNombre())
                 .result();
+    }
+
+    @Programmatic
+    public  void CambiarEstado(EstadoEnfermero estado){
+        this.estado = estado;
+    }
+    @Action()
+    public  Enfermero Habilitar(){
+        CambiarEstado(EstadoEnfermero.Habilitado);
+        return this;
+    }
+    @Action(semantics = SemanticsOf.IDEMPOTENT_ARE_YOU_SURE)
+    public  Enfermero Inhabilitar(){
+        CambiarEstado(EstadoEnfermero.Inhabilitado);
+        return this;
     }
 
 

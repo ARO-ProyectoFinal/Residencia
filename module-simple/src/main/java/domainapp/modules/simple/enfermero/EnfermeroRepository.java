@@ -26,6 +26,16 @@ public class EnfermeroRepository {
     }
 
     @Programmatic
+    public List<Enfermero> Listar(final EstadoEnfermero estado){
+
+        return repositoryService.allMatches(
+                new QueryDefault<>(
+                        Enfermero.class,
+                        "findByEstado",
+                        "estado", estado));
+    }
+
+    @Programmatic
     public Enfermero buscarEnfermero(final String nombre){
 
         return repositoryService.uniqueMatch(

@@ -19,7 +19,8 @@
                     <bs3:row>
                         <bs3:col span="12">
                             <cpt:fieldSet name="Datos Enfermero">
-
+                                <cpt:action id="Habilitar"/>
+                                <cpt:action id="Inhabilitar"/>
                                 <cpt:property id="nombre"/>
                                 <cpt:property id="apellido"/>
                                 <cpt:property id="fechaAlta"/>
@@ -30,6 +31,7 @@
                                 <cpt:property id="telefono"/>
                                 <cpt:property id="edad"/>
                                 <cpt:property id="nroMatricula"/>
+                                <cpt:property id="estado"/>
                                 <cpt:action id="updateEnfermero"/>
                             </cpt:fieldSet>
                         </bs3:col>
