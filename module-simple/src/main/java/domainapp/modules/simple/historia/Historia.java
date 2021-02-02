@@ -19,15 +19,10 @@ import javax.jdo.annotations.*;
 @Setter
 @lombok.RequiredArgsConstructor
 
-@Queries({
-        @Query(
-                name = "find", language = "JDOQL",
-                value = "SELECT "),
-})
+
 @PersistenceCapable(
         identityType = IdentityType.DATASTORE,
-        schema = "simple",
-        table = "HistoriaClinica"
+        schema = "simple"
 )
 @DatastoreIdentity(
         strategy = IdGeneratorStrategy.IDENTITY,
@@ -35,7 +30,21 @@ import javax.jdo.annotations.*;
 @Version(
         strategy = VersionStrategy.VERSION_NUMBER,
         column = "version")
-@Unique(name = "HistoriaClinica_hipertensionArterial_UNQ", members = { "hipertensionArterial" })
+@Queries({
+        @Query(
+                name = "find", language = "JDOQL",
+                value = "SELECT "
+                        + "FROM domainapp.modules.simple.historia.Historia "
+                        + "ORDER BY idHistoria ASC"),
+
+        @Query(
+                name = "findByPaciente", language = "JDOQL",
+                value = "SELECT "
+                        + "FROM domainapp.modules.simple.historia.Historia "
+                        + "WHERE paciente == :paciente "
+                        + "ORDER BY idHistoria ASC")
+})
+@Unique(name = "Historia_idHistoria_UNQ", members = { "idHistoria" })
 @DomainObject(
         editing = Editing.DISABLED
 )
@@ -43,7 +52,12 @@ import javax.jdo.annotations.*;
         bookmarking = BookmarkPolicy.AS_ROOT
 )
 
-public class Historia {
+public class Historia implements Comparable <Historia> {
+
+    @Persistent(valueStrategy = IdGeneratorStrategy.INCREMENT)
+    @lombok.NonNull
+    @Property(hidden = Where.EVERYWHERE)
+    private int idHistoria;
 
     @lombok.NonNull
     @Property()
@@ -118,7 +132,7 @@ public class Historia {
 
 
     public String title(){
-        return paciente.getName() + " " + paciente.getApellido();
+        return getIdHistoria() == 0 ?"Paciente " : "Paciente " +  paciente.getName() + " " + paciente.getApellido();
     }
 
 
@@ -210,7 +224,15 @@ public class Historia {
     public Estado default11UpdateHistoria() { return getProblemasOtologicos(); }
     public String default12UpdateHistoria() { return getComentarios(); }
 
+    @Override
+    public int compareTo(final Historia other) {
+        return org.apache.isis.applib.util.ObjectContracts.compare(this, other, "idHistoria");
+    }
 
+    @Override
+    public String toString() {
+        return org.apache.isis.applib.util.ObjectContracts.toString(this, "idHistoria");
+    }
 
     @javax.inject.Inject
     @javax.jdo.annotations.NotPersistent
@@ -231,5 +253,6 @@ public class Historia {
     @javax.jdo.annotations.NotPersistent
     @lombok.Getter(AccessLevel.NONE) @lombok.Setter(AccessLevel.NONE)
     MessageService messageService;
+
 
 }

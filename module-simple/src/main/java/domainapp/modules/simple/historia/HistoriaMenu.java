@@ -12,11 +12,11 @@ import org.datanucleus.query.typesafe.TypesafeQuery;
 import java.util.List;
 @DomainService(
         nature = NatureOfService.VIEW_MENU_ONLY,
-        objectType = "HistoriaClinica",
+        objectType = "Historia",
         repositoryFor = Historia.class
 )
 @DomainServiceLayout(
-        named = "HistoriaClinica",
+        named = "Historia",
         menuOrder = ""
 )
 
@@ -83,7 +83,8 @@ public class HistoriaMenu {
             @ParameterLayout(named = "Comentarios")
             final String comentarios)
     {
-        return historiaRepository.create(paciente, hipertensionArterial,diabetes,enfCardiovascular,marcapasos,discopatias,perdidaDeConocimiento,artritis,artrosis,lumbago,neurosis,traumatismos,problemasOtologicos,comentarios);
+        int idHistoria = 0;
+        return historiaRepository.create(idHistoria, paciente, hipertensionArterial,diabetes,enfCardiovascular,marcapasos,discopatias,perdidaDeConocimiento,artritis,artrosis,lumbago,neurosis,traumatismos,problemasOtologicos,comentarios);
     }
 
     public List<Paciente> choices0Create() {return pacienteRepository.Listar();}

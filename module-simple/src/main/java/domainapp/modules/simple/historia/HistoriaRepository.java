@@ -38,6 +38,7 @@ public class HistoriaRepository {
     @Programmatic
     public Historia create(
 
+            final int idHistoria,
             final Paciente paciente,
             final Estado hipertensionArterial,
             final Estado diabetes,
@@ -55,7 +56,7 @@ public class HistoriaRepository {
 
     ) {
 
-        final Historia historia = new Historia(paciente, hipertensionArterial,diabetes,enfCardiovascular,marcapasos,discopatias,perdidaDeConocimiento,artritis,artrosis,lumbago,neurosis,traumatismos,problemasOtologicos,comentarios);
+        final Historia historia = new Historia(idHistoria, paciente, hipertensionArterial,diabetes,enfCardiovascular,marcapasos,discopatias,perdidaDeConocimiento,artritis,artrosis,lumbago,neurosis,traumatismos,problemasOtologicos,comentarios);
         repositoryService.persist(historia);
         return historia;
     }
