@@ -38,7 +38,7 @@ public class HomePageViewModel {
         return TranslatableString.tr("Listado de Pacientes (Activo/Baja)");
     }
 
-    @CollectionLayout(named = "Listado de Paciente (Activos/Baja)")
+    @CollectionLayout(named = "Listado de Pacientes (Activos)")
     public List<Paciente> getPacientes() {
         List<Paciente> pacientes = pacienteRepository.Listar(EstadoPaciente.Activo);
         pacientes.addAll(pacienteRepository.Listar(EstadoPaciente.Baja));
