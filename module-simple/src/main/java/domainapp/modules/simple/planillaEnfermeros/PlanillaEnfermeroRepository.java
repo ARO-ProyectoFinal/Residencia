@@ -39,6 +39,7 @@ public class PlanillaEnfermeroRepository {
     @Programmatic
     public PlanillaEnfermero create(
 
+            final int idPlanillaEnfermeros,
             final Paciente paciente,
             final Enfermero enfermero,
             final LocalDate fechaPlanilla,
@@ -52,7 +53,7 @@ public class PlanillaEnfermeroRepository {
             final String observacion
 
     ) {
-        final PlanillaEnfermero planillaEnfermero = new PlanillaEnfermero(paciente, enfermero, fechaPlanilla, turno, medicacion, curaciones, actividadFisica, comidas, ropa, limpieza,observacion);
+        final PlanillaEnfermero planillaEnfermero = new PlanillaEnfermero(idPlanillaEnfermeros, paciente, enfermero, fechaPlanilla, turno, medicacion, curaciones, actividadFisica, comidas, ropa, limpieza,observacion);
         repositoryService.persist(planillaEnfermero);
         return planillaEnfermero;
     }

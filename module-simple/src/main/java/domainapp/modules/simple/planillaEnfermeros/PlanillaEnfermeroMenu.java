@@ -78,7 +78,8 @@ public class PlanillaEnfermeroMenu {
             @ParameterLayout(named = "Observacion")
             final String observacion)
     {
-        return planillaEnfermeroRepository.create(paciente, enfermero, fechaPlanilla, turno, medicacion, curaciones, actividadFisica, comidas, ropa, limpieza, observacion);
+        int idPlanillaEnfermeros = 0;
+        return planillaEnfermeroRepository.create(idPlanillaEnfermeros, paciente, enfermero, fechaPlanilla, turno, medicacion, curaciones, actividadFisica, comidas, ropa, limpieza, observacion);
     }
 
     public List<Paciente> choices0Create() {return pacienteRepository.Listar();}

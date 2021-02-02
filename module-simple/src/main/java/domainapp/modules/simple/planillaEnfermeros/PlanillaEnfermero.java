@@ -1,6 +1,6 @@
 package domainapp.modules.simple.planillaEnfermeros;
 
-import com.google.common.collect.ComparisonChain;
+
 import domainapp.modules.simple.enfermero.Enfermero;
 import domainapp.modules.simple.enfermero.EnfermeroRepository;
 import domainapp.modules.simple.paciente.Paciente;
@@ -21,15 +21,12 @@ import javax.xml.bind.annotation.adapters.XmlJavaTypeAdapter;
 @Setter
 @lombok.RequiredArgsConstructor
 
-@Queries({
-        @Query(
-                name = "find", language = "JDOQL",
-                value = "SELECT "),
-})
+
+
 @PersistenceCapable(
         identityType = IdentityType.DATASTORE,
-        schema = "simple",
-        table = "PlanillaEnfermeros"
+        schema = "simple"
+
 )
 @DatastoreIdentity(
         strategy = IdGeneratorStrategy.IDENTITY,
@@ -37,7 +34,22 @@ import javax.xml.bind.annotation.adapters.XmlJavaTypeAdapter;
 @Version(
         strategy = VersionStrategy.VERSION_NUMBER,
         column = "version")
-@Unique(name = "PlanillaEnfermeros_turno_UNQ", members = { "turno" })
+@Queries({
+        @Query(
+                name = "find", language = "JDOQL",
+                value = "SELECT "
+                        + "FROM domainapp.modules.simple.planillaEnfermeros.PlanillaEnfermero "
+                        + "ORDER BY idPlanillaEnfermeros ASC"),
+
+        @Query(
+                name = "findByPaciente", language = "JDOQL",
+                value = "SELECT "
+                        + "FROM domainapp.modules.simple.planillaEnfermeros.PlanillaEnfermero "
+                        + "WHERE paciente == :paciente "
+                        + "ORDER BY idPlanillaEnfermeros ASC")
+})
+
+@Unique(name = "PlanillaEnfermero_idPlanillaEnfermeros_UNQ", members = { "idPlanillaEnfermeros" })
 @DomainObject(
         editing = Editing.DISABLED
 )
@@ -45,7 +57,12 @@ import javax.xml.bind.annotation.adapters.XmlJavaTypeAdapter;
         bookmarking = BookmarkPolicy.AS_ROOT
 )
 
-public class PlanillaEnfermero {
+public class PlanillaEnfermero implements Comparable <PlanillaEnfermero> {
+
+    @Persistent(valueStrategy = IdGeneratorStrategy.INCREMENT)
+    @lombok.NonNull
+    @Property(hidden = Where.EVERYWHERE)
+    private int idPlanillaEnfermeros;
 
     @lombok.NonNull
     @Property()
@@ -103,7 +120,9 @@ public class PlanillaEnfermero {
     @Property()
     private String observacion;
 
-    public String title(){ return paciente.getName() + " " + paciente.getApellido(); }
+    public String title(){
+       return getIdPlanillaEnfermeros() == 0 ?"Paciente " : "Paciente " + paciente.getName() + " " + paciente.getApellido();
+    }
 
     public String RepoPaciente() { return String.valueOf(this.paciente); }
     public String RepoEnfermero() { return String.valueOf(this.enfermero); }
@@ -217,9 +236,12 @@ public class PlanillaEnfermero {
     }
 
     public int compareTo(final PlanillaEnfermero other) {
-        return ComparisonChain.start()
-                .compare(this.getPaciente(), other.getPaciente())
-                .result();
+        return org.apache.isis.applib.util.ObjectContracts.compare(this, other, "idPlanillaEnfermero");
+    }
+
+    @Override
+    public String toString() {
+        return org.apache.isis.applib.util.ObjectContracts.toString(this, "idPlanillaEnfermero");
     }
 
     @javax.inject.Inject
