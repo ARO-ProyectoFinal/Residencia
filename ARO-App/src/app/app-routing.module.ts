@@ -6,7 +6,7 @@ import { LoginGuard } from './guards/login.guard';
 const routes: Routes = [
   {
     path: '',
-    redirectTo: 'home',
+    redirectTo: 'menu',
     pathMatch: 'full',
   },
   {
@@ -30,6 +30,29 @@ const routes: Routes = [
       import('./menu/menu.module').then((m) => m.MenuPageModule),
     canActivate: [LoginGuard, IntroGuard],
   },
+  {
+    path: 'pacientes',
+    loadChildren: () =>
+      import('./pacientes/pacientes.module').then((m) => m.PacientesPageModule),
+  },
+  {
+    path: 'enfermeros',
+    loadChildren: () =>
+      import('./enfermeros/enfermeros.module').then(
+        (m) => m.EnfermerosPageModule
+      ),
+  },
+  {
+    path: 'planillas-diarias',
+    loadChildren: () =>
+      import('./planillas-diarias/planillas-diarias.module').then(
+        (m) => m.PlanillasDiariasPageModule
+      ),
+  },  {
+    path: 'configuracion',
+    loadChildren: () => import('./configuracion/configuracion.module').then( m => m.ConfiguracionPageModule)
+  },
+
 ];
 
 @NgModule({

@@ -12,7 +12,7 @@
     </ion-header>
     <ion-content>
       <ion-list>
-        <ion-item>
+        <ion-item (click)="goToHome()">
           <ion-icon
             name="home-outline"
             color="secondary"
@@ -20,7 +20,7 @@
           ></ion-icon>
           Home</ion-item
         >
-        <ion-item>
+        <ion-item (click)="goToPlanillasDiarias()">
           <ion-icon
             name="file-tray-full-outline"
             color="secondary"
@@ -28,7 +28,7 @@
           ></ion-icon>
           Planillas Diarias</ion-item
         >
-        <ion-item>
+        <ion-item (click)="goToEnfermeros()">
           <ion-icon
             name="medical-outline"
             color="secondary"
@@ -36,7 +36,7 @@
           ></ion-icon>
           Enfermeros</ion-item
         >
-        <ion-item>
+        <ion-item (click)="goToPacientes()">
           <ion-icon
             name="person-outline"
             color="secondary"
@@ -44,7 +44,7 @@
           ></ion-icon>
           Pacientes</ion-item
         >
-        <ion-item>
+        <ion-item (click)="goToConfiguracion()">
           <ion-icon
             name="settings-outline"
             color="secondary"
