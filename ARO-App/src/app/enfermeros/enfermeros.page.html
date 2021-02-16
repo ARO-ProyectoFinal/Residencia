@@ -1,10 +1,51 @@
 <ion-header>
   <ion-toolbar>
-    <ion-title slot="end">Enfermeros</ion-title>
+    <ion-title slot="end">enfermero</ion-title>
     <ion-buttons>
       <ion-menu-button slot="start"> </ion-menu-button>
     </ion-buttons>
   </ion-toolbar>
 </ion-header>
 
-<ion-content> </ion-content>
+<ion-content>
+<div id="container">  
+  <div *ngIf="ver">
+    <ion-card>
+      <ion-card-header>
+        <ion-card-title> {{enfermero.nombre}}  {{enfermero.apellido}} </ion-card-title>
+      </ion-card-header>
+
+      <ion-item>
+        <ion-icon name="calendar" slot="start"></ion-icon>
+        <ion-label>Fecha de Alta: {{enfermero.fechaAlta | date:'dd/MM/yyyy' }}</ion-label>
+      </ion-item>
+
+      <ion-item>
+        <ion-icon name="person" slot="start"></ion-icon>
+        <ion-label>Dni: {{enfermero.nroDocumento}}</ion-label>
+      </ion-item>
+
+      <ion-item>
+        <ion-icon name="calendar" slot="start"></ion-icon>
+        <ion-label>Fecha de Nacimiento: {{enfermero.fechaNacimiento | date:'dd/MM/yyyy' }}</ion-label>
+      </ion-item>
+
+      <ion-item>
+        <ion-icon name="pin" slot="start"></ion-icon>
+        <ion-label>Edad: {{enfermero.edad}}</ion-label>
+      </ion-item>
+
+      <ion-item>
+        <ion-icon name="phone-portrait" slot="start"></ion-icon>
+        <ion-label>Telefono: {{enfermero.telefono}}</ion-label>
+      </ion-item>
+
+      <ion-item>
+        <ion-icon name="clipboard" slot="start"></ion-icon>
+        <ion-label>Nro Matricula: {{enfermero.nroMatricula}}</ion-label>
+      </ion-item>
+    </ion-card> 
+  </div>  
+</div> 
+
+</ion-content>
