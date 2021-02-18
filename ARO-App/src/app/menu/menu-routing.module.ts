@@ -35,6 +35,13 @@ const routes: Routes = [
           ),
       },
       {
+        path: 'paciente-detalle',
+        loadChildren: () =>
+          import('../paciente-detalle/paciente-detalle.module').then(
+            (m) => m.PacienteDetallePageModule
+          ),
+      },
+      {
         path: 'configuracion',
         loadChildren: () =>
           import('../configuracion/configuracion.module').then(
