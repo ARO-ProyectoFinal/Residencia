@@ -1,5 +1,6 @@
 package domainapp.modules.simple.datosFamiliares;
 
+import domainapp.modules.simple.paciente.EstadoPaciente;
 import domainapp.modules.simple.paciente.Paciente;
 import domainapp.modules.simple.paciente.PacienteRepository;
 import domainapp.modules.simple.paciente.TipoDocumento;
@@ -66,7 +67,7 @@ public class DatosFamiliaresMenu {
         return datosfamiliaresrepository.create (paciente,nombreCompletoFamiliar,tipoDocumento,nroDocumento, parentesco,numeroContacto,mailFamiliar);
     }
 
-    public List<Paciente> choices0Create() {return pacienteRepository.Listar();}
+    public List<Paciente> choices0Create() {return pacienteRepository.Listar(EstadoPaciente.Activo);}
 
 
     @Action(semantics = SemanticsOf.SAFE)

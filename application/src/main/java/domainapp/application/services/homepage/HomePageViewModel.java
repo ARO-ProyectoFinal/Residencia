@@ -41,7 +41,7 @@ public class HomePageViewModel {
     @CollectionLayout(named = "Listado de Pacientes (Activos)")
     public List<Paciente> getPacientes() {
         List<Paciente> pacientes = pacienteRepository.Listar(EstadoPaciente.Activo);
-        pacientes.addAll(pacienteRepository.Listar(EstadoPaciente.Baja));
+        //pacientes.addAll(pacienteRepository.Listar(EstadoPaciente.Baja));
         return pacientes;
     }
 

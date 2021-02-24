@@ -1,6 +1,7 @@
 package domainapp.modules.simple.historia;
 
 
+import domainapp.modules.simple.paciente.EstadoPaciente;
 import domainapp.modules.simple.paciente.Paciente;
 import domainapp.modules.simple.paciente.PacienteRepository;
 import domainapp.modules.simple.planillaEnfermeros.Estado;
@@ -87,7 +88,7 @@ public class HistoriaMenu {
         return historiaRepository.create(idHistoria, paciente, hipertensionArterial,diabetes,enfCardiovascular,marcapasos,discopatias,perdidaDeConocimiento,artritis,artrosis,lumbago,neurosis,traumatismos,problemasOtologicos,comentarios);
     }
 
-    public List<Paciente> choices0Create() {return pacienteRepository.Listar();}
+    public List<Paciente> choices0Create() {return pacienteRepository.Listar(EstadoPaciente.Activo);}
 
     @Action(semantics = SemanticsOf.SAFE)
     @ActionLayout(bookmarking = BookmarkPolicy.AS_ROOT, named = "Buscar Historia Clinica")

@@ -2,6 +2,7 @@ package domainapp.modules.simple.planillaEnfermeros;
 
 import domainapp.modules.simple.enfermero.Enfermero;
 import domainapp.modules.simple.enfermero.EnfermeroRepository;
+import domainapp.modules.simple.paciente.EstadoPaciente;
 import domainapp.modules.simple.paciente.Paciente;
 import domainapp.modules.simple.paciente.PacienteRepository;
 
@@ -82,7 +83,7 @@ public class PlanillaEnfermeroMenu {
         return planillaEnfermeroRepository.create(idPlanillaEnfermeros, paciente, enfermero, fechaPlanilla, turno, medicacion, curaciones, actividadFisica, comidas, ropa, limpieza, observacion);
     }
 
-    public List<Paciente> choices0Create() {return pacienteRepository.Listar();}
+    public List<Paciente> choices0Create() {return pacienteRepository.Listar(EstadoPaciente.Activo);}
     public List<Enfermero> choices1Create() {return enfermeroRepository.Listar();}
 
     @Action(semantics = SemanticsOf.SAFE)
@@ -101,7 +102,7 @@ public class PlanillaEnfermeroMenu {
                 .executeUnique();
     }
 
-    public List<Paciente> choices0FindByPaciente() {return pacienteRepository.Listar();}
+    public List<Paciente> choices0FindByPaciente() {return pacienteRepository.Listar(EstadoPaciente.Activo);}
 
     @Action(semantics = SemanticsOf.SAFE)
     @ActionLayout(bookmarking = BookmarkPolicy.AS_ROOT, named = "Planillas de Enfermeros")

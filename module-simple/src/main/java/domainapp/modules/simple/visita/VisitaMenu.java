@@ -1,5 +1,6 @@
 package domainapp.modules.simple.visita;
 
+import domainapp.modules.simple.paciente.EstadoPaciente;
 import domainapp.modules.simple.paciente.Paciente;
 import domainapp.modules.simple.paciente.PacienteRepository;
 import org.apache.isis.applib.annotation.*;
@@ -62,7 +63,7 @@ public class VisitaMenu {
         return visitaRepository.create(idVisita, paciente, fechaUltimaVisita, altura, peso, temperatura, presionArterial, frecuenciaCardiaca, observacion);
     }
 
-    public List<Paciente> choices0Create() {return pacienteRepository.Listar();}
+    public List<Paciente> choices0Create() {return pacienteRepository.Listar(EstadoPaciente.Activo);}
 
     @Action(semantics = SemanticsOf.SAFE)
     @ActionLayout(bookmarking = BookmarkPolicy.AS_ROOT, named = "Buscar Visita")
@@ -80,7 +81,7 @@ public class VisitaMenu {
                 .executeUnique();
     }
 
-    public List<Paciente> choices0FindByPaciente() {return pacienteRepository.Listar();}
+    public List<Paciente> choices0FindByPaciente() {return pacienteRepository.Listar(EstadoPaciente.Activo);}
 
     @Action(semantics = SemanticsOf.SAFE)
     @ActionLayout(bookmarking = BookmarkPolicy.AS_ROOT, named = "Listado de Visita Medica")
