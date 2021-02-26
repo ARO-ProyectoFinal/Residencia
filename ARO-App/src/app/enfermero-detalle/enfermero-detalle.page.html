@@ -1,0 +1,73 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title slot="end">Datos del Enfermero</ion-title>
+    <ion-buttons>
+      <ion-menu-button slot="start"> </ion-menu-button>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <div id="container">
+    <div *ngIf="datosEnfermero != null">
+      <ion-card>
+        <ion-card-header>
+          <ion-card-title>
+            {{datosEnfermero.nombre}} {{datosEnfermero.apellido}}
+          </ion-card-title>
+        </ion-card-header>
+
+        <ion-item>
+          <ion-icon name="calendar" slot="start"></ion-icon>
+          <ion-label
+            >Fecha de Alta: {{datosEnfermero.fechaAlta | date:'dd/MM/yyyy'
+            }}</ion-label
+          >
+        </ion-item>
+
+        <ion-item>
+          <ion-icon name="person" slot="start"></ion-icon>
+          <ion-label>Dni: {{datosEnfermero.nroDocumento}}</ion-label>
+        </ion-item>
+
+        <ion-item>
+          <ion-icon name="calendar" slot="start"></ion-icon>
+          <ion-label
+            >Fecha de Nacimiento: {{datosEnfermero.fechaNacimiento |
+            date:'dd/MM/yyyy' }}</ion-label
+          >
+        </ion-item>
+
+        <ion-item>
+          <ion-icon name="pin" slot="start"></ion-icon>
+          <ion-label>Edad: {{datosEnfermero.edad}}</ion-label>
+        </ion-item>
+
+        <ion-item>
+          <ion-icon name="phone-portrait" slot="start"></ion-icon>
+          <ion-label>Telefono: {{datosEnfermero.telefono}}</ion-label>
+        </ion-item>
+
+        <ion-item>
+          <ion-icon name="clipboard" slot="start"></ion-icon>
+          <ion-label
+            >Tipo de documento: {{datosEnfermero.tipoDocumento}}</ion-label
+          >
+        </ion-item>
+
+        <ion-item>
+          <ion-icon name="locate" slot="start"></ion-icon>
+          <ion-label
+            >Lugar de Nacimiento:
+            {{datosEnfermero.lugarDeNacimiento}}</ion-label
+          >
+        </ion-item>
+
+        <ion-item>
+          <ion-icon name="pin" slot="start"></ion-icon>
+          <ion-label>Nro Matricula: {{datosEnfermero.nroMatricula}}</ion-label>
+        </ion-item>
+      </ion-card>
+    </div>
+  </div>
+</ion-content>

@@ -10,36 +10,74 @@
 <ion-content>
   <ion-list>
     <!-- <ion-list-header>Planilla</ion-list-header> -->
-    <img src="assets/img/aroLogo.png" alt="ARO Logo" />
-    <ion-title class="ion-padding">Nombre: Maximiliano Ranquileo</ion-title>
+    <!-- <img src="assets/img/aroLogo.png" alt="ARO Logo" /> -->
+
+    <!--     <ion-item>
+      <ion-icon name="person" slot="start"></ion-icon>
+      <ion-label>Dni: {{datosPlanilla.medicacion}}</ion-label>
+    </ion-item> -->
+
+    <ion-title class="ion-padding"
+      >Nombre Paciente:
+      <!-- {{datosPlanilla.paciente}} --></ion-title
+    >
+    <ion-title class="ion-padding"
+      >Nombre Enfermero:
+      <!-- {{datosPlanilla.enfermero}} --></ion-title
+    >
     <br />
-    <ion-title>Fecha de Planilla: 12/02/2021</ion-title>
+    <ion-title
+      >Fecha de Planilla:
+      <!-- {{datosPlanilla.fechaPlanilla |
+      date:'dd/MM/yyyy'}} --></ion-title
+    >
     <ion-item>
-      <ion-label>Medicacion</ion-label>
+      <ion-label
+        >Medicacion:
+        <!-- {{datosPlanilla.medicacion}} --></ion-label
+      >
       <ion-checkbox slot="end" checked></ion-checkbox>
     </ion-item>
     <ion-item>
-      <ion-label>Curaciones</ion-label>
+      <ion-label
+        >Curaciones
+        <!-- {{datosPlanilla.curaciones}} --></ion-label
+      >
       <ion-checkbox slot="end"></ion-checkbox>
     </ion-item>
     <ion-item>
-      <ion-label>Actividad Fisica</ion-label>
+      <ion-label
+        >Actividad Fisica
+        <!-- {{datosPlanilla.actividadFisica}} --></ion-label
+      >
       <ion-checkbox slot="end"></ion-checkbox>
     </ion-item>
     <ion-item>
-      <ion-label>Comida</ion-label>
+      <ion-label
+        >Comida
+        <!-- {{datosPlanilla.comidas}} --></ion-label
+      >
       <ion-checkbox slot="end"></ion-checkbox>
     </ion-item>
     <ion-item>
-      <ion-label>Cambio de Ropa</ion-label>
+      <ion-label
+        >Cambio de Ropa
+        <!-- {{datosPlanilla.ropa}} --></ion-label
+      >
       <ion-checkbox slot="end"></ion-checkbox>
     </ion-item>
     <ion-item>
-      <ion-label>Limpieza</ion-label>
+      <ion-label
+        >Limpieza
+        <!-- {{datosPlanilla.limpieza}} --></ion-label
+      >
       <ion-checkbox slot="end"></ion-checkbox>
     </ion-item>
     <ion-item>
-      <ion-label position="stacked">Observación</ion-label>
+      <ion-label position="stacked"
+        >Observación
+        <!-- {{datosPlanilla.observacion}} --></ion-label
+      >
       <ion-textarea placeholder="Escriba aquí"></ion-textarea>
     </ion-item>
     <section>

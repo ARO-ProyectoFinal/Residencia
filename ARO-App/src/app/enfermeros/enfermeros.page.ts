@@ -1,8 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import { FormBuilder, FormGroup } from '@angular/forms';
-import { ActivatedRoute } from '@angular/router';
-import { EnfermeroService } from '../services/enfermero.service';
-import { Enfermero } from '../enfermeros/enfermero';
+import { HttpClient, HttpHeaders } from '@angular/common/http';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-enfermeros',
@@ -10,48 +8,30 @@ import { Enfermero } from '../enfermeros/enfermero';
   styleUrls: ['./enfermeros.page.scss'],
 })
 export class EnfermerosPage implements OnInit {
+  constructor(private http: HttpClient, private router: Router) {}
 
-
-  enfermeroId: any = 1;
-  enfermero : Enfermero [] = [];
-  mostrar: boolean = false;
-  ver: boolean = true;
-  enfermeroForm: FormGroup;
-
-
-
-  constructor(
-    private enfermeroService: EnfermeroService,
-    private fb: FormBuilder, 
-    private paramRoute: ActivatedRoute
-    ) { }
+  public contenidoArray: any = null;
 
   ngOnInit() {
-    this.paramRoute.paramMap.subscribe( param => {
-      this.enfermeroId = param.get('id');
-    })
-    this.getEnfermero(this.enfermeroId);
-    this.initForm();
- 
+    this.listarEnfermeros();
   }
-
-
-  initForm(){
-    this.enfermeroForm = this.fb.group({
-      nombre: [''],
-      fechaAlta: [''],
-      edad: [''],
-      telefono: [''],
-      observacion: ['']
+  listarEnfermeros() {
+    const httpOptions = {
+      headers: new HttpHeaders({
+        Accept: 'application/json;profile=urn:org.apache.isis/v1',
+        Authorization: 'Basic RHVl8WE6MTIzNA==',
+      }),
+    };
+    const URL =
+      'http://localhost:8080/restful/services/DatosEnfermero/actions/listAll/invoke';
+    this.http.get(URL, httpOptions).subscribe((resultados: Array<any>) => {
+      var array = resultados;
+      array.pop();
+      this.contenidoArray = array;
     });
   }
-
-  getEnfermero(id){
-    this.enfermeroService.getEnfermero(id).subscribe((enfermero: Enfermero[]) => {
-      this.enfermero = enfermero;
-      this.enfermeroForm.patchValue(this.enfermero);
-
-    });
+  obtieneEnfermero(idEnfermero) {
+    console.log(idEnfermero);
+    this.router.navigate(['/enfermero-detalle', { id_Enfermero: idEnfermero }]);
   }
-
 }

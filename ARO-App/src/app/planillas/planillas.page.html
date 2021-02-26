@@ -1,6 +1,6 @@
 <ion-header>
   <ion-toolbar>
-    <ion-title slot="end">Enfermeros</ion-title>
+    <ion-title slot="end">Planillas</ion-title>
     <ion-buttons>
       <ion-menu-button slot="start"> </ion-menu-button>
     </ion-buttons>
@@ -11,29 +11,24 @@
   <ion-app>
     <ion-header translucent>
       <ion-toolbar>
-        <ion-title>Lista de Enfermeros</ion-title>
+        <ion-title>Listado de Planillas</ion-title>
       </ion-toolbar>
     </ion-header>
 
     <ion-content fullscreen>
       <ion-list>
-        <ion-list-header> Enfermeros Activos </ion-list-header>
-
+        <ion-list-header> Planillas Activas</ion-list-header>
         <ion-item *ngFor="let resultado of contenidoArray">
           <ion-item>
-            <!-- <ion-avatar slot="start">
-              <img src="./avatar-finn.png" />
-            </ion-avatar> -->
             <ion-label>
               <h2>{{resultado.apellido}}</h2>
               <h3>{{resultado.name}}</h3>
             </ion-label>
             <ion-button
-              (click)="obtieneEnfermero(resultado.$$instanceId)"
+              (click)="obtienePlanilla(resultado.$$instanceId)"
               color="secondary"
-              >Datos del Enfermero</ion-button
+              >Detalle de Planilla</ion-button
             ><br />
-            <!-- <ion-button color="secondary">Generar Planilla</ion-button> -->
           </ion-item>
         </ion-item>
       </ion-list>

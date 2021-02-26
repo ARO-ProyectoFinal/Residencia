@@ -42,6 +42,20 @@ const routes: Routes = [
           ),
       },
       {
+        path: 'enfermero-detalle',
+        loadChildren: () =>
+          import('../enfermero-detalle/enfermero-detalle.module').then(
+            (m) => m.EnfermeroDetallePageModule
+          ),
+      },
+      {
+        path: 'planillas',
+        loadChildren: () =>
+          import('../planillas/planillas.module').then(
+            (m) => m.PlanillasPageModule
+          ),
+      },
+      {
         path: 'configuracion',
         loadChildren: () =>
           import('../configuracion/configuracion.module').then(

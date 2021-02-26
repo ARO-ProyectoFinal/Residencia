@@ -48,15 +48,33 @@ const routes: Routes = [
       import('./planillas-diarias/planillas-diarias.module').then(
         (m) => m.PlanillasDiariasPageModule
       ),
-  },  {
+  },
+  {
     path: 'configuracion',
-    loadChildren: () => import('./configuracion/configuracion.module').then( m => m.ConfiguracionPageModule)
+    loadChildren: () =>
+      import('./configuracion/configuracion.module').then(
+        (m) => m.ConfiguracionPageModule
+      ),
   },
   {
     path: 'paciente-detalle',
-    loadChildren: () => import('./paciente-detalle/paciente-detalle.module').then( m => m.PacienteDetallePageModule)
+    loadChildren: () =>
+      import('./paciente-detalle/paciente-detalle.module').then(
+        (m) => m.PacienteDetallePageModule
+      ),
   },
-
+  {
+    path: 'enfermero-detalle',
+    loadChildren: () =>
+      import('./enfermero-detalle/enfermero-detalle.module').then(
+        (m) => m.EnfermeroDetallePageModule
+      ),
+  },
+  {
+    path: 'planillas',
+    loadChildren: () =>
+      import('./planillas/planillas.module').then((m) => m.PlanillasPageModule),
+  },
 ];
 
 @NgModule({

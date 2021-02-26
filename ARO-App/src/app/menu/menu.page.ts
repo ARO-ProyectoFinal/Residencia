@@ -34,7 +34,7 @@ export class MenuPage {
   }
 
   goToPlanillasDiarias() {
-    this.navCtrl.navigateRoot('menu/planillas-diarias');
+    this.navCtrl.navigateRoot('menu/planillas');
     this.menu.close();
   }
 
