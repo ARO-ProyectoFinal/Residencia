@@ -12,9 +12,12 @@ import org.apache.isis.applib.services.repository.RepositoryService;
 import org.apache.isis.applib.services.title.TitleService;
 import org.apache.isis.schema.utils.jaxbadapters.JodaDateTimeStringAdapter;
 import org.joda.time.LocalDate;
+import org.isisaddons.module.security.dom.user.ApplicationUser;
 
 import javax.jdo.annotations.*;
 import javax.xml.bind.annotation.adapters.XmlJavaTypeAdapter;
+import java.util.SortedSet;
+import java.util.TreeSet;
 
 
 @Getter
@@ -111,6 +114,9 @@ public class Enfermero  {
     @Property()
     private EstadoEnfermero estado;
 
+    @lombok.NonNull
+    private SortedSet<ApplicationUser> usuario = new TreeSet<>();
+
     public String title(){ return getNombre() + " " + getApellido(); }
 
     public String RepoNombre() { return this.nombre; }
@@ -188,6 +194,23 @@ public class Enfermero  {
     public String default8UpdateEnfermero() { return getEdad(); }
     public String default9UpdateEnfermero() { return getNroMatricula(); }
 
+
+    public void addToUser(final ApplicationUser applicationUser)
+    {
+        getUsuario().add(applicationUser);
+    }
+
+    public Enfermero addUser(@ParameterLayout(named="Usuario: ") final ApplicationUser user) {
+        addToUser(user);
+        return this;
+    }
+
+    @Action()
+    @MemberOrder(name="user", sequence = "1")
+    @ActionLayout(named = "Añadir Usuario")
+    public Enfermero AgregarUsuario (final ApplicationUser user ){
+        return  usuario.size() < 1 ? this.addUser(user) : null;
+    }
 
     @Override
     public String toString() {
