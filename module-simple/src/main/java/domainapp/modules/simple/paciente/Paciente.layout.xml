@@ -43,6 +43,7 @@
                         <cpt:property id="nroSeguroSocial"/>
                         <cpt:property id="incapacidad"/>
                         <cpt:property id="observacion"/>
+                        <cpt:property id="estado"/>
                         <cpt:action id="updatePaciente"/>
                         <cpt:action id="Activo"/>
                         <cpt:action id="Baja"/>
@@ -62,12 +63,7 @@
                         </cpt:property>
                     </cpt:fieldSet>
                 </bs3:col>
-                <bs3:col span="4">
-                    <cpt:fieldSet name="Estado del Paciente">
-                        <cpt:property id="estado" hidden="ALL_TABLES">
-                        </cpt:property>
-                    </cpt:fieldSet>
-                </bs3:col>
+
             </bs3:row>
         </bs3:col>
     </bs3:row>

@@ -71,7 +71,7 @@ public class Paciente implements Comparable<Paciente> {
     @PropertyLayout(named = "Enfermero")
     private Enfermero asignarEnfermero;
 
-    @javax.jdo.annotations.Column(allowsNull = "true", name = "estado")
+    @javax.jdo.annotations.Column(allowsNull = "false")
     @Property()
     private EstadoPaciente estado;
 
@@ -269,16 +269,21 @@ public class Paciente implements Comparable<Paciente> {
     }
 
     @Action()
+    @ActionLayout(named = "Activar")
     public Paciente Activo(){
         CambiarEstado(EstadoPaciente.Activo);
         return this;
     }
 
     @Action(semantics = SemanticsOf.IDEMPOTENT_ARE_YOU_SURE)
+    @ActionLayout(named = "Dar de baja")
     public Paciente Baja(){
         CambiarEstado(EstadoPaciente.Baja);
         return this;
     }
+    public boolean hideActivo(){return  this.estado == EstadoPaciente.Activo;}
+    public boolean hideBaja(){return  this.estado == EstadoPaciente.Baja;}
+
 
     @Override
     public String toString() {

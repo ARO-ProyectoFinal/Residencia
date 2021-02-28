@@ -8,30 +8,54 @@ import { Router } from '@angular/router';
   styleUrls: ['./pacientes.page.scss'],
 })
 export class PacientesPage implements OnInit {
-  constructor(private http: HttpClient, private router: Router) {}
+
+  resultadosArraytemp: any;
+  constructor(private http: HttpClient, private router: Router) { }
 
   public contenidoArray: any = null;
+  public resultadosArrayFiltrado = [];
 
   ngOnInit() {
     this.listarPacientes();
   }
   listarPacientes() {
+    this.resultadosArrayFiltrado = [];
     const httpOptions = {
       headers: new HttpHeaders({
-        Accept: 'application/json;profile=urn:org.apache.isis/v1',
-        Authorization: 'Basic RHVl8WE6MTIzNA==',
-      }),
-    };
-    const URL =
-      'http://localhost:8080/restful/services/Paciente/actions/listAll/invoke';
-    this.http.get(URL, httpOptions).subscribe((resultados: Array<any>) => {
-      var array = resultados;
-      array.pop();
-      this.contenidoArray = array;
-    });
+        'Accept': 'application/json;profile=urn:org.apache.isis/v1',
+        'Authorization': 'Basic TWF4aToxMjM0',
+      })
+    }
+    const URL = 'http://localhost:8080/restful/services/Paciente/actions/listAll/invoke';
+    this.http.get(URL, httpOptions)
+      .subscribe((resultados: Array<any>) => {
+        this.contenidoArray = resultados;
+        this.resultadosArraytemp = this.contenidoArray;
+
+        this.resultadosArraytemp.pop();
+
+        const largoArray = this.resultadosArraytemp.length;
+
+        for (var i=0; i<largoArray;){
+
+          if(this.resultadosArraytemp[i].hasOwnProperty("estado")){
+
+            if(this.resultadosArraytemp[i].estado == "Activo"){
+              this.resultadosArrayFiltrado.push(this.contenidoArray[i]);
+            }
+          }
+          i= i+1;
+        }
+
+        this.contenidoArray = this.resultadosArrayFiltrado;
+
+      
+      });
+
   }
-  obtienePaciente(idPaciente) {
+  obtienePaciente(idPaciente) { 
     console.log(idPaciente);
-    this.router.navigate(['/paciente-detalle', { id_Paciente: idPaciente }]);
+    this.router.navigate(['/paciente-detalle', { id_Paciente: idPaciente }])
   }
+
 }
