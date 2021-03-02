@@ -26,7 +26,7 @@ export class EnfermeroDetallePage implements OnInit {
     const httpOptions = {
       headers: new HttpHeaders({
         Accept: 'application/json;profile=urn:org.apache.isis/v1',
-        Authorization: 'Basic RHVl8WE6MTIzNA==',
+        Authorization: 'Basic QWRtaW46YWRtaW4=',
       }),
     };
     const URL =
