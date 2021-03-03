@@ -71,7 +71,7 @@ public class Paciente implements Comparable<Paciente> {
     @PropertyLayout(named = "Enfermero")
     private Enfermero asignarEnfermero;
 
-    @javax.jdo.annotations.Column(allowsNull = "false")
+    @javax.jdo.annotations.Column(allowsNull = "true", name = "estado")
     @Property()
     private EstadoPaciente estado;
 

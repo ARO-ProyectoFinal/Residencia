@@ -50,7 +50,7 @@ public class VisitaRepository {
             final String observacion
 
     ) {
-        final Visita visita = new Visita(idVisita,paciente,fechaUltimaVisita,altura,peso,temperatura,presionArterial,frecuenciaCardiaca,observacion);
+        final Visita visita = new Visita(idVisita,paciente.Activo(),fechaUltimaVisita,altura,peso,temperatura,presionArterial,frecuenciaCardiaca,observacion);
         repositoryService.persist(visita);
         return visita;
     }

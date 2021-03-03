@@ -60,7 +60,7 @@ public class VisitaMenu {
             final String observacion)
     {
         int idVisita = 0;
-        return visitaRepository.create(idVisita, paciente, fechaUltimaVisita, altura, peso, temperatura, presionArterial, frecuenciaCardiaca, observacion);
+        return visitaRepository.create(idVisita, paciente.Activo(), fechaUltimaVisita, altura, peso, temperatura, presionArterial, frecuenciaCardiaca, observacion);
     }
 
     public List<Paciente> choices0Create() {return pacienteRepository.Listar(EstadoPaciente.Activo);}
