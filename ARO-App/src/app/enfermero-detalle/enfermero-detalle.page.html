@@ -12,7 +12,8 @@
     <div *ngIf="datosEnfermero != null">
       <ion-card>
         <ion-card-header>
-          <ion-card-title>
+          <ion-card-title class="ion-text-center"
+            ><h6>Nombre y Apellido</h6>
             {{datosEnfermero.nombre}} {{datosEnfermero.apellido}}
           </ion-card-title>
         </ion-card-header>
@@ -20,52 +21,65 @@
         <ion-item>
           <ion-icon name="calendar" slot="start"></ion-icon>
           <ion-label
-            >Fecha de Alta: {{datosEnfermero.fechaAlta | date:'dd/MM/yyyy'
-            }}</ion-label
+            ><h3>Fecha de Alta</h3>
+            {{datosEnfermero.fechaAlta | date:'dd/MM/yyyy' }}</ion-label
           >
         </ion-item>
 
         <ion-item>
           <ion-icon name="person" slot="start"></ion-icon>
-          <ion-label>Dni: {{datosEnfermero.nroDocumento}}</ion-label>
+          <ion-label
+            ><h3>Dni</h3>
+            {{datosEnfermero.nroDocumento}}</ion-label
+          >
         </ion-item>
 
         <ion-item>
           <ion-icon name="calendar" slot="start"></ion-icon>
           <ion-label
-            >Fecha de Nacimiento: {{datosEnfermero.fechaNacimiento |
-            date:'dd/MM/yyyy' }}</ion-label
+            ><h3>Fecha de Nacimiento</h3>
+            {{datosEnfermero.fechaNacimiento | date:'dd/MM/yyyy' }}</ion-label
           >
         </ion-item>
 
         <ion-item>
           <ion-icon name="pin" slot="start"></ion-icon>
-          <ion-label>Edad: {{datosEnfermero.edad}}</ion-label>
+          <ion-label
+            ><h3>Edad</h3>
+            {{datosEnfermero.edad}}</ion-label
+          >
         </ion-item>
 
         <ion-item>
           <ion-icon name="phone-portrait" slot="start"></ion-icon>
-          <ion-label>Telefono: {{datosEnfermero.telefono}}</ion-label>
+          <ion-label
+            ><h3>Telefono</h3>
+            {{datosEnfermero.telefono}}</ion-label
+          >
         </ion-item>
 
         <ion-item>
           <ion-icon name="clipboard" slot="start"></ion-icon>
           <ion-label
-            >Tipo de documento: {{datosEnfermero.tipoDocumento}}</ion-label
+            ><h3>Tipo de documento</h3>
+            {{datosEnfermero.tipoDocumento}}</ion-label
           >
         </ion-item>
 
         <ion-item>
           <ion-icon name="locate" slot="start"></ion-icon>
           <ion-label
-            >Lugar de Nacimiento:
+            ><h3>Lugar de Nacimiento</h3>
             {{datosEnfermero.lugarDeNacimiento}}</ion-label
           >
         </ion-item>
 
         <ion-item>
           <ion-icon name="pin" slot="start"></ion-icon>
-          <ion-label>Nro Matricula: {{datosEnfermero.nroMatricula}}</ion-label>
+          <ion-label>
+            <h3>Nro Matricula</h3>
+            {{datosEnfermero.nroMatricula}}</ion-label
+          >
         </ion-item>
       </ion-card>
     </div>
