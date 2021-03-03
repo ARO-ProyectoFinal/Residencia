@@ -26,15 +26,18 @@
             </ion-avatar> -->
             <ion-label>
               <h2>{{resultado.apellido}}</h2>
-              <h3>{{resultado.name}}</h3>
+              <h3>{{resultado.nombre}}</h3>
             </ion-label>
-            <ion-button
-              (click)="obtieneEnfermero(resultado.$$instanceId)"
-              color="secondary"
-              >Datos del Enfermero</ion-button
-            ><br />
+            <br />
             <!-- <ion-button color="secondary">Generar Planilla</ion-button> -->
           </ion-item>
+          <ion-button
+            class="ion-text-right"
+            (click)="obtieneEnfermero(resultado.$$instanceId)"
+            color="secondary"
+            slot="end"
+            >Datos del Enfermero</ion-button
+          >
         </ion-item>
       </ion-list>
     </ion-content>

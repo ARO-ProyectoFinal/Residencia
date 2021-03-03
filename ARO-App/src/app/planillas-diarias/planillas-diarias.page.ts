@@ -11,8 +11,8 @@ export class PlanillasDiariasPage implements OnInit {
   id_Planilla;
   datosPlanilla;
   param: any;
-  editable: boolean= false;
-  verPlanilla: boolean= true;
+  editable: boolean = false;
+  verPlanilla: boolean = true;
   constructor(
     private http: HttpClient,
     private activatedRoute: ActivatedRoute
@@ -37,20 +37,16 @@ export class PlanillasDiariasPage implements OnInit {
     this.http.get(URL, httpOptions).subscribe((resultados) => {
       this.datosPlanilla = resultados;
       console.log(this.datosPlanilla);
-      console.log(this.datosPlanilla.paciente.title)
+      console.log(this.datosPlanilla.paciente.title);
     });
   }
-  crear(){
-    if(this.editable == false){
+  crear() {
+    if (this.editable == false) {
       this.editable = true;
       this.verPlanilla = false;
-    }
-    else{
-      this.editable= false;
+    } else {
+      this.editable = false;
       this.verPlanilla = true;
     }
   }
-
-
-
 }

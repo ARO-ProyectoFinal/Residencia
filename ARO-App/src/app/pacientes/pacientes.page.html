@@ -14,30 +14,30 @@
         <ion-title>Lista de Pacientes</ion-title>
       </ion-toolbar>
     </ion-header>
-    
+
     <ion-content fullscreen>
       <ion-list>
         <ion-list-header> Pacientes Activos </ion-list-header>
         <ion-item *ngFor="let resultado of contenidoArray">
-
-        <ion-item>
-          <!-- <ion-avatar slot="start">
+          <ion-item>
+            <!-- <ion-avatar slot="start">
             <img src="./avatar-finn.png" />
           </ion-avatar> -->
-          <ion-label>
-            <h2>{{resultado.apellido}}</h2>
-            <h3>{{resultado.name}}</h3>
-          </ion-label>
-          <ion-button (click)="obtienePaciente(resultado.$$instanceId)" color="secondary">Datos del Paciente</ion-button><br>
-          <!-- <ion-button color="secondary">Generar Planilla</ion-button> -->
-        </ion-item>
-        </ion-item>
+            <ion-label>
+              <h2>{{resultado.apellido}}</h2>
+              <h3>{{resultado.name}}</h3>
+            </ion-label>
 
-
-        
+            <!-- <ion-button color="secondary">Generar Planilla</ion-button> -->
+          </ion-item>
+          <ion-button
+            (click)="obtienePaciente(resultado.$$instanceId)"
+            color="secondary"
+            slot="end"
+            >Datos del Paciente</ion-button
+          ><br />
+        </ion-item>
       </ion-list>
-
-      
     </ion-content>
   </ion-app>
 </ion-content>

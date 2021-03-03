@@ -1,79 +1,105 @@
 <ion-header>
   <ion-toolbar>
     <ion-title slot="end">Planillas Diarias</ion-title>
-    <ion-buttons>
-      <ion-menu-button slot="start"> </ion-menu-button>
+    <ion-buttons slot="start">
+      <ion-back-button defaultHref="/menu/planillas"> </ion-back-button>
     </ion-buttons>
   </ion-toolbar>
 </ion-header>
 
-
 <ion-content>
-  <div id="container">  
+  <div id="container">
     <div *ngIf="datosPlanilla != null">
-      <div *ngIf = "verPlanilla">
-      <ion-card style="background-color: rgb(170, 196, 245);">
-        <ion-card-header style="text-align: center;">
-          <ion-card-title style="font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;"> {{datosPlanilla.paciente.title}} </ion-card-title>
-        </ion-card-header>
-      </ion-card>
+      <div *ngIf="verPlanilla">
+        <ion-card style="background-color: rgb(170, 196, 245)">
+          <ion-card-header style="text-align: center">
+            <ion-card-title
+              style="
+                font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial,
+                  sans-serif;
+              "
+            >
+              {{datosPlanilla.paciente.title}}
+            </ion-card-title>
+          </ion-card-header>
+        </ion-card>
         <ion-card>
           <ion-item>
-          <ion-icon name="calendar" slot="start"></ion-icon>
-          <ion-label>Fecha Realizada : {{datosPlanilla.fechaPlanilla | date:'dd/MM/yyyy' }}</ion-label>
-        </ion-item>
-        
-        <ion-item>
-          <ion-icon  name="medkit" slot="start"></ion-icon>
-          <ion-label>Se dió medicina: {{datosPlanilla.medicacion}}</ion-label>
-        </ion-item>
-        <ion-item>
-          <ion-icon  name="medkit" slot="start"></ion-icon>
-          <ion-label>Se realizó limpieza de salon: {{datosPlanilla.limpieza}}</ion-label>
-        </ion-item>
-        <ion-item>
-          <ion-icon  name="medkit" slot="start"></ion-icon>
-          <ion-label>Se realizo limpieza de ropa: {{datosPlanilla.ropa}}</ion-label>
-        </ion-item>
-        <ion-item>
-          <ion-icon  name="medkit" slot="start"></ion-icon>
-          <ion-label>Turno: {{datosPlanilla.turno}}</ion-label>
-        </ion-item>
-        <ion-item>
-          <ion-icon  name="medkit" slot="start"></ion-icon>
-          <ion-label>Comidas recibidas : {{datosPlanilla.comidas}}</ion-label>
-        </ion-item>
-        <ion-item>
-          <ion-icon  name="medkit" slot="start"></ion-icon>
-          <ion-label>Se realizó Curaciones : {{datosPlanilla.curaciones}}</ion-label>
-        </ion-item>
-        <ion-item>
-          <ion-icon  name="medkit" slot="start"></ion-icon>
-          <ion-label>Observación : {{datosPlanilla.observacion}}</ion-label>
-        </ion-item>
+            <ion-icon name="calendar" slot="start"></ion-icon>
+            <ion-label
+              >Fecha Realizada : {{datosPlanilla.fechaPlanilla |
+              date:'dd/MM/yyyy' }}</ion-label
+            >
+          </ion-item>
 
-        </ion-card><br><br>
-        <ion-card style="text-align: center;">
-        <ion-button (click)= "crear()" style="background-color: rgb(170, 196, 245);"
-        >Realizar nueva planilla</ion-button>
-        
-         
-       </ion-card> 
+          <ion-item>
+            <ion-icon name="medkit" slot="start"></ion-icon>
+            <ion-label>Se dió medicina: {{datosPlanilla.medicacion}}</ion-label>
+          </ion-item>
+          <ion-item>
+            <ion-icon name="medkit" slot="start"></ion-icon>
+            <ion-label
+              >Se realizó limpieza de salon:
+              {{datosPlanilla.limpieza}}</ion-label
+            >
+          </ion-item>
+          <ion-item>
+            <ion-icon name="medkit" slot="start"></ion-icon>
+            <ion-label
+              >Se realizo limpieza de ropa: {{datosPlanilla.ropa}}</ion-label
+            >
+          </ion-item>
+          <ion-item>
+            <ion-icon name="medkit" slot="start"></ion-icon>
+            <ion-label>Turno: {{datosPlanilla.turno}}</ion-label>
+          </ion-item>
+          <ion-item>
+            <ion-icon name="medkit" slot="start"></ion-icon>
+            <ion-label>Comidas recibidas : {{datosPlanilla.comidas}}</ion-label>
+          </ion-item>
+          <ion-item>
+            <ion-icon name="medkit" slot="start"></ion-icon>
+            <ion-label
+              >Se realizó Curaciones : {{datosPlanilla.curaciones}}</ion-label
+            >
+          </ion-item>
+          <ion-item>
+            <ion-icon name="medkit" slot="start"></ion-icon>
+            <ion-label>Observación : {{datosPlanilla.observacion}}</ion-label>
+          </ion-item> </ion-card
+        ><br /><br />
+        <ion-card style="text-align: center">
+          <ion-button
+            (click)="crear()"
+            style="background-color: rgb(170, 196, 245)"
+            >Realizar nueva planilla</ion-button
+          >
+        </ion-card>
       </div>
-    </div>  
-  </div> 
+    </div>
+  </div>
 
   <div id="container">
-    <div *ngIf = "editable">
-      <ion-card style="background-color: rgb(170, 196, 245);">
-        <ion-card-header style="text-align: center;">
-          <ion-card-title style="font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;"> {{datosPlanilla.paciente.title}} </ion-card-title>
+    <div *ngIf="editable">
+      <ion-card style="background-color: rgb(170, 196, 245)">
+        <ion-card-header style="text-align: center">
+          <ion-card-title
+            style="
+              font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial,
+                sans-serif;
+            "
+          >
+            {{datosPlanilla.paciente.title}}
+          </ion-card-title>
         </ion-card-header>
       </ion-card>
 
       <ion-item>
         <ion-label>Ingresar fecha</ion-label>
-        <ion-datetime displayFormat="DD/MM/YYYY" placeholder="Seleccione Fecha"></ion-datetime>
+        <ion-datetime
+          displayFormat="DD/MM/YYYY"
+          placeholder="Seleccione Fecha"
+        ></ion-datetime>
       </ion-item>
 
       <ion-item>
@@ -81,21 +107,21 @@
         <ion-select interface="popover">
           <ion-select-option value="si">SI</ion-select-option>
           <ion-select-option value="no">NO</ion-select-option>
-          </ion-select>
+        </ion-select>
       </ion-item>
       <ion-item>
         <ion-label>Limpieza de salón</ion-label>
         <ion-select interface="popover">
           <ion-select-option value="si">SI</ion-select-option>
           <ion-select-option value="no">NO</ion-select-option>
-          </ion-select>
+        </ion-select>
       </ion-item>
       <ion-item>
         <ion-label>Limpieza de Ropa</ion-label>
         <ion-select interface="popover">
           <ion-select-option value="si">SI</ion-select-option>
           <ion-select-option value="no">NO</ion-select-option>
-          </ion-select>
+        </ion-select>
       </ion-item>
       <ion-item>
         <ion-label>Turno</ion-label>
@@ -103,7 +129,7 @@
           <ion-select-option value="mañana">Mañana</ion-select-option>
           <ion-select-option value="tarde">Tarde</ion-select-option>
           <ion-select-option value="noche">Noche</ion-select-option>
-          </ion-select>
+        </ion-select>
       </ion-item>
       <ion-item>
         <ion-label>Comida Recibida</ion-label>
@@ -112,25 +138,19 @@
           <ion-select-option value="almuerzo">Almuerzo</ion-select-option>
           <ion-select-option value="merienda">Merienda</ion-select-option>
           <ion-select-option value="cena">Cena</ion-select-option>
-      </ion-select>
+        </ion-select>
       </ion-item>
       <ion-item>
         <ion-label>Se realizo Curaciones</ion-label>
         <ion-select interface="popover">
           <ion-select-option value="si">SI</ion-select-option>
           <ion-select-option value="no">NO</ion-select-option>
-          </ion-select>
+        </ion-select>
       </ion-item>
 
-
-      <ion-card style="text-align: center;">
+      <ion-card style="text-align: center">
         <ion-button>Guardar Nueva Planilla</ion-button>
-        
-         
-       </ion-card> 
-
-
+      </ion-card>
     </div>
-</div>
-  
+  </div>
 </ion-content>
