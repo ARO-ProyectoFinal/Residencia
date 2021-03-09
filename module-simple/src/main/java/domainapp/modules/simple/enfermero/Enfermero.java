@@ -3,6 +3,7 @@ package domainapp.modules.simple.enfermero;
 
 import com.google.common.collect.ComparisonChain;
 import domainapp.modules.simple.paciente.TipoDocumento;
+import domainapp.modules.simple.planillaEnfermeros.Estado;
 import lombok.AccessLevel;
 import lombok.Getter;
 import lombok.Setter;
@@ -125,6 +126,7 @@ public class Enfermero  {
     public String RepoTelefono() { return this.telefono; }
     public String RepoNroMatricula() { return this.nroMatricula; }
 
+
     @Action()
     @ActionLayout(named = "Editar")
     public Enfermero updateEnfermero(
@@ -236,6 +238,14 @@ public class Enfermero  {
     public  Enfermero Inhabilitar(){
         CambiarEstado(EstadoEnfermero.Inhabilitado);
         return this;
+    }
+
+    public String iconName() {
+        if (this.estado == EstadoEnfermero.Habilitado) {
+            return "Habilitado";
+        } else {
+            return "Inhabilitado";
+        }
     }
 
 
