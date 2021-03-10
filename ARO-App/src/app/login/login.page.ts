@@ -1,12 +1,15 @@
 import { Component, OnInit } from '@angular/core';
+import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { Router } from '@angular/router';
 import {
-  FormBuilder,
-  FormControl,
-  FormGroup,
-  Validators,
-} from '@angular/forms';
-import { NavController } from '@ionic/angular';
-import { AuthenticateService } from '../services/authenticate.service';
+  AlertController,
+  LoadingController,
+  MenuController,
+  NavController,
+  ToastController,
+} from '@ionic/angular';
+import { LoginService } from '../services/login.service';
+import { ToastService } from '../services/toast.service';
 import { Storage } from '@ionic/storage';
 
 @Component({
@@ -16,55 +19,65 @@ import { Storage } from '@ionic/storage';
 })
 export class LoginPage implements OnInit {
   loginForm: FormGroup;
-  validation_messages = {
-    email: [
-      { type: 'required', message: 'El email es requerido' },
-      { type: 'pattern', message: 'Este no es un email válido' },
-    ],
-    password: [
-      { type: 'required', message: 'El password es requerido' },
-      { type: 'minlength', message: 'Minimo 5 caracteres para el password' },
-    ],
-  };
-  errorMessage: String = '';
+
+  public loginInvalido: boolean = false;
+  username: string = '';
+  password: any;
 
   constructor(
-    private formBuilder: FormBuilder,
-    private authService: AuthenticateService,
-    private navCtrl: NavController,
+    private fb: FormBuilder,
+
+    public menuCtrl: MenuController,
+    public toastCtrl: ToastController,
+    public alertCtrl: AlertController,
+    public loadingCtrl: LoadingController,
+    private loginService: LoginService,
+    private toastService: ToastService,
     private storage: Storage
-  ) {
-    this.loginForm = this.formBuilder.group({
-      email: new FormControl(
-        '',
-        Validators.compose([
-          Validators.required,
-          Validators.pattern('^[a-zA-Z0-9_.+-]+@[a-zA-Z0-9-]+.[a-zA-Z0-9-.]+$'),
-        ])
-      ),
-      password: new FormControl(
-        '',
-        Validators.compose([Validators.required, Validators.minLength(5)])
-      ),
+  ) {}
+
+  ngOnInit() {
+    this.initForm();
+  }
+
+  ionViewWillEnter() {
+    this.menuCtrl.enable(false);
+  }
+
+  initForm() {
+    this.loginForm = this.fb.group({
+      username: [null, Validators.required],
+      password: [null, Validators.required],
     });
   }
 
-  ngOnInit() {}
-
-  loginUser(credentials) {
-    this.authService
-      .loginUser(credentials)
-      .then((res) => {
-        this.errorMessage = '';
-        this.storage.set('isUserLoggedIn', true);
-        this.navCtrl.navigateForward('/menu/home');
-      })
-      .catch((err) => {
-        this.errorMessage = err;
-      });
+  submit() {
+    if (this.loginForm.invalid) {
+      return;
+    }
+    (this.username = this.loginForm.controls.username.value),
+      (this.password = this.loginForm.controls.password.value);
+    this.loginService.realizaLogin(this.username, this.password).subscribe(
+      (response) => {
+        if (response) {
+          this.storage.set('isUserLoggedIn', true);
+          location.href = '/menu/home';
+          this.GuardaUsuarioEnCookie(this.username);
+          this.toastService.presentToast(
+            'Bienvenido al sistema: ' + this.username
+          );
+        }
+      },
+      (error) => {
+        console.log(error);
+        this.loginInvalido = true;
+        this.toastService.presentToast('Usuario y/o contraseña incorrectos');
+        this.loginForm.reset();
+      }
+    );
   }
 
-  goToRegister() {
-    this.navCtrl.navigateForward('/register');
+  GuardaUsuarioEnCookie(usuarioRecibido: String) {
+    window.localStorage.usuario = usuarioRecibido;
   }
 }

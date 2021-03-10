@@ -1,37 +1,22 @@
-<ion-content>
+<ion-content [fullscreen]="true">
   <figure class="ion-text-center ion-padding">
     <img src="assets/img/logo.jfif" alt="ARO logo" />
   </figure>
-  <form [formGroup]="loginForm" (ngSubmit)="loginUser(loginForm.value)">
-    <ion-item>
-      <ion-label>Email</ion-label>
-      <ion-input formControlName="email"></ion-input>
+  <form [formGroup]="loginForm" (ngSubmit)="submit()">
+    <ion-item lines="full">
+      <ion-label position="floating">Usuario:</ion-label>
+      <ion-input type="text" formControlName="username" required></ion-input>
     </ion-item>
-    <div class="validation-error">
-      <ng-container *ngFor="let validation of validation_messages.email">
-        <div
-          *ngIf="loginForm.get('email').hasError(validation.type) &&
-          (loginForm.get('email').dirty || loginForm.get('email').touched)"
-        >
-          {{validation.message}}
-        </div>
-      </ng-container>
-    </div>
-    <ion-item>
-      <ion-label>Password</ion-label>
-      <ion-input type="password" formControlName="password"></ion-input>
+
+    <ion-item lines="full">
+      <ion-label position="floating">Contraseña: </ion-label>
+      <ion-input
+        type="password"
+        formControlName="password"
+        required
+      ></ion-input>
     </ion-item>
-    <div class="validation-error">
-      <ng-container *ngFor="let validation of validation_messages.password">
-        <div
-          *ngIf="loginForm.get('password').hasError(validation.type) &&
-          (loginForm.get('password').dirty || loginForm.get('password').touched)"
-        >
-          {{validation.message}}
-        </div>
-      </ng-container>
-    </div>
-    {{errorMessage}}
+
     <ion-button
       expand="full"
       shape="round"
@@ -42,13 +27,3 @@
     >
   </form>
 </ion-content>
-<ion-footer class="ion-text-center">
-  <ion-button
-    (click)="goToRegister()"
-    expand="full"
-    shape="round"
-    fill="outline"
-    color="secondary"
-    >Click para Registrar</ion-button
-  >
-</ion-footer>

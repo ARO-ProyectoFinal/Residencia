@@ -20,9 +20,4 @@ export class AuthenticateService {
       }
     });
   }
-
-  registerUser(userData) {
-    userData.password = btoa(userData.password);
-    return this.storage.set('user', userData);
-  }
 }
