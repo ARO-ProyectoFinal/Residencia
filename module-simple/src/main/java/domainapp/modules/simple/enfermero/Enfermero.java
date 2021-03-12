@@ -197,7 +197,7 @@ public class Enfermero  {
     public String default9UpdateEnfermero() { return getNroMatricula(); }
 
 
-    public void addToUser(final ApplicationUser applicationUser)
+    /*public void addToUser(final ApplicationUser applicationUser)
     {
         getUsuario().add(applicationUser);
     }
@@ -212,7 +212,7 @@ public class Enfermero  {
     @ActionLayout(named = "Añadir Usuario")
     public Enfermero AgregarUsuario (final ApplicationUser user ){
         return  usuario.size() < 1 ? this.addUser(user) : null;
-    }
+    }*/
 
     @Override
     public String toString() {

@@ -19,7 +19,7 @@
                     <bs3:row>
                         <bs3:col span="12">
                             <cpt:fieldSet name="Datos Enfermero">
-                                <cpt:action id="AgregarUsuario"/>
+                                <!--<cpt:action id="AgregarUsuario"/>-->
                                 <cpt:action id="Habilitar"/>
                                 <cpt:action id="Inhabilitar"/>
                                 <cpt:property id="nombre"/>

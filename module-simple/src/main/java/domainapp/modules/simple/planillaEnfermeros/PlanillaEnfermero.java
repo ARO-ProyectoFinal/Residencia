@@ -140,13 +140,7 @@ public class PlanillaEnfermero implements Comparable <PlanillaEnfermero> {
     @Action()
     @ActionLayout(named = "Editar")
     public PlanillaEnfermero updatePlanillaEnfermeros(
-            @Parameter(maxLength = 40)
-            @ParameterLayout(named = "Paciente")
-            final Paciente paciente,
 
-            @Parameter(maxLength = 40)
-            @ParameterLayout(named = "Enfermero")
-            final Enfermero enfermero,
 
             @Parameter(maxLength = 40)
             @ParameterLayout(named = "Fecha Planilla")
