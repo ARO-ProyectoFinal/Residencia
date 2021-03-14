@@ -1,29 +1,57 @@
 import { Component, OnInit } from '@angular/core';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { ActivatedRoute, ParamMap } from '@angular/router';
-
+import { FormBuilder, FormGroup } from '@angular/forms';
+import {PlanillaService} from './../services/planilla.service';
 @Component({
   selector: 'app-planillas-diarias',
   templateUrl: './planillas-diarias.page.html',
   styleUrls: ['./planillas-diarias.page.scss'],
 })
 export class PlanillasDiariasPage implements OnInit {
-  id_Planilla;
+  id_Planilla: any;
   datosPlanilla;
-  param: any;
   editable: boolean = false;
   verPlanilla: boolean = true;
+  planillaForm: FormGroup;
   constructor(
     private http: HttpClient,
-    private activatedRoute: ActivatedRoute
+    private activatedRoute: ActivatedRoute,
+    private fb: FormBuilder,
+    private planillaService: PlanillaService,
+    private paramRoute: ActivatedRoute
   ) {}
 
   ngOnInit() {
-    this.param = this.activatedRoute.snapshot.params;
-    if (Object.keys(this.param).length) {
-      this.detallarPlanilla(this.param.id_Planilla);
-    }
+    this.paramRoute.paramMap.subscribe( param => {
+      this.id_Planilla = param.get('id');
+    })
+    this.detallarPlanilla(this.id_Planilla);
+    this.initForm();
+    
   }
+
+  getPlanilla(id) {
+      this.planillaService.getPlanillas(id).subscribe((planillas) => {
+      this.datosPlanilla = planillas;
+      this.planillaForm.patchValue(this.datosPlanilla);
+    });
+  }
+
+  initForm() {
+    this.planillaForm= this.fb.group({
+      fechaPlanilla :[''] ,
+      medicacion :[''],
+      limpieza :[''],
+      ropa :[''],
+      turno :[''],
+      comidas :[''],
+      curaciones :[''],
+      actividadFisica:[''],
+      observacion :[''],
+    });
+  }
+
   detallarPlanilla(id_Planilla) {
     const httpOptions = {
       headers: new HttpHeaders({
@@ -34,12 +62,13 @@ export class PlanillasDiariasPage implements OnInit {
     const URL =
       'http://localhost:8080/restful/objects/simple.PlanillaEnfermero/' +
       id_Planilla;
-    this.http.get(URL, httpOptions).subscribe((resultados) => {
+      this.http.get(URL, httpOptions).subscribe((resultados) => {
       this.datosPlanilla = resultados;
-      console.log(this.datosPlanilla);
-      console.log(this.datosPlanilla.paciente.title);
+    
     });
+    
   }
+ 
   crear() {
     if (this.editable == false) {
       this.editable = true;
@@ -48,5 +77,12 @@ export class PlanillasDiariasPage implements OnInit {
       this.editable = false;
       this.verPlanilla = true;
     }
+  }
+  submit(){
+    console.log("aqui es submit id" +this.id_Planilla);
+    this.planillaService.updatePlanilla(this.id_Planilla, this.planillaForm.value).subscribe((planilla)=>{
+      
+    })
+    location.reload();
   }
 }

@@ -9,17 +9,14 @@
 
 <ion-content>
   <div id="container">
-    <div *ngIf="datosPlanilla != null">
+    <div *ngIf="datosPlanilla != null">  
       <div *ngIf="verPlanilla">
         <ion-card style="background-color: rgb(170, 196, 245)">
           <ion-card-header style="text-align: center">
             <ion-card-title
               style="
                 font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial,
-                  sans-serif;
-              "
-            >
-              {{datosPlanilla.paciente.title}}
+                  sans-serif;">{{datosPlanilla.paciente.title}}
             </ion-card-title>
           </ion-card-header>
         </ion-card>
@@ -86,82 +83,114 @@
           expand="block"
           (click)="crear()"
           style="background-color: rgb(170, 196, 245)"
-          >Realizar nueva planilla</ion-button
-        >
+          >Editar planilla
+          </ion-button>
       </div>
     </div>
-  </div>
+   </div>  
+
+
 
   <div id="container">
     <div *ngIf="editable">
-      <ion-card style="background-color: rgb(170, 196, 245)">
-        <ion-card-header style="text-align: center">
-          <ion-card-title
-            style="
-              font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial,
-                sans-serif;
-            "
-          >
-            {{datosPlanilla.paciente.title}}
-          </ion-card-title>
-        </ion-card-header>
-      </ion-card>
+      <form [formGroup]="planillaForm" (ngSubmit)=submit()> 
+        <ion-card style="background-color: rgb(170, 196, 245)">
+          <ion-card-header style="text-align: center">
+            <ion-card-title
+              style="
+                font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial,
+                  sans-serif;">
+              {{datosPlanilla.paciente.title}}
+            </ion-card-title>
+          </ion-card-header>
+        </ion-card>
+        <ion-card>
+         <ion-item>
+            <ion-icon name="medkit" slot="start"></ion-icon>
+            <ion-label>Ingresar fecha</ion-label>
+            <ion-datetime
+              value= "03-06-2021"
+              formControlName="fechaPlanilla"
+              displayFormat="DD/MM/YYYY"
+              pikerFormat="YYYY MM DD"
+              placeholder="Seleccione Fecha"
+              cancelText= "Cancelar"
+              doneText= "OK" 
+            ></ion-datetime>
+          </ion-item>
+          <ion-item>
+            <ion-icon name="medkit" slot="start"></ion-icon>
+            <ion-label>Se dio Medicación</ion-label>
+            <ion-select interface="popover" formControlName="medicacion">
+              <ion-select-option  >Si</ion-select-option>
+              <ion-select-option  >No</ion-select-option>
+            </ion-select>
+          </ion-item>
+          <ion-item>
+            <ion-icon name="medkit" slot="start"></ion-icon>
+            <ion-label>Se realizo limpieza</ion-label>
+            <ion-select interface="popover" formControlName="limpieza">
+              <ion-select-option  >Si</ion-select-option>
+              <ion-select-option  >No</ion-select-option>
+            </ion-select>
+          </ion-item>
+          <ion-item>
+            <ion-icon name="medkit" slot="start"></ion-icon>
+            <ion-label>Lavado de Ropa</ion-label>
+            <ion-select interface="popover" formControlName="ropa">
+              <ion-select-option >Si</ion-select-option>
+              <ion-select-option >No</ion-select-option>
+            </ion-select>
+          </ion-item>
+          <ion-item>
+            <ion-icon name="medkit" slot="start"></ion-icon>
+            <ion-label>Comida Servida</ion-label>
+            <ion-select interface="popover" formControlName="comidas">
+              <ion-select-option >Desayuno</ion-select-option>
+              <ion-select-option >Almuerzo</ion-select-option>
+              <ion-select-option >Merienda</ion-select-option>
+              <ion-select-option >Cena</ion-select-option>
+            </ion-select>
+          </ion-item>
+          <ion-item>
+            <ion-icon name="medkit" slot="start"></ion-icon>
+            <ion-label>Turno</ion-label>
+            <ion-select interface="popover" formControlName="turno">
+              <ion-select-option >Mañana</ion-select-option>
+              <ion-select-option >Tarde</ion-select-option>
+              <ion-select-option >Noche</ion-select-option>
+            </ion-select>
+          </ion-item>
+          <ion-item>
+            <ion-icon name="medkit" slot="start"></ion-icon>
+            <ion-label>Se realizo curaciones</ion-label>
+            <ion-select interface="popover" formControlName="curaciones">
+              <ion-select-option >Si</ion-select-option>
+              <ion-select-option >No</ion-select-option>
+            </ion-select>
+          </ion-item>
+          <ion-item>
+            <ion-icon name="medkit" slot="start"></ion-icon>
+            <ion-label>Se realizó actividad fisica</ion-label>
+            <ion-select interface="popover" formControlName="actividadFisica">
+              <ion-select-option >Si</ion-select-option>
+              <ion-select-option >No</ion-select-option>
+            </ion-select>
+          </ion-item>
 
-      <ion-item>
-        <ion-label>Ingresar fecha</ion-label>
-        <ion-datetime
-          displayFormat="DD/MM/YYYY"
-          placeholder="Seleccione Fecha"
-        ></ion-datetime>
-      </ion-item>
-
-      <ion-item>
-        <ion-label>Medicina</ion-label>
-        <ion-select interface="popover">
-          <ion-select-option value="si">SI</ion-select-option>
-          <ion-select-option value="no">NO</ion-select-option>
-        </ion-select>
-      </ion-item>
-      <ion-item>
-        <ion-label>Limpieza de salón</ion-label>
-        <ion-select interface="popover">
-          <ion-select-option value="si">SI</ion-select-option>
-          <ion-select-option value="no">NO</ion-select-option>
-        </ion-select>
-      </ion-item>
-      <ion-item>
-        <ion-label>Limpieza de Ropa</ion-label>
-        <ion-select interface="popover">
-          <ion-select-option value="si">SI</ion-select-option>
-          <ion-select-option value="no">NO</ion-select-option>
-        </ion-select>
-      </ion-item>
-      <ion-item>
-        <ion-label>Turno</ion-label>
-        <ion-select interface="popover">
-          <ion-select-option value="mañana">Mañana</ion-select-option>
-          <ion-select-option value="tarde">Tarde</ion-select-option>
-          <ion-select-option value="noche">Noche</ion-select-option>
-        </ion-select>
-      </ion-item>
-      <ion-item>
-        <ion-label>Comida Recibida</ion-label>
-        <ion-select interface="popover">
-          <ion-select-option value="desayuno">Desayuno</ion-select-option>
-          <ion-select-option value="almuerzo">Almuerzo</ion-select-option>
-          <ion-select-option value="merienda">Merienda</ion-select-option>
-          <ion-select-option value="cena">Cena</ion-select-option>
-        </ion-select>
-      </ion-item>
-      <ion-item>
-        <ion-label>Se realizo Curaciones</ion-label>
-        <ion-select interface="popover">
-          <ion-select-option value="si">SI</ion-select-option>
-          <ion-select-option value="no">NO</ion-select-option>
-        </ion-select>
-      </ion-item>
-
-      <ion-button expand="block">Guardar Nueva Planilla</ion-button>
+           <ion-item>
+            <ion-icon name="medkit" slot="start"></ion-icon>
+            Observaciones: &nbsp;
+            <ion-input  type="text" formControlName="observacion"></ion-input>
+          </ion-item>
+         
+        </ion-card>
+                     
+            <ion-button type="submit" expand="block" style="background-color: rgb(170, 196, 245)">
+              Guardar 
+            </ion-button>
+          
+      </form>
     </div>
   </div>
 </ion-content>

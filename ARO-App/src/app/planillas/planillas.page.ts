@@ -31,7 +31,7 @@ export class PlanillasPage implements OnInit {
     });
   }
   obtienePlanilla(idPlanilla) {
-    console.log(idPlanilla);
-    this.router.navigate(['/planillas-diarias', { id_Planilla: idPlanilla }]);
+    //console.log(idPlanilla);
+    this.router.navigate(['/planillas-diarias', { id: idPlanilla }]);
   }
 }

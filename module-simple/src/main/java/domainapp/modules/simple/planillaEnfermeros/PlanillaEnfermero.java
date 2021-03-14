@@ -178,8 +178,7 @@ public class PlanillaEnfermero implements Comparable <PlanillaEnfermero> {
             @ParameterLayout(named = "Observacion")
             final String observacion){
 
-        this.paciente = paciente;
-        this.enfermero = enfermero;
+     
         this.fechaPlanilla = fechaPlanilla;
         this.turno = turno;
         this.medicacion = medicacion;
