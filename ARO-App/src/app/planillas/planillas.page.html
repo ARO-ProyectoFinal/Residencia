@@ -16,15 +16,12 @@
     </ion-header>
 
     <ion-content fullscreen>
-      <ion-list>
-        <ion-list-header> Planillas Activas</ion-list-header>
-        <ion-item *ngFor="let resultado of contenidoArray">
-          <ion-item>
-            <ion-label>
-              <h2>{{resultado.paciente.title}}</h2>
-            </ion-label>
-            <br />
-          </ion-item>
+      <h2 class="ion-padding">Turno Mañana</h2>
+      <div *ngFor="let resultado of contenidoArray">
+        <ion-item *ngIf="resultado.turno === 'Mañana'">
+          <ion-label>
+            <h3>{{resultado.paciente.title}}</h3>
+          </ion-label>
           <ion-button
             (click)="obtienePlanilla(resultado.$$instanceId)"
             color="secondary"
@@ -32,7 +29,35 @@
             >Detalle de Planilla</ion-button
           >
         </ion-item>
-      </ion-list>
+      </div>
+      <h2 class="ion-padding">Turno Tarde</h2>
+      <div *ngFor="let resultado of contenidoArray">
+        <ion-item *ngIf="resultado.turno === 'Tarde'">
+          <ion-label>
+            <h3>{{resultado.paciente.title}}</h3>
+          </ion-label>
+          <ion-button
+            (click)="obtienePlanilla(resultado.$$instanceId)"
+            color="secondary"
+            slot="end"
+            >Detalle de Planilla</ion-button
+          >
+        </ion-item>
+      </div>
+      <h2 class="ion-padding">Turno Noche</h2>
+      <div *ngFor="let resultado of contenidoArray">
+        <ion-item *ngIf="resultado.turno === 'Noche'">
+          <ion-label>
+            <h3>{{resultado.paciente.title}}</h3>
+          </ion-label>
+          <ion-button
+            (click)="obtienePlanilla(resultado.$$instanceId)"
+            color="secondary"
+            slot="end"
+            >Detalle de Planilla</ion-button
+          >
+        </ion-item>
+      </div>
     </ion-content>
   </ion-app>
 </ion-content>

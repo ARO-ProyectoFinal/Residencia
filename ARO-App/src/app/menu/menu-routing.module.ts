@@ -56,6 +56,13 @@ const routes: Routes = [
           ),
       },
       {
+        path: 'crear-planilla',
+        loadChildren: () =>
+          import('../crear-planilla/crear-planilla.module').then(
+            (m) => m.CrearPlanillaPageModule
+          ),
+      },
+      {
         path: 'configuracion',
         loadChildren: () =>
           import('../configuracion/configuracion.module').then(

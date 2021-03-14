@@ -69,7 +69,11 @@ const routes: Routes = [
     path: 'planillas',
     loadChildren: () =>
       import('./planillas/planillas.module').then((m) => m.PlanillasPageModule),
+  },  {
+    path: 'crear-planilla',
+    loadChildren: () => import('./crear-planilla/crear-planilla.module').then( m => m.CrearPlanillaPageModule)
   },
+
 ];
 
 @NgModule({
