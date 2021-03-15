@@ -11,6 +11,7 @@ export class EnfermeroDetallePage implements OnInit {
   id_Enfermero;
   datosEnfermero;
   param: any;
+  urlServidor = 'https://residencia-aro.herokuapp.com';
   constructor(
     private http: HttpClient,
     private activatedRoute: ActivatedRoute
@@ -29,8 +30,7 @@ export class EnfermeroDetallePage implements OnInit {
         Authorization: 'Basic QWRtaW46YWRtaW4=',
       }),
     };
-    const URL =
-      'http://localhost:8080/restful/objects/simple.DatosEnfermero/' +
+    const URL =  this.urlServidor+'/restful/objects/simple.DatosEnfermero/' +
       id_Enfermero;
     this.http.get(URL, httpOptions).subscribe((resultados) => {
       this.datosEnfermero = resultados;

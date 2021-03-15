@@ -5,6 +5,7 @@ import { HttpClient, HttpHeaders } from '@angular/common/http';
   providedIn: 'root'
 })
 export class EnfermeroService {constructor(private httpClient: HttpClient) { }
+urlServidor = 'https://residencia-aro.herokuapp.com';
 
 
 httpOptions = {
@@ -14,7 +15,7 @@ httpOptions = {
   })
 }
 
-private Url ='http://localhost:8080/restful/objects/simple.DatosEnfermero/1';
+private Url = this.urlServidor+'/restful/objects/simple.DatosEnfermero/1';
 
 
 

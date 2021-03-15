@@ -6,6 +6,7 @@ import { HttpClient, HttpHeaders } from '@angular/common/http';
 export class PlanillaService {
   constructor(private httpClient: HttpClient) {}
 
+  urlServidor = 'https://residencia-aro.herokuapp.com';
   httpOptions = {
     headers: new HttpHeaders({
       Accept: 'application/json;profile=urn:org.apache.isis/v1',
@@ -13,8 +14,7 @@ export class PlanillaService {
     }),
   };
 
-  private Url =
-    'http://localhost:8080/restful/objects/simple.PlanillaEnfermero/';
+  private Url = this.urlServidor+'/restful/objects/simple.PlanillaEnfermero/';
 
   getPlanillas(id: number) {
     debugger;
@@ -29,8 +29,7 @@ export class PlanillaService {
         Authorization: 'Basic QWRtaW46YWRtaW4=',
       }),
     };
-    const planillaUrl =
-      'http://localhost:8080/restful/objects/simple.PlanillaEnfermero/';
+    const planillaUrl = this.urlServidor+'/restful/objects/simple.PlanillaEnfermero/';
 
     let datos = {
       fechaPlanilla: {
@@ -76,8 +75,7 @@ export class PlanillaService {
         Authorization: 'Basic QWRtaW46YWRtaW4=',
       }),
     };
-    const crearPlanillaUrl =
-      'http://localhost:8080/restful/services/PlanillaEnfermero/';
+    const crearPlanillaUrl = this.urlServidor+'/restful/services/PlanillaEnfermero/';
 
     let datos = {
       paciente: {

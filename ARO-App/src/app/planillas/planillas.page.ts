@@ -11,6 +11,7 @@ export class PlanillasPage implements OnInit {
   constructor(private http: HttpClient, private router: Router) {}
 
   public contenidoArray: any = null;
+  urlServidor = 'https://residencia-aro.herokuapp.com';
 
   ngOnInit() {
     this.listarPlanillas();
@@ -22,8 +23,7 @@ export class PlanillasPage implements OnInit {
         Authorization: 'Basic QWRtaW46YWRtaW4=',
       }),
     };
-    const URL =
-      'http://localhost:8080/restful/services/PlanillaEnfermero/actions/listAll/invoke';
+    const URL = this.urlServidor+'/restful/services/PlanillaEnfermero/actions/listAll/invoke';
     this.http.get(URL, httpOptions).subscribe((resultados: Array<any>) => {
       var array = resultados;
       array.pop();

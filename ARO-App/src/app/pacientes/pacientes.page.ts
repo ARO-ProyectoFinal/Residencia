@@ -13,6 +13,7 @@ export class PacientesPage implements OnInit {
 
   public contenidoArray: any = null;
   public resultadosArrayFiltrado = [];
+  urlServidor = 'https://residencia-aro.herokuapp.com';
 
   ngOnInit() {
     this.listarPacientes();
@@ -25,8 +26,7 @@ export class PacientesPage implements OnInit {
         Authorization: 'Basic QWRtaW46YWRtaW4=',
       }),
     };
-    const URL =
-      'http://localhost:8080/restful/services/Paciente/actions/listAll/invoke';
+    const URL = this.urlServidor+'/restful/services/Paciente/actions/listAll/invoke';
     this.http.get(URL, httpOptions).subscribe((resultados: Array<any>) => {
       this.contenidoArray = resultados;
       this.resultadosArraytemp = this.contenidoArray;

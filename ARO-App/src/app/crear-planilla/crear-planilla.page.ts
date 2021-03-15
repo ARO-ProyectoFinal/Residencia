@@ -52,11 +52,11 @@ export class CrearPlanillaPage implements OnInit {
     });
   }
 
-  submit() {
+/*   submit() {
     console.log('aqui es submit id' + this.id_Planilla);
     this.planillaService
       .crearPlanilla(this.id_Planilla, this.planillaForm.value)
       .subscribe((planilla) => {});
     location.reload();
-  }
+  } */
 }

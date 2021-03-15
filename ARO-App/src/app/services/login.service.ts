@@ -11,7 +11,7 @@ export class LoginService {
   constructor(private httpClient: HttpClient) {}
 
   public consulta: any;
-  public IPServidor: String = 'http://localhost:8080';
+  public IPServidor: String = 'https://residencia-aro.herokuapp.com';
   public URLservidor: String;
 
   realizaLogin(username: String, password: String) {

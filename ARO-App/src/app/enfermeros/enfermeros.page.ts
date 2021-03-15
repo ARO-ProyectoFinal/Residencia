@@ -11,6 +11,7 @@ export class EnfermerosPage implements OnInit {
   constructor(private http: HttpClient, private router: Router) {}
 
   public contenidoArray: any = null;
+  urlServidor = 'https://residencia-aro.herokuapp.com';
 
   ngOnInit() {
     this.listarEnfermeros();
@@ -22,8 +23,7 @@ export class EnfermerosPage implements OnInit {
         Authorization: 'Basic QWRtaW46YWRtaW4=',
       }),
     };
-    const URL =
-      'http://localhost:8080/restful/services/DatosEnfermero/actions/listAll/invoke';
+    const URL = this.urlServidor+'/restful/services/DatosEnfermero/actions/listAll/invoke';
     this.http.get(URL, httpOptions).subscribe((resultados: Array<any>) => {
       var array = resultados;
       array.pop();

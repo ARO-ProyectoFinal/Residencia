@@ -14,6 +14,7 @@ export class PlanillasDiariasPage implements OnInit {
   editable: boolean = false;
   verPlanilla: boolean = true;
   planillaForm: FormGroup;
+  urlServidor = 'https://residencia-aro.herokuapp.com';
   constructor(
     private http: HttpClient,
     private activatedRoute: ActivatedRoute,
@@ -59,8 +60,7 @@ export class PlanillasDiariasPage implements OnInit {
         Authorization: 'Basic QWRtaW46YWRtaW4=',
       }),
     };
-    const URL =
-      'http://localhost:8080/restful/objects/simple.PlanillaEnfermero/' +
+    const URL = this.urlServidor+'/restful/objects/simple.PlanillaEnfermero/' +
       id_Planilla;
       this.http.get(URL, httpOptions).subscribe((resultados) => {
       this.datosPlanilla = resultados;
