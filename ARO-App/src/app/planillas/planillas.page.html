@@ -16,45 +16,60 @@
     </ion-header>
 
     <ion-content fullscreen>
-      <h2 class="ion-padding">Turno Mañana</h2>
+      <h4 class="ion-padding">Turno Mañana</h4>
       <div *ngFor="let resultado of contenidoArray">
         <ion-item *ngIf="resultado.turno === 'Mañana'">
           <ion-label>
-            <h3>{{resultado.paciente.title}}</h3>
+            <h2>{{resultado.paciente.title}}</h2>
           </ion-label>
           <ion-button
             (click)="obtienePlanilla(resultado.$$instanceId)"
             color="secondary"
             slot="end"
-            >Detalle de Planilla</ion-button
+            >Detalle</ion-button
+          >
+          <ion-button
+            (click)="crearPlanilla(resultado.$$instanceId)"
+            color="secondary"
+            >Crear</ion-button
           >
         </ion-item>
       </div>
-      <h2 class="ion-padding">Turno Tarde</h2>
+      <h4 class="ion-padding">Turno Tarde</h4>
       <div *ngFor="let resultado of contenidoArray">
         <ion-item *ngIf="resultado.turno === 'Tarde'">
           <ion-label>
-            <h3>{{resultado.paciente.title}}</h3>
+            <h2>{{resultado.paciente.title}}</h2>
           </ion-label>
           <ion-button
             (click)="obtienePlanilla(resultado.$$instanceId)"
             color="secondary"
             slot="end"
-            >Detalle de Planilla</ion-button
+            >Detalle</ion-button
+          >
+          <ion-button
+            (click)="crearPlanilla(resultado.$$instanceId)"
+            color="secondary"
+            >Crear</ion-button
           >
         </ion-item>
       </div>
-      <h2 class="ion-padding">Turno Noche</h2>
+      <h4 class="ion-padding">Turno Noche</h4>
       <div *ngFor="let resultado of contenidoArray">
         <ion-item *ngIf="resultado.turno === 'Noche'">
           <ion-label>
-            <h3>{{resultado.paciente.title}}</h3>
+            <h2>{{resultado.paciente.title}}</h2>
           </ion-label>
           <ion-button
             (click)="obtienePlanilla(resultado.$$instanceId)"
             color="secondary"
             slot="end"
-            >Detalle de Planilla</ion-button
+            >Detalle</ion-button
+          >
+          <ion-button
+            (click)="crearPlanilla(resultado.$$instanceId)"
+            color="secondary"
+            >Crear</ion-button
           >
         </ion-item>
       </div>

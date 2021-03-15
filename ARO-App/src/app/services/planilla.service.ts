@@ -14,10 +14,9 @@ export class PlanillaService {
     }),
   };
 
-  private Url = this.urlServidor+'/restful/objects/simple.PlanillaEnfermero/';
+  private Url = this.urlServidor + '/restful/objects/simple.PlanillaEnfermero/';
 
   getPlanillas(id: number) {
-    debugger;
     console.log('id de getplanilla de planillaService ' + id);
     return this.httpClient.get(this.Url + id, this.httpOptions);
   }
@@ -29,7 +28,8 @@ export class PlanillaService {
         Authorization: 'Basic QWRtaW46YWRtaW4=',
       }),
     };
-    const planillaUrl = this.urlServidor+'/restful/objects/simple.PlanillaEnfermero/';
+    const planillaUrl =
+      this.urlServidor + '/restful/objects/simple.PlanillaEnfermero/';
 
     let datos = {
       fechaPlanilla: {
@@ -68,23 +68,24 @@ export class PlanillaService {
     );
   }
 
-  /* crearPlanilla(id, planilla) {
+  crearPlanilla(id, planilla) {
     const httpOptions = {
       headers: new HttpHeaders({
         Accept: 'application/json;profile=urn:org.apache.isis/v1',
         Authorization: 'Basic QWRtaW46YWRtaW4=',
       }),
     };
-    const crearPlanillaUrl = this.urlServidor+'/restful/services/PlanillaEnfermero/';
+    const crearPlanillaUrl =
+      this.urlServidor + '/restful/services/PlanillaEnfermero/';
 
     let datos = {
-      paciente: {
-        value: planilla.paciente,
+      'paciente:': {
+        value: { href: planilla.paciente },
       },
-      enfermero: {
-        value: planilla.enfermero,
+      'enfermero:': {
+        value: { href: planilla.enfermero },
       },
-      fechaPlanilla: {
+      'fechaPlanilla:': {
         value: planilla.fechaPlanilla.substr(0, 10),
       },
       turno: {
@@ -118,5 +119,5 @@ export class PlanillaService {
       JSON.stringify(datos),
       httpOptions
     );
-  } */
+  }
 }

@@ -23,7 +23,9 @@ export class PlanillasPage implements OnInit {
         Authorization: 'Basic QWRtaW46YWRtaW4=',
       }),
     };
-    const URL = this.urlServidor+'/restful/services/PlanillaEnfermero/actions/listAll/invoke';
+    const URL =
+      this.urlServidor +
+      '/restful/services/PlanillaEnfermero/actions/listAll/invoke';
     this.http.get(URL, httpOptions).subscribe((resultados: Array<any>) => {
       var array = resultados;
       array.pop();
@@ -34,9 +36,8 @@ export class PlanillasPage implements OnInit {
     this.router.navigate(['/planillas-diarias', { id: idPlanilla }]);
   }
 
-  /*   crearPlanilla(idPlanilla) {
+  crearPlanilla(idPlanilla) {
     console.log(idPlanilla);
-    debugger;
     this.router.navigate(['/crear-planilla', { id: idPlanilla }]);
-  } */
+  }
 }

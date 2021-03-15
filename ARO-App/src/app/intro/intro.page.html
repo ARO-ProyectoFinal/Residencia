@@ -8,7 +8,7 @@
       <h1>{{slide.title}}</h1>
       <h2>{{slide.subTitle}}</h2>
       <p>{{slide.description}}</p>
-      <ion-icon name="{{slide.icon}}"></ion-icon>
+      <ion-icon name="{{slide.icon}}" (click)="finish()"></ion-icon>
     </ion-slide>
   </ion-slides>
 </ion-content>

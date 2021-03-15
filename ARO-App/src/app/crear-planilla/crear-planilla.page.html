@@ -18,7 +18,7 @@
                 sans-serif;
             "
           >
-            {{datosPlanilla.paciente.title}}
+            {{datosPlanilla.$$title}}
           </ion-card-title>
         </ion-card-header>
       </ion-card>
@@ -30,7 +30,14 @@
                 sans-serif;
             "
           >
-            {{datosPlanilla.enfermero.title}}
+            <ion-select #C (ionChange)="onSelectEnfermero($event.detail.value)">
+              <ion-select-option
+                *ngFor="let enfermero of contenidoArray"
+                [value]="enfermero"
+                >{{enfermero.$$title}}</ion-select-option
+              >
+            </ion-select>
+            <!--  {{datosPlanilla.enfermero.title}} -->
           </ion-card-title>
         </ion-card-header>
       </ion-card>
