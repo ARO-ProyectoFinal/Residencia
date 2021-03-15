@@ -30,7 +30,11 @@
                 sans-serif;
             "
           >
-            <ion-select #C (ionChange)="onSelectEnfermero($event.detail.value)">
+            <ion-select
+              placeholder="Seleccione Enfermero"
+              #C
+              (ionChange)="onSelectEnfermero($event.detail.value)"
+            >
               <ion-select-option
                 *ngFor="let enfermero of contenidoArray"
                 [value]="enfermero"
